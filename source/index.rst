@@ -10,8 +10,11 @@ Welcome to Platform's documentation!
    tutorial
    faq
    reference/index
-   verbs/index
+   verbs
+   iterators
    queries
    parsers
+   std
+   plugins
    contributors
    contacts

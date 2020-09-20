@@ -17,9 +17,9 @@
 // Terminals
 .md.esc1: <- "`"# (!"`"\.)+ "`"# /{`esc1!.md.concat x};
 .md.esc2: <- "``"# (!"``"\.)+ "``"#/{`esc2!.md.concat x};
-.md.esc3: <- "```"# (!"```"\.)+ "```"#/{`esc3!.md.concat x};
+.md.esc3: <- "```"# !.md.lf (!"```"\.)+ "```"#/{`esc3!.md.concat x};
 .md.esc4: <- "\\"# \.->esc4;
-.md.code: <- "```"# ([a-zA-Z]+)->lang .md.lf .md.sp* ((!"```"\.)*/{.md.concat x})->body "```"#/{`code!,/x};
+.md.code: <- "```"# ([a-zA-Z]*)->lang .md.lf ((!(.md.sp* "```")\.)+/{.md.concat x})->body .md.sp* "```"#/{`code!,/x};
 .md.esc0: <- .md.code | .md.esc4 | .md.esc3 | .md.esc2 | .md.esc1;
 .md.ltxt: <- (.md.esc0 | (!("]" | .md.esc0) \.)+/{.md.concat x})+;
 .md.link: <- "["# .md.ltxt "]"# .md.sp "("# ((!")" \.)* /{.md.concat x}) ")"# /{`link!x};
@@ -95,7 +95,7 @@
                 `link  -> format["<a href=\"%\">%</a>";ssr[(.md.ht.pop text)1;"md";"html"];o[(.md.ht.pop text)0]];
                 `bold  -> format["<strong>%</strong>";.md.ht.pop text];
                 `list  -> .md.ht.list[.md.ht.pop text];
-                `text  -> format["%";.md.ht.pop text];
+                `text  -> .md.ht.pop text;
                 `block -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];
                 `thead -> format["<tr>%</tr>";,/format["<th>%</th>";]'[.md.ht.pop text]];

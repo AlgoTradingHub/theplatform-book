@@ -117,12 +117,13 @@ h2 {
 
 .info {
     border-radius: 0.25rem;
-    margin: 0 0 1rem 0;
-    padding: 30px;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+    background-color: #f0f7fb;
+    background-position: 9px 0px;
+    background-repeat: no-repeat;
     border: 1px solid #e5e5e5;
-    background: lightgoldenrodyellow;
-    color: gray;
+    border-left: solid 4px #3498db;
+    overflow: hidden;
+    padding: 30px;
     margin-bottom: 3rem;
 }
 
@@ -174,7 +175,6 @@ table td {
     padding: 1.875rem !important;
     white-space: nowrap;
     scrollbar-color: #999 rgb(248, 248, 248);
-    ;
     scrollbar-width: 4px;
 }
 
@@ -198,8 +198,8 @@ table td {
     position: sticky;
     top: 0px;
     border-bottom: 1px solid #e5e5e5;
-    padding: 30px 3.125rem;
-    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    background-color: #66409C;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -207,18 +207,19 @@ table td {
 
 #contentHeader h1 span {
     display: block;
-    text-transform: uppercase;
-    font-size: 11px;
+    /* text-transform: uppercase; */
+    font-size: 28px;
     position: absolute;
-    top: 30px;
-    letter-spacing: 0.2rem;
+    /* letter-spacing: 0.2rem; */
+    color: white;
 }
 
 #searchWrapper {
     display: flex;
-    padding: 15px 10px 0 30px;
+    /* padding: 15px 10px 0 30px; */
     flex-grow: 2;
     justify-content: flex-end;
+    color: white;
 }
 
 #searchWrapper b {
@@ -238,7 +239,7 @@ table td {
 
 #searchField {
     flex-grow: 2;
-    padding: 0 16px 0 30px;
+    /* padding: 0 16px 0 30px; */
     outline: none;
     display: none;
 }

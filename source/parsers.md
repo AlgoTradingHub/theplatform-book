@@ -55,7 +55,7 @@ Main syntax is **<-** followed by a parsing rule. A parser, like any other type 
 | thing* | Zero or more thing. This is greedy, always consuming as many repetitions as it can. |
 | thing+ | One or more thing. This is greedy, always consuming as many repetitions as it can. |
 | thing{2,3} | Minimum 2 or maximum 3 times thing. This is greedy, always consuming as many repetitions as it can. |
-| \x01 | Binary parser matches byte 0x01. |
+| \\x01 | Binary parser matches byte 0x01. |
 | thing# | Drops matched input, parsed by thing. |
 | thing/{"I"$x} | Maps result of parser \`thing to lambda followed by **/**. |
 | thing1 \| thing2 | Tries thing1 then thing2 if first was not successful. |
@@ -66,6 +66,8 @@ Main syntax is **<-** followed by a parsing rule. A parser, like any other type 
 | \\s | Matches SPACE |
 | \\S | Matches any of: SPACE, TAB, CARRIAGE_RETURN, LINE_FEED |
 | \\. | Matches any symbol. |
+| \\$ | End of input. |
+| @(..) | Any expression returns parser |
 | (thing) | Grouping. |
 
 ## FIX parsing example

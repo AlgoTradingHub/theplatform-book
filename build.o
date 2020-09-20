@@ -53,8 +53,9 @@ mdfiles: {[dir]
 
 mkassets: {
     css: "c"$read `:assets/styles.css;
-    js: "c"$read `:assets/scripts.js;
-    +`document`content!((`$"styles.css";`$"scripts.js");(css;js))
+    js:  "c"$read `:assets/scripts.js;
+    fav: "c"$read `:assets/favicon.ico;
+    +`document`content!((`$"styles.css";`$"scripts.js";`$"favicon.ico");(css;js;fav))
 };
 
 mkbook: {

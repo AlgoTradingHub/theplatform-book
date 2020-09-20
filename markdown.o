@@ -95,7 +95,8 @@
                 `esc2  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
                 `esc3  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
                 `esc4  -> format["%";.md.ht.pop text];
-                `code  -> format["<pre class=\"code\"><code>%</code></pre>";(.md.ht.pop text)`body];
+                `code  -> format["<pre class=\"code\"><code class=\"language-%\">%</code></pre>";
+                                (.md.ht.pop text)`lang;(.md.ht.pop text)`body];
                 `image -> format["<img src=\"%\" alt=\"%\">";(.md.ht.pop text)1;o[(.md.ht.pop text)0]];
                 `link  -> format["<a href=\"%\">%</a>";ssr[(.md.ht.pop text)1;"md";"html"];o[(.md.ht.pop text)0]];
                 `bold  -> format["<strong>%</strong>";.md.ht.pop text];

@@ -16,7 +16,9 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
             "<html>\r\n",
             "<head>\r\n",
             "<link rel=\"stylesheet\" href=\"/styles.css\">",
+            "<link rel=\"stylesheet\" href=\"/prism.css\">",
             "<script src=\"/scripts.js\"></script>",
+            "<script src=\"/prism.js\"></script>",
             "<title>%</title>\r\n",
             "</head>\r\n",
             "<body>\r\n",
@@ -52,10 +54,15 @@ mdfiles: {[dir]
 };
 
 mkassets: {
-    css: "c"$read `:assets/styles.css;
-    js:  "c"$read `:assets/scripts.js;
-    fav: "c"$read `:assets/favicon.ico;
-    +`document`content!((`$"styles.css";`$"scripts.js";`$"favicon.ico");(css;js;fav))
+    css:      "c"$read `:assets/styles.css;
+    js:       "c"$read `:assets/scripts.js;
+    prismjs:  "c"$read `:assets/prism.js;
+    prismcss: "c"$read `:assets/prism.css;
+    favicon:  "c"$read `:assets/favicon.ico;
+    +`document`content!((`$"styles.css";`$"scripts.js";
+                         `$"favicon.ico";`$"prism.css";
+                         `$"prism.js");
+                         (css;js;favicon;prismcss;prismjs))
 };
 
 mkbook: {

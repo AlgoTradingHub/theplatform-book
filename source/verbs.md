@@ -24,6 +24,7 @@ A right atomic verb descends only into nested lists of its right argument.
 ## Indexing Verbs
 
 ### Dyadic @ (at)
+
 Index left arg vector/list/dict by right arg.
 
 ```o
@@ -34,6 +35,7 @@ o)(`a`b!1 2)@`b`a`c
 ```
 
 ### Dyadic . (dot-apply)
+
 Index left arg vector/list/dict in depth by right arg.
 
 ```o
@@ -44,6 +46,7 @@ o)(1 2;3 4).(0 1)
 ## Conditional Verbs
 
 ### Triad $ (cond)
+
 Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately.
 Only first argument is evaluated, and if it's corresponds to truth then second argument is evaluated and becomes the result of cond expression. Otherwise, third argument is evaluated.
 
@@ -68,6 +71,7 @@ o) $[a;$[1=a[0];2;3];4]
 ```
 
 ### Triadic ? (vector conditional)
+
 Verb returns value made of second or third argument depending on first boolean scalar or vector argument.
 Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.
 
@@ -80,6 +84,7 @@ o)?[0b;1;2 2 3]
 ```
 
 First vector boolean is much more useful. Second and third argument should have compatible types. All arguments must have the same shape.
+
 ```o
 o)?[011b;2 2 3;1 1 1]
 1 2 3
@@ -92,6 +97,7 @@ o)?[001b;1;(2;"123";3)]
 ## Relational Verbs
 
 ### Dyadic < (less) and <= (less or equal)
+
 Does per element "less" comparison. Fully atomic.
 
 ```o
@@ -100,6 +106,7 @@ o) 1 0 3 < 1
 ```
 
 ### Dyadic > (greater) and >= (greater or equal)
+
 Does per element "greater" comparison. Fully atomic.
 
 ```o
@@ -108,6 +115,7 @@ o) 1 0 3 > 1
 ```
 
 ### Dyadic = (equal)
+
 Does per element "equal" comparison. Fully atomic.
 
 ```o
@@ -116,6 +124,7 @@ o) 1 0 3 = 1 2 3
 ```
 
 ### Dyadic ~ (match)
+
 Does "deep"/recursive "equal" comparison.
 
 ```o
@@ -140,6 +149,7 @@ o)
 ## Logical Verbs
 
 ### Monadic ~ (not)
+
 Inverts boolean vector. Right atomic.
 
 ```o
@@ -155,6 +165,7 @@ o)~1 0 3f
 ```
 
 ### Dyadic | (or/max)
+
 Applies boolean "or" for bool args. Fully atomic.
 
 ```o
@@ -170,6 +181,7 @@ o) 1 2 3|0
 ```
 
 ### Dyadic & (and/min)
+
 Applies boolean "and" for bool args. Fully atomic.
 
 ```o
@@ -185,6 +197,7 @@ o) 1 2 3&0 2 1
 ```
 
 ### Monadic & (where)
+
 Returns integer vector of true positions in boolean vectors.
 
 ```o
@@ -202,12 +215,14 @@ o)&1 2 3
 ## Casts
 
 ### Dyadic $ (cast)
+
 Converts right arg values according to left arg specification.
-See [Types, Casting, etc](reference/types/types.md) for details.
+See [Types, Casting, etc](/reference/types/types.md) for details.
 
 ## Search Verbs
 
 ### Diadic ? (search)
+
 Searches an first occurance of it's right argument in a left one and
 returns position index as a number or nill if not found
 
@@ -241,6 +256,7 @@ o)^0N 1 2
 ## Type Verbs
 
 ### Monadic @ (type)
+
 Returns internal type id of argument.
 
 _Avoid relying on these ids in production!!!_
@@ -251,6 +267,7 @@ o) @1
 ```
 
 ### Monadic "type" Function
+
 Returns typespec of its argument.
 
 ```o
@@ -259,6 +276,7 @@ o) type 1
 ```
 
 ### Monadic !
+
 When applied to type spec - returns corresponding internal type id.
 
 ```o
@@ -269,6 +287,7 @@ o)!`s`int
 ## Math Verbs
 
 ### Monadic minus (negate)
+
 Inverts signs of numbers. Right atomic.
 
 ```o
@@ -277,6 +296,7 @@ o)-(1 2 3)
 ```
 
 ### Monadic division (reciprocal)
+
 Calculates reciprocal (1/x) in vector/list. Fully atomic.
 Only floats are supported.
 
@@ -286,6 +306,7 @@ o)%1 2 3f
 ```
 
 ### Dyadic plus
+
 Adds scalar/vector elements. Fully atomic.
 
 ```o
@@ -296,6 +317,7 @@ o) 1+1 2 3
 ```
 
 ### Dyadic minus
+
 Subtracts scalar/vector elements. Fully atomic.
 
 ```o
@@ -306,6 +328,7 @@ o) 1-1 2 3
 ```
 
 ### Dyadic multiplication
+
 Multiplies scalar/vector elements. Fully atomic.
 
 ```o
@@ -316,6 +339,7 @@ o) 1*1 2 3
 ```
 
 ### Dyadic division
+
 Divides scalar/vector elements. Fully atomic.
 
 ```o
@@ -329,7 +353,7 @@ o) 1%1 0 2
 
 Following fully atomic monadic intrinsics are supported.
 
-| Name | Function | Comment
+| Name | Function | Comment |
 | --- | --- |--- |
 | sin | sine | argument in radians |
 | asin | arcsine | returns radians |
@@ -343,7 +367,7 @@ Following fully atomic monadic intrinsics are supported.
 
 Another set of dyadic fully atomic intrinsics are supported.
 
-| Name | Function | Comment
+| Name | Function | Comment |
 | --- | --- |--- |
 | xexp | x^y | Raise x to a power y |
 | xlog | logx(y) | Returns base-x logarithm of y |
@@ -353,28 +377,36 @@ Another set of dyadic fully atomic intrinsics are supported.
 A standard set functions are implemented for simple vectors. That is vectors are treated as sets of values. No attributes are expected to be attached to input vectors. No particular order is guaranteed.
 
 ### Intersection
+
 Set intersection is ```sect``` dyadic verb. Works by leaving only those values present in both left and right arguments simultaneously.
+
 ```o
 o) 0 1 2 3 4 sect 4 0
 0 4
 ```
 
 ### Difference
+
 Set difference is ```diff``` dyadic verb. Works by returning those values which present in left argument and not in right one.
+
 ```o
 o) 0 1 2 3 4 diff 4 0
 1 2 3
 ```
 
 ### Union
+
 Set union is ```union``` dyadic verb. Works by returning those values which present in left argument and right one.
+
 ```o
 o) 1 2 3 4 union 4 0
 1 2 3 4 0
 ```
 
 ### "In" / contains
+
 ```in``` dyadic verb works by returning boolean 1's for each right value which present in left argument.
+
 ```o
 o) 1 2 3 in 3 4 5
 001b
@@ -383,6 +415,7 @@ o) 1 2 3 in 3 4 5
 ## Bitwise Verbs
 
 ### Bitwise AND (band)
+
 **Syntax:** ```x band y; band[x;y]```
 
 ```o
@@ -392,6 +425,7 @@ o)
 ```
 
 ### Bitwise NOT (bnot)
+
 **Syntax:** ```bnot x; bnot[x]```
 
 ```o
@@ -401,6 +435,7 @@ o)
 ```
 
 ### Bitwise OR (bor)
+
 **Syntax:** ```x bor y; bor[x;y]```
 
 ```o
@@ -410,6 +445,7 @@ o)
 ```
 
 ### Bitwise XOR (bxor)
+
 **Syntax:** ```x bxor y; bxor[x;y]```
 
 ```o
@@ -481,6 +517,7 @@ e| 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 ```
 
 Quite similar to dicts is projecting tables. Note trailing slash!
+
 ```o
 o) a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:./tmp/o_table/; f set a; a:0;
 o) @[f;`e`d;:;(3#1;3#2)]; b:get f; b
@@ -490,9 +527,11 @@ a b c e d
 2 2 2 1 2
 3 3 3 1 2
 ```
+
 Of course, projecting via ```load``` verb works for tables as well.
 
 Conceptually only updating and concatenation at the end is allowed for working with tables on disk.
+
 ```o
 o) a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:./tmp/o_table/; f set a; a:0;
 o) .[f;();,;(10 10;20 20;30 30)];

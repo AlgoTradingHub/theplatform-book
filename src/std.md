@@ -1,6 +1,5 @@
 # Standard library
 
-
 ### Standard library load
 
 Before using standard library must be loaded into namespace.
@@ -66,7 +65,7 @@ It's done using ```.o.sym``` function.
 o) load "core"
 o) sym:`c`d;
 o) t:+`a`b`c!(1 2;3 4;`sym$`c`d);
-o) .o.sym[`t];                // destructive enums -> symbols
+o) .o.sym[`t];                 // destructive enums -> symbols
 o)t
 a b c
 -----

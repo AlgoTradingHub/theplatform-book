@@ -1,0 +1,60 @@
+
+mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexContainer\">%</div></div>",
+            "<div id=\"contentContainer\"><div id=\"contentHeader\"><h1><span>The</span>Platform</h1>",
+            "<div id=\"searchWrapper\"><div id=\"searchField\"><input type=\"text\"/></div><b>&#9906;</b></div></div>",
+            "<div id=\"content\">%</div></div></div>";
+
+.http.const.temp: "<!doctype html>\r\n",
+            "<html>\r\n",
+            "<head>\r\n",
+            "<link rel=\"stylesheet\" href=\"/styles.css\">",
+            "<script src=\"/scripts.js\"></script>",
+            "<title>%</title>\r\n",
+            "</head>\r\n",
+            "<body>\r\n",
+            "%\r\n",
+            "</body>\r\n",
+            "</html>";
+
+mkindx: {[mdpath]
+    println["building: %";mdpath];
+    cont: .md.pars "c"$read[`$":",mdpath];
+    body: .md.ht.build[cont];
+    html: format[.http.const.temp;"index";format[mkContainers;body;""]];
+    (body;+`document`content!(`$"index.html";html))
+};
+
+mkone: {[mdpath;indx]
+    println["building: %";mdpath];
+    cont: .md.pars "c"$read[`$":",mdpath];
+    body: .md.ht.build[cont];
+    stem: *"\\." vs last "/" vs mdpath;
+    html: format[.http.const.temp;stem;format[mkContainers;indx;body]];
+    outp: ssr[ssr[mdpath;"source/";""];"md";"html"];
+    +`document`content!(`$outp;html)
+};
+
+// get full list of md files
+mdfiles: {[dir]
+    l:os["dir";dir];
+    m:l where {(x[1]~"file")&("md"~last "\\." vs x[3])}'l;
+    d:l where {x[1]~"dir"}'l;
+    f:3(~[@])'m;
+    f,,/o'[3(~[@])'d]
+};
+
+mkassets: {
+    css: "c"$read `:assets/styles.css;
+    js: "c"$read `:assets/scripts.js;
+    +`document`content!((`$"styles.css";`$"scripts.js");(css;js))
+};
+
+mkbook: {
+    (indx;content):mkindx["source/SUMMARY.md"];
+    .book:: content;
+    {[file]
+        built: .[mkone;(file;indx);{println["-- UNABLE TO BUILD: %";file]}];
+        $[null built;();.book,:built];
+    }'mdfiles["source/"];
+    .book,mkassets[]
+};

@@ -1,0 +1,8 @@
+load "markdown";
+load "build";
+
+inner: "c"$read[`$":",argv[`file]];
+cont: .md.pars[inner];
+show cont;
+// println["%";cont];
+println["%"; .md.ht.build[cont]];

@@ -1,0 +1,62 @@
+home: getenv[`OHOME];
+
+if [""~home] {println["ERROR: $OHOME is not set - exiting..."];exit 101};
+
+load "markdown";
+load home,"http";
+load "build";
+
+book: mkbook[];
+
+rebuild: reagent[`async];
+react {[x:rebuild] book:: mkbook[]};
+
+request: reagent[`async];
+react {[x:request] x[book]};
+
+// Serve
+.http.default.host:  "PlatformBook";
+
+content: {[url]
+    response: reagent[`async];
+    request[response];
+    book: get response;
+    c: 0N#.?[book;,(=;`document;,url);0b;()];
+    r: *c[`content];
+    $[0=#r;0N0;r]
+};
+
+.http.default.handle: {[sock;req]
+    parsed: .http.req.parse[req];
+    resrce: `$"c"$1_"x"$parsed[`url];
+    contnt: content[resrce];
+    $[0N0~contnt;
+        .http.resp.error[sock;404;"Not found";"Invalid URL"];
+        .http.resp.ok[sock;`$("\\." vs parsed[`url])1;contnt]]
+};
+
+.http.run[];
+
+load home,"repl";
+
+lastmod: {[dir]
+    l: os["dir";dir];
+    m: l where {(x[1]~"file")&("md"~last "\\." vs x[3])}'l;
+    d: l where {x[1]~"dir"}'l;
+    f: |/ *'m;
+    |/ f,/o'[3(~[@])'d]
+};
+
+// File watcher
+spawn {
+    .lastmod:: lastmod["source"];
+    tick: reagent[`timer;1000;0];
+    react {[t:tick]
+        tmod: lastmod["source"];
+        if [.lastmod<tmod] {
+            .lastmod:: tmod;
+            rebuild[];
+        }
+    }
+};
+// --

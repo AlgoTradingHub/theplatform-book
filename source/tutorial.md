@@ -164,7 +164,8 @@ o) l
 
 Lists are printed by placing each element on new line. Another peculiarity is that float values have special suffixes defining their "float" type.
 
-The important thing about lists is that they can be nested. It means lists allow to keep another vectors and lists in them.
+> The important thing about lists is that they can be nested.
+> It means lists allow to keep another vectors and lists in them.
 
 ```o
 o) l: (1;1 2 3;(1;2.0))

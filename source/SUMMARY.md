@@ -1,6 +1,6 @@
 # Summary
 
-[Introduction](intro.md)
+[Introduction](/intro.md)
 
 - [Platform](/platform/platform.md)
   - [Installation](/platform/install.md)

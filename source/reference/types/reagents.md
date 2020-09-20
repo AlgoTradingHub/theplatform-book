@@ -1,12 +1,12 @@
 # Reagents and reactions
 
 In contrast with Kdb implicit parallelism (peach), we support explicit one, based on [Join-calculus](https://en.wikipedia.org/wiki/Join-calculus).
-It has been added on last stage of development process and is subject to change (both syntax and implementation).
+ It has been added on last stage of development process and is subject to change (both syntax and implementation).
 
 The idea is to unify different kinds of datastreams and make an instrument for easy programming in declarative way. It's expressed in two kinds of abstractions: reagents and reactions. Each reagent describes the stream of data while reaction is a rule which triggered when all reagents this rule holds are present the same time.
 Currently we have such types of reagents: async, sync, tty, tcp, log, ws, kdb, http.
-New ones easily could be added through the [plugins interface](https://github.com/AlgoTradingHub/kernel/tree/master/doc/o/plugins.md)
-Reagent could be sync or async. Sync one locks until returned from call.
+New ones easily could be added through the [plugins interface](https://github.com/AlgoTradingHub/kernel/tree/master/doc/o/plugins.md).
+ Reagent could be sync or async. Sync one locks until returned from call.
 There are two language constructions each for reagent and reaction:
 
 ```o

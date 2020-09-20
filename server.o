@@ -53,6 +53,7 @@ spawn {
     .lastmod:: lastmod["source"];
     tick: reagent[`timer;1000;0];
     react {[t:tick]
+        system["git pull"];
         tmod: lastmod["source"];
         if [.lastmod<tmod] {
             .lastmod:: tmod;

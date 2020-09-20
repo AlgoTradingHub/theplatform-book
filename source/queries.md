@@ -21,6 +21,7 @@ res:  fe#cq; // fetch query results
 ```
 
 … where
+
 **t** - table-like data source. It might be table/query/join expression.
 
 **w** - nested list of conditions. It might be empty list to define no conditions.
@@ -134,9 +135,9 @@ o)t: (+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
 o)0N#.(?[t;();0b;`a`b`c`const!(`a;`b;`c;10)])
 a b c const
 -----------
-1 3 6 10   
-2 4 7 10   
-3 5 8 10   
+1 3 6 10
+2 4 7 10
+3 5 8 10
 ```
 
 In order to distinguish between symbol constants and fields, symbol constants must be enlisted.
@@ -145,9 +146,9 @@ o)t: (+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
 o)0N#.(?[t;();0b;`a`b`c`const!(`a;`b;`c;,`d)])
 a b c const
 -----------
-1 3 6 d    
-2 4 7 d    
-3 5 8 d    
+1 3 6 d
+2 4 7 d
+3 5 8 d
 ```
 
 
@@ -654,17 +655,17 @@ a  b  c  d
 See creating new fields:
 ```o
 o)a:(+:)`a`b`c!(!10;!10;!10); b:(+:)`a`b`c`d`e!(2+!5;2+!5;10+!5;20+!5;5#,"123"); upsert[a;b;(`a`b;`a`b)]
-a b c  d  e    
+a b c  d  e
 ---------------
-0 0 0  0N 0N0  
-1 1 1  0N 0N0  
+0 0 0  0N 0N0
+1 1 1  0N 0N0
 2 2 10 20 "123"
 3 3 11 21 "123"
 4 4 12 22 "123"
 5 5 13 23 "123"
 6 6 14 24 "123"
-7 7 7  0N 0N0  
-8 8 8  0N 0N0  
+7 7 7  0N 0N0
+8 8 8  0N 0N0
 9 9 9  0N 0N0
 ```
 

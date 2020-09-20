@@ -42,7 +42,7 @@ body {
 }
 
 #contentIndex ul {
-    list-style-type: disc;
+    list-style-type: circle;
     padding: .25rem .25rem .25rem .875rem;
     margin: 0px;
     color: #000000;
@@ -114,7 +114,18 @@ h2 {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
     border: 1px solid #e5e5e5;
     background: white;
-    color: #000000;
+    color: gray;
+    margin-bottom: 3rem;
+}
+
+.info {
+    border-radius: 0.25rem;
+    margin: 0 0 1rem 0;
+    padding: 30px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e5e5;
+    background: lightgoldenrodyellow;
+    color: gray;
     margin-bottom: 3rem;
 }
 
@@ -259,4 +270,10 @@ table td {
 
 #contentIndex a.active {
     color: var(--active-color);
+}
+
+#footer {
+    color: #999999;
+    padding-top: 20px;
+    box-shadow: 0 -1px 0 lightgray;
 }

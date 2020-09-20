@@ -1,8 +1,16 @@
 
-mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexContainer\">%</div></div>",
+mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexContainer\">",
+            "<img src=\"https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png\" width=\"50\" height=\"50\">",
+            "%</div></div>",
             "<div id=\"contentContainer\"><div id=\"contentHeader\"><h1><span>The</span>Platform</h1>",
             "<div id=\"searchWrapper\"><div id=\"searchField\"><input type=\"text\"/></div><b>&#9906;</b></div></div>",
-            "<div id=\"content\">%</div></div></div>";
+            "<div id=\"content\">%",
+            "<div id=\"footer\">",
+            "<footer>",
+            "<p>Made with ❤ to O language</p>",
+            "<p>© 2020 ThePlatform</p>",
+            "</span></footer>",
+            "</div></div></div></div>";
 
 .http.const.temp: "<!doctype html>\r\n",
             "<html>\r\n",

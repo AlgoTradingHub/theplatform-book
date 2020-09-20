@@ -23,20 +23,24 @@
 .md.esc0: <- .md.code | .md.esc4 | .md.esc3 | .md.esc2 | .md.esc1;
 .md.ltxt: <- (.md.esc0 | (!("]" | .md.esc0) \.)+/{.md.concat x})+;
 .md.link: <- "["# .md.ltxt "]"# .md.sp "("# ((!")" \.)* /{.md.concat x}) ")"# /{`link!x};
+.md.imge: <- "!["# .md.ltxt "]"# .md.sp "("# ((!")" \.)* /{.md.concat x}) ")"# /{`image!x};
 .md.bold: <- "**"# (!"**"\.)* "**"#/{`bold!.md.concat x};
 // Lists
 .md.lsep: <- "  "* (([*\-]) | (\d+ "."))# \s+;
 .md.lrow: <- .md.lsep .md.line+/{.md.indent x};
 .md.list: <- .md.lrow+/{`list!$[`s`long~type x[0];,x;x]};
+// Blocks
+.md.brow: <- ">"# ((!.md.lf \.)+/{.md.concat x}) .md.lf;
+.md.blck: <- .md.brow+/{`block!x};
 // Tables
 .md.trow: <- ("|"# ((("\\"# \.) | [^|\r\n])+/{,/x}))+ ("|"#)? .md.lf;
 .md.tble: <- (.md.trow/{`thead!x}) .md.trow# (.md.trow/{`trow!x})+ /{`table!x};
-.md.term: <- .md.bold | .md.link | .md.esc0;
+.md.term: <- .md.bold | .md.imge | .md.link | .md.esc0;
 .md.text: <- (!(.md.term | .md.lf) \.)+/{`text!.md.concat x};
-.md.line: <- !.md.lsep (.md.term | .md.text)+ .md.lf;
+.md.line: <- !(.md.lsep | .md.brow) (.md.term | .md.text)+ .md.lf;
 // Paragraph
-.md.head: <- .md.h0 | .md.tble | .md.list;
-.md.para: <- .md.line+ /{`block!x};
+.md.head: <- .md.h0 | .md.tble | .md.list | .md.blck;
+.md.para: <- .md.line+ /{`para!x};
 .md.pars: <- ((.md.lf* .md.head) | (.md.lf+ .md.para))* .md.lf*/{$[`v`l~type x;x;,x]};
 // -- End grammar
 
@@ -92,11 +96,13 @@
                 `esc3  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
                 `esc4  -> format["%";.md.ht.pop text];
                 `code  -> format["<pre class=\"code\"><code>%</code></pre>";(.md.ht.pop text)`body];
+                `image -> format["<img src=\"%\" alt=\"%\">";(.md.ht.pop text)1;o[(.md.ht.pop text)0]];
                 `link  -> format["<a href=\"%\">%</a>";ssr[(.md.ht.pop text)1;"md";"html"];o[(.md.ht.pop text)0]];
                 `bold  -> format["<strong>%</strong>";.md.ht.pop text];
                 `list  -> .md.ht.list[.md.ht.pop text];
                 `text  -> .md.ht.pop text;
-                `block -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
+                `para  -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
+                `block -> format["<pre class=\"info\">%</pre>";.md.ht.pop text];
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];
                 `thead -> format["<tr>%</tr>";,/format["<th>%</th>";]'[.md.ht.pop text]];
                 `trow  -> format["<tr>%</tr>";,/format["<td>%</td>";]'[.md.ht.pop text]];

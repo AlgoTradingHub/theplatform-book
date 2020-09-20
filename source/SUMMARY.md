@@ -1,7 +1,6 @@
 # Summary
 
-[Introduction](/intro.md)
-
+- [Introduction](/intro.md)
 - [Platform](/platform/platform.md)
   - [Installation](/platform/install.md)
 - [Tutorial](/tutorial.md)
@@ -25,7 +24,7 @@
 - [Iterators](/iterators.md)
 - [Queries](/queries.md)
 - [Dynamic Parsers](/parsers.md)
-- [Standart Library](/std.md)
+- [Standard Library](/std.md)
 - [Plugins](/plugins.md)
 
 ---

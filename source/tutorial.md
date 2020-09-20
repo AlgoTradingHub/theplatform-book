@@ -29,7 +29,9 @@ o)
 
 Whenever you see "o)" line, you can safely assume interpreter waits for your input.
 
-Small hint - it's better to run interpreter using "rlwrap" utility. It allows to use arrow keys to recall history ("up" key) and edit it using "left" and "right" arrows.
+> Small hint - it's better to run interpreter using "rlwrap" utility.
+> It allows to use arrow keys to recall history ("up" key)
+> and edit it using "left" and "right" arrows.
 
 ```o
 $ rlwrap cargo run --release --bin tachyon

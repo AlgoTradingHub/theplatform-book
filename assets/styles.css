@@ -46,7 +46,6 @@ body {
     padding: .25rem .25rem .25rem .875rem;
     margin: 0px;
     color: #000000;
-    font-size: 18px;
 }
 
 #contentIndex ul a {
@@ -56,12 +55,10 @@ body {
 
 #contentIndex ul ul ul {
     margin-left: 16px;
-    font-size: 14px;
 }
 
 #contentIndex ul ul a {
     padding: .25rem .25rem .25rem .875rem;
-    font-size: 0.875rem;
     color: #555555;
     margin: 0px;
 }

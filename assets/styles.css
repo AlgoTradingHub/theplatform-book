@@ -42,7 +42,7 @@ body {
 }
 
 #contentIndex ul {
-    list-style-type: disc;
+    list-style-type: none;
     padding: .25rem .25rem .25rem .875rem;
     margin: 0px;
     color: #000000;
@@ -68,7 +68,7 @@ body {
 }
 
 #contentIndex a {
-    padding: .5rem .25rem .5rem .875rem;
+    /* padding: .5rem .25rem .5rem .875rem; */
     color: #555555;
     text-decoration: none;
     display: block;
@@ -174,8 +174,6 @@ table td {
     flex: 1;
     padding: 1.875rem !important;
     white-space: nowrap;
-    scrollbar-color: #999 rgb(248, 248, 248);
-    scrollbar-width: 4px;
 }
 
 #indexContainer h1 {
@@ -203,22 +201,19 @@ table td {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height:45px;
+    height: 45px;
+    align-items: center;
 }
 
 #contentHeader h1 {
     display: block;
-    /* text-transform: uppercase; */
     font-size: 28px;
     position: absolute;
-    /* letter-spacing: 0.2rem; */
     color: white;
-    margin:0px;
 }
 
 #searchWrapper {
     display: flex;
-    /* padding: 15px 10px 0 30px; */
     flex-grow: 2;
     justify-content: flex-end;
     color: white;
@@ -240,12 +235,10 @@ table td {
 }
 
 #searchField {
-    /*flex-grow: 2;*/
-    /* padding: 0 16px 0 30px; */
     outline: none;
     display: none;
     max-width: 200px;
-    margin-right:32px;
+    margin-right: 32px;
 }
 
 #searchField input {
@@ -278,4 +271,72 @@ table td {
     color: #999999;
     padding-top: 20px;
     box-shadow: 0 -1px 0 lightgray;
+}
+
+.accordion-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion-menu li.open>ul {
+    display: block;
+}
+
+.accordion-menu li>ul {
+    /* position: absolute; */
+    display: none;
+    height: 0;
+    overflow: hidden;
+    transition: height 350ms ease-in-out;
+    margin-left: 25px;
+}
+
+.accordion-menu ul.is-visible {
+    display: block;
+    /* height: auto; */
+}
+
+.accordion-menu li {
+    border-bottom: 1px solid rgba(194, 194, 194, 0.333);
+    position: relative;
+    overflow: hidden;
+    transition: all .4s ease;
+}
+
+.accordion-menu li:last-child {
+    border: none;
+}
+
+.accordion-menu li::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.accordion-menu li>a>svg {
+    display: block;
+    position: relative;
+    fill: rgb(48, 48, 48);
+    width: 10px;
+    float: right;
+    transition: all .3s ease;
+}
+
+.accordion-menu li.open>a>svg {
+    transform: rotate(90deg);
+}
+
+.accordion-menu a {
+    background-color: aliceblue;
+    padding: 7px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.accordion-menu * {
+    box-sizing: border-box;
 }

@@ -203,6 +203,7 @@ table td {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height:45px;
 }
 
 #contentHeader h1 {
@@ -212,6 +213,7 @@ table td {
     position: absolute;
     /* letter-spacing: 0.2rem; */
     color: white;
+    margin:0px;
 }
 
 #searchWrapper {
@@ -238,10 +240,12 @@ table td {
 }
 
 #searchField {
-    flex-grow: 2;
+    /*flex-grow: 2;*/
     /* padding: 0 16px 0 30px; */
     outline: none;
     display: none;
+    max-width: 200px;
+    margin-right:32px;
 }
 
 #searchField input {

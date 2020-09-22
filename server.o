@@ -24,7 +24,6 @@ searchTemplate: "<div id=\"searchResultsOuter\">",
     "</div>";
 
 search: {[book;phrase]
-    0N!phrase;
     response: reagent[`async];
     request[response];
     book: get response;

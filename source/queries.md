@@ -296,6 +296,7 @@ a f
 Any lambda monad/dyad can be used in-place of predicate. However, it must satisfy following requirements:
 
 For monads:
+
 * support vectors for argument
 * return resulting boolean vector of the same length as argument
 
@@ -308,6 +309,7 @@ a b
 ```
 
 For dyads:
+
 * support vectors for left argument
 * support either vectors or scalars for right argument (depending on query predicate third parameter)
 * return resulting boolean vector of the same length as left argument

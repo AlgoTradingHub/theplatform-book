@@ -48,23 +48,24 @@
 
 // Create nested struct
 .md.ht.list: {[rows]
-    .ind:: 0;
+    .ind:: 1;
     val: ,/
     {[row]
         (ind;val): row;
         if [ind=.ind] {
-            format["<li>%</li>";,/.md.ht.build[,val]]
+            li: $[.ind=0;[.ind=ind;"<li>%"];"</li><li>%"];
+            format[li;,/.md.ht.build[,val]]
         } elif [ind>.ind] {
-            ul: ,/{"<ul>"}'!ind - .ind;
+            ul: ,/{"<ul><li>"}'!ind - .ind;
             .ind:: ind;
             format["%<li>%</li>";ul;,/.md.ht.build[,val]]
         } else {
-            ul: ,/{"</ul>"}'!.ind - ind;
+            ul: ,/{"</li></ul>"}'!.ind - ind;
             .ind:: ind;
-            format["%<li>%</li>";ul;,/.md.ht.build[,val]]
+            format["%</li><li>%</li>";ul;,/.md.ht.build[,val]]
         }
     }'rows;
-    $[0<.ind;format["%%";val;,/{"</ul>"}'!.ind];val]
+    $[0<.ind;format["<ul>%%";val;,/{"</ul>"}'!.ind];val]
 };
 
 .md.ht.pop: {[item]

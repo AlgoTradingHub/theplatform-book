@@ -39,43 +39,25 @@ body {
     top: 0px;
     left: 0px;
     width: var(--index-width);
+    user-select: none;
 }
 
 #contentIndex ul {
+    color: #555555;
     list-style-type: none;
     padding: .25rem .25rem .25rem .875rem;
     margin: 0px;
-    color: #000000;
+    text-decoration: none;
 }
 
 #contentIndex ul a {
-    color: #000000;
     margin: 4px 0 4px 0;
 }
 
-#contentIndex ul ul ul {
-    margin-left: 16px;
-}
-
-#contentIndex ul ul a {
-    /* padding: .25rem .25rem .25rem .875rem; */
-    color: #555555;
+#contentIndex ul ul a, #contentIndex ul ul a:visited {
     margin: 0px;
-}
-
-#contentIndex li {
-    padding: 0px;
-}
-
-#contentIndex a {
-    /* padding: .5rem .25rem .5rem .875rem; */
     color: #555555;
     text-decoration: none;
-    display: block;
-}
-
-#contentIndex a.current {
-    color: #064CDB !important;
 }
 
 #contentContainer {
@@ -87,7 +69,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-weight: 100;
-    color: #000000;
+    color: #36464e;
     font-family: "Helvetica";
 }
 
@@ -169,26 +151,20 @@ table td {
 }
 
 #indexContainer {
-    overflow-y: scroll;
+    overflow-y: auto;
     min-height: 0;
     flex: 1;
     padding: 1.875rem !important;
-    white-space: nowrap;
 }
 
 #indexContainer h1 {
     display: none;
 }
 
-#indexContainer::-webkit-scrollbar {
-    width: 4px;
-}
-
-#indexContainer::-webkit-scrollbar-track {
-    background-color: rgb(248, 248, 248);
-}
-
-#indexContainer::-webkit-scrollbar-thumb {
+#indexContainer hr {
+    height: 1px;
+    border: none;
+    color: #999;
     background-color: #999;
 }
 
@@ -197,7 +173,7 @@ table td {
     top: 0px;
     border-bottom: 1px solid #e5e5e5;
     padding: 30px;
-    background-color: #66409C;
+    background-color: #0070cd;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -273,17 +249,17 @@ table td {
     box-shadow: 0 -1px 0 lightgray;
 }
 
-.accordion-menu ul {
+#accordion-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.accordion-menu li.open>ul {
+#accordion-menu li.open>ul {
     display: block;
 }
 
-.accordion-menu li>ul {
+#accordion-menu li>ul {
     /* position: absolute; */
     display: none;
     height: 0;
@@ -292,29 +268,29 @@ table td {
     margin-left: 25px;
 }
 
-.accordion-menu ul.is-visible {
+#accordion-menu ul.is-visible {
     display: block;
     /* height: auto; */
 }
 
-.accordion-menu li {
-    border-bottom: 1px solid rgba(194, 194, 194, 0.333);
+#accordion-menu li {
+    /* border-bottom: 1px solid rgba(194, 194, 194, 0.333); */
     position: relative;
     overflow: hidden;
     transition: all .4s ease;
 }
 
-.accordion-menu li:last-child {
+#accordion-menu li:last-child {
     border: none;
 }
 
-.accordion-menu li::after {
+#accordion-menu li::after {
     content: "";
     display: block;
     clear: both;
 }
 
-.accordion-menu li>a>svg {
+#accordion-menu li>a>svg {
     display: block;
     position: relative;
     fill: rgb(48, 48, 48);
@@ -323,12 +299,15 @@ table td {
     transition: all .3s ease;
 }
 
-.accordion-menu li.open>a>svg {
-    transform: rotate(90deg);
+#accordion-menu li.open>a>svg {
+    transform: rotate(0deg);
 }
 
-.accordion-menu a {
-    background-color: aliceblue;
+#accordion-menu li>a>svg {
+    transform: rotate(-90deg);
+}
+
+#accordion-menu a {
     padding: 7px 20px;
     display: flex;
     flex-direction: row;
@@ -337,6 +316,12 @@ table td {
     text-decoration: none;
 }
 
-.accordion-menu * {
+#accordion-menu * {
     box-sizing: border-box;
+}
+
+a:active, a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
 }

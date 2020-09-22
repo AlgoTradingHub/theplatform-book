@@ -1,7 +1,7 @@
 
 mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexContainer\">",
-            "<img src=\"https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png\" width=\"50\" height=\"50\">",
-            "<div class=\"accordion-menu example\">%</div></div></div>",
+            "<div id=\"accordion-menu\">%</div>",
+            "</div></div>",
             "<div id=\"contentContainer\"><div id=\"contentHeader\">",
             "<h1>The Platform documentation</h1>",
             "<div id=\"searchWrapper\"><div id=\"searchField\"><input type=\"text\"/></div>",
@@ -76,35 +76,4 @@ mkbook: {
         $[null built;();.book,:built];
     }'mdfiles["source/"];
     .book,mkassets[]
-};
-
-
-.md.li: "<li>%</li>";
-// ,
-//         "<label class=\"md-nav__link\" for=\"nav-10-2\">",
-//         "%",
-//         "<span class=\"md-nav__icon md-icon\">",
-//         "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">",
-//         "<path d=\"M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z\" /></svg>",
-//         "</span></label>",
-//         "</li>";
-
-.md.ht.list: {[rows]
-    .ind:: 0;
-    val: ,/
-    {[row]
-        (ind;val): row;
-        if [ind=.ind] {
-            format[.md.li;,/.md.ht.build[,val]]
-        } elif [ind>.ind] {
-            ul: ,/{"<ul>"}'!ind - .ind;
-            .ind:: ind;
-            format["%",.md.li;ul;,/.md.ht.build[,val]]
-        } else {
-            ul: ,/{"</ul>"}'!.ind - ind;
-            .ind:: ind;
-            format["%",.md.li;ul;,/.md.ht.build[,val]]
-        }
-    }'rows;
-    $[0<.ind;format["%%";val;,/{"</ul>"}'!.ind];val]
 };

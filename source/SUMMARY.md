@@ -5,7 +5,7 @@
   - [Installation](/platform/install.md)
 - [Tutorial](/tutorial.md)
 - [FAQ](/faq.md)
-- Language reference
+- [Language reference](/reference/overview.md)
   - [Overview](/reference/overview.md)
   - [Patterns](/reference/patterns.md)
   - [Functions](/reference/lambda.md)

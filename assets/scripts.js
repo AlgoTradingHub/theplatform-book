@@ -8,13 +8,14 @@ let AccordionMenu = function (selector) {
 
             items.firstElementChild.onclick = function (e) {
                 e.preventDefault();
+                let animTimeout  = e && e.isTrusted ? 350 : 0;
 
                 let isTrue = this.parentElement.classList.toggle('open');
 
                 if (isTrue) {
-                    This.show(this.nextElementSibling);
+                    This.show(this.nextElementSibling,animTimeout);
                 } else {
-                    This.hide(this.nextElementSibling);
+                    This.hide(this.nextElementSibling,animTimeout);
                 }
             }
         }
@@ -22,7 +23,7 @@ let AccordionMenu = function (selector) {
 }
 
 // Show an element
-AccordionMenu.prototype.show = function (elem) {
+AccordionMenu.prototype.show = function (elem,timeout) {
     // Get the natural height of the element
     var getHeight = function () {
         elem.style.display = 'block'; // Make it visible
@@ -35,7 +36,7 @@ AccordionMenu.prototype.show = function (elem) {
 
     setTimeout(function () {
         elem.style.height = 'auto';
-    }, 350);
+    }, timeout);
 };
 
 // Hide an element
@@ -57,17 +58,25 @@ function isVisible(el) {
     return el && el.style.display != 'none' && el.style.display != "";
 }
 
-function openParentSections(node,aMenu){
+function openParentSections(node){
     if (node){
         closestUl = node.closest("ul");
         if (closestUl){
             closestLi = closestUl.closest("li");
             if (closestLi){
-                aMenu.show(closestLi.firstElementChild.nextElementSibling);
-                openParentSections(closestLi,aMenu);
+                closestLi.firstElementChild.click();
+                openParentSections(closestLi);
             }
         }
     }    
+}
+
+function toggleMenuTransitions(node,transitionsEnabled){
+    if (transitionsEnabled){
+        node.classList.remove("notransition");
+    } else {
+        node.classList.add("notransition");
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -102,8 +111,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let currentActiveLink = null;
     indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); currentActiveLink = i; } });
 
-    let aMenu = new AccordionMenu('#accordion-menu');
+    new AccordionMenu('#accordion-menu');
+    let menuContainer = $.getElementById('accordion-menu');
     
-    openParentSections(currentActiveLink,aMenu);
+    toggleMenuTransitions(menuContainer,false);
+    openParentSections(currentActiveLink);
+    setTimeout(function (){toggleMenuTransitions(menuContainer,true)},100);
 
 });

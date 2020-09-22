@@ -327,3 +327,10 @@ a:active, a:focus {
     border: none;
     -moz-outline-style: none;
 }
+
+.notransition li>ul {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }

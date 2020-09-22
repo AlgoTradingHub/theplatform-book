@@ -8,14 +8,14 @@ let AccordionMenu = function (selector) {
 
             items.firstElementChild.onclick = function (e) {
                 e.preventDefault();
-                let animTimeout  = e && e.isTrusted ? 350 : 0;
+                let animTimeout = e && e.isTrusted ? 350 : 0;
 
                 let isTrue = this.parentElement.classList.toggle('open');
 
                 if (isTrue) {
-                    This.show(this.nextElementSibling,animTimeout);
+                    This.show(this.nextElementSibling, animTimeout);
                 } else {
-                    This.hide(this.nextElementSibling,animTimeout);
+                    This.hide(this.nextElementSibling, animTimeout);
                 }
             }
         }
@@ -23,7 +23,7 @@ let AccordionMenu = function (selector) {
 }
 
 // Show an element
-AccordionMenu.prototype.show = function (elem,timeout) {
+AccordionMenu.prototype.show = function (elem, timeout) {
     // Get the natural height of the element
     var getHeight = function () {
         elem.style.display = 'block'; // Make it visible
@@ -58,21 +58,21 @@ function isVisible(el) {
     return el && el.style.display != 'none' && el.style.display != "";
 }
 
-function openParentSections(node){
-    if (node){
+function openParentSections(node) {
+    if (node) {
         closestUl = node.closest("ul");
-        if (closestUl){
+        if (closestUl) {
             closestLi = closestUl.closest("li");
-            if (closestLi){
+            if (closestLi) {
                 closestLi.firstElementChild.click();
                 openParentSections(closestLi);
             }
         }
-    }    
+    }
 }
 
-function toggleMenuTransitions(node,transitionsEnabled){
-    if (transitionsEnabled){
+function toggleMenuTransitions(node, transitionsEnabled) {
+    if (transitionsEnabled) {
         node.classList.remove("notransition");
     } else {
         node.classList.add("notransition");
@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let searchWrapper = $.getElementById("searchField");
     let searchField = $.querySelector("#searchField input");
     let indexLinks = $.querySelectorAll("#indexContainer a");
+    let contentContainer = $.querySelector("#contentDocument");
 
     function toggleSearch() {
         searchWrapper.style.display = isVisible(searchWrapper) ? 'none' : 'block';
@@ -107,15 +108,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     });
 
+    searchField.addEventListener("keydown", function (event) {
+        let k = event.keyCode;
+        if (k == 13) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", "/?q=" + searchField.value, false); // false for synchronous request
+            xmlHttp.send(null);
+            contentContainer.innerHTML = xmlHttp.responseText;
+        }
+    });
+
     let currentPath = window.location.href;
     let currentActiveLink = null;
     indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); currentActiveLink = i; } });
 
     new AccordionMenu('#accordion-menu');
     let menuContainer = $.getElementById('accordion-menu');
-    
-    toggleMenuTransitions(menuContainer,false);
+
+    toggleMenuTransitions(menuContainer, false);
     openParentSections(currentActiveLink);
-    setTimeout(function (){toggleMenuTransitions(menuContainer,true)},100);
+    setTimeout(function () { toggleMenuTransitions(menuContainer, true) }, 100);
 
 });

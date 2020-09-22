@@ -166,20 +166,19 @@ table td {
 #indexContainer hr {
     height: 1px;
     border: none;
-    color: #999;
-    background-color: #999;
+    color: #e5e5e5;
+    background-color: #e5e5e5;
 }
 
 #contentHeader {
     position: sticky;
     top: 0px;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 30px;
+    padding: 10px;
     background-color: #0070cd;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 45px;
+    height: 40px;
     align-items: center;
 }
 
@@ -333,4 +332,4 @@ a:active, a:focus {
     -moz-transition: none !important;
     -o-transition: none !important;
     transition: none !important;
-  }
+}

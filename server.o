@@ -18,6 +18,25 @@ react {[x:request] x[book]};
 // Serve
 .http.default.host:  "PlatformBook";
 
+searchTemplate: "<div id=\"searchResultsOuter\">",
+    "<div id =\"searchResultsHeader\">% search results for '%':</div>",
+    "<ul id=\"searchResults\">%</ul>",
+    "</div>";
+
+search: {[book;phrase]
+    0N!phrase;
+    response: reagent[`async];
+    request[response];
+    book: get response;
+    found: {f:ss[x`content;phrase];$[0=#f;0N0;(x`document;f)]}'book;
+    found: found where ~0N0~'found;
+    li: ,/
+    {[rec]
+        format["<li><a href=\"/%\">%</a></li>";rec[0];rec[0]]
+    }'found;
+    format[searchTemplate;#found;phrase;li]
+};
+
 content: {[url]
     response: reagent[`async];
     request[response];
@@ -28,12 +47,16 @@ content: {[url]
 };
 
 .http.default.handle: {[sock;req]
-    parsed: .http.req.parse[req];
-    resrce: `$"c"$1_"x"$parsed[`url];
-    contnt: content[resrce];
-    $[0N0~contnt;
-        .http.resp.error[sock;404;"Not found";"Invalid URL"];
-        .http.resp.ok[sock;`$("\\." vs parsed[`url])1;contnt]]
+    url: "c"$1_"x"$.http.req.parse[req][`url];
+    qry: ("\\?q=" vs url)1;
+    if [^qry] {
+        con: content[`$url];
+        $[0N0~con;
+            .http.resp.error[sock;404;"Not found";"Invalid URL"];
+            .http.resp.ok[sock;`$("\\." vs url)1;con]]
+    } else {
+        .http.resp.ok[sock;`$("\\." vs url)1;search[book;qry]]
+    }
 };
 
 .http.run[];

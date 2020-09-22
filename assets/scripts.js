@@ -57,6 +57,19 @@ function isVisible(el) {
     return el && el.style.display != 'none' && el.style.display != "";
 }
 
+function openParentSections(node,aMenu){
+    if (node){
+        closestUl = node.closest("ul");
+        if (closestUl){
+            closestLi = closestUl.closest("li");
+            if (closestLi){
+                aMenu.show(closestLi.firstElementChild.nextElementSibling);
+                openParentSections(closestLi,aMenu);
+            }
+        }
+    }    
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let $ = document;
     let searchIcon = $.querySelector("#searchWrapper b");
@@ -86,8 +99,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     let currentPath = window.location.href;
-    indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); } });
+    let currentActiveLink = null;
+    indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); currentActiveLink = i; } });
 
-    new AccordionMenu('#accordion-menu');
+    let aMenu = new AccordionMenu('#accordion-menu');
+    
+    openParentSections(currentActiveLink,aMenu);
 
 });

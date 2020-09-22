@@ -52,6 +52,8 @@ body {
 
 #contentIndex ul a {
     margin: 4px 0 4px 0;
+    color: #555555;
+    text-decoration: none;
 }
 
 #contentIndex ul ul a, #contentIndex ul ul a:visited {
@@ -219,7 +221,7 @@ table td {
 
 #searchField input {
     box-shadow: 0px 0px 5px 1px rgba(229, 229, 229, 0.5);
-    padding: 0.625rem 0.625rem;
+    padding: 0.325rem 0.625rem;
     font-size: 0.875rem;
     line-height: 1.5;
     border-radius: 0.2rem;
@@ -240,7 +242,7 @@ table td {
 }
 
 #contentIndex a.active {
-    color: var(--active-color);
+    color: var(--active-color) !important;
 }
 
 #footer {

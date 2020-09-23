@@ -1,6 +1,7 @@
 # Frequently asked questions
 
 1.
+
 - Q: I want to delete records from table. How to do that?
 - A1: Don't do that. Seriously.
 - A2: Just select records you want to retain and replace original table.

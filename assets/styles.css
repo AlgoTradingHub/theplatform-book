@@ -156,6 +156,7 @@ table td {
     min-height: 0;
     flex: 1;
     padding: 1.875rem !important;
+    font-family: "Open Sans", sans-serif;
 }
 
 #indexContainer h1 {
@@ -170,7 +171,7 @@ table td {
 }
 
 #contentHeader {
-    font-family: 'Audiowide', cursive;
+    font-family: "Open Sans", sans-serif;
     position: sticky;
     top: 0px;
     padding: 10px 48px 10px 48px;
@@ -185,7 +186,6 @@ table td {
 #contentHeader h1 {
     display: block;
     font-size: 28px;
-    position: absolute;
     color: white;
 }
 
@@ -271,7 +271,6 @@ table td {
 }
 
 #accordion-menu li>ul {
-    /* position: absolute; */
     display: none;
     height: 0;
     overflow: hidden;
@@ -281,14 +280,12 @@ table td {
 
 #accordion-menu ul.is-visible {
     display: block;
-    /* height: auto; */
 }
 
 #accordion-menu li {
-    /* border-bottom: 1px solid rgba(194, 194, 194, 0.333); */
     position: relative;
     overflow: hidden;
-    transition: all .4s ease;
+    transition: all .1s ease;
 }
 
 #accordion-menu li:last-child {
@@ -307,7 +304,7 @@ table td {
     fill: rgb(48, 48, 48);
     width: 10px;
     float: right;
-    transition: all .3s ease;
+    transition: all .1s ease;
 }
 
 #accordion-menu li.open>a>svg {
@@ -319,7 +316,7 @@ table td {
 }
 
 #accordion-menu a {
-    padding: 7px 20px;
+    padding: 1px 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

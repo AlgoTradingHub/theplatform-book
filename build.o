@@ -3,7 +3,8 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
             "<div id=\"accordion-menu\">%</div>",
             "</div></div>",
             "<div id=\"contentContainer\"><div id=\"contentHeader\">",
-            "<h1>The Platform documentation</h1>",
+            "<img id=\"logo\" src=\"/logo.png\">",
+            // "<h1>Documentation</h1>",
             "<div id=\"searchWrapper\"><div id=\"searchField\"><input type=\"text\"/></div>",
             "<b>&#9906;</b>",
             // "<a href=\"https://github.com/AlgoTradingHub/kernel\" title=\"Git repository\">",
@@ -134,10 +135,11 @@ mkassets: {
     prismjs:  "c"$read `:assets/prism.js;
     prismcss: "c"$read `:assets/prism.css;
     favicon:  "c"$read `:assets/favicon.ico;
+    logo:     "c"$read `:assets/logo.png;
     +`document`content!((`$"styles.css";`$"scripts.js";
                          `$"favicon.ico";`$"prism.css";
-                         `$"prism.js");
-                         (css;js;favicon;prismcss;prismjs))
+                         `$"prism.js";`$"logo.png");
+                         (css;js;favicon;prismcss;prismjs;logo))
 };
 
 mkbook: {

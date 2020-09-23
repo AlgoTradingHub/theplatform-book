@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             xmlHttp.open("GET", "/?q=" + searchField.value, false); // false for synchronous request
             xmlHttp.send(null);
             contentContainer.innerHTML = xmlHttp.responseText;
+            toggleSearch();
         }
     });
 

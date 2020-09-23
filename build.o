@@ -106,8 +106,7 @@ mkindx: {[mdpath]
     println["building: %";mdpath];
     cont: .md.pars "c"$read[`$":",mdpath];
     body: .md.ht.build[cont];
-    html: format[.http.const.temp;"index";format[mkContainers;body;""]];
-    (body;+`document`content!(`$"index.html";html))
+    body
 };
 
 mkone: {[mdpath;indx]
@@ -142,11 +141,11 @@ mkassets: {
 };
 
 mkbook: {
-    (indx;content):mkindx["source/SUMMARY.md"];
-    .book:: content;
+    indx: mkindx["source/SUMMARY.md"];
+    .book:: mkassets[];
     {[file]
         built: .[mkone;(file;indx);{println["-- UNABLE TO BUILD: %";file]}];
         $[null built;();.book,:built];
     }'mdfiles["source/"];
-    .book,mkassets[]
+    .book
 };

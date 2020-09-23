@@ -257,6 +257,7 @@ table td {
 #footer {
     color: #999999;
     padding-top: 20px;
+    margin-top: 40px;
     box-shadow: 0 -1px 0 lightgray;
 }
 

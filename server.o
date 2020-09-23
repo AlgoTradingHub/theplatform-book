@@ -27,6 +27,7 @@ search: {[book;phrase]
     response: reagent[`async];
     request[response];
     book: get response;
+    book: 0N#.?[book;,({like[;y]'x};`document;".*\\.html");0b;()];
     found: {f:ss[x`content;phrase];$[0=#f;0N0;(x`document;f)]}'book;
     found: found where ~0N0~'found;
     li: ,/

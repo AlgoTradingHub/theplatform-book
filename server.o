@@ -47,7 +47,7 @@ content: {[url]
 
 .http.default.handle: {[sock;req]
     url: "c"$1_"x"$.http.req.parse[req][`url];
-    qry: ("\\?q=" vs url)1;
+    qry: ("q=" vs url)1;
     if [^qry] {
         con: content[`$url];
         $[0N0~con;

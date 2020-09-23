@@ -72,7 +72,6 @@ body {
 h1, h2, h3, h4, h5 {
     font-weight: 100;
     color: #36464e;
-    font-family: "Helvetica";
 }
 
 h2 {
@@ -171,6 +170,7 @@ table td {
 }
 
 #contentHeader {
+    font-family: 'Audiowide', cursive;
     position: sticky;
     top: 0px;
     padding: 10px 48px 10px 48px;

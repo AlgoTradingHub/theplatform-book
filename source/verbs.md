@@ -64,6 +64,7 @@ o)$[1=1;2;3]
 ```
 
 Another thing to remember is that simulation of short circuit evaluation of condition itself is done using nested conds:
+
 ```o
 o) a:1 2 3;
 o) $[a;$[1=a[0];2;3];4]

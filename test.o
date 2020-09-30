@@ -1,6 +1,7 @@
 load "markdown";
 load "build";
 
+.content:();
 inner: "c"$read[`$":",argv[`file]];
 cont: .md.pars[inner];
 show cont;

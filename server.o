@@ -7,6 +7,7 @@ load home,"http";
 load home,"core";
 load "build";
 
+index: (`symbol$())!();
 book: mkbook[];
 
 rebuild: reagent[`async];
@@ -23,18 +24,27 @@ searchTemplate: "<div id=\"searchResultsOuter\">",
     "<ul id=\"searchResults\">%</ul>",
     "</div>";
 
-search: {[book;phrase]
-    response: reagent[`async];
-    request[response];
-    book: get response;
-    book: 0N#.?[book;,({like[;y]'x};`document;".*\\.html");0b;()];
-    found: {f:ss[x`content;phrase];$[0=#f;0N0;(x`document;f)]}'book;
+unquote: <- (("%27"/{"'"})  |
+             ("%22"/{"\""}) |
+             ("?"/{"\\?"})  |
+             \.
+            )*/{$[1>=#x;x;,/x]};
+
+searchIndex: {[phrase]
+    unquoted: $[null u:unquote phrase;"#";u];
+    found: (!index)
+    {[file;content]
+        ids: ss[content;unquoted];
+        $[0=#ids;0N0;file]
+    }'. index;
     found: found where ~0N0~'found;
     li: ,/
-    {[rec]
-        format["<li><a href=\"/%\">%</a></li>";rec[0];rec[0]]
+    {[file]
+        deco: ssr[*"\\." vs $file;"/";" >> "];
+        format["<li><a href=\"/%\">%</a></li>";file;deco]
     }'found;
-    format[searchTemplate;#found;phrase;li]
+
+    format[searchTemplate;#found;unquoted;li]
 };
 
 content: {[url]
@@ -55,7 +65,7 @@ content: {[url]
             .http.resp.error[sock;404;"Not found";"Invalid URL"];
             .http.resp.ok[sock;`$("\\." vs url)1;con]]
     } else {
-        .http.resp.ok[sock;`$("\\." vs url)1;search[book;qry]]
+        .http.resp.ok[sock;`$("\\." vs url)1;searchIndex[qry]]
     }
 };
 
@@ -65,7 +75,7 @@ load home,"repl";
 
 lastmod: {[dir]
     l: os["dir";dir];
-    m: l where {(x[1]~"file")&("md"~last "\\." vs x[3])}'l;
+    m: l where {(x[1]~"file")}'l;
     d: l where {x[1]~"dir"}'l;
     f: |/ *'m;
     |/ f,/o'[3(~[@])'d]
@@ -73,11 +83,11 @@ lastmod: {[dir]
 
 // File watcher
 spawn {
-    .lastmod:: lastmod["source"];
+    .lastmod:: |/lastmod["source"],lastmod["assets"];
     tick: reagent[`timer;1000;0];
     react {[t:tick]
         system["git pull"];
-        tmod: lastmod["source"];
+        tmod: |/lastmod["source"],lastmod["assets"];
         if [.lastmod<tmod] {
             .lastmod:: tmod;
             rebuild[];

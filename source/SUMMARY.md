@@ -20,7 +20,7 @@
     - [Tables](/reference/types/tables.md)
     - [Signals](/reference/types/signals.md)
     - [Reagents](/reference/types/reagents.md)
-- [Verbs](/verbs/verbs.md)
+- [Verbs](/nolink.md)
   - [Indexing verbs](/nolink.md)
     - [@ (at)](/verbs/indexing/at.md)
     - [. (dot-apply)](/verbs/indexing/dot.md)

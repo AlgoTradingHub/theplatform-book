@@ -60,6 +60,11 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
     $[`v`l~type item;*item;item]
 };
 
+idx: {[item]
+    .content,: item;
+    item
+};
+
 // Build/Load
 .md.ht.build: {[content]
     ,/
@@ -73,38 +78,38 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
         } else {
             (tag;text): (!record;. record);
             match [*tag] {
-                `h1    -> format["<h1>%</h1>";.md.ht.pop text];
-                `h2    -> format["<h2>%</h2>";.md.ht.pop text];
-                `h3    -> format["<h3>%</h3>";.md.ht.pop text];
-                `h4    -> format["<h4>%</h4>";.md.ht.pop text];
-                `h5    -> format["<h5>%</h5>";.md.ht.pop text];
-                `h6    -> format["<h6>%</h6>";.md.ht.pop text];
+                `h1    -> format["<h1>%</h1>";idx .md.ht.pop text];
+                `h2    -> format["<h2>%</h2>";idx .md.ht.pop text];
+                `h3    -> format["<h3>%</h3>";idx .md.ht.pop text];
+                `h4    -> format["<h4>%</h4>";idx .md.ht.pop text];
+                `h5    -> format["<h5>%</h5>";idx .md.ht.pop text];
+                `h6    -> format["<h6>%</h6>";idx .md.ht.pop text];
                 `hr    -> "<hr></hr>";
-                `esc1  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
-                `esc2  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
-                `esc3  -> format["<code class=\"code-inline\">%</code>";.md.ht.pop text];
-                `esc4  -> format["%";.md.ht.pop text];
+                `esc1  -> format["<code class=\"code-inline\">%</code>";idx .md.ht.pop text];
+                `esc2  -> format["<code class=\"code-inline\">%</code>";idx .md.ht.pop text];
+                `esc3  -> format["<code class=\"code-inline\">%</code>";idx .md.ht.pop text];
+                `esc4  -> format["%";idx .md.ht.pop text];
                 `code  -> format["<pre class=\"code\"><code class=\"language-%\">%</code></pre>";
                                 (.md.ht.pop text)`lang;(.md.ht.pop text)`body];
                 `image -> format["<img src=\"%\" alt=\"%\">";(.md.ht.pop text)1;o[(.md.ht.pop text)0]];
                 `link  -> format["<a href=\"%\">%</a>";ssr[(.md.ht.pop text)1;"md";"html"];o[(.md.ht.pop text)0]];
-                `bold  -> format["<strong>%</strong>";.md.ht.pop text];
+                `bold  -> format["<strong>%</strong>";idx .md.ht.pop text];
                 `list  -> .md.ht.list[.md.ht.pop text];
-                `text  -> .md.ht.pop text;
+                `text  -> idx .md.ht.pop text;
                 `para  -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
-                `block -> format["<pre class=\"info\">%</pre>";.md.ht.pop text];
+                `block -> format["<pre class=\"info\">%</pre>";idx .md.ht.pop text];
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];
                 `thead -> format["<tr>%</tr>";,/format["<th>%</th>";]'[.md.ht.pop text]];
                 `trow  -> format["<tr>%</tr>";,/format["<td>%</td>";]'[.md.ht.pop text]];
-                _      -> format["<unknown>%</unknown>";.md.ht.pop text];
+                _      -> format["<unknown>%</unknown>";idx .md.ht.pop text];
             }
         }
     }'content
 };
 
-
 mkindx: {[mdpath]
     println["building: %";mdpath];
+    .content:: ();
     cont: .md.pars "c"$read[`$":",mdpath];
     body: .md.ht.build[cont];
     body
@@ -112,11 +117,13 @@ mkindx: {[mdpath]
 
 mkone: {[mdpath;indx]
     println["building: %";mdpath];
+    .content:: ();
     cont: .md.pars "c"$read[`$":",mdpath];
     body: .md.ht.build[cont];
     stem: *"\\." vs last "/" vs mdpath;
     html: format[.http.const.temp;stem;format[mkContainers;indx;body]];
     outp: ssr[ssr[mdpath;"source/";""];"md";"html"];
+    index[`$outp]: ,/.content;
     +`document`content!(`$outp;html)
 };
 
@@ -146,8 +153,10 @@ mkbook: {
     indx: mkindx["source/SUMMARY.md"];
     .book:: mkassets[];
     {[file]
-        built: .[mkone;(file;indx);{println["-- UNABLE TO BUILD: %";file]}];
-        $[null built;();.book,:built];
+        if [~file like "SUMMARY"] {
+            built: .[mkone;(file;indx);{println["-- UNABLE TO BUILD: %";file]}];
+            $[null built;();.book,:built];
+        }
     }'mdfiles["source/"];
     .book
 };

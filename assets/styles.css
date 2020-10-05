@@ -100,6 +100,7 @@ h2 {
 
 .info {
     border-radius: 0.25rem;
+    font-family: "Roboto";
     background-color: #f0f7fb;
     background-position: 9px 0px;
     background-repeat: no-repeat;
@@ -147,8 +148,10 @@ table td {
 }
 
 #content a {
-    color: rgb(85, 85, 85);
-    text-decoration: underline;
+    /* color: rgb(85, 85, 85);
+    text-decoration: underline; */
+    text-decoration: none;
+    color: #0070cd;
 }
 
 #indexContainer {
@@ -253,6 +256,21 @@ table td {
 #searchField input:focus {
     border-color: var(--active-color);
     border-width: 1px;
+}
+
+#searchResults a {
+    color: #4683d0;
+    text-decoration: none;
+    margin: 10px 0 10px 0;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#searchTeaser {
+    display: block;
+    /* margin: 5px 0 0 20px; */
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
 }
 
 #contentIndex a.active {

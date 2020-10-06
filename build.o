@@ -34,27 +34,59 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
             "</body>\r\n",
             "</html>";
 
-// Create nested struct
+// // Create nested struct
+// .md.ht.list: {[rows]
+//     .ind:: 1;
+//     val: ,/
+//     {[row]
+//         (ind;val): row;
+//         if [ind=.ind] {
+//             li: $[.ind=0;[.ind=ind;"<li>%"];"</li><li>%"];
+//             format[li;,/.md.ht.build[,val]]
+//         } elif [ind>.ind] {
+//             ul: ,/{"<ul><li>"}'!ind - .ind;
+//             .ind:: ind;
+//             format["%<li>%</li>";ul;,/.md.ht.build[,val]]
+//         } else {
+//             ul: ,/{"</li></ul>"}'!.ind - ind;
+//             .ind:: ind;
+//             format["%</li><li>%</li>";ul;,/.md.ht.build[,val]]
+//         }
+//     }'rows;
+//     $[0<.ind;format["<ul>%%";val;,/{"</ul>"}'!.ind];val]
+// };
+
 .md.ht.list: {[rows]
-    .ind:: 1;
-    val: ,/
+    .lasti:: -1;
+    lst: ,/
     {[row]
-        (ind;val): row;
-        if [ind=.ind] {
-            li: $[.ind=0;[.ind=ind;"<li>%"];"</li><li>%"];
-            format[li;,/.md.ht.build[,val]]
-        } elif [ind>.ind] {
-            ul: ,/{"<ul><li>"}'!ind - .ind;
-            .ind:: ind;
-            format["%<li>%</li>";ul;,/.md.ht.build[,val]]
+        (shift;val): row;
+
+        v:
+        if [.lasti=-1] {
+            format["<li>%";,/.md.ht.build[,val]]
+        } elif [shift>.lasti] {
+            format["<ul><li>%";,/.md.ht.build[,val]]
+        } elif [shift=.lasti] {
+            format["</li><li>%";,/.md.ht.build[,val]]
         } else {
-            ul: ,/{"</li></ul>"}'!.ind - ind;
-            .ind:: ind;
-            format["%</li><li>%</li>";ul;,/.md.ht.build[,val]]
-        }
-    }'rows;
-    $[0<.ind;format["<ul>%%";val;,/{"</ul>"}'!.ind];val]
+            dif: .lasti - shift;
+            clt: ,/{"</ul></li>"}'!dif;
+            clt,format["<li>%";,/.md.ht.build[,val]]
+        };
+
+        .lasti:: shift;
+        v
+    }'-1_rows;
+
+    row: (last rows);
+
+    "<ul>",
+        (lst,"</li>",/{"</ul></li>"}'!.lasti),
+            format["<li>%</li>";,/.md.ht.build[,row[1]]],
+    "</ul>"
 };
+
 
 .md.ht.pop: {[item]
     $[`v`l~type item;*item;item]

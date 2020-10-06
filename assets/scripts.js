@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let searchWrapper = $.getElementById("searchField");
     let searchField = $.querySelector("#searchField input");
     let indexLinks = $.querySelectorAll("#indexContainer a");
-    let contentContainer = $.querySelector("#contentDocument");
+    let contentContainer = $.querySelector("#content");
 
     function toggleSearch() {
         searchWrapper.style.display = isVisible(searchWrapper) ? 'none' : 'block';

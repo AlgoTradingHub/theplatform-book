@@ -1,24 +1,33 @@
 
-mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexContainer\">",
-            "<div id=\"accordion-menu\">%</div>",
-            "</div></div>",
-            "<div id=\"contentContainer\"><div id=\"contentHeader\">",
-            "<img id=\"logo\" src=\"/logo.png\">",
-            // "<h1>Documentation</h1>",
-            "<div id=\"searchWrapper\"><div id=\"searchField\"><input type=\"text\"/></div>",
-            "<b>&#9906;</b>",
-            // "<a href=\"https://github.com/AlgoTradingHub/kernel\" title=\"Git repository\">",
-            // "<i id=\"git-repository-button\"></i>",
-            // "</a>",
-            "</div></div>",
-            "<div id=\"content\">",
-            "<div id=\"contentDocument\">%</div>",
-            "<div id=\"footer\">",
-            "<footer>",
-            "<p>Made with ❤ to O language</p>",
-            "<p>© 2020 ThePlatform</p>",
-            "</span></footer>",
-            "</div></div></div></div>";
+mkContainers:"<div id=\"mainContainer\">",
+                "<div id=\"contentHeader\">",
+                    "<div><img id=\"logo\" src=\"/logo.png\"></div>",
+                    "<div id=\"searchWrapper\">",
+                        "<div id=\"searchField\"><input type=\"text\"/></div>",
+                        "<b>&#9906;</b>",
+                    "</div>",
+                "</div>",
+
+                "<div id=\"rootWrapper\">",
+                    "<div id=\"indexContainer\">",
+                        "<div id=\"accordion-menu\">%",
+                        "</div>",
+                    "</div>",
+
+
+                    "<div id=\"contentContainer\">",
+                        "<div id=\"content\">%</div>",
+                        "<div id=\"footer\">",
+                            "<footer>",
+                                "<p>Made with ❤ to O language</p>",
+                                "<p>© 2020 ThePlatform</p>",
+                            "</footer>",
+                        "</div>",
+                    "</div>",
+
+                "</div>",
+
+            "</div>";
 
 .http.const.temp: "<!doctype html>\r\n",
             "<html>\r\n",
@@ -34,28 +43,7 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
             "</body>\r\n",
             "</html>";
 
-// // Create nested struct
-// .md.ht.list: {[rows]
-//     .ind:: 1;
-//     val: ,/
-//     {[row]
-//         (ind;val): row;
-//         if [ind=.ind] {
-//             li: $[.ind=0;[.ind=ind;"<li>%"];"</li><li>%"];
-//             format[li;,/.md.ht.build[,val]]
-//         } elif [ind>.ind] {
-//             ul: ,/{"<ul><li>"}'!ind - .ind;
-//             .ind:: ind;
-//             format["%<li>%</li>";ul;,/.md.ht.build[,val]]
-//         } else {
-//             ul: ,/{"</li></ul>"}'!.ind - ind;
-//             .ind:: ind;
-//             format["%</li><li>%</li>";ul;,/.md.ht.build[,val]]
-//         }
-//     }'rows;
-//     $[0<.ind;format["<ul>%%";val;,/{"</ul>"}'!.ind];val]
-// };
-
+// Create nested struct
 .md.ht.list: {[rows]
     .lasti:: -1;
     lst: ,/
@@ -77,16 +65,13 @@ mkContainers:"<div id=\"rootWrapper\"><div id=\"contentIndex\"><div id=\"indexCo
 
         .lasti:: shift;
         v
-    }'-1_rows;
-
-    row: (last rows);
+    }'rows;
 
     "<ul>",
-        (lst,"</li>",/{"</ul></li>"}'!.lasti),
-            format["<li>%</li>";,/.md.ht.build[,row[1]]],
+        lst,
+        ("</li>",/{"</ul></li>"}'!.lasti),
     "</ul>"
 };
-
 
 .md.ht.pop: {[item]
     $[`v`l~type item;*item;item]
@@ -169,16 +154,15 @@ mdfiles: {[dir]
 };
 
 mkassets: {
-    css:      "c"$read `:assets/styles.css;
-    js:       "c"$read `:assets/scripts.js;
-    prismjs:  "c"$read `:assets/prism.js;
-    prismcss: "c"$read `:assets/prism.css;
-    favicon:  "c"$read `:assets/favicon.ico;
-    logo:     "c"$read `:assets/logo.png;
-    +`document`content!((`$"styles.css";`$"scripts.js";
-                         `$"favicon.ico";`$"prism.css";
-                         `$"prism.js";`$"logo.png");
-                         (css;js;favicon;prismcss;prismjs;logo))
+    files: os["dir";"assets"];
+
+    recs:
+    {[file]
+        name: file[3];
+        (`$last "/" vs name;"c"$read `$":",name)
+    }'files;
+
+    +`document`content!+recs
 };
 
 mkbook: {

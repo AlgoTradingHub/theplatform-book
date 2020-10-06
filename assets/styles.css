@@ -1,6 +1,6 @@
 :root {
     --active-color: #4683d0;
-    --index-width: 200px;
+    --index-width: 300px;
 }
 
 html, body {
@@ -52,7 +52,7 @@ h2 {
 
 #logo {
     height: 160px;
-    margin-left: 30px;
+    margin-left: 60px;
     padding: 10px;
 }
 
@@ -184,7 +184,7 @@ h2 {
     flex-grow: 3;
     padding: 0px;
     margin: 0px;
-    padding: 20px 3.125rem 1.875rem 300px;
+    padding: 20px 3.125rem 1.875rem 400px;
 }
 
 #content a {

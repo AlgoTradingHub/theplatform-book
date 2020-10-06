@@ -1,4 +1,4 @@
-# Summary
+# -- Summary --
 
 - [Introduction](/index.md)
 - [Platform](/platform/platform.md)
@@ -77,7 +77,7 @@
 - [Standard Library](/std.md)
 - [Plugins](/plugins.md)
 
----/nolink.md
+---
 
 - [Contributors](/contributors.md)
 - [Contacts](/contacts.md)

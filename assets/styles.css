@@ -153,13 +153,7 @@ h2 {
 }
 
 #indexContainer ul a {
-    margin: 4px 0 4px 0;
-    color: #555555;
-    text-decoration: none;
-}
-
-#indexContainer ul ul a, #indexContainer ul ul a:visited {
-    margin: 0px;
+    display: block;
     color: #555555;
     text-decoration: none;
 }
@@ -341,6 +335,6 @@ a:active, a:focus {
     transition: none !important;
 }
 
-#accordion-menu{
-    margin:100px 0 20px 0;
+#accordion-menu {
+    margin: 100px 0 20px 0;
 }

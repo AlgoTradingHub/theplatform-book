@@ -34,13 +34,11 @@ h2 {
 
 #mainContainer {
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 #contentHeader {
     font-family: "Open Sans", sans-serif;
-    position: top;
+    position: fixed;
     width: 100%;
     background-color: steelblue;
     display: flex;
@@ -48,6 +46,7 @@ h2 {
     justify-content: space-between;
     height: 80px;
     align-items: center;
+    z-index: 100;
 }
 
 #logo {
@@ -117,9 +116,7 @@ h2 {
 
 #rootWrapper {
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
+    position: relative;
 }
 
 #indexContainer {
@@ -127,7 +124,7 @@ h2 {
     flex: 1;
     overflow-y: auto;
     position: fixed;
-    padding: 1.875rem !important;
+    padding: 0px 1.875rem !important;
     font-family: "Open Sans", sans-serif;
     background-color: #f5f7f9;
     padding: 0px;
@@ -342,4 +339,8 @@ a:active, a:focus {
     -moz-transition: none !important;
     -o-transition: none !important;
     transition: none !important;
+}
+
+#accordion-menu{
+    margin:100px 0 20px 0;
 }

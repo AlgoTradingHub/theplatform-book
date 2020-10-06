@@ -25,6 +25,7 @@
 .md.link: <- "["# .md.ltxt "]"# .md.sp "("# ((!")" \.)* /{.md.concat x}) ")"# /{`link!x};
 .md.imge: <- "!["# .md.ltxt "]"# .md.sp "("# ((!")" \.)* /{.md.concat x}) ")"# /{`image!x};
 .md.bold: <- "**"# (!"**"\.)* "**"#/{`bold!.md.concat x};
+.md.curs: <- "_"# (!"_"\.)* "_"#/{`curs!.md.concat x};
 // Lists
 .md.lsep: <- "  "* (([*\-]) | (\d+ "."))# \s+;
 .md.lrow: <- .md.lsep .md.line+/{.md.indent x};
@@ -35,7 +36,7 @@
 // Tables
 .md.trow: <- ("|"# ((("\\"# \.) | [^|\r\n])+/{,/x}))+ ("|"#)? .md.lf;
 .md.tble: <- (.md.trow/{`thead!x}) .md.trow# (.md.trow/{`trow!x})+ /{`table!x};
-.md.term: <- .md.bold | .md.imge | .md.link | .md.esc0;
+.md.term: <- .md.bold | .md.curs | .md.imge | .md.link | .md.esc0;
 .md.text: <- (!(.md.term | .md.lf) \.)+/{`text!.md.concat x};
 .md.line: <- !(.md.lsep | .md.brow) (.md.term | .md.text)+ .md.lf;
 // Paragraph

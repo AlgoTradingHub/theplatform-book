@@ -111,6 +111,7 @@ idx: {[item]
                 `image -> format["<img src=\"%\" alt=\"%\">";(.md.ht.pop text)1;o[(.md.ht.pop text)0]];
                 `link  -> format["<a href=\"%\">%</a>";ssr[(.md.ht.pop text)1;"md";"html"];o[(.md.ht.pop text)0]];
                 `bold  -> format["<strong>%</strong>";idx .md.ht.pop text];
+                `curs  -> format["<i>%</i>";idx .md.ht.pop text];
                 `list  -> .md.ht.list[.md.ht.pop text];
                 `text  -> idx .md.ht.pop text;
                 `para  -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];

@@ -47,7 +47,7 @@ searchIndex: {[phrase]
     format[searchTemplate;#found;unquoted;li]
 };
 
-content: {[url]
+getBook: {[url]
     response: reagent[`async];
     request[response];
     get response

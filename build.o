@@ -1,5 +1,5 @@
 
-mkContainers:"<div id=\"mainContainer\">",
+.http.const.indx: "<div id=\"mainContainer\">",
                 "<div id=\"contentHeader\">",
                     "<div><img id=\"logo\" src=\"/logo.png\"></div>",
                     "<div id=\"searchWrapper\">",
@@ -7,16 +7,14 @@ mkContainers:"<div id=\"mainContainer\">",
                         "<b>&#9906;</b>",
                     "</div>",
                 "</div>",
-
                 "<div id=\"rootWrapper\">",
                     "<div id=\"indexContainer\">",
                         "<div id=\"accordion-menu\">%",
                         "</div>",
-                    "</div>",
+                    "</div>";
 
-
-                    "<div id=\"contentContainer\">",
-                        "<div id=\"content\">%</div>",
+.http.const.cont: "<div id=\"contentContainer\">",
+                        "<div id=\"contentDocument\">%</div>",
                         "<div id=\"footer\">",
                             "<footer>",
                                 "<p>Made with ❤ to O language</p>",
@@ -24,9 +22,7 @@ mkContainers:"<div id=\"mainContainer\">",
                             "</footer>",
                         "</div>",
                     "</div>",
-
                 "</div>",
-
             "</div>";
 
 .http.const.temp: "<!doctype html>\r\n",
@@ -133,16 +129,15 @@ mkindx: {[mdpath]
     body
 };
 
-mkone: {[mdpath;indx]
+mkone: {[mdpath]
     println["building: %";mdpath];
     .content:: ();
     cont: .md.pars "c"$read[`$":",mdpath];
     body: .md.ht.build[cont];
     stem: *"\\." vs last "/" vs mdpath;
-    html: format[.http.const.temp;stem;format[mkContainers;indx;body]];
     outp: ssr[ssr[mdpath;"source/";""];"md";"html"];
     index[`$outp]: ,/.content;
-    +`document`content!(`$outp;html)
+    +`document`content!(`$outp;body)
 };
 
 // get full list of md files
@@ -166,12 +161,15 @@ mkassets: {
     +`document`content!+recs
 };
 
+mkContainer: "";
+
 mkbook: {
     indx: mkindx["source/SUMMARY.md"];
+    mkContainer:: format[.http.const.indx;indx];
     .book:: mkassets[];
     {[file]
         if [~file like "SUMMARY"] {
-            built: .[mkone;(file;indx);{println["-- UNABLE TO BUILD: %";file]}];
+            built: @[mkone;file;{println["-- UNABLE TO BUILD: %";file]}];
             $[null built;();.book,:built];
         }
     }'mdfiles["source/"];

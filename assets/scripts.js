@@ -136,6 +136,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 event.preventDefault();
                 const url = new URL(i.href);
                 httpGetAsync("/?p=" + url.pathname, function (content) {
+                    indexLinks.forEach(i => i.classList.remove("active"));
+                    i.classList.add("active");
+                    currentActiveLink = i;
                     contentDocument.innerHTML = content;
                     Prism.highlightAll();
                     window.history.pushState(window.history.state, "", i.href);

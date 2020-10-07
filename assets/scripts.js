@@ -107,6 +107,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }, 100);
     }
 
+    function loadPageContent(event) {
+        const url = new URL(document.location);
+        httpGetAsync("/?p=" + url.pathname, function (content) {
+            indexLinks.forEach(
+                i => {
+                    if (i.href == window.location.href) {
+                        i.classList.add("active");
+                        currentActiveLink = i;
+                    } else i.classList.remove("active");
+            });
+            contentDocument.innerHTML = content;
+            Prism.highlightAll();
+        });
+    }
+
     searchIcon.addEventListener("click", function (event) {
         toggleSearch();
     });
@@ -134,15 +149,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         i => {
             i.onclick = function (event) {
                 event.preventDefault();
-                const url = new URL(i.href);
-                httpGetAsync("/?p=" + url.pathname, function (content) {
-                    indexLinks.forEach(i => i.classList.remove("active"));
-                    i.classList.add("active");
-                    currentActiveLink = i;
-                    contentDocument.innerHTML = content;
-                    Prism.highlightAll();
-                    window.history.pushState(window.history.state, "", i.href);
-                });
+                window.history.pushState({}, "TODO:add title", i.href);
+                loadPageContent();
             }
             if (i.href == currentPath) {
                 i.classList.add("active");
@@ -156,5 +164,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     toggleMenuTransitions(menuContainer, false);
     openParentSections(currentActiveLink);
     setTimeout(function () { toggleMenuTransitions(menuContainer, true) }, 100);
+
+    window.onpopstate = loadPageContent;
 
 });

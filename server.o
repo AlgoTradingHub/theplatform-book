@@ -2,7 +2,7 @@ home: getenv[`OHOME];
 
 if [""~home] {println["ERROR: $OHOME is not set - exiting..."];exit 101};
 
-load "markdown";
+load home,"markdown";
 load home,"http";
 load home,"core";
 load "build";

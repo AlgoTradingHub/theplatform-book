@@ -26,7 +26,7 @@
     - [. (dot-apply)](/verbs/indexing/dot.md)
   - [Conditional verbs](/nolink.md)
     - [$ (cond)](/verbs/conditional/cond.md)
-    - [? (vector conditional)](verbs/conditional/vcond.md)
+    - [? (vector conditional)](/verbs/conditional/vcond.md)
   - [Relational verbs](/nolink.md)
     - [<, <=](/verbs/relational/less.md)
     - [>, >=](/verbs/relational/greater.md)

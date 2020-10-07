@@ -79,6 +79,18 @@ function toggleMenuTransitions(node, transitionsEnabled) {
     }
 }
 
+function httpGetAsync(url, content) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            content.innerHTML = xmlHttp.responseText;
+            Prism.highlightAll();
+        }
+    }
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let $ = document;
     let searchIcon = $.querySelector("#searchWrapper b");
@@ -121,7 +133,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let currentPath = window.location.href;
     let currentActiveLink = null;
-    indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); currentActiveLink = i; } });
+    indexLinks.forEach(
+        i => {
+            i.onclick = function (event) {
+                event.preventDefault();
+                const url = new URL(i.href);
+                httpGetAsync("/?p=" + url.pathname, contentDocument);
+            }
+            if (i.href == currentPath) {
+                i.classList.add("active");
+                currentActiveLink = i;
+            }
+        });
 
     new AccordionMenu('#accordion-menu');
     let menuContainer = $.getElementById('accordion-menu');

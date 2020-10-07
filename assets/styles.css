@@ -40,7 +40,7 @@ h2 {
     font-family: "Open Sans", sans-serif;
     position: fixed;
     width: 100%;
-    background-color: steelblue;
+    background-color: darkslateblue;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

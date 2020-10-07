@@ -1,4 +1,3 @@
-# -- Summary --
 
 - [Introduction](/index.md)
 - [Platform](/platform/platform.md)

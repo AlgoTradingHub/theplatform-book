@@ -79,13 +79,11 @@ function toggleMenuTransitions(node, transitionsEnabled) {
     }
 }
 
-function httpGetAsync(url, content) {
+function httpGetAsync(url, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            content.innerHTML = xmlHttp.responseText;
-            Prism.highlightAll();
-        }
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText)
     }
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
@@ -123,11 +121,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     searchField.addEventListener("keydown", function (event) {
         let k = event.keyCode;
         if (k == 13) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", "/?q=" + searchField.value, false); // false for synchronous request
-            xmlHttp.send(null);
-            contentContainer.innerHTML = xmlHttp.responseText;
-            toggleSearch();
+            httpGetAsync("/?q=" + searchField.value, function (content) {
+                contentDocument.innerHTML = content;
+                toggleSearch();
+            });
         }
     });
 
@@ -138,7 +135,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             i.onclick = function (event) {
                 event.preventDefault();
                 const url = new URL(i.href);
-                httpGetAsync("/?p=" + url.pathname, contentDocument);
+                httpGetAsync("/?p=" + url.pathname, function (content) {
+                    contentDocument.innerHTML = content;
+                    Prism.highlightAll();
+                    window.history.pushState(window.history.state, "", i.href);
+                });
             }
             if (i.href == currentPath) {
                 i.classList.add("active");

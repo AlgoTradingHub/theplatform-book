@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let searchWrapper = $.getElementById("searchField");
     let searchField = $.querySelector("#searchField input");
     let indexLinks = $.querySelectorAll("#indexContainer a");
-    let contentContainer = $.querySelector("#content");
+    let contentDocument = $.querySelector("#contentDocument");
 
     function toggleSearch() {
         searchWrapper.style.display = isVisible(searchWrapper) ? 'none' : 'block';
@@ -116,9 +116,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         i.classList.add("active");
                         currentActiveLink = i;
                     } else i.classList.remove("active");
-            });
+                });
             contentDocument.innerHTML = content;
             Prism.highlightAll();
+            window.scrollTo(0, 0);
         });
     }
 

@@ -75,8 +75,8 @@ asset: {[url]
     $[0=#r;0N0;r]
 };
 
-.http.default.handle: {[sock;req]
-    url: "c"$1_"x"$.http.req.parse[req][`url];
+.http.default.handle: {[sock;headers]
+    url: "c"$1_"x"$headers[`Url];
     qry: ("q=" vs url)1;
     if [^qry] {
         con: $["html"~last "\\." vs url;html[url];asset[`$url]];

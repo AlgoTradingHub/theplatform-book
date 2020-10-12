@@ -120,7 +120,7 @@ idx: {[item]
                 `note  -> format["<div class=\"note\"><i class='fas fa-bell'> Note: </i> %</div>";$[1<#t:.md.ht.pop text;" " sv o't;o[t]]];
                 `warn  -> format["<div class=\"warn\"><i class='fas fa-exclamation-triangle'> Attention: </i> %</div>";$[1<#t:.md.ht.pop text;" " sv o't;o[t]]];
                 `crit  -> format["<div class=\"crit\"><i class='fas fa-radiation'> Critical: </i> %</div>";$[1<#t:.md.ht.pop text;" " sv o't;o[t]]];
-                `see   -> format["<div class=\"see\"><i class='fas fa-book'></i> %</div>";$[1<#t:.md.ht.pop text;", " sv o't;o[t]]];
+                `see   -> format["<div class=\"see\">%</div>";,/format["<div><i class='fas fa-book'></i> %</div>";]'$[1<#t:.md.ht.pop text;o't;,o[t]]];
                 `para  -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
                 `block -> format["<pre class=\"block\">%</pre>";idx .md.ht.pop text];
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];

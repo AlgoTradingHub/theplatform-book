@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             httpGetAsync("/?q=" + searchField.value, function (content) {
                 contentDocument.innerHTML = content;
                 toggleSearch();
+                window.scrollTo(0, 0);
             });
         }
     });

@@ -20,3 +20,13 @@ o)1 2 3? 2 3 4
 1 2 0N
 o)
 ```
+
+::: ref
+    [? (vector conditional)](/verbs/conditional/vcond.md)
+    [Queries](/queries.md)
+:::
+
+::: info
+    [? (vector conditional)](/verbs/conditional/vcond.md)
+    [Queries](/queries.md)
+:::

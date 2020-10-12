@@ -232,7 +232,7 @@ ul#navigationBar li {
     margin-bottom: 3rem;
 }
 
-.info {
+.block {
     border-radius: 0.25rem;
     font-family: "Roboto";
     background-color: #f0f7fb;
@@ -270,6 +270,16 @@ ul#navigationBar li {
     border: 1px solid lightcoral;
     color: #6e0019;
     padding: 30px;
+}
+
+.ref {
+    font-family: "Arial";
+    padding: 0 30px 0 0;
+}
+
+.info {
+    font-family: "Arial";
+    padding: 0 30px 0 0;
 }
 
 table {

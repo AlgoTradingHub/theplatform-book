@@ -2,9 +2,19 @@
 
 Subtracts scalar/vector elements. Fully atomic.
 
-```o
-o) 1-1
-0
-o) 1-1 2 3
-0 -1 -2
+**Syntax:** ```x-y; -[x;y]```
+
 ```
+o)2-1
+1
+o)// Attention!!!
+o)5 - 2
+3
+o)5 -2
+5 -2
+o)- 2 3
+-2 -3
+o)-2 3
+-2 3
+```
+

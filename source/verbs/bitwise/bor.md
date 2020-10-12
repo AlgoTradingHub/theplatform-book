@@ -1,9 +1,19 @@
-### Bitwise OR (bor)
+# bor
+
+Bitwise OR
 
 **Syntax:** ```x bor y; bor[x;y]```
 
 ```o
-o)0 bor 1
-1
+o)10 bor 12
+14
 o)
+```
+
+_Explanation:_
+```
+    1010 
+ OR 1100
+    ====
+    1110
 ```

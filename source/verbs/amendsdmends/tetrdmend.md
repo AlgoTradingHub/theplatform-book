@@ -1,4 +1,4 @@
-### Tetradic . (dmend)
+# Tetradic . (dmend)
 
 Applies dyadic verb (third argument) to first argument indexed in depth by second one.
 

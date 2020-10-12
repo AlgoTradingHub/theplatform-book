@@ -1,4 +1,4 @@
-### Triad . (dmend)
+# Triad . (dmend)
 
 Applies monadic verb (third argument) to first argument indexed in depth by second one.
 

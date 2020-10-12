@@ -1,4 +1,4 @@
-### Dyadic @ (at)
+# Dyadic @ (at)
 
 Index left arg vector/list/dict by right arg.
 

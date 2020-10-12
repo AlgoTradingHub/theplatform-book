@@ -1,4 +1,4 @@
-### Diadic ? (search)
+# Diadic ? (search)
 
 Searches an first occurance of it's right argument in a left one and
 returns position index as a number or nill if not found

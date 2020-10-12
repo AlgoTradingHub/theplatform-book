@@ -1,4 +1,4 @@
-### Dyadic | (or/max)
+# Dyadic | (or/max)
 
 Applies boolean "or" for bool args. Fully atomic.
 

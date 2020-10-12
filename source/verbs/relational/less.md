@@ -1,4 +1,4 @@
-## Dyadic < (less) and <= (less or equal)
+# Dyadic < (less) and <= (less or equal)
 
 Does per element "less" comparison. Fully atomic.
 

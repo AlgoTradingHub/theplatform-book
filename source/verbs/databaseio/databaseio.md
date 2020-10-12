@@ -1,4 +1,4 @@
-## Database IO
+# Database IO
 
 One of important features is database persistance. Conceptually, there are two kinds of persistance in O language - reading/writing entire files from/to disk and projecting vectors/tables directly from disk.
 

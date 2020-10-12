@@ -1,4 +1,4 @@
-### Bitwise XOR (bxor)
+# Bitwise XOR (bxor)
 
 **Syntax:** ```x bxor y; bxor[x;y]```
 

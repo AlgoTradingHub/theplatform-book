@@ -1,4 +1,4 @@
-### Dyadic > (greater) and >= (greater or equal)
+# Dyadic > (greater) and >= (greater or equal)
 
 Does per element "greater" comparison. Fully atomic.
 

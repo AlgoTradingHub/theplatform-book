@@ -1,4 +1,4 @@
-### Monadic ~ (not)
+# Monadic ~ (not)
 
 Inverts boolean vector. Right atomic.
 

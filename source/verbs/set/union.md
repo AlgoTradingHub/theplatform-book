@@ -1,4 +1,4 @@
-### Union
+# Union
 
 Set union is ```union``` dyadic verb. Works by returning those values which present in left argument and right one.
 

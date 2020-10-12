@@ -1,4 +1,4 @@
-### Bitwise AND (band)
+# Bitwise AND (band)
 
 **Syntax:** ```x band y; band[x;y]```
 

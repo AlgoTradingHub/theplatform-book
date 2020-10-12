@@ -1,4 +1,4 @@
-### Dyadic <> (not equals)
+# Dyadic <> (not equals)
 
 Reversed result of equals
 

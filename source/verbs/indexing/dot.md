@@ -1,4 +1,4 @@
-### Dyadic . (dot-apply)
+# Dyadic . (dot-apply)
 
 Index left arg vector/list/dict in depth by right arg.
 

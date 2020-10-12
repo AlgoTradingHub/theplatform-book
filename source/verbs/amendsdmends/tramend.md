@@ -1,4 +1,4 @@
-### Triad @ (amend)
+# Triad @ (amend)
 
 Applies monadic verb (third argument) to first argument indexed by second one.
 

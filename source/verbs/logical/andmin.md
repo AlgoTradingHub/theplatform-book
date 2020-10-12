@@ -1,4 +1,4 @@
-### Dyadic & (and/min)
+# Dyadic & (and/min)
 
 Applies boolean "and" for bool args. Fully atomic.
 

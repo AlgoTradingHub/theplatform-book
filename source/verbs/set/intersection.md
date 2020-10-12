@@ -1,4 +1,4 @@
-### Intersection
+# Intersection
 
 A standard set functions are implemented for simple vectors. That is vectors are treated as sets of values. No attributes are expected to be attached to input vectors. No particular order is guaranteed.
 

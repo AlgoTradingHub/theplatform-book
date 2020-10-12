@@ -1,4 +1,4 @@
-### Triad $ (cond)
+# Triad $ (cond)
 
 Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately.
 Only first argument is evaluated, and if it's corresponds to truth then second argument is evaluated and becomes the result of cond expression. Otherwise, third argument is evaluated.

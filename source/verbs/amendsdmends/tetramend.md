@@ -1,4 +1,4 @@
-### Tetradic @ (amend)
+# Tetradic @ (amend)
 
 Applies dyadic verb (third argument) to first argument indexed by second one.
 

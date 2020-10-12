@@ -1,4 +1,4 @@
-### Dyadic = (equal)
+# Dyadic = (equal)
 
 Does per element "equal" comparison. Fully atomic.
 

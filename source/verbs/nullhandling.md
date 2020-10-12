@@ -1,4 +1,4 @@
-## Null Handling (^)
+# Null Handling (^)
 
 Checks if elements are nulls. Right atomic.
 

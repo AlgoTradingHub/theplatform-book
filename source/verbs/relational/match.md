@@ -1,4 +1,4 @@
-### Dyadic ~ (match)
+# Dyadic ~ (match)
 
 Does "deep"/recursive "equal" comparison.
 

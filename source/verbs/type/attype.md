@@ -1,4 +1,4 @@
-### Monadic @ (type)
+## Monadic @ (type)
 
 Returns internal type id of argument.
 

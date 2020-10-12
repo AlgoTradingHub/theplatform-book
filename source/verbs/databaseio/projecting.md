@@ -1,4 +1,4 @@
-### Projecting files concept
+# Projecting files concept
 
 In order to use projecting into memory, structure must fit into flat vectors of fixed-sized elements.
 

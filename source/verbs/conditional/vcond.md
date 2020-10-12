@@ -1,4 +1,4 @@
-### Triadic ? (vector conditional)
+# Triadic ? (vector conditional)
 
 Verb returns value made of second or third argument depending on first boolean scalar or vector argument.
 Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.

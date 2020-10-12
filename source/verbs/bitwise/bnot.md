@@ -1,4 +1,4 @@
-### Bitwise NOT (bnot)
+# Bitwise NOT (bnot)
 
 **Syntax:** ```bnot x; bnot[x]```
 

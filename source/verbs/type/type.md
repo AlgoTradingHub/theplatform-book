@@ -1,4 +1,4 @@
-### Monadic "type" Function
+# Monadic "type" Function
 
 Returns typespec of its argument.
 

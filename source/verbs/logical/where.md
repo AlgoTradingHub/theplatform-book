@@ -1,4 +1,4 @@
-### Monadic & (where)
+# Monadic & (where)
 
 Returns integer vector of true positions in boolean vectors.
 

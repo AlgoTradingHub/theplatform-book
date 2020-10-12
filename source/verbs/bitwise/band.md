@@ -1,4 +1,4 @@
-### Bitwise AND (band)
+# Bitwise AND (band)
 
 **Syntax:** ``x band y; band[x;y]``
 
@@ -10,8 +10,8 @@ o)
 
 _Explanation:_
 
-```o
-    1010 
+```
+    1010
 AND 1100
     ====
     1000

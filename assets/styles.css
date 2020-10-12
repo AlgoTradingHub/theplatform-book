@@ -245,6 +245,36 @@ ul#navigationBar li {
     margin-bottom: 3rem;
 }
 
+.note {
+    border-radius: 0.25rem;
+    font-family: "Arial";
+    background-color: #d1ecf1;
+    border: 1px solid powderblue;
+    color: #0c5460;
+    padding: 30px;
+    margin-bottom: 3rem;
+}
+
+.warn {
+    border-radius: 0.25rem;
+    font-family: "Arial";
+    background-color: moccasin;
+    border: 1px solid sandybrown;
+    color: #ae5a00;
+    padding: 30px;
+    margin-bottom: 3rem;
+}
+
+.crit {
+    border-radius: 0.25rem;
+    font-family: "Arial";
+    background-color: #ee7792;
+    border: 1px solid #e40034;
+    color: #6e0019;
+    padding: 30px;
+    margin-bottom: 3rem;
+}
+
 table {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
     border-radius: 0.25rem;

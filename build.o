@@ -38,6 +38,7 @@
             "<link rel=\"stylesheet\" href=\"/prism.css\">",
             "<script src=\"/scripts.js\"></script>",
             "<script src=\"/prism.js\"></script>",
+            "<script src=\"https://kit.fontawesome.com/a076d05399.js\"></script>",
             "<title>%</title>\r\n",
             "</head>\r\n",
             "<body>\r\n",
@@ -116,6 +117,9 @@ idx: {[item]
                 `curs  -> format["<i>%</i>";idx .md.ht.pop text];
                 `list  -> .md.ht.list[.md.ht.pop text];
                 `text  -> idx .md.ht.pop text;
+                `note  -> format["<div class=\"note\"><i class='fas fa-bell'> Note: </i> %</div>";idx .md.ht.pop text];
+                `warn  -> format["<div class=\"warn\"><i class='fas fa-exclamation-triangle'> Attention: </i> %</div>";idx .md.ht.pop text];
+                `crit  -> format["<div class=\"crit\"><i class='fas fa-radiation'> Critical: </i> %</div>";idx .md.ht.pop text];
                 `para  -> format["<div><p>%</p></div>";$[1<#t:.md.ht.pop text;,/o't;o[t]]];
                 `block -> format["<pre class=\"info\">%</pre>";idx .md.ht.pop text];
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];

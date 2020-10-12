@@ -3,7 +3,7 @@
 Adds scalar/vector elements. Fully atomic.
 
 
-**Syntax:** ```x+y, +[x;y]```
+**Syntax:** ``x+y, +[x;y]``
 
 Where x and y are scalars or vectors, returns theirs sum.
 

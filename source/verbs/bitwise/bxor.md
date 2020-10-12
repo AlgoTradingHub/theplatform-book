@@ -1,8 +1,6 @@
-# bxor
+### Bitwise XOR (bxor)
 
-Bitwise XOR
-
-**Syntax:** ```x bxor y; bxor[x;y]```
+**Syntax:** ``x bxor y; bxor[x;y]``
 
 ```o
 o)10 bxor 12
@@ -10,8 +8,9 @@ o)10 bxor 12
 o)
 ```
 
-_Explanation:_
-```
+_Explanation:
+_
+```o
     1010 
 XOR 1100
     ====

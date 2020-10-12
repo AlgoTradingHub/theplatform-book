@@ -1,8 +1,6 @@
-# bnot
+### Bitwise NOT (bnot)
 
-Bitwise NOT
-
-**Syntax:** ```bnot x; bnot[x]```
+**Syntax:** ``bnot x; bnot[x]``
 
 ```o
 o)bnot 2h
@@ -11,7 +9,8 @@ o)
 ```
 
 _Explanation:_
-```
+
+```o
 NOT 0000000000000010
     ================
     1111111111111101

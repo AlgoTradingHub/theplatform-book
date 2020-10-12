@@ -2,7 +2,7 @@
 
 Divides scalar/vector elements. Fully atomic.
 
-**Syntax:** ```x%y; %[x;y]```
+**Syntax:** ``x%y; %[x;y]``
 
 Where x,y: scalars or vectors
 

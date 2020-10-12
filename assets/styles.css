@@ -259,7 +259,7 @@ ul#navigationBar li {
     border-radius: 0.25rem;
     font-family: "Arial";
     background-color: moccasin;
-    border: 1px solid sandybrown;
+    border: 1px solid burlywood;
     color: #ae5a00;
     padding: 30px;
     margin-bottom: 3rem;
@@ -268,8 +268,8 @@ ul#navigationBar li {
 .crit {
     border-radius: 0.25rem;
     font-family: "Arial";
-    background-color: #ee7792;
-    border: 1px solid #e40034;
+    background-color: lightpink;
+    border: 1px solid lightcoral;
     color: #6e0019;
     padding: 30px;
     margin-bottom: 3rem;

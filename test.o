@@ -1,4 +1,8 @@
-load "markdown";
+home: getenv[`OHOME];
+
+if [""~home] {println["ERROR: $OHOME is not set - exiting..."];exit 101};
+
+load home,"markdown";
 load "build";
 
 .content:();

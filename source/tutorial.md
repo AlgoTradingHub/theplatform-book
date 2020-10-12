@@ -29,9 +29,11 @@ o)
 
 Whenever you see "o)" line, you can safely assume interpreter waits for your input.
 
-> Small hint - it's better to run interpreter using "rlwrap" utility.
-> It allows to use arrow keys to recall history ("up" key)
-> and edit it using "left" and "right" arrows.
+::: note
+Small hint - it's better to run interpreter using "rlwrap" utility.
+It allows to use arrow keys to recall history ("up" key)
+and edit it using "left" and "right" arrows.
+:::
 
 ```o
 $ rlwrap cargo run --release --bin tachyon
@@ -164,8 +166,11 @@ o) l
 
 Lists are printed by placing each element on new line. Another peculiarity is that float values have special suffixes defining their "float" type.
 
-> The important thing about lists is that they can be nested.
-> It means lists allow to keep another vectors and lists in them.
+::: note
+The important thing about lists is that they can be nested.
+It means lists allow to keep another vectors and lists or any other types
+in them.
+:::
 
 ```o
 o) l: (1;1 2 3;(1;2.0))
@@ -1068,12 +1073,18 @@ Started with file: etc/factorial.o
 
 ## Tables
 
+::: note
 TODO
+:::
 
 ## Queries
 
+::: warn
 TODO
+:::
 
 ## Idioms
 
+::: crit
 TODO
+:::

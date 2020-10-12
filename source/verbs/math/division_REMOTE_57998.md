@@ -1,4 +1,4 @@
-# Dyadic division
+### Dyadic division
 
 Divides scalar/vector elements. Fully atomic.
 
@@ -21,3 +21,4 @@ o)2f%3 5 4 3 2f
 0.6666666666666666 0.4 0.5 0.6666666666666666 1
 o)
 ```
+

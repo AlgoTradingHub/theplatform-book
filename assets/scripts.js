@@ -79,13 +79,23 @@ function toggleMenuTransitions(node, transitionsEnabled) {
     }
 }
 
+function httpGetAsync(url, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText)
+    }
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let $ = document;
     let searchIcon = $.querySelector("#searchWrapper b");
     let searchWrapper = $.getElementById("searchField");
     let searchField = $.querySelector("#searchField input");
     let indexLinks = $.querySelectorAll("#indexContainer a");
-    let contentContainer = $.querySelector("#content");
+    let contentDocument = $.querySelector("#contentDocument");
 
     function toggleSearch() {
         searchWrapper.style.display = isVisible(searchWrapper) ? 'none' : 'block';
@@ -95,6 +105,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 searchField.focus();
             }
         }, 100);
+    }
+
+    function loadPageContent(event) {
+        const url = new URL(document.location);
+        httpGetAsync("/?p=" + url.pathname, function (content) {
+            indexLinks.forEach(
+                i => {
+                    if (i.href == window.location.href) {
+                        i.classList.add("active");
+                        currentActiveLink = i;
+                    } else i.classList.remove("active");
+                });
+            contentDocument.innerHTML = content;
+            Prism.highlightAll();
+            window.scrollTo(0, 0);
+        });
     }
 
     searchIcon.addEventListener("click", function (event) {
@@ -111,17 +137,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     searchField.addEventListener("keydown", function (event) {
         let k = event.keyCode;
         if (k == 13) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", "/?q=" + searchField.value, false); // false for synchronous request
-            xmlHttp.send(null);
-            contentContainer.innerHTML = xmlHttp.responseText;
-            toggleSearch();
+            httpGetAsync("/?q=" + searchField.value, function (content) {
+                contentDocument.innerHTML = content;
+                toggleSearch();
+                window.scrollTo(0, 0);
+            });
         }
     });
 
     let currentPath = window.location.href;
     let currentActiveLink = null;
-    indexLinks.forEach(i => { if (i.href == currentPath) { i.classList.add("active"); currentActiveLink = i; } });
+    indexLinks.forEach(
+        i => {
+            i.onclick = function (event) {
+                event.preventDefault();
+                window.history.pushState({}, "TODO:add title", i.href);
+                loadPageContent();
+            }
+            if (i.href == currentPath) {
+                i.classList.add("active");
+                currentActiveLink = i;
+            }
+        });
 
     new AccordionMenu('#accordion-menu');
     let menuContainer = $.getElementById('accordion-menu');
@@ -129,5 +166,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     toggleMenuTransitions(menuContainer, false);
     openParentSections(currentActiveLink);
     setTimeout(function () { toggleMenuTransitions(menuContainer, true) }, 100);
+
+    window.onpopstate = loadPageContent;
 
 });

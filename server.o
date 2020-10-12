@@ -47,20 +47,39 @@ searchIndex: {[phrase]
     format[searchTemplate;#found;unquoted;li]
 };
 
-content: {[url]
+getBook: {[url]
     response: reagent[`async];
     request[response];
-    book: get response;
+    get response
+};
+
+html: {[url]
+    pag: ("p=" vs url)1;
+    book: getBook[];
+    if [^pag] {
+        c: 0N#.?[book;,(=;`document;,`$url);0b;()];
+        r: *c[`content];
+        $[0=#r;0N0;format[.http.const.temp;*"\\." vs url;
+                mkContainer,format[.http.const.cont;r]]]
+    } else {
+        c: 0N#.?[book;,(=;`document;,`$"c"$1_"x"$pag);0b;()];
+        r: *c[`content];
+        $[0=#r;0N0;r]
+    }
+};
+
+asset: {[url]
+    book: getBook[];
     c: 0N#.?[book;,(=;`document;,url);0b;()];
     r: *c[`content];
     $[0=#r;0N0;r]
 };
 
-.http.default.handle: {[sock;req]
-    url: "c"$1_"x"$.http.req.parse[req][`url];
+.http.default.handle: {[sock;headers]
+    url: "c"$1_"x"$headers[`Url];
     qry: ("q=" vs url)1;
     if [^qry] {
-        con: content[`$url];
+        con: $["html"~last "\\." vs url;html[url];asset[`$url]];
         $[0N0~con;
             .http.resp.error[sock;404;"Not found";"Invalid URL"];
             .http.resp.ok[sock;`$("\\." vs url)1;con]]

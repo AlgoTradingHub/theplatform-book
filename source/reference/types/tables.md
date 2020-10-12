@@ -14,8 +14,8 @@ a b c
 1 4 7
 2 5 8
 3 6 9
-
 ```
+
 Only constant expressions for field vectors are allowed.
 
 Another way of creating tables is flipping a dictionary, like following:
@@ -289,9 +289,9 @@ Saving table value to disk is pretty simple. Just choose directory for keeping y
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table/; f set a;
 ```
 
-Important! Please pay attention to trailing slash in path symbol. That defines saving table as splayed table.
+> Important! Please pay attention to trailing slash in path symbol. That defines saving table as splayed table.
 
-Doing that creates /tmp/o_table directory filled with files named ".d", "a", "b" and "c".
+Doing that creates ``/tmp/o_table`` directory filled with files named ".d", "a", "b" and "c".
 That is all fields to directly to corresponding files. And ".d" file contains symbol vector \`a\`b\`c for keeping table field order.
 
 Please pay attention that only fields mentioned in ".d" file are considered as table fields. Thus even if files will reside in table directory, but not in ".d" file, they will be ignored.

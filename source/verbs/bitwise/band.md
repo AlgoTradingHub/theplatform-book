@@ -1,9 +1,18 @@
 # Bitwise AND (band)
 
-**Syntax:** ```x band y; band[x;y]```
+**Syntax:** ``x band y; band[x;y]``
 
 ```o
-o)1 band 2
-3
+o)10 band 12
+8
 o)
+```
+
+_Explanation:_
+
+```o
+    1010 
+AND 1100
+    ====
+    1000
 ```

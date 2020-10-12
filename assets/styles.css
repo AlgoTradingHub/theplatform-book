@@ -252,7 +252,6 @@ ul#navigationBar li {
     border: 1px solid powderblue;
     color: #0c5460;
     padding: 30px;
-    margin-bottom: 3rem;
 }
 
 .warn {
@@ -262,7 +261,6 @@ ul#navigationBar li {
     border: 1px solid burlywood;
     color: #ae5a00;
     padding: 30px;
-    margin-bottom: 3rem;
 }
 
 .crit {
@@ -272,7 +270,6 @@ ul#navigationBar li {
     border: 1px solid lightcoral;
     color: #6e0019;
     padding: 30px;
-    margin-bottom: 3rem;
 }
 
 table {

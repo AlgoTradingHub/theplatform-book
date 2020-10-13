@@ -120,7 +120,9 @@ c      long 2128
 (`a`b)
 ```
 
-_BTW. “meta” verb can be used to see which table indices are there._
+::: note
+"meta" verb can be used to see which table indices are there.
+:::
 
 Mutable attribute build is done via **@** tetrad with second argument being enclosed symbol vector:
 
@@ -144,6 +146,7 @@ o)(!10)~a?(+:)`a`c`b!(!10;!10;!10)
 ```
 
 Dropping index is done using null symbol in amend:
+
 ```o
 o) a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); @[`a;,`a`b;~#;`g];
 o) meta a

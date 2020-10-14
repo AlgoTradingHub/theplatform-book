@@ -215,10 +215,16 @@ ul#navigationBar li {
 .code-inline {
     border-radius: 0.25rem;
     display: inline;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
     border: 1px solid #e5e5e5;
     background: white;
-    color: #000000;
+    color: #000000; */
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+    /* font-size: 90%; */
+    background: #C4ECFF;
+    border-color: #7BA5DB;
 }
 
 .code {

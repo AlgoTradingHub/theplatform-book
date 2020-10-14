@@ -1,6 +1,6 @@
 # null (^)
 
-Checks if x is null
+Checks if `x` is null.
 
 **Syntax:** ```null x; null[x]; ^x; ^[x]```
 

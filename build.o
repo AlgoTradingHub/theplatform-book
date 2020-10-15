@@ -38,7 +38,7 @@
             "<link rel=\"stylesheet\" href=\"/prism.css\">",
             "<script src=\"/scripts.js\"></script>",
             "<script src=\"/prism.js\"></script>",
-            "<script src=\"https://kit.fontawesome.com/a076d05399.js\"></script>",
+            "<script src=\"/fontawesome.js\"></script>",
             "<title>%</title>\r\n",
             "</head>\r\n",
             "<body>\r\n",

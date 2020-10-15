@@ -1,4 +1,5 @@
 home: getenv[`OHOME];
+bind: getenv[`BIND];
 
 if [""~home] {println["ERROR: $OHOME is not set - exiting..."];exit 101};
 
@@ -18,6 +19,7 @@ react {[x:request] x[book]};
 
 // Serve
 .http.default.host:  "PlatformBook";
+.http.default.bind:  $[""~bind;"0.0.0.0:8080";bind];
 
 searchTemplate: "<div id=\"searchResultsOuter\">",
     "<div id =\"searchResultsHeader\">% search results for '%':</div>",

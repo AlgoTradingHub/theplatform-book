@@ -149,8 +149,8 @@ ul#navigationBar li {
     padding: 0px 1.875rem !important;
     font-family: "Open Sans", sans-serif;
     background-color: #f5f7f9;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -209,6 +209,7 @@ ul#navigationBar li {
     color: #999999;
     padding-top: 20px;
     margin-top: 40px;
+    margin-bottom: 40px;
     box-shadow: 0 -1px 0 lightgray;
 }
 
@@ -391,4 +392,5 @@ a:active, a:focus {
 
 #accordion-menu {
     margin: 100px 0 20px 0;
+    padding-bottom: 40px;
 }

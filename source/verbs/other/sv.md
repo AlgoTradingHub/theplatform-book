@@ -1,8 +1,10 @@
-# sv (Scalar from vector)
+# Dyadic sv 
+
+Scalar from vector
 
 **Syntax:** ``x sv y; sv[x;y]``
 
-*Expamples with string:*
+_Expamples with string:_
 
 ```o
 o)"," sv ("a";"b";"c")
@@ -11,7 +13,7 @@ o)"" sv ("a";"b";"cd")
 "abcd"
 ```
 
-*Numeric scalar from bits vector:*
+_Numeric scalar from bits vector:_
 
 ```o
 o)0b sv 0000000000000000000000000000000000000000000000000000000000000010b
@@ -25,7 +27,7 @@ o)0f sv 0100000000010100000000000000000000000000000000000000000000000000b
 5f
 ```
 
-*Guid from bits vector:*
+_Guid from bits vector:_
 
 ```o
 o)0b sv 00010010001010100001111110000100000100010100100001001010110111011011100000001000110111000100001100011111101000010100100100110100b
@@ -34,7 +36,7 @@ o)0Ng sv 00010010001010100001111110000100000100010100100001001010110111011011100
 122a1f84-1148-4add-b808-dc431fa14934
 ```
 
-*Temporal scalar from bits vector:*
+_Temporal scalar from bits vector:_
 
 ```o
 o)0p sv 0000100100001100001011100101100010110111111110000100010000110011b
@@ -45,7 +47,7 @@ o)0t sv 00000011100001000101011011100000b
 16:23:24.640
 ```
 
-*Scalar from vector of bytes:*
+_Scalar from vector of bytes:_
 
 ```o
 o)0x sv 0xf3eb1bab5f594fc2be35da66c409cda4

@@ -1,8 +1,10 @@
-# vs (Vector from scalar)
+# Dyadic vs 
+
+Vector from scalar
 
 **Syntax:** ``x vs y; vs[x;y]``
 
-*Expamples with string:*
+_Expamples with string:_
 
 ```o
 o)"," vs "a,b,c,d"
@@ -21,7 +23,7 @@ o)"" vs "a,b,c,d"
 "d"
 ```
 
-*Bits vector from numeric scalar:*
+_Bits vector from numeric scalar:_
 
 ```o
 o)0b vs 2
@@ -34,7 +36,7 @@ o)0b vs 5f
 0100000000010100000000000000000000000000000000000000000000000000b
 ```
 
-*Bits vector from random Guid:*
+_Bits vector from random Guid:_
 
 ```o
 o)0b vs first[1?0Ng]
@@ -46,7 +48,7 @@ cbfffe94-282f-4a1b-aa26-034960cfab91
 00101100100100000100101010101100010001111101100101000110100100111011111000101000010010110101000101000100110010101000110010010110b
 ```
 
-*Bits vector from temporal scalar:*
+_Bits vector from temporal scalar:_
 
 ```o
 o)now:ts[]
@@ -63,7 +65,7 @@ o)0b vs `time$now
 00000011100001000101011011100000b
 ```
 
-*Bytes vector from scalar:*
+_Bytes vector from scalar:_
 
 ```o
 o)g: first 1?0Ng

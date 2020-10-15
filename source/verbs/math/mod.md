@@ -1,4 +1,4 @@
-# mod
+# Dyadic mod
 
 Division remainder
 

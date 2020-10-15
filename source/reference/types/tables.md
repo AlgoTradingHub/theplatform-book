@@ -40,7 +40,9 @@ a b c
 3 6 9
 ```
 
-Important observation here is that flipping the dictionary is constant time operation. Technically only new "table" type structure created with references to dictionary contents.
+::: warn
+Important! Observation here is that flipping the dictionary is constant time operation. Technically only new "table" type structure created with references to dictionary contents.
+:::
 
 ## Table indexing
 
@@ -289,7 +291,9 @@ Saving table value to disk is pretty simple. Just choose directory for keeping y
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table/; f set a;
 ```
 
-> Important! Please pay attention to trailing slash in path symbol. That defines saving table as splayed table.
+::: warn
+Important! Please pay attention to trailing slash in path symbol. That defines saving table as splayed table.
+:::
 
 Doing that creates ``/tmp/o_table`` directory filled with files named ".d", "a", "b" and "c".
 That is all fields to directly to corresponding files. And ".d" file contains symbol vector \`a\`b\`c for keeping table field order.
@@ -335,7 +339,6 @@ a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table3/; f set a; a:0;
 .[f;();,;(10;20;30)];
 // appending two records
 .[f;();,;(10 10;20 20;30 30)];
-
 ```
 
 Opening table in workspace works by binding global variable to table mmapped on disk.

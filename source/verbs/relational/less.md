@@ -1,8 +1,8 @@
 # Dyadic < (less than) and <= (up to)
 
-**Syntax:** ```x<y; x<=y; <[x;y]; <=[x;y]```
-
 Returns `1b` where `x` is less than (or up to) `y`. Fully atomic.
+
+**Syntax:** ```x<y; x<=y; <[x;y]; <=[x;y]```
 
 ```o
 o)1 0 3<1
@@ -18,6 +18,4 @@ o)0.5>0 1 2 3f
 
 ::: see
 [>, >= (greater than, at least)](/verbs/relational/greater.md)
-[= (equal)](/verbs/relational/equal.md)
-[<> (not equal)](/verbs/relational/notequal.md)
 :::

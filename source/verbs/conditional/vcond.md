@@ -1,13 +1,13 @@
 # Triadic ? (vector conditional)
 
-Verb returns value made of second or third argument depending on first boolean scalar or vector argument.
+This verb returns value made of second or third argument depending on first boolean scalar or vector argument.
 Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.
 
 First scalar boolean is the same condition expression.
 ```o
 o)?[1b;1;2]
 1
-o)?[0b;1;2 2 3]
+o)
 2 2 3
 ```
 
@@ -21,3 +21,7 @@ o)?[001b;1;(2;"123";3)]
 "123"
 1
 ```
+
+::: see
+[conditional](/verbs/conditional/cond.md)
+:::

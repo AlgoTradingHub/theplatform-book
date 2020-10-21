@@ -5,7 +5,7 @@ Only the first argument is evaluated. If it is true the second argument is evalu
 
 **Syntax:** ```$[x;y;z]```
 
-where `x` is condition, `y` is an expression to be evaluated if `x` is true, `z` is an expression evaluated if `x` is false.
+where `x` is condition, `y` is an expression evaluated if `x` is true, `z` is an expression evaluated if `x` is false.
 
 The concept of truth here is a bit complex:
 
@@ -23,6 +23,18 @@ o)$[0n;"yes";"no"]
 "no"
 o)$[();1;2]
 2
+o)t:([]a:1 2;b:1.1 2.2)
+a b
+-----
+1 1.1
+2 2.2
+o)$[t;1;0]
+1
+o)d:`a`b!(1 2 3;1.1 2.2 3.3)
+a| 1 2 3
+b| 1.1 2.2 3.3
+o)$[d;1;0]
+1
 o)
 ```
 
@@ -31,4 +43,16 @@ Another thing to remember is that simulation of short circuit evaluation of cond
 o) a:1 2 3;
 o) $[a;$[1=a[0];2;3];4]
 2
+o)t:([]a:1 2;b:1.1 2.2)
+a b
+-----
+1 1.1
+2 2.2
+o)$[3=count t;$[d[`b;1]=2.2;1;2];$[d[`a;0]=0;3;4]]
+3
+o)
 ```
+
+::: see
+[vector conditional](/verbs/conditional/vcond.md)
+:::

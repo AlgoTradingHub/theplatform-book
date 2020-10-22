@@ -127,7 +127,7 @@ c      long 2128
 Mutable attribute build is done via **@** tetrad with second argument being enclosed symbol vector:
 
 ```o
-o)a:(+:)`a`b`c!(!5;!5;!5); @[`a;,`a`b`c;~#;`g]; meta a
+o)a:(+:)`a`b`c!(!5;!5;!5); @[`a;,`a`b`c;~[#];`g]; meta a
 column type id
 ----------------
 a      long 2128
@@ -140,7 +140,7 @@ In either way, “find” verb will use attribute/index with appropriate fields 
 
 ```o
 o)a:(+:)`a`b`c!(!10;!10;!10);
-o)@[`a;,`a`b`c;~#;`g];
+o)@[`a;,`a`b`c;~[#];`g];
 o)(!10)~a?(+:)`a`c`b!(!10;!10;!10)
 1b
 ```
@@ -148,11 +148,11 @@ o)(!10)~a?(+:)`a`c`b!(!10;!10;!10)
 Dropping index is done using null symbol in amend:
 
 ```o
-o) a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); @[`a;,`a`b;~#;`g];
+o) a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); @[`a;,`a`b;~[#];`g];
 o) meta a
 +`column`type`id!(`a`b`c;`long`long`long;22688 22688 22688)
 (`a`b)
-o) @[`a;,`a`b;~#;`];
+o) @[`a;,`a`b;~[#];`];
 o) meta a
 +`column`type`id!(`a`b`c;`long`long`long;22688 22688 22688)
 ()
@@ -166,7 +166,7 @@ Multi-column indices on disk are fully supported. See index on disk with enums:
 o) sym:`symbol$!5;
 o) fsym:`:/tmp/midx/o_sym_midx.dat; fsym set sym;
 o) a:(+:)`a`b`c!(`sym$`symbol$!5;10+!5;20+!5);
-o) @[`a;,`a`b`c;~#;`g];
+o) @[`a;,`a`b`c;~[#];`g];
 o) f:`:/tmp/midx/; f set a;
 o) b:get f; sym: get fsym; // read all data from disk
 o) @[`b;`a;~$;`sym]; // attach symbol for enums
@@ -180,7 +180,7 @@ Example with index read on demand off the disk:
 o) sym:`symbol$!15;
 o) fsym:`:/tmp/midx/o_sym_midx.dat; fsym set sym;
 o) a:(+:)`a`b`c!(`sym$`symbol$!5;`sym$`symbol$10+!5;20+!5);
-o) @[`a;,`a`b`c;~#;`g];
+o) @[`a;,`a`b`c;~[#];`g];
 o) f:`:/tmp/midx/; f set a; // save entire table with index on disk
 o) load f; // read table with index into workspace
 o) @[`midx;`a`b;~$;`sym];

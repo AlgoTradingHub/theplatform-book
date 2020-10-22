@@ -361,8 +361,8 @@ Multi-column joins are also supported. Same logic about building indices ahead o
 ```o
 o) t1:((+:)`a`b`c!(3 1 2;3 4 5;6 7 8));
 o) t2:((+:)`a`d`e`f!(1 2 3;4 5 3;16 17 18;("111";"222";"333")));
-o) @[`t1;,`a`b;~#;`g];
-o) @[`t2;,`a`d;~#;`g];
+o) @[`t1;,`a`b;~[#];`g];
+o) @[`t2;,`a`d;~[#];`g];
 o) j: ij[(`t1;t1);(`t2;t2);((~`t1`a;~`t1`b);(~`t2`a;~`t2`d))];
 o) 0N#.(?[j; (); 0b; `a`b`e`f!(~`t1`a;~`t1`b;~`t2`e;~`t2`f)])
 a b e  f
@@ -408,7 +408,7 @@ Multi-column left joins are also supported. Same logic about building indices ah
 ```o
 o) t1:((+:)`a`b`c!(3 2 0;3 4 5;6 7 8));
 o) t2:((+:)`a`b`e`f!(3 2 3;3 4 3;16 17 18;("111";"222";"333")));
-o) @[`t2;,`a`d;~#;`g];
+o) @[`t2;,`a`d;~[#];`g];
 o) j:lj[(`t1;t1);(`t2;t2);((~`t1`a;~`t1`b);(~`t2`a;~`t2`b))];
 o) 0N#.(?[j; (); 0b; `a`b`e`f!(~`t1`a;~`t1`b;~`t2`e;~`t2`f)])
 ------------

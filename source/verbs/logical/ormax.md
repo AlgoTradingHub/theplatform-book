@@ -2,7 +2,7 @@
 
 Applies boolean "or" for bool arguments. Fully atomic.
 
-**Syntax:** ```x|y; |[x;y]```
+**Syntax:** ```x|y; x or y; |[x;y]; or[x;y]```
 
 ```o
 o)1b|010b

@@ -24,4 +24,5 @@ o)?[001b;1;(2;"123";3)]
 
 ::: see
 [conditional](/verbs/conditional/cond.md)
+[? (search)](/verbs/search/search.md)
 :::

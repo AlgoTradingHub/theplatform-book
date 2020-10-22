@@ -2,7 +2,7 @@
 
 Inverts boolean vector. Right atomic.
 
-**Syntax:** ```~x; ~[x]```
+**Syntax:** ```~x; not x; ~[x]; not[x]```
 
 ```o
 o)~1010b

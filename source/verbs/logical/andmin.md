@@ -2,7 +2,7 @@
 
 Applies boolean "and" for bool arguments. Fully atomic.
 
-**Syntax:** ```x&y; &[x;y]```
+**Syntax:** ```x&y; x and y; &[x;y]; and[x;y]```
 
 ```o
 o)10b&1b

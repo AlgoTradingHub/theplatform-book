@@ -9,6 +9,7 @@ o) 1 0 3 ~ 1 2 3
 0b
 o) 1 2 3 ~ 1 2 3
 1b
+o)
 ```
 
 This verb compares both values and types:
@@ -22,6 +23,7 @@ o)0~00:00:00
 0b
 o)`a~"a"
 0b
+o)
 ```
 
 ::: see

@@ -15,6 +15,12 @@ o)
 ```
 
 ::: warn
+Spaces around minus are important!
+:::
+
+Let's see few examples about it:
+
+```o
 o)5 - 2
 3
 o)5 -2
@@ -23,7 +29,7 @@ o)- 2 3
 -2 -3
 o)-2 3
 -2 3
-:::
+```
 
 Where numeric value is substracted from a dictionary or a table, the verb substracts the numeric value from numeric values in the dict/table:
 

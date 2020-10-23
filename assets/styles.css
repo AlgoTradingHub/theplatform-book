@@ -249,10 +249,22 @@ ul#navigationBar li {
 .note {
     border-radius: 0.25rem;
     font-family: "Arial";
-    background-color: #d1ecf1;
-    border: 1px solid powderblue;
-    color: #0c5460;
-    padding: 30px;
+    background-color: #e7f5ff;
+    border: 1px solid #74c0fc;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.note-pre {
+    color: white;
+    padding: 20px;
+    background-color: #74c0fc;
+}
+
+.note-text {
+    margin-left: 20px;
+    color: black;
 }
 
 .warn {
@@ -260,8 +272,20 @@ ul#navigationBar li {
     font-family: "Arial";
     background-color: moccasin;
     border: 1px solid burlywood;
-    color: #ae5a00;
-    padding: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.warn-pre {
+    color: white;
+    padding: 20px;
+    background-color: burlywood;
+}
+
+.warn-text {
+    margin-left: 20px;
+    color: black;
 }
 
 .crit {
@@ -269,8 +293,20 @@ ul#navigationBar li {
     font-family: "Arial";
     background-color: lightpink;
     border: 1px solid lightcoral;
-    color: #6e0019;
-    padding: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.crit-pre {
+    color: white;
+    padding: 20px;
+    background-color: lightcoral;
+}
+
+.crit-text {
+    margin-left: 20px;
+    color: black;
 }
 
 .see {

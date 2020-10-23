@@ -27,4 +27,5 @@ o)
 
 ::: see
 [% (monadic division)](/verbs/math/monadicdivision.md)
+[mod (division remainder)](/verbs/math/mod.md)
 :::

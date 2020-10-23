@@ -16,4 +16,4 @@ o)!``dict
 o)
 ```
 
-See the full list of typespecs [here](reference/types/scalars/scalars.md).
+See the full list of typespecs [here](/reference/types/scalars/scalars.md).

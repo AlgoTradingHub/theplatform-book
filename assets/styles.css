@@ -271,7 +271,7 @@ ul#navigationBar li {
     border-radius: 0.25rem;
     font-family: "Arial";
     background-color: moccasin;
-    border: 1px solid burlywood;
+    border: 1px solid darkorange;
     padding: 0;
     display: flex;
     align-items: center;
@@ -280,7 +280,7 @@ ul#navigationBar li {
 .warn-pre {
     color: white;
     padding: 20px;
-    background-color: burlywood;
+    background-color: darkorange;
 }
 
 .warn-text {

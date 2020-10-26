@@ -15,6 +15,7 @@
       - [Overview](/reference/types/scalars/scalars.md)
       - [Symbols](/reference/types/scalars/symbols.md)
       - [Temporal types](/reference/types/scalars/time.md)
+      - [GUIDs](/reference/types/scalars/guids.md)
     - [Vectors](/reference/types/vectors.md)
     - [Strings](/reference/types/strings.md)
     - [Dictionaries](/reference/types/dicts.md)

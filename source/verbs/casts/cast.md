@@ -1,4 +1,45 @@
 # Dyadic $ (cast)
 
 Converts right arg values according to left arg specification.
-See [Types, Casting, etc](/reference/types/types.md) for details.
+
+**Syntax:** ```x$y; $[x;y]```
+
+Where x is:
+- a lower-case letter, or symbol from the following table, returns y cast according to x
+
+| Type letter | Type symbol |
+| --- | --- |
+| "b" | `bool |
+| "g" | `guid |
+| "x" | `byte |
+| "h" | `short |
+| "i" | `int |
+| "j" | `long |
+| "e" | `real |
+| "f" | `float |
+| "c" | `char |
+| "p" | `timestamp |
+| "m" | `month |
+| "d" | `date |
+| "z" | `datetime |
+| "n" | `timespan |
+| "u" | `minute |
+| "v" | `second |
+| "t" | `time |
+
+Casting to a string although has a shorthand form: ``$x``
+
+```o
+o)"i"$12
+12i
+o)`bool$1
+1b
+o)$123
+"123"
+o)
+```
+
+::: see
+[Types, Casting, etc](/reference/types/types.md)
+[Repr](/reference/verbs/casts/repr.md)
+:::

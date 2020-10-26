@@ -29,6 +29,8 @@ searchTemplate: "<div id=\"searchResultsOuter\">",
 unquote: <- (("%27"/{"'"})  |
              ("%22"/{"\""}) |
              ("?"/{"\\?"})  |
+             ("["/{"\\["})  |
+             ("]"/{"\\]"})  |
              \.
             )*/{$[1>=#x;x;,/x]};
 
@@ -80,6 +82,7 @@ asset: {[url]
 .http.default.handle: {[sock;headers]
     url: "c"$1_"x"$headers[`Url];
     qry: ("q=" vs url)1;
+    show qry;
     if [^qry] {
         con: $["html"~last "\\." vs url;html[url];asset[`$url]];
         $[0N0~con;

@@ -5,6 +5,8 @@ Returns the number of items in a list, dictionary or table.
 **Syntax:** ```count x; count[x]```
 
 ```o
+o)count 1 2 3
+3
 o)count til 10
 10
 o)count "one"
@@ -15,6 +17,7 @@ o)count flip `a`b`c!1 2 3
 1
 o)count([]a:`a`b`c;b:1 2 3)
 3
+o)
 ```
 
 Returns 1 for everything else:
@@ -26,9 +29,10 @@ o)count `ten
 1
 o)count({x+1})
 1
+o)
 ```
 
-To count elements of nested structures use `each`:
+To count elements of nested structures, use `each`:
 
 ```o
 o)count(1 2;3;45 67 89)
@@ -41,4 +45,9 @@ o)count each `x`y`z!(1 2 3;`a`b`c;1.1 2.2 3.3)
 x| 3
 y| 3
 z| 3
+o)
 ```
+
+::: see
+[rc (reference count)](/verbs/math/rc.md)
+:::

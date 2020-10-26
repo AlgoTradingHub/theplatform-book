@@ -1,6 +1,11 @@
 # Reading/writing concept
 
-It's done using ```get``` and ```set``` verbs.
+Database persistance is an important O feature. Conceptually, there are two kinds of persistance in O language - reading/writing entire files from/to disk and projecting vectors/tables directly from disk.
+
+The first kind is easier and more powerful as it supports more O types.
+The second kind is often faster and more memory-efficient, but supports only a subset of O structures - vectors of simple/fixed types, dictionaries and tables.
+
+Reading and writing are done using ```get``` and ```set``` verbs.
 
 The simpliest example is generating a vector and saving it to disk via ```set``` dyad. Later we can read it.
 ```o

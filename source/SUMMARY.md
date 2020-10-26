@@ -72,7 +72,7 @@
     - [bnot](/verbs/bitwise/bnot.md)
     - [bor](/verbs/bitwise/bor.md)
     - [bxor](/verbs/bitwise/bxor.md)
-  - [Database input/output](/verbs/databaseio/databaseio.md)
+  - [Database input/output](nolink.md)
     - [Reading/writing concept](/verbs/databaseio/readingwriting.md)
     - [Projecting files concept](/verbs/databaseio/projecting.md)
   - [File verbs](/nolink.md)

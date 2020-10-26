@@ -24,3 +24,7 @@ o)rc[a]
 2
 o)
 ```
+
+::: see
+[count](/verbs/math/count.md)
+:::

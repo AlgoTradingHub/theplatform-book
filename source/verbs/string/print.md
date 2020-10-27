@@ -1,6 +1,6 @@
 # print
 
-Prints down a string representation of `x`. Format string contains `%` at each position to be replaced by formatted value.
+Prints down a string representation of `x` without quotes. Format string contains `%` at each position to be replaced by formatted value.
 
 **Syntax:** ```print[".. %";x..]```
 

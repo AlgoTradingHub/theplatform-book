@@ -1,6 +1,6 @@
 # format
 
-Returns string representation of `x`. Format string contains `%` at each position to be replaced by formatted value.
+Returns string representation of `x` with quotes. Format string contains `%` at each position to be replaced by formatted value.
 
 **Syntax:** ```format[".. %";x..]```
 

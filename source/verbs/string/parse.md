@@ -14,5 +14,21 @@ o)parse "`a`b!(1;2)"
 `a`b
 (,;1;2)
 o)
+o)parse "1 2 3 +neg 5 7"
++
+1 2 3
+((-:);5 7)
+o)
 ```
-See also `eval` // to be added
+
+Execute a parse tree with `eval`:
+
+```o
+o)x:parse "1 2 3 + 3 4 5"
++
+1 2 3
+3 4 5
+o)eval x
+4 6 8
+o)
+```

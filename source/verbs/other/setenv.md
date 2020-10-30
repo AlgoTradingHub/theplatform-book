@@ -13,3 +13,9 @@ o)getenv[`A`B`C]
 "CC"
 o)
 ```
+
+::: see
+[getenv](/verbs/other/getenv.md)
+[set](/verbs/file/set.md)
+[get](/verbs/file/get.md)
+:::

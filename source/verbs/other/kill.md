@@ -1,6 +1,6 @@
 # kill
 
-Sends kill signal to a task
+Sends kill signal to a taskю
 
 **Syntax:** ```kill x; kill[x]```
 
@@ -8,3 +8,7 @@ Sends kill signal to a task
 o)kill -9
 Session's done, a job well done.
 ```
+
+::: see
+[exit](/verbs/other/exit.md)
+:::

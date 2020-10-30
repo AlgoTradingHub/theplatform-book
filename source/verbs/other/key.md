@@ -1,10 +1,10 @@
 # key
 
-Returns key of x if it is keyed value
+Returns keys of `x` if it is a keyed value.
 
 **Syntax:** ```key x; key[x]```
 
-It could be used to retrieve all names inside root or any namespace since environment is a dictionary itself
+It could be used to retrieve all names inside root or any namespace since environment is a dictionary itself.
 
 ```o
 o)key `

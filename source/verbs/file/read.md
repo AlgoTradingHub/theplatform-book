@@ -14,4 +14,5 @@ o)
 
 ::: see
 [write](/verbs/file/write.md)
+[load](/verbs/scripts/load.md)
 :::

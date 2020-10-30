@@ -1,6 +1,6 @@
 # getenv
 
-Reads value/values of environments variables
+Reads environment variable value(s).
 
 **Syntax:** ```getenv x; getenv[x]```
 
@@ -12,3 +12,9 @@ o)getenv[`TERM`SHELL]
 "/bin/bash"
 o)
 ```
+
+::: see
+[setenv](/verbs/other/setenv.md)
+[set](/verbs/file/set.md)
+[get](/verbs/file/get.md)
+:::

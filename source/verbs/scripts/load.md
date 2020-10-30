@@ -27,3 +27,7 @@ loading target: DirEntry("./etc/std.o")
 o) load "etc/std.o"
 o)
 ```
+
+::: see
+[read](/verbs/file/read.md)
+:::

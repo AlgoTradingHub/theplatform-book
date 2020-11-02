@@ -1,5 +1,5 @@
 // WS handler
-deny: ("\\\\";"exit";"top";"kill");
+deny: ("\\\\";"exit";"top";"kill";"spawn";"set");
 peval: {[expr]
     e: ,/ss[expr;]'deny;
     $[0=#e;eval parse expr;"Operation is not permitted in a web REPL mode"]

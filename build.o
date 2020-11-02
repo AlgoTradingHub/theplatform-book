@@ -6,7 +6,7 @@
                         "<li><a href=\"/index.html\">Home</a></li>",
                         "<li><a href=\"\">News</a></li>",
                         "<li><a href=\"/contacts.html\">Contact</a></li>",
-                        "<li><a href=\"\">Playground</a></li>",
+                        "<li><a href=\"/webrepl.htm\">Playground</a></li>",
                     "</ul>",
                     "<div id=\"searchWrapper\">",
                         "<div id=\"searchField\"><input type=\"text\"/></div>",

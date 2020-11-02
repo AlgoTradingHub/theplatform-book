@@ -1,0 +1,17 @@
+// WS handler
+.webrepl.run: {
+    spawn {
+        ws: reagent[`listener;"0.0.0.0:5100";{0N!"ws listener dropped"}];
+        react[{[x:ws]
+            spawn[{[sock]
+                h: reagent[`ws;sock];
+                react[{[x:h]
+                    ok: {ser[`json;`type`data!(type x;x)]};
+                    er: {ser[`json;`type`data!(`err;x)]};
+                    r:@[{ok[eval parse x]};"c"$x;er];
+                    h[r];
+                }]
+            };x]
+        }]
+    }
+};

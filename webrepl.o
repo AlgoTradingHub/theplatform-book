@@ -1,4 +1,9 @@
 // WS handler
+deny: ("\\\\";"exit");
+peval: {[expr]
+    e: ,/ss[expr;]'deny;
+    $[0=#e;eval parse expr;"denied"]
+};
 .webrepl.run: {
     spawn {
         ws: reagent[`listener;"0.0.0.0:5100";{0N!"ws listener dropped"}];
@@ -6,7 +11,7 @@
             spawn[{[sock]
                 h: reagent[`ws;sock];
                 react[{[x:h]
-                    r:format["%";@[{eval parse x};"c"$x;{"c"$x}]];
+                    r:format["%";@[{peval x};"c"$x;{"c"$x}]];
                     b:"x"$r;
                     $[150<#b;
                         h[("c"$50#b),".."];

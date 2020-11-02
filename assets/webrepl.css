@@ -1,8 +1,5 @@
 body {
     background-color: gray;
-    font-smooth: never;
-    -webkit-font-smoothing: none;
-    font-family: "Monaco", monospace;
     font-size: 12pt;
     height: 100%;
     width: 100%;
@@ -31,7 +28,7 @@ body {
     padding: 20px;
     text-align: left;
     width: 100%;
-    max-height: 750px;
+    max-height: 650px;
     align-self: flex-end;
     overflow: scroll;
 }
@@ -53,16 +50,13 @@ body {
   color: lightgray;
   align-self: stretch;
   align-items: left;
-  font-family: "Monaco", monospace;
-  font-size: 12pt;
   padding: 20px;
   overflow: hidden;
 }
 
 input {
-    font-smooth: never;
-    -webkit-font-smoothing: none;
     font-family: "Monaco", monospace;
+    font-size: 12pt;
     width: 100%;
     border: none;
     outline: none;

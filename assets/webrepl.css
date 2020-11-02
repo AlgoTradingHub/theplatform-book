@@ -27,12 +27,13 @@ body {
   background-color: #fdf6e3;
 }
 
-#stdout {
+#stdout-pre {
     padding: 20px;
     text-align: left;
     width: 100%;
-    height: auto;
+    max-height: 750px;
     align-self: flex-end;
+    overflow: scroll;
 }
 
 #stdin-container {

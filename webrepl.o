@@ -6,10 +6,11 @@
             spawn[{[sock]
                 h: reagent[`ws;sock];
                 react[{[x:h]
-                    ok: {ser[`json;`type`data!(type x;x)]};
-                    er: {ser[`json;`type`data!(`err;x)]};
-                    r:@[{ok[eval parse x]};"c"$x;er];
-                    h[r];
+                    r:format["%";@[{eval parse x};"c"$x;{"c"$x}]];
+                    b:"x"$r;
+                    $[150<#b;
+                        h[("c"$50#b),".."];
+                        h[r]]
                 }]
             };x]
         }]

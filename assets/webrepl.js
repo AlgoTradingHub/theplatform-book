@@ -59,13 +59,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const ws = new WebSocket(`ws://${location.hostname}:5100`)
     ws.onmessage = function incoming(e) {
-        if (e.data.trim() == "") {
-            stdout.innerHTML += ">\r\n" + "::" + "\r\n";
-        } else {
+        if (e.data.trim() != "") {
             stdout.innerHTML += ">\r\n" + e.data + "\r\n";
+            Prism.highlightAll();
+            stdout_pre.scrollTop = stdout_pre.scrollHeight;
         }
-        Prism.highlightAll();
-        stdout_pre.scrollTop = stdout_pre.scrollHeight;
     }
 
     function processCmd() {

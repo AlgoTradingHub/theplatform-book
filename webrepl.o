@@ -1,8 +1,8 @@
 // WS handler
-deny: ("\\\\";"exit";"top";"kill";"spawn";"set");
+deny: ("\\\\";"exit";"top";"kill";"spawn";"set";"load");
 peval: {[expr]
     e: ,/ss[expr;]'deny;
-    $[0=#e;eval parse expr;"Operation is not permitted in a web REPL mode"]
+    $[0=#e;eval parse expr;'"Operation is not permitted in a web REPL mode"]
 };
 .webrepl.run: {
     spawn {
@@ -10,8 +10,10 @@ peval: {[expr]
         react[{[x:ws]
             spawn[{[sock]
                 h: reagent[`ws;sock];
+                // redefine stdout
+                1:[{h[x]}];
                 react[{[x:h]
-                    r:format["%";@[{peval x};"c"$x;{"c"$x}]];
+                    r:@[{repr peval x};"c"$x;{format["%";"c"$x]}];
                     b:"x"$r;
                     $[150<#b;
                         h[("c"$50#b),".."];

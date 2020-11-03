@@ -15,8 +15,8 @@ peval: {[expr]
                 react[{[x:h]
                     r:@[{repr peval x};"c"$x;{format["%";"c"$x]}];
                     b:"x"$r;
-                    $[150<#b;
-                        h[("c"$50#b),".."];
+                    $[120<#b;
+                        h[("c"$120#b),".."];
                         h[r]]
                 }]
             };x]

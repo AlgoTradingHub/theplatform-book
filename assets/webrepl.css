@@ -47,7 +47,8 @@ body {
 #stdin {
   background-color: black;
   border: none;
-  color: lightgray;
+  color: yellowgreen;
+  font-weight: bold;
   align-self: stretch;
   align-items: left;
   padding: 20px;

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const ws = new WebSocket(`ws://${location.hostname}:5100`)
     ws.onmessage = function incoming(e) {
-        if (e.data == "") {
+        if (e.data.trim() == "") {
             stdout.innerHTML += ">\r\n" + "::" + "\r\n";
         } else {
             stdout.innerHTML += ">\r\n" + e.data + "\r\n";

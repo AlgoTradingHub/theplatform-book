@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (className) { created.className = className }
         created.dataset.timestamp = (+new Date()).toString()
         created.innerHTML = html
-        // const last = stdoutEl.lastChild
         stdoutEl.appendChild(created)
         created.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
@@ -60,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const ws = new WebSocket(`ws://${location.hostname}:5100`)
     ws.onmessage = function incoming(e) {
         if (e.data.trim() != "") {
-            stdout.innerHTML += ">\r\n" + e.data + "\r\n";
+            stdout.innerHTML += e.data + "\r\no)";
             Prism.highlightAll();
             stdout_pre.scrollTop = stdout_pre.scrollHeight;
         }
@@ -69,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function processCmd() {
         let text = stdin.value;
         stdin.value = '';
+        stdout.innerHTML += text + "\r\n";
         ws.send(text);
         historyPush(text);
     }

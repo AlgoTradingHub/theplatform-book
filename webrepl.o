@@ -1,5 +1,6 @@
 // WS handler
-deny: ("\\\\";"exit";"top";"kill";"spawn";"set";"load");
+\c 120 25;
+deny: ("\\\\";"exit";"top";"kill";"spawn";"set";"load";"show");
 peval: {[expr]
     e: ,/ss[expr;]'deny;
     $[0=#e;eval parse expr;'"Operation is not permitted in a web REPL mode"]
@@ -14,10 +15,7 @@ peval: {[expr]
                 1:[{h[x]}];
                 react[{[x:h]
                     r:@[{repr peval x};"c"$x;{format["%";"c"$x]}];
-                    b:"x"$r;
-                    $[120<#b;
-                        h[("c"$120#b),".."];
-                        h[r]]
+                    h[r]
                 }]
             };x]
         }]

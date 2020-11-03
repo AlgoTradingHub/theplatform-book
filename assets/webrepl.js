@@ -9,15 +9,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let history = JSON.parse(localStorage.getItem('hist_v1') || '[]')
     let historyIndex
-    const resetHistoryIndex = () => historyIndex = history.length
+    const resetHistoryIndex = () => historyIndex = history.length - 1
     resetHistoryIndex()
 
     const historyPush = (cmd) => {
         historyIndex = history.push(cmd)
-        if (history.length > 100) {
-            history = history.slice(-100)
-        }
-        localStorage.setItem('hist_v1', JSON.stringify(history))
+        // if (history.length > 100) {
+        //     history = history.slice(-100)
+        // }
+        // localStorage.setItem('hist_v1', JSON.stringify(history))
     }
 
     const hndlrs = {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         'ArrowDown': (e) => {
             historyIndex += 1
-            if (historyIndex >= history.length) { historyIndex = history.length; return }
+            if (historyIndex >= history.length) { historyIndex = history.length - 1; return }
             stdin.value = history[historyIndex]
             e.preventDefault()
         },

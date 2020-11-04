@@ -1,3 +1,4 @@
 # Installation
 
-Daily builds are at: [ftp](ftp://builderust.dev.ath/tachyon/)
+Will be available soon.
+For now please refer to a [contacts](/contacts.md) page for requesting a binary.

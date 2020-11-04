@@ -126,6 +126,7 @@ idx: {[item]
                 `table -> format["<table>%</table>";,/o'[.md.ht.pop text]];
                 `thead -> format["<tr>%</tr>";,/format["<th>%</th>";]'[.md.ht.pop text]];
                 `trow  -> format["<tr>%</tr>";,/format["<td>%</td>";]'[.md.ht.pop text]];
+                `embed -> "c"$read[`$":assets/",.md.ht.pop text];
                 _      -> format["<unknown>%</unknown>";idx .md.ht.pop text];
             }
         }

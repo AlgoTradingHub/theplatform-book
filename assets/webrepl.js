@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let stdin = document.querySelector("#stdin");
     let stdout_pre = document.querySelector("#stdout-pre");
     let stdout = document.querySelector("#stdout");
+    let status = document.querySelector("#status");
 
     document.onclick = function () {
         stdin.focus();
@@ -56,13 +57,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     stdin.focus();
 
-    const ws = new WebSocket(`ws://${location.hostname}:5100`)
+    const ws = new WebSocket(`ws://${location.hostname}:45100`)
+
+    ws.onopen = function (e) {
+        status.innerHTML = "connected"
+        ws.send("ps1[]");
+    };
+
+    ws.onclose = function (event) {
+        status.innerHTML = "disconnected"
+        stdin.disabled = true
+    };
+
+    ws.onerror = function (error) {
+        status.innerHTML = error.message
+        stdin.disabled = true
+    };
+
     ws.onmessage = function incoming(e) {
+        stdin.disabled = false
         if (e.data.trim() != "") {
-            stdout.innerHTML += e.data + "\r\no)";
-            Prism.highlightAll();
-            stdout_pre.scrollTop = stdout_pre.scrollHeight;
+            processMsg(e.data)
         }
+    }
+
+    function processMsg(msg) {
+        stdout.innerHTML += msg + "\r\no)";
+        Prism.highlightAll();
+        stdout_pre.scrollTop = stdout_pre.scrollHeight;
     }
 
     function processCmd() {

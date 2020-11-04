@@ -34,7 +34,7 @@ body {
 }
 
 #stdin-container {
-  background-color: black;
+  background-color: red;
   color: lightgray;
   border: none;
   text-align: left;
@@ -49,16 +49,27 @@ body {
   border: none;
   color: yellowgreen;
   font-weight: bold;
-  align-self: stretch;
-  align-items: left;
+  align-items: center;
   padding: 20px;
   overflow: hidden;
+  flex: 1;
+}
+
+#status {
+    background-color: black;
+    font-family: "Monaco", monospace;
+    font-size: 12pt;
+    color: blueviolet;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
 }
 
 input {
     font-family: "Monaco", monospace;
     font-size: 12pt;
-    width: 100%;
     border: none;
     outline: none;
 }

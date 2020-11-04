@@ -8,7 +8,6 @@ load[home;"http"];
 load[home;"core"];
 load["build"];
 load[home;"ws"];
-load[home;"serde"];
 load["webrepl"];
 
 index: (`symbol$())!();
@@ -100,25 +99,25 @@ asset: {[url]
 
 load[home;"repl"];
 
-lastmod: {[dir]
-    l: os["dir";dir];
-    m: l where {(x[1]~"file")}'l;
-    d: l where {x[1]~"dir"}'l;
-    f: |/ *'m;
-    |/ f,/o'[3(~[@])'d]
-};
+// lastmod: {[dir]
+//     l: os["dir";dir];
+//     m: l where {(x[1]~"file")}'l;
+//     d: l where {x[1]~"dir"}'l;
+//     f: |/ *'m;
+//     |/ f,/o'[3(~[@])'d]
+// };
 
 // File watcher
-spawn {
-    .lastmod:: |/lastmod["source"],lastmod["assets"];
-    tick: reagent[`timer;1000;0];
-    react {[t:tick]
-        system["git pull"];
-        tmod: |/lastmod["source"],lastmod["assets"];
-        if [.lastmod<tmod] {
-            .lastmod:: tmod;
-            rebuild[];
-        }
-    }
-};
+// spawn {
+//     .lastmod:: |/lastmod["source"],lastmod["assets"];
+//     tick: reagent[`timer;1000;0];
+//     react {[t:tick]
+//         system["git pull"];
+//         tmod: |/lastmod["source"],lastmod["assets"];
+//         if [.lastmod<tmod] {
+//             .lastmod:: tmod;
+//             rebuild[];
+//         }
+//     }
+// };
 // --

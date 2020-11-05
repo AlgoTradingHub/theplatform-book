@@ -83,5 +83,5 @@ o)0x vs 10.125
 ```
 
 ::: see
-[sv (scalar to vector)](/verbs/other/sv.md)
+[sv (scalar from vector)](/verbs/other/sv.md)
 :::

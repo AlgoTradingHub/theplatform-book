@@ -8,7 +8,7 @@ peval: {[expr]
 ps1: {println["Welcome to ThePlatform v1.0.0\n(Web REPL - strict mode)\n-----------------------------"]};
 .webrepl.run: {
     spawn {
-        ws: reagent[`listener;"0.0.0.0:45100";{0N!"ws listener dropped"}];
+        ws: reagent[`listener;"0.0.0.0:45101";{0N!"ws listener dropped"}];
         react[{[x:ws]
             spawn[{[sock]
                 h: reagent[`ws;sock];

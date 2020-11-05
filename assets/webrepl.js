@@ -57,7 +57,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     stdin.focus();
 
-    const ws = new WebSocket(`ws://${location.hostname}:45100`)
+    const ws = (location.protocol === 'https:') ? 
+        // secure SSL websockets
+        new WebSocket(`wss://${location.hostname}/ws`)
+    :
+        new WebSocket(`ws://${location.hostname}:45101`)
+    ;
 
     ws.onopen = function (e) {
         status.innerHTML = "connected"

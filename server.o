@@ -7,8 +7,8 @@ load[home;"markdown"];
 load[home;"http"];
 load[home;"core"];
 load["build"];
+load[home;"tls"];
 load[home;"ws"];
-load[home;"serde"];
 load["webrepl"];
 
 index: (`symbol$())!();
@@ -98,7 +98,6 @@ asset: {[url]
 .http.run[];
 .webrepl.run[];
 
-load[home;"repl"];
 
 lastmod: {[dir]
     l: os["dir";dir];
@@ -109,16 +108,20 @@ lastmod: {[dir]
 };
 
 // File watcher
-spawn {
-    .lastmod:: |/lastmod["source"],lastmod["assets"];
-    tick: reagent[`timer;1000;0];
-    react {[t:tick]
-        system["git pull"];
-        tmod: |/lastmod["source"],lastmod["assets"];
-        if [.lastmod<tmod] {
-            .lastmod:: tmod;
-            rebuild[];
+if [~0N0~argv[`watch]] {
+    println["File watcher enabled"];
+    spawn {
+        .lastmod:: |/lastmod["source"],lastmod["assets"];
+        tick: reagent[`timer;1000;0];
+        react {[t:tick]
+            system["git pull"];
+            tmod: |/lastmod["source"],lastmod["assets"];
+            if [.lastmod<tmod] {
+                .lastmod:: tmod;
+                rebuild[];
+            }
         }
     }
 };
-// --
+
+load[home;"repl"];

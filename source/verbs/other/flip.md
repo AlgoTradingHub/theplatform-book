@@ -1,6 +1,6 @@
 # flip
 
-Returns x transposed, where x may be a list of lists, a dictionary or a table.
+Returns `x` transposed, where `x` may be a list of lists, a dictionary or a table.
 
 **Syntax:** ```flip x; flip[x]```
 

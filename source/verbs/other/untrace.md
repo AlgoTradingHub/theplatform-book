@@ -1,6 +1,6 @@
 # untrace
 
-Removes trace from function
+Removes trace from function.
 
 **Syntax:** ```untrace x; untrace[x]```
 
@@ -12,3 +12,7 @@ o)f[1]
 3
 o)
 ```
+
+::: see
+[trace](/verbs/other/trace.md)
+:::

@@ -1,6 +1,6 @@
 # trace
 
-Traces function evaluation
+Traces function evaluation.
 
 **Syntax:** ```trace x; trace[x]```
 
@@ -13,3 +13,7 @@ o)f[1]
 3
 o)
 ```
+
+::: see
+[untrace](/verbs/other/untrace.md)
+:::

@@ -1,6 +1,6 @@
 # value
 
-Value of x
+Returns value of `x`.
 
 **Syntax:** ```value x; value[x]```
 
@@ -32,5 +32,9 @@ o)value t
 1 2
 3 4
 5 6
+o)f:{x+1}
+{x+1}
+o)value f
+,(+;#0;1)
 o)
 ```

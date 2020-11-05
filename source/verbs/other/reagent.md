@@ -1,16 +1,16 @@
 # reagent
 
-Creates reagent - async participant of reactions
+Creates reagent - an async participant of reactions.
 
 **Syntax:** ```reagent[..]```
 
 It's a polyadic function. Arguments types and count depends on type of reagent. Reagents can be built-ins or plugin extensions. To see complete list of built-in reagents, refer to:
 
 ::: see
-[Reagents](reference/types/reagent.md)
+[Reagents](/reference/types/reagent.md)
 :::
 
-Reagent could have optional destructor as last argument. It will be called upon freeing reagent with meta of a reagent a san argument to this function:
+Reagent can have optional destructor as a last argument. It will be called upon freeing reagent with reagent meta as an argument to this function:
 
 ```o
 o)r:reagent[`timer;1000;3;{println["-- timer dropped: \n%\n--";x]}];

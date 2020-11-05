@@ -1,10 +1,10 @@
 # ts
 
-Current timestamp
+Returns current timestamp.
 
 **Syntax:** ```ts x; ts[x]```
 
-Where x: symbol describing timezone
+where `x` is a timezone symbol:
 
 ```o
 o)ts[`utc]
@@ -15,3 +15,7 @@ o)ts[]
 2020.02.12D11:33:50.868108644
 o)
 ```
+
+::: see
+[temporal types](/reference/types/scalars/time.md)
+:::

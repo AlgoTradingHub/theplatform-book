@@ -14,7 +14,7 @@ o)parse "`a`b!(1;2)"
 `a`b
 (,;1;2)
 o)
-o)parse "1 2 3 +neg 5 7"
+o)parse "1 2 3 +neg 5 1 7"
 +
 1 2 3
 ((-:);5 7)
@@ -32,3 +32,8 @@ o)eval x
 4 6 8
 o)
 ```
+
+::: see
+[eval](/verbs/other/eval.md)
+[quote](/verbs/other/quote.md)
+:::

@@ -1,6 +1,6 @@
 # readln
 
-Read line from x fd
+Reads a line from `x` fd.
 
 **Syntax:** ```readln x; readln[x]```
 

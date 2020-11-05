@@ -1,10 +1,10 @@
 # shadow
 
-Creates variables thats are visible down the stack
+Creates variables thats are visible down the stack.
 
 **Syntax:** ```shadow x; .x::y```
 
-Allowed only inside lambda's body otherwise it doesn'e make sense
+Allowed only inside lambda's body, otherwise it doesn't make sense.
 
 ```o
 o)f:{s::20;};

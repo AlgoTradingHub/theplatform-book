@@ -55,4 +55,5 @@ o)
 
 ::: see
 [vector conditional](/verbs/conditional/vcond.md)
+[filter](/verbs/other/filter.md)
 :::

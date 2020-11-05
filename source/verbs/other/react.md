@@ -1,12 +1,12 @@
 # react
 
-Creates reaction on a reagents set
+Creates reaction on a reagents set.
 
 **Syntax:** ```react{[x:r1;y:r2..]..}; react[{[x:r1;y:r2..]..}]```
 
 Where:
-    - x,y,..: arguments of a lambda to be evaluated on triggering of reaction
-    - r1;r2..: reagents involved into reaction
+    - x,y,.. are arguments of a lambda to be evaluated on reaction triggering;
+    - r1;r2.. are reagents involved into reaction.
 
 ```o
 o)r:reagent[`async];
@@ -15,10 +15,10 @@ o)r[123];
 o)123
 ```
 
-Reactions can be redefined. To do this just create reaction on the set of reagents that already defined.
+Reactions can be redefined. To do this, just create reaction on the set of reagents already defined.
 
 ::: note
-When a reaction defined - each reagent envolved receives a Descriptor. This means "pinning" that reagent onto the Task that has this reaction.
+When a reaction is defined, each reagent envolved receives a Descriptor. This means "pinning" that reagent onto the Task that has this reaction.
 :::
 
 ```o
@@ -31,13 +31,13 @@ o)r1[1];r2[2]
 o)redefined reaction: r1: 1; r2: 2
 ```
 
-If a reagent dropped - all reactions defined on this reagent will be dropped too since they doesn't have sence anymore.
+If a reagent is dropped, all reactions defined on this reagent will be dropped too since there is no need in them anymore.
 
 ::: note
-If a task has at least one reaction - it called an IO task. It means such a task will wait on IO resources involved into reaction(s) and wouldn't be terminated untill signal or exception received or all reactions be dropped.
+If a task has at least one reaction, it's called an IO task. Such task will wait on IO resources involved into reaction(s) and won't be terminated untill signal or exception is received or all reactions are dropped.
 :::
 
-Let's see dynamic creation of a reagents/reactions in a wide practical example of a ipc server:
+Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
 
 ```o
 srv: reagent[`listener;"0.0.0.0:5100";{0N!"listener dropped}];
@@ -53,7 +53,7 @@ react {[x:srv]
 ```
 
 Thats all! Session-based asynchronuous server is done. Simple, yes?
-Tos see which tasks are exists and in what state - use top[]:
+To see which tasks exist and their state, use [top](/verbs/concurrency/top.md):
 
 ```o
 o)top[]
@@ -65,5 +65,5 @@ tid handle        state  created      run          suspend      iowait       tot
 
 ::: see
 [reagent](/verbs/other/reagent.md)
-[top](/verbs/other/top.md)
+[top](/verbs/concurrency/top.md)
 :::

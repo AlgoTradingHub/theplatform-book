@@ -1,4 +1,4 @@
-# Dyadic sv 
+# Dyadic sv
 
 Scalar from vector
 
@@ -67,3 +67,7 @@ o)0x sv 0x4024400000000000
 o)0f sv 0x4024400000000000
 10.125
 ```
+
+::: see
+[vs (vector to scalar)](/verbs/other/vs.md)
+:::

@@ -2,7 +2,7 @@
 
 Returns the number of items in a list, dictionary or table.
 
-**Syntax:** ```count x; count[x]```
+**Syntax:** ```count x; count[x]; #x; #[x]```
 
 ```o
 o)count 1 2 3
@@ -50,4 +50,5 @@ o)
 
 ::: see
 [rc (reference count)](/verbs/math/rc.md)
+[take](/verbs/other/take.md)
 :::

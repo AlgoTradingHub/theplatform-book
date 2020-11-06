@@ -173,11 +173,9 @@ mkassets: {
     +`document`content!+recs
 };
 
-mkContainer: "";
-
 mkbook: {
     indx: mkindx["source/SUMMARY.md"];
-    mkContainer:: format[.http.const.indx;indx];
+    .mkContainer:: format[.http.const.indx;indx];
     .book:: mkassets[];
     {[file]
         if [~file like "SUMMARY"] {
@@ -185,5 +183,5 @@ mkbook: {
             $[null built;();.book,:built];
         }
     }'mdfiles["source/"];
-    .book
+    (.mkContainer;.book)
 };

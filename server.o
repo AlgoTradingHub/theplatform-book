@@ -11,13 +11,17 @@ load[home;"ws"];
 load["webrepl"];
 
 index: (`symbol$())!();
-book: mkbook[];
+(mkContainer;book): mkbook[];
 
 rebuild: reagent[`async];
-react {[x:rebuild] book:: mkbook[]};
+react {[x:rebuild]
+    b: mkbook[];
+    mkContainer:: b[0];
+    book:: b[1];
+};
 
 request: reagent[`async];
-react {[x:request] x[book]};
+react {[x:request] x[(mkContainer;book)]};
 
 // Serve
 .http.default.host:  "PlatformBook";
@@ -61,7 +65,7 @@ getBook: {[url]
 
 html: {[url]
     pag: ("p=" vs url)1;
-    book: getBook[];
+    (mkContainer;book): getBook[];
     if [^pag] {
         c: 0N#.?[book;,(=;`document;,`$url);0b;()];
         r: *c[`content];
@@ -75,7 +79,7 @@ html: {[url]
 };
 
 asset: {[url]
-    book: getBook[];
+    (mkContainer;book): getBook[];
     c: 0N#.?[book;,(=;`document;,url);0b;()];
     r: *c[`content];
     $[0=#r;0N0;r]

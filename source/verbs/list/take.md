@@ -67,8 +67,8 @@ o)0#`a`b`c
 o)0#(`a`b!(1;2))
 `symbol$()| `long$()
 o)
-
+```
 
 ::: see
-[# (count)](/verbs/matt/count.md)
+[# (count)](/verbs/math/count.md)
 :::

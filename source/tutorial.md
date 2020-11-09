@@ -4,7 +4,7 @@ This tutorial is intended for people who lack vector languages background and wh
 
 ## First start
 
-Starting language interpreter is the first thing you will be need. So just execute following command in your shell terminal.
+Starting language interpreter is the first thing you will need. So just execute following command in your shell terminal.
 
 ```o
 $ cargo run --release --bin tachyon

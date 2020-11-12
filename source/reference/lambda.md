@@ -68,7 +68,7 @@ o){x*2}1
 Thus it allows to create recursive lambdas:
 
 ```o
-o) fibo:{[x] $[x<2;x;o[x-1]+o[x-2]]}; fibo[6]
+o) fibo:{[x] $[x&lt2;x;o[x-1]+o[x-2]]}; fibo[6]
 8
 ```
 

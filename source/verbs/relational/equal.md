@@ -17,6 +17,6 @@ o)
 ```
 
 ::: see
-[<> (not equal)](/verbs/relational/notequal.md)
+[&lt> (not equal)](/verbs/relational/notequal.md)
 [~ (match)](/verbs/relational/match.md)
 :::

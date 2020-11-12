@@ -16,7 +16,7 @@ The concept of truth here is a bit complex:
 * Everything else (monads, dyads, lambdas, ...) results in truth.
 
 ```o
-o)$[2<3;"yes";"no"]
+o)$[2&lt3;"yes";"no"]
 "yes"
 o)
 o)$[0n;"yes";"no"]

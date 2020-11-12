@@ -59,8 +59,8 @@ To see which tasks exist and their state, use [top](/verbs/concurrency/top.md):
 o)top[]
 tid handle        state  created      run          suspend      iowait       total        load
 ----------------------------------------------------------------------------------------------
-7   TaskHandle<7> IOWait 12:28:14.905 00:07:40.899 00:00:00.000 00:21:02.616 00:28:43.515 0
-4   TaskHandle<4> IOWait 12:28:14.552 00:00:00.001 00:00:00.000 00:28:43.869 00:28:43.870 0
+7   TaskHandle&lt7> IOWait 12:28:14.905 00:07:40.899 00:00:00.000 00:21:02.616 00:28:43.515 0
+4   TaskHandle&lt4> IOWait 12:28:14.552 00:00:00.001 00:00:00.000 00:28:43.869 00:28:43.870 0
 ```
 
 ::: see

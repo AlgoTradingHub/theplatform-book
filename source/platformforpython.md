@@ -12,8 +12,8 @@ Here you can find Platform solutions to some basic problems along with their Pyt
 ```
 
 ```o
-o)factorial:{$[x<2;1;x*factorial x-1]}
-{$[x<2;1;x*factorial x-1]}
+o)factorial:{$[x&lt2;1;x*factorial x-1]}
+{$[x&lt2;1;x*factorial x-1]}
 o)factorial 6
 720
 o)
@@ -147,7 +147,7 @@ range:{x+til y-x-1}
 primeinrange:{
   l:range[x;y];                         / list of potential prime numbers
   lmt:"j"$sqrt "f"$last l;              / highest divisor to test
-  l where (&/(0<l mod/:range[2;lmt])) }
+  l where (&/(0&ltl mod/:range[2;lmt])) }
 ```
 
 ```
@@ -168,7 +168,7 @@ o)l mod/:2 3 4 5 6                                                / division rem
 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0
 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0
 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4
-o)f:0<l mod/:2 3 4 5 6                                            / flag division remainders
+o)f:0 &lt l mod/:2 3 4 5 6                                            / flag division remainders
 010101010101010101010b
 101101101101101101101b
 011101110111011101110b
@@ -192,8 +192,8 @@ o)
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)isprime:{(x>1) and (&/(0<x mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
-{(x>1) and (&/(0<x mod range[2;"j"$sqrt "f"$x]))}
+o)isprime:{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
+{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}
 o)isprime 1 5 15
 ()
 1b
@@ -208,7 +208,7 @@ import math
 def is_fibonacci(n):
     phi = 0.5 + 0.5 * math.sqrt(5.0)
     a = phi * n
-    return n == 0 or abs(round(a) - a) < 1.0 / n
+    return n == 0 or abs(round(a) - a) &lt 1.0 / n
 ```
 
 ```

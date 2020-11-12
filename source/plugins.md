@@ -87,7 +87,7 @@ Core part of each reagent is a PIPE - sender and receiver:
 ```Rust
 pub struct Receiver {
     i: &'static Interpreter,
-    buf: UnsafeCell<Vec<u8>>,
+    buf: UnsafeCell&ltVec&ltu8>>,
 }
 
 #[derive(Clone)]
@@ -99,26 +99,26 @@ pub struct Sender {
 To make them actual reagents, implement some traits:
 
 ```Rust
-impl Out<AST> for Sender {
-    fn push(&self, v: AST) -> Result<(), ErrorKind> {
+impl Out&ltAST> for Sender {
+    fn push(&self, v: AST) -> Result&lt(), ErrorKind> {
         self.i.print_format(&v);
         Ok(())
     }
-    fn try_push(&self, _v: AST) -> Option<AST> { None }
-    fn box_clone(&self) -> Box<Out<AST>> { Box::new((*self).clone()) }
+    fn try_push(&self, _v: AST) -> Option&ltAST> { None }
+    fn box_clone(&self) -> Box&ltOut&ltAST>> { Box::new((*self).clone()) }
 }
 
 impl Evented for Receiver {
-    fn register(&self, poll: &Poll, token: Token, interest: Ready, opts: PollOpt) -> io::Result<()> {
+    fn register(&self, poll: &Poll, token: Token, interest: Ready, opts: PollOpt) -> io::Result&lt()> {
         EventedFd(&0).register(poll, token, interest, opts)
     }
-    fn reregister(&self, poll: &Poll, token: Token, interest: Ready, opts: PollOpt) -> io::Result<()> {
+    fn reregister(&self, poll: &Poll, token: Token, interest: Ready, opts: PollOpt) -> io::Result&lt()> {
         EventedFd(&0).reregister(poll, token, interest, opts)
     }
-    fn deregister(&self, poll: &Poll) -> io::Result<()> { EventedFd(&0).deregister(poll) }
+    fn deregister(&self, poll: &Poll) -> io::Result&lt()> { EventedFd(&0).deregister(poll) }
 }
 
-impl In<AST> for Receiver {
+impl In&ltAST> for Receiver {
     fn pop(&self) -> AST {
         unsafe {
             let input = self.buf.get();
@@ -127,8 +127,8 @@ impl In<AST> for Receiver {
             self.i.eval(&ast)
         }
     }
-    fn try_pop(&self) -> Option<AST> { None }
-    fn peek(&self) -> Option<&AST> { None }
+    fn try_pop(&self) -> Option&ltAST> { None }
+    fn peek(&self) -> Option&lt&AST> { None }
     fn ready(&self, _readiness: Ready) -> State { State::Ready }
 }
 ```
@@ -137,7 +137,7 @@ Define registration function, that will be called on reagent creation:
 
 ```Rust
 #[unwind(allowed)]
-unsafe extern "C" fn simple_reagent(_: &[AST], i: &Interpreter) -> Pipeline<AST> {
+unsafe extern "C" fn simple_reagent(_: &[AST], i: &Interpreter) -> Pipeline&ltAST> {
     let tx = box Sender { i: extend_lifetime(i) };
     let rx = box Receiver {
         i: extend_lifetime(i),

@@ -18,5 +18,5 @@ o)
 ```
 
 ::: see
-[<, <= (less than, up to)](/verbs/relational/greater.md)
+[&lt, &lt= (less than, up to)](/verbs/relational/greater.md)
 :::

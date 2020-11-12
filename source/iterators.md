@@ -147,7 +147,7 @@ o) 5{x+1}/10
 Applies monadic verb to right argument while left argument returns true value.
 
 ```o
-o) {x<100}{x*2}/1
+o) {x&lt100}{x*2}/1
 128
 ```
 
@@ -165,7 +165,7 @@ o)5{x+1}\10
 Applies monadic verb to right argument while left argument returns true value.
 
 ```o
-o){x<100}{x*2}\1
+o){x&lt100}{x*2}\1
 1 2 4 8 16 32 64 128
 ```
 

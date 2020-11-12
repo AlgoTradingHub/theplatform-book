@@ -107,7 +107,7 @@ println!("[{}, {}]", v1, v2); //"[41, 42] or [42, 41]"
 ```Rust
 use queues::publisher::Publisher;
 
-let mut publisher: Publisher<u32> = Publisher::with_capacity(8);
+let mut publisher: Publisher&ltu32> = Publisher::with_capacity(8);
 
 //write by 4 events at the same time
 match publisher.next_n(4) {

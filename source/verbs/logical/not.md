@@ -7,7 +7,7 @@ Inverts boolean vector. Right atomic.
 ```o
 o)~1010b
 0101b
-o)~1<2
+o)~1&lt2
 0b
 o)~(1>2 0 -1)
 100b

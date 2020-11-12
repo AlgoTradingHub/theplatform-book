@@ -5,17 +5,17 @@ There are some number of built-in reagents:
 
 | Arguments | Description |
 | --- | --- |
-| reagent[`tty;<{destructor}>] | Console reagent |
-| reagent[`listener;"addr:port";<{destructor}>] | TCP listener reagent |
-| reagent[`tcp;"addr:port";<{destructor}>] | TCP reagent (client side) |
-| reagent[`tcp;Handle;<{destructor}>] | TCP reagent (server side) |
-| reagent[`ipc;"addr:port";<{destructor}>] | IPC reagent (client side) |
-| reagent[`ipc;Handle;<{destructor}>] | IPC reagent (server side) |
-| reagent[`udp;"addr:port";<{destructor}>] | UDP reagent |
-| reagent[`log;`:/file;<{destructor}>] | LOG reagent |
-| reagent[`async;<{destructor}>] | MPSC reagent without blocking on sender side |
-| reagent[`sync;<{destructor}>] | MPSC reagent with blocking on sender side |
-| reagent[`timer;timeout;repeat;<{destructor}>] | TIMER reagent: timeout in ms, repeat: 0 means forever |
+| reagent[`tty;&lt{destructor}>] | Console reagent |
+| reagent[`listener;"addr:port";&lt{destructor}>] | TCP listener reagent |
+| reagent[`tcp;"addr:port";&lt{destructor}>] | TCP reagent (client side) |
+| reagent[`tcp;Handle;&lt{destructor}>] | TCP reagent (server side) |
+| reagent[`ipc;"addr:port";&lt{destructor}>] | IPC reagent (client side) |
+| reagent[`ipc;Handle;&lt{destructor}>] | IPC reagent (server side) |
+| reagent[`udp;"addr:port";&lt{destructor}>] | UDP reagent |
+| reagent[`log;`:/file;&lt{destructor}>] | LOG reagent |
+| reagent[`async;&lt{destructor}>] | MPSC reagent without blocking on sender side |
+| reagent[`sync;&lt{destructor}>] | MPSC reagent with blocking on sender side |
+| reagent[`timer;timeout;repeat;&lt{destructor}>] | TIMER reagent: timeout in ms, repeat: 0 means forever |
 
 Reagents optionally can have a destructor passed as a lambda to a last argument in a reagent[..] call.
 
@@ -99,8 +99,8 @@ destructor| 0N0
 error     | 0N0
 o)// and it doesn't allow to define reaction on r from another task
 o)spawn { react {[x:r] 0N!x} }
-TaskHandle<6>
-o)Task <react {[x:r] 0N!x} > terminated with signal:
+TaskHandle&lt6>
+o)Task &ltreact {[x:r] 0N!x} > terminated with signal:
 ** exec error: `react` forbidden:..
 --
 

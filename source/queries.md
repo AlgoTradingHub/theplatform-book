@@ -160,7 +160,7 @@ For example single condition filter:
 
 ```o
 o) t: (+:)`a`b`c`d!(1 2 3;3 4 5;6 7 8;("111";"222";"333"));
-o) c: ,(<=;`b;3);
+o) c: ,(&lt=;`b;3);
 o) 0N#.(?[t;c;0b;`a`b`c!`a`b`c])
 a b c
 -----
@@ -173,7 +173,7 @@ Conditions may contain field expressions.
 
 ```o
 o) t: (+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
-o) c: ,(<=;(+;`b;`c);9);
+o) c: ,(&lt=;(+;`b;`c);9);
 o) 0N#.(?[t;c;0b;`a`b`c!`a`b`c])
 a b c
 -----
@@ -187,7 +187,7 @@ Of course single field conditions are not enough, several conditions are trivial
 ```o
 o) sym:`symbol$!10;
 o) t:(+:)`a`b`c`d!(1 2 3;`g#`3`4`5;6 7 8;`g#`sym$`3`4`5);
-o) c:,(&;(>=;`d;`sym$`3);(<=;`b;,`3));
+o) c:,(&;(>=;`d;`sym$`3);(&lt=;`b;,`3));
 o) 0N#.(?[t;c;0b;`a`b`c!`a`b`c])
 a b c
 -----
@@ -218,7 +218,7 @@ Quite common pattern is joining all field conditions with “and” logic, thus 
 
 ```o
 o) t:(+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
-o) c:((<=;`b;4);(>=;`c;7));
+o) c:((&lt=;`b;4);(>=;`c;7));
 o) 0N#.(?[t;c;0b;`a`b`c!`a`b`c])
 a b c
 -----
@@ -495,7 +495,7 @@ Like following:
 
 ```o
 o)t:((+:)`a`b`c!(1 2 3;3 4 5;6 7 8));
-o)0N#.(?[t;();0b;`a`c!`a`c;();((>:;`a);(<:;`b))])
+o)0N#.(?[t;();0b;`a`c!`a`c;();((>:;`a);(&lt:;`b))])
 a c
 ---
 3 8
@@ -503,7 +503,7 @@ a c
 1 6
 ```
 
-This way monadic **<** means ascending order, **>** - descending.
+This way monadic **&lt** means ascending order, **>** - descending.
 
 ## Grouping / aggregation
 
@@ -685,7 +685,7 @@ select [cols] [by groups] from t [where filters]
 
 ```o
 o)t:(+:)`a`b`c`d!(!10;!10;!10;!10);
-o)select [8] M:min a,max b,last d by c from t where c<100,c>1
+o)select [8] M:min a,max b,last d by c from t where c&lt100,c>1
 c M x2 x3
 ---------
 2 2 2  2

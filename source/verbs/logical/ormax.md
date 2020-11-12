@@ -7,7 +7,7 @@ Applies boolean "or" for bool arguments. Fully atomic.
 ```o
 o)1b|010b
 111b
-o)(1>2)|2<1
+o)(1>2)|2&lt1
 0b
 o)a:1010b
 1010b

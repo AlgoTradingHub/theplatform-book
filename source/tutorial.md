@@ -512,7 +512,7 @@ For full specification on "$" dyad see [Types](./types.md)
 
 ## Boolean values and vectors
 
-Boolean values are often produced by relational verbs. 0 and 1's correspond to false and true values. O has following relational verbs - <, >, >=, <=, =, <>. All of them are fully-atomic, that is both left and right arguments penetrate nested structures.
+Boolean values are often produced by relational verbs. 0 and 1's correspond to false and true values. O has following relational verbs - &lt, >, >=, &lt=, =, &lt>. All of them are fully-atomic, that is both left and right arguments penetrate nested structures.
 
 ```o
 o) (1;2 3 4;5) > (1;2;4)
@@ -521,7 +521,7 @@ o) (1;2 3 4;5) > (1;2;4)
 1b
 ```
 
-Well-known boolean algebra functions like "and", "or", "xor" are fully supported. Those are "&", "|" and "<>" correspondingly.
+Well-known boolean algebra functions like "and", "or", "xor" are fully supported. Those are "&", "|" and "&lt>" correspondingly.
 
 ```o
 o) a:1 2 3; b: 2 2 1

@@ -26,7 +26,7 @@ o)
 ```
 
 ::: note
-There is no literal entry for a guid, it has no conversions, and the only scalar primitives are =, < and > (similar to sym).
+There is no literal entry for a guid, it has no conversions, and the only scalar primitives are =, &lt and > (similar to sym).
 :::
 
 There are no other limitations about storing, serializing etc. in contrast to other O types.

@@ -5,7 +5,7 @@ There is an ability to dynamically create text parsers as well as binary parsers
 For example, let's create a simple parser that eats only strings consisting of "p" chars:
 
 ```o
-o)p: <- "p"+;
+o)p: &lt- "p"+;
 o)p "ppppp"
 "p"
 "p"
@@ -13,7 +13,7 @@ o)p "ppppp"
 "p"
 "p"
 o)p "pppppa"
-** parse error: expected <p+>
+** parse error: expected &ltp+>
    --> [peg:1:5]
     |
 0001|     pppppa
@@ -21,7 +21,7 @@ o)p "pppppa"
 o)
 ```
 
-Main syntax is **<-** followed by a parsing rule. A parser, like any other type in O language, can be assigned to variable (symbol) to be used later. To use parser with string or with bytearray just call it like a function.
+Main syntax is **&lt-** followed by a parsing rule. A parser, like any other type in O language, can be assigned to variable (symbol) to be used later. To use parser with string or with bytearray just call it like a function.
 
 ## Parsing expression rules
 
@@ -73,8 +73,8 @@ Main syntax is **<-** followed by a parsing rule. A parser, like any other type 
 ## FIX parsing example
 
 ```o
-o)string: <- [^\t\r\n|]+;
-o)header: <- "8="# string "|"#"9="# \d+ "|"# /{`fixver`size!(x 0;"I"$x 1)};
+o)string: &lt- [^\t\r\n|]+;
+o)header: &lt- "8="# string "|"#"9="# \d+ "|"# /{`fixver`size!(x 0;"I"$x 1)};
 o)header "8=FIX.4.4|9=126|"
 fixver| "FIX.4.4"
 size  | 126i

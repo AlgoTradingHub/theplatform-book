@@ -70,6 +70,7 @@ o)t:10 5 10                / time periods
 10 5 10
 o)(*/(r;t;p))%100          / simple interest
 300 500 1500
+o)
 ```
 
 ## Compound interest
@@ -95,7 +96,7 @@ o)
 ```
 
 :::  note
-All numbers in expressions must be of the same type, and floats only can be used in division.
+All numbers in expressions must be of the same type.
 :::
 
 Works with lists as well:
@@ -189,7 +190,9 @@ o)
 ```
 
 ```o
-o)isprime:{(x>1) and (&/(0<x mod range[2;"j"$sqrt "f"$x]))}
+o)range:{x+til (y-x-1)}
+{x+til (y-x-1)}
+o)isprime:{(x>1) and (&/(0<x mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
 {(x>1) and (&/(0<x mod range[2;"j"$sqrt "f"$x]))}
 o)isprime 1 5 15
 ()
@@ -198,4 +201,67 @@ o)isprime 1 5 15
 o)
 ```
 
-## 
+## Whether a Fibonacci numbers
+
+```
+import math
+def is_fibonacci(n):
+    phi = 0.5 + 0.5 * math.sqrt(5.0)
+    a = phi * n
+    return n == 0 or abs(round(a) - a) < 1.0 / n
+```
+
+```
+>>> [is_fibonacci(x) for x in (5, 13, 20)]
+[True, True, False]
+```
+
+x is a Fibonacci number if 5x^x + or - 4 is a perfect square:
+
+```o
+o)is_ps:{x={x*x}"j"$sqrt "f"$x}           / checks if number is a perfect square
+{x={x*x}"j"$sqrt "f"$x}
+o)is_fibonacci:{|/is_ps (5*x*x)+'4 -4}
+{|/is_ps (5*x*x)+'4 -4}
+o)is_fibonacci each 5 13 20
+110b
+o)
+```
+
+## Sum of squares of first N numbers
+
+```
+def squaresum(n): return (n * (n + 1) / 2) * (2 * n + 1) / 3
+```
+
+```
+>>> [squaresum(x) for x in (1,2,3,4,5,6,7,8,9,10)]
+[1.0 5.0 14.0 30.0 55.0 91.0 140.0 204.0 285.0 385.0]
+```
+
+```o
+o)squaresum:{x:"f"$x;(x*(x+1.0)%2.0)*(1.0+x*2.0)%3.0}
+{x:"f"$x;(x*(x+1.0)%2.0)*(1.0+x*2.0)%3.0}
+o)squaresum 1+til 10
+1 5 14 30 55 91 140 204 285 385f
+o)
+```
+
+## Cube sum of first N natural numbers
+
+```
+def sum_cubes(x): return (x * (x + 1) // 2) ** 2
+```
+
+```
+>>> [sum_cubes(x) for x in (5, 7)]
+[225, 784]
+```
+
+```o
+o)sum_cubes:{("f"$x*(x+1)%2)xexp 2f}
+{("f"$x*(x+1)%2)xexp 2f}
+o)sum_cubes 8 19
+1024 36100f
+o)
+```

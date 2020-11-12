@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const hndlrs = {
         'Enter': () => processCmd(),
+        'NumpadEnter': () => processCmd(),
         'ArrowUp': (e) => {
             historyIndex -= 1
             if (historyIndex < 0) { historyIndex = 0; return }
@@ -39,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     stdin.addEventListener('keydown', e => {
-        hndlrs[e.code] && hndlrs[e.code](e)
-        if (!(e.code in hndlrs)) {
+        let code = e.keyCode === 13 ? 'Enter' : e.code;
+        hndlrs[code] && hndlrs[code](e)
+        if (!(code in hndlrs)) {
             resetHistoryIndex()
         }
     })
@@ -57,12 +59,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     stdin.focus();
 
-    const ws = (location.protocol === 'https:') ? 
+    const ws = (location.protocol === 'https:') ?
         // secure SSL websockets
         new WebSocket(`wss://${location.hostname}/ws`)
-    :
+        :
         new WebSocket(`ws://${location.hostname}:45101`)
-    ;
+        ;
 
     ws.onopen = function (e) {
         status.innerHTML = "connected"

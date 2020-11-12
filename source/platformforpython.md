@@ -138,6 +138,7 @@ o)
 >>> list(sieve.primerange(20, 40))
 [23, 29, 31, 37]
 ```
+
 There is no built-in function for identifying prime numbers in O:
 
 ```o

@@ -4,7 +4,7 @@ Here you can find Platform solutions to some basic problems along with their Pyt
 
 ## Factorial of a number
 
-```
+```python
 >>> def factorial(n): return 1 if (n==1 or n==0) else n * factorial(n - 1)
 ...
 >>> factorial(6)
@@ -31,7 +31,7 @@ o)
 
 ## Simple interest
 
-```
+```python
 >>> p=1000                  # principal
 >>> r=3                     # rate
 >>> t=5                     # time periods
@@ -75,7 +75,7 @@ o)
 
 ## Compound interest
 
-```
+```python
 >>> p = 1300                # principal
 >>> r = 4.8                 # rate
 >>> t = 3                   # time periods
@@ -117,7 +117,7 @@ o)
 
 The area of circle is equal to πr^2, where r is a circle radius and π is the arc-cosine of -1.
 
-```
+```python
 >>> import numpy as np
 >>> np.arccos(-1)*10*10       # area of circle of radius 10
 314.1592653589793
@@ -133,7 +133,7 @@ o)
 
 ## Prime numbers in an interval
 
-```
+```python
 >>> from sympy import sieve
 >>> list(sieve.primerange(20, 40))
 [23, 29, 31, 37]
@@ -150,7 +150,7 @@ primeinrange:{
   l where (&/(0&ltl mod/:range[2;lmt])) }
 ```
 
-```
+```o
 q)primeinrange[20;40]
 23 29 31 37
 ```
@@ -183,7 +183,7 @@ o)
 
 ## If the number is prime
 
-```
+```python
 >>> from sympy import isprime
 >>> [isprime(x) for x in (1, 17, 20)]
 [False, True, False]
@@ -203,7 +203,7 @@ o)
 
 ## Whether a Fibonacci number
 
-```
+```python
 import math
 def is_fibonacci(n):
     phi = 0.5 + 0.5 * math.sqrt(5.0)
@@ -211,7 +211,7 @@ def is_fibonacci(n):
     return n == 0 or abs(round(a) - a) &lt 1.0 / n
 ```
 
-```
+```python
 >>> [is_fibonacci(x) for x in (5, 13, 20)]
 [True, True, False]
 ```
@@ -230,11 +230,11 @@ o)
 
 ## Sum of squares of first N numbers
 
-```
+```python
 def squaresum(n): return (n * (n + 1) / 2) * (2 * n + 1) / 3
 ```
 
-```
+```python
 >>> [squaresum(x) for x in (1,2,3,4,5,6,7,8,9,10)]
 [1.0 5.0 14.0 30.0 55.0 91.0 140.0 204.0 285.0 385.0]
 ```
@@ -249,11 +249,11 @@ o)
 
 ## Cube sum of first N natural numbers
 
-```
+```python
 def sum_cubes(x): return (x * (x + 1) // 2) ** 2
 ```
 
-```
+```python
 >>> [sum_cubes(x) for x in (5, 7)]
 [225, 784]
 ```

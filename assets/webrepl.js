@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     stdin.addEventListener('keydown', e => {
-        let code = e.keyCode === 13 ? 'Enter' : e.keyCode;
+        let code = e.keyCode === 13 ? 'Enter' : e.code;
         hndlrs[code] && hndlrs[code](e)
         if (!(code in hndlrs)) {
             resetHistoryIndex()

@@ -95,7 +95,7 @@ o)p*(1f+r%100.0)xexp t
 o)
 ```
 
-:::  note
+::: note
 All numbers in expressions must be of the same type.
 :::
 
@@ -138,7 +138,7 @@ o)
 >>> list(sieve.primerange(20, 40))
 [23, 29, 31, 37]
 ```
-There is no biultin function for identifying prime numbers in O:
+There is no built-in function for identifying prime numbers in O:
 
 ```o
 range:{x+til y-x-1}
@@ -180,7 +180,6 @@ o)l where (&/f)                                                   / select from 
 o)
 ```
 
-
 ## If the number is prime
 
 ```
@@ -201,7 +200,7 @@ o)isprime 1 5 15
 o)
 ```
 
-## Whether a Fibonacci numbers
+## Whether a Fibonacci number
 
 ```
 import math

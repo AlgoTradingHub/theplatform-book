@@ -4,7 +4,7 @@ Vector from scalar
 
 **Syntax:** ``x vs y; vs[x;y]``
 
-_Expamples with string:_
+_Examples with string:_
 
 ```o
 o)"," vs "a,b,c,d"

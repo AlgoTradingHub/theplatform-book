@@ -83,7 +83,7 @@
     - [read](/verbs/file/read.md)
     - [set](/verbs/file/set.md)
     - [get](/verbs/file/get.md)
-  - [String Manipulation](/nolink.md)
+  - [String manipulation](/nolink.md)
     - [like](/verbs/string/like.md)
     - [ss (str search)](/verbs/string/ss.md)
     - [ssr (str search and replace)](/verbs/string/ssr.md)
@@ -91,7 +91,7 @@
     - [print](/verbs/string/print.md)
     - [println](/verbs/string/println.md)
     - [format](/verbs/string/format.md)
-  - [List Verbs](/nolink.md)
+  - [List verbs](/nolink.md)
     - [distinct](/verbs/list/distinct.md)
     - [drop, cut](/verbs/list/drop.md)
     - [enlist](/verbs/list/enlist.md)
@@ -142,6 +142,8 @@
 - [Dynamic Parsers](/parsers.md)
 - [Standard Library](/std.md)
 - [Plugins](/plugins.md)
+- [ThePlatform for Python developers](platformforpython.md)
+- [ThePlatform for KDB+ developers](platformforkdb.md)
 
 ---
 

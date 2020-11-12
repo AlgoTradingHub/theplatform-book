@@ -4,7 +4,7 @@ Scalar from vector
 
 **Syntax:** ``x sv y; sv[x;y]``
 
-_Expamples with string:_
+_Examples with string:_
 
 ```o
 o)"," sv ("a";"b";"c")

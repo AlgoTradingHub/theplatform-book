@@ -1,4 +1,4 @@
-## Take
+# Take
 
 Takes first `x` elements of `y`.
 

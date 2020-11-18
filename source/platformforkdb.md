@@ -129,10 +129,12 @@ o)
 
 The area of circle is equal to πr^2, where r is a circle radius and π is the arc-cosine of -1.
 
+```o
 q)r = 10
 q)(acos -1)*r*r           / area of circle of radius 5
 314.1592653589793
 q)
+```
 
 ```o
 o)r:10f                   / radius
@@ -304,6 +306,10 @@ o)squaresum 1+til 10
 1 5 14 30 55 91 140 204 285 385f
 o)
 ```
+
+::: note
+All numbers in expressions in O must be of the same type.
+:::
 
 ## Cube sum of first N natural numbers
 

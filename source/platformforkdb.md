@@ -131,7 +131,7 @@ The area of circle is equal to πr^2, where r is a circle radius and π is the a
 
 ```o
 q)r = 10
-q)(acos -1)*r*r           / area of circle of radius 5
+q)(acos -1)*r*r           / area of circle of radius 10
 314.1592653589793
 q)
 ```
@@ -147,9 +147,9 @@ o)
 ## Prime numbers in an interval
 
 ```o
-q)show c:range[11;25]           / candidates
+q)show c:range[11;25]                         / candidates
 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-q)"j"$sqrt last c               / need test modulo only to here
+q)"j"$sqrt last c                             / need test modulo only to here
 5
 q)range[2;]"j"$sqrt last c
 2 3 4 5

@@ -54,7 +54,7 @@ o)
 A better practice is using vectors:
 
 ```o
-o)(*/(p;r;t))%100
+o)(*/(1000 3 5))%100
 150
 o)
 ```
@@ -198,6 +198,36 @@ o)isprime 1 5 15
 ()
 1b
 ()
+o)
+```
+
+## N-th Fibonacci number
+
+```python
+# next Fibonacci pair
+def nfp(x): return [x[1], sum(x)]
+
+# Nth Fibonacci pair
+def fibp(n):
+    if n<2: return [0, 1]
+    return nfp(fibp(n-1))
+
+def fib(n): return fibp(n)[0]
+```
+
+```python
+>>> fib(10)
+34
+```
+
+```o
+nfp:{(x 1),sum x}
+fib:{first(x-1)nfp/0 1}
+```
+
+```o
+o)fib 10
+34
 o)
 ```
 

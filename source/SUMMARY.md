@@ -139,11 +139,12 @@
     - [vs](/verbs/other/vs.md)
 - [Iterators](/iterators.md)
 - [Queries](/queries.md)
-- [Dynamic Parsers](/parsers.md)
-- [Standard Library](/std.md)
+- [Dynamic parsers](/parsers.md)
+- [Standard library](/std.md)
 - [Plugins](/plugins.md)
-- [ThePlatform for Python developers](platformforpython.md)
-- [ThePlatform for KDB+ developers](platformforkdb.md)
+- [ThePlatform for Python developers](/platformforpython.md)
+- [ThePlatform for KDB+ developers](/platformforkdb.md)
+- [Application examples](/applicationexamples.md)
 
 ---
 

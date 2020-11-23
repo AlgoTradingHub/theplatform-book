@@ -32,7 +32,7 @@ o)r[2]
 o)
 ```
 
-see :::
+::: see
 [reagent](/verbs/other/reagent.md)
 [react](/verbs/other/react.md)
 [meta](/verbs/other/react.md)

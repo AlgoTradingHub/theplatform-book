@@ -5,7 +5,7 @@ This section contains both Platform and KDB+ solutions to some basic problems.
 ## Factorial of a number
 
 ```o
-q)factorial:{$[x<2;1;x*.z.s x-1]}
+q)factorial:{$[x&lt2;1;x*.z.s x-1]}
 q)factorial 6
 720
 q)
@@ -160,7 +160,7 @@ q)c mod/:2 3 4 5                / modulo each c against all of them
 3 0 1 2 3 0 1 2 3 0 1 2 3 0 1
 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0
 
-q)show f:0<c mod/:2 3 4 5       / flag remainders
+q)show f:0&ltc mod/:2 3 4 5       / flag remainders
 101010101010101b
 101101101101101b
 101110111011101b
@@ -218,7 +218,7 @@ o)
 
 ```o
 range:{x+til y-x-1}
-isPrime:{(x>1)and all 0<x mod range[2;"j"$sqrt x]}
+isPrime:{(x&gt1)and all 0&ltx mod range[2;"j"$sqrt x]}
 ```
 
 ```o
@@ -230,8 +230,8 @@ q)
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)isprime:{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
-{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}
+o)isprime:{(x&gt1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
+{(x&gt1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}
 o)isprime 1 5 15
 ()
 1b

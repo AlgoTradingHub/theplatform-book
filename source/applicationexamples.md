@@ -1,11 +1,9 @@
 # Application examples
 
-## Dining philosophers problem
+[Dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
-```
+```o
 // The dining philosophers problem implementation in Join Calculus
-// https://en.wikipedia.org/wiki/Dining_philosophers_problem
-// ----
 
 // define channels (async molecules) for tasks communication
 thinking1: reagent[`async]; hungry1: reagent[`async]; fork12: reagent[`async];

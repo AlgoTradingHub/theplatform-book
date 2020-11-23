@@ -113,6 +113,7 @@
     - [load](/verbs/scripts/load.md)
   - [Other verbs](/nolink.md)
     - [argv](/verbs/other/argv.md)
+    - [close](/verbs/other/close.md)
     - [defn](/verbs/other/defn.md)
     - [eval](/verbs/other/eval.md)
     - [exit](/verbs/other/exit.md)

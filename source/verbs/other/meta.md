@@ -21,6 +21,6 @@ error     | 0N0
 o)
 ```
 
-see :::
+::: see
 [reagent](/verbs/other/reagent.md)
 :::

@@ -1,6 +1,7 @@
 
 - [Introduction](/index.md)
-- [Platform](/platform/platform.md)
+- [Platform](/platform/nolink.md)
+  - [General](/platform/platform.md)
   - [Installation](/platform/install.md)
 - [Tutorial](/tutorial.md)
 - [FAQ](/faq.md)

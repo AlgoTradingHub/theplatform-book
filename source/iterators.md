@@ -7,8 +7,9 @@ Adverbs are high order constructions taking some verb + data and applying verb t
 Applies monadic left argument to each element of right structure.
 
 ```o
-o) {x+1}'4 5 6
+o){x+1}'4 5 6
 5 6 7
+o)
 ```
 
 ## Each dyad
@@ -16,8 +17,9 @@ o) {x+1}'4 5 6
 Applies dyad to each pair of left and right arguments elements.
 
 ```o
-o) 1 2 3 +' 4 5 6
+o)1 2 3 +' 4 5 6
 5 7 9
+o)
 ```
 
 ## Each prior
@@ -25,26 +27,29 @@ o) 1 2 3 +' 4 5 6
 Applies dyad to subsequent pairs of right argument structure.
 
 ```o
-o) +':1 2 3
+o)+':1 2 3
 1 3 5
+o)
 ```
 
 ... beware of edge cases though:
 
 ```o
-o) {y}':,1
+o){y}':,1
 ,0N
-o) {y}':1 2
+o){y}':1 2
 0N 1
+o)
 ```
 
 ## Each prior with initial value
 
-Same as above, but left argument defines initial value.
+Same as above, but the left argument defines initial value.
 
 ```o
-o) 10*':1 2 2
+o)10*':1 2 2
 10 2 4
+o)
 ```
 
 ## Each right
@@ -52,8 +57,9 @@ o) 10*':1 2 2
 Applies dyad to each pair of left argument and right argument elements.
 
 ```o
-o) 1+/:1 2 3
+o)1+/:1 2 3
 2 3 4
+o)
 ```
 
 ## Each left
@@ -61,8 +67,9 @@ o) 1+/:1 2 3
 Applies dyad to each pair of left argument elements and right argument.
 
 ```o
-o) 1 2 3+\:1
+o)1 2 3+\:1
 2 3 4
+o)
 ```
 
 ## Over aka fold
@@ -70,29 +77,33 @@ o) 1 2 3+\:1
 Reduces right argument structure using left dyad. Initial value is different for some verbs.
 
 ```o
-o) +/1 2 3
+o)+/1 2 3
 6
-
+o)
 ```
-Boolean vectors behave as vector of long for some verbs:
+
+Boolean vectors behave as vectors of long for some verbs:
 
 ```o
-o) +/101b
+o)+/101b
 2
+o)
 ```
 
 ```o
-o) +/0#0
+o)+/0#0
 0
+o)
 ```
 
 However:
 
 ```o
-o) */0#0
+o)*/0#0
 1
-o) :/0#0
+o):/0#0
 0N
+o)
 ```
 
 ## Over with initial value
@@ -102,6 +113,7 @@ Folds right argument structure using left dyad. Initial value is given explicitl
 ```o
 o)10*/1 2 2
 40
+o)
 ```
 
 ## Over "converge" / "fixedpoint"
@@ -111,6 +123,7 @@ Repeatedly applies left argument monadic function until result stops changing:
 ```o
 o){x%2}/100
 0
+o)
 ```
 
 ## Scan
@@ -118,10 +131,11 @@ o){x%2}/100
 Does pretty much the same as "over", but returns same-sized structure.
 
 ```o
-o) +\1 2 3
+o)+\1 2 3
 1 3 6
-o) +\011b
+o)+\011b
 0 1 2
+o)
 ```
 
 ## Scan with initial value
@@ -131,6 +145,7 @@ o) +\011b
 ```o
 o)10*\1 2 2
 10 20 40
+o)
 ```
 
 ## "For" loop
@@ -138,8 +153,9 @@ o)10*\1 2 2
 Applies monadic verb to right argument left argument times.
 
 ```o
-o) 5{x+1}/10
+o)5{x+1}/10
 15
+o)
 ```
 
 ## "While" loop
@@ -147,8 +163,9 @@ o) 5{x+1}/10
 Applies monadic verb to right argument while left argument returns true value.
 
 ```o
-o) {x&lt100}{x*2}/1
+o){x&lt100}{x*2}/1
 128
+o)
 ```
 
 ## Scan "For" loop
@@ -158,6 +175,7 @@ Applies monadic verb to right argument left argument times.
 ```o
 o)5{x+1}\10
 10 11 12 13 14 15
+o)
 ```
 
 ## Scan "While" loop
@@ -167,6 +185,7 @@ Applies monadic verb to right argument while left argument returns true value.
 ```o
 o){x&lt100}{x*2}\1
 1 2 4 8 16 32 64 128
+o)
 ```
 
 ## Scan "converge" / "fixedpoint"
@@ -176,6 +195,7 @@ Repeatedly applies left argument monadic function until result stops changing an
 ```o
 o){x%2}\100
 100 50 25 12 6 3 1 0
+o)
 ```
 
 ## Commute
@@ -185,14 +205,15 @@ Transforms dyadic to have its left and right argument swapped.
 ```o
 o)4~,1 2 3
 1 2 3 4
-
+o)
 ```
-Amend/dmend also support commute dyads.
+
+Amend/dmend also support commute dyads:
 
 ```o
 o)a:!5
-o)a
 0 1 2 3 4
 o).[a;();~_;-2]
 0 1 2
+o)
 ```

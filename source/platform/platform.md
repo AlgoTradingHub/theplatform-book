@@ -2,11 +2,11 @@
 
 Platform uses work stealing as a task scheduling strategy and consists of three main components: \`Runtime, \`Scheduler, \`Task.
 
-In a work stealing runtime, each scheduler has a queue of tasks to perform. Each task consists of a series of instructions, to be executed sequentially, but in the course of its execution, a task may also spawn new task that can feasibly be executed in parallel with its other work. These new tasks are initially put on the queue of the scheduler executing the current (parent) task. When a scheduler runs out of work, it looks at the queues of other schedulers and "steals" their tasks. In effect, work stealing distributes the scheduling work over idle schedulers, and as long as all schedulers have work to do, no scheduling overhead occurs.
+In a work stealing runtime, each scheduler has a queue of tasks to perform. Each task consists of a series of instructions to be executed sequentially, but in the course of its execution, a task may also spawn new task that can feasibly be executed in parallel with the rest of its work. These new tasks are initially put on the queue of the scheduler executing the current (parent) task. When a scheduler runs out of work, it looks at the queues of other schedulers and "steals" their tasks. In effect, work stealing distributes the scheduling work over idle schedulers, and as long as all schedulers have work to do, no scheduling overhead occurs.
 
 ## Runtime
 
-The purpose of Runtime is a correct initialization and shutdown of workers threads and schedulers. Also it manages bootstrap or injector scheduler for creating root task.
+The purpose of Runtime is correct initialization and shutdown of workers' threads and schedulers. Also, it manages bootstrap or injector scheduler for creating root task.
 
 ```Rust
 extern crate rt;
@@ -25,16 +25,16 @@ fn main() {
 }
 ```
 
-Usually bootstrap scheduler used as a dedicated processor for blocking operations (terminal, files or network processing).
+Usually, bootstrap scheduler is used as a dedicated processor to block operations (terminal, files or network processing).
 
 ## Scheduler
 
 Scheduler implements work stealing algorithm, manages tasks execution and rescheduling them if needed (more on this later). Under the hood uses Chase-Lev deque as a tasks queue.
-Usually not directly accessible for end-user.
+Usually, not directly accessible for an end-user.
 
 ## Task
 
-Task implemented via stackful coroutine. Can be rescheduled after explicit `this::yield_task()` call or implicitly on bounded channel operations:
+Tasks are implemented via stackful coroutine. They can be rescheduled after explicit `this::yield_task()` call or implicitly on bounded channel operations:
 
 ```Rust
 let (s, r) = channel(2);// two element channel
@@ -57,11 +57,11 @@ runtime::spawn(|| {
 
 ## Fork-Join Parallelism
 
-Using \`Runtime, \`Scheduler and \`Task is enough for implementing fork-join parallelism. We can build acyclic DAG of computation using spawn (fork) and join (join) primitives.
+Using \`Runtime, \`Scheduler and \`Task is enough to implement fork-join parallelism. We can build acyclic DAG of computation using spawn (fork) and join (join) primitives.
 
 ## Channels and Pi-Calculus
 
-Channels are a typed conduit through which you can send and receive values to/from other tasks. Values can be channels themself also. (Pi-Calculus feature)
+Channels are a typed conduit through which you can send and receive values to/from other tasks. Values can be channels themselves as well (Pi-Calculus feature).
 
 We have implemented several types of channel:
 

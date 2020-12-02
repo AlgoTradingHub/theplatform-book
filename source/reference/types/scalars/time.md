@@ -18,3 +18,7 @@ Try getting current timestamp and casting it to time type. Only corresponsing pa
 o)`time$ts[]
 11:53:04.142
 ```
+
+::: see
+[Scalar types](/reference/types/scalars/scalars.md)
+:::

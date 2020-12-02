@@ -4,7 +4,7 @@ This tutorial is intended to help people who lack vector languages background an
 
 ## First start
 
-Starting language interpreter is the first thing you will need. So just execute following command in your shell terminal.
+Starting language interpreter is the first thing you will need. So just execute the following command in your shell terminal:
 
 ```o
 $ cargo run --release --bin tachyon
@@ -27,11 +27,11 @@ Started with file: REPL
 o)
 ```
 
-Whenever you see "o)" line, you can safely assume interpreter waits for your input.
+Whenever you see "o)" line, you can safely assume the interpreter is waiting for your input.
 
 ::: note
 Small hint - it's better to run the interpreter using "rlwrap" utility.
-It allows using arrow keys to recall history ("up" key) and editing it using "left" and "right" arrows.
+It allows using arrow keys to recall history ("up" key) and editing it with "left" and "right" arrows.
 :::
 
 ```o
@@ -40,17 +40,18 @@ $ rlwrap cargo run --release --bin tachyon
 
 ## Simple expressions
 
-Giving expressions to an interactive interpreter is like asking questions in order to get some answers. You give expression to calculate - interpreter gives you answers or errors (if you are unlucky :))
+Giving expressions to an interactive interpreter is like asking questions in order to get some answers. You give an expression to calculate - interpreter gives you answers or errors (if you are unlucky :))
 
-Let's say, you are particularly interested in learning the result of "2+2" arithmetic expression. You can ask interpreter! Enter "2+2" in its prompt and hit Enter. It will show the following text.
+Let's say, you are particularly interested in learning the result of "2+2" arithmetic expression. You can ask the interpreter! Type "2+2" in its prompt and hit Enter. It will show the following text:
 
 ```o
-o) 2+2
+o)2+2
 4
+o)
 ```
 
 So, your expression got correctly calculated (or evaluated) and printed in session.
-In some sense, interpreter is nothing more than an advanced calculator.
+In  way, an interpreter is nothing more than an advanced calculator.
 
 Let's reformulate ourselves a little to summarize - we enter expressions in the interpreter prompt and get answers in the session. Any answer in O language is called a "value". A value is something that gets created when calculation/evaluation happens. In fact, any syntax construction in the language is an expression, thus has a value.
 
@@ -129,7 +130,7 @@ o)
 This is a simple vector of integers. Parenthesis with elements separated by semicolons are a generic vector notation.
 
 ```o
-o) intvec:1 2 3
+o)intvec:1 2 3
 1 2 3
 o)
 ```
@@ -194,7 +195,7 @@ o)
 O language does not have multidimensional vectors/matrices but they can be implemented using nested lists.
 
 ```o
-o) a:(1 2 3; 4 5 6; 7 8 9)
+o)a:(1 2 3; 4 5 6; 7 8 9)
 1 2 3
 4 5 6
 7 8 9

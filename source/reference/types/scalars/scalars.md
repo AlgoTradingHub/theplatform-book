@@ -26,8 +26,8 @@ O has following scalars:
 | Timestamp |8| \`timestamp | 2020.11.05D12:30:21.123456789 | 0Np | 0Wp |
 | Timespan |8| \`timespan | 7614D12:30:21.12345679 | 0Nn | 0Wn |
 | Datetime |8| \`datetime | 2020.11.05T12:30:21.123 | 0Nz | 0Wz |
-| Date |4| \`date | 2015.01.01 | 0Nd | 0Wd |
-| Month |4| \`month | 2015.01.01 | 0Nm | 0Wm |
+| Date |4| \`date | 2021.01.01 | 0Nd | 0Wd |
+| Month |4| \`month | 2021.01m | 0Nm | 0Wm |
 | Time |4| \`time | 12:30:21.123 | 0Nt | 0Wt |
 | Minute |4| \`minute | 12:30 or -12:30 | 0Nu | 0Wu |
 | Second |4| \`second | 12:30:21 | 0Nv | 0Wv |

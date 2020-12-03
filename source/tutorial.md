@@ -330,7 +330,7 @@ For example, by arity (number of arguments):
 
 * Monads or monadic functions - those which accept just a single argument.
 * Dyads or dyadic functions - those which expect 2.
-* Triads and tetrads - those which expect 3 and 4 respectively.
+* Triads and tetrads - those which expect 3 and 4, respectively.
 * Polyads - those which accept different number of arguments.
 That separation is important to grasp "adverbs" discussed later.
 
@@ -557,7 +557,7 @@ For full specification on "$" dyad see [Types](/reference/types/types.md).
 
 ## Boolean values and vectors
 
-Boolean values are often produced by relational verbs. 0 and 1's correspond to false and true values respectively. O has following relational verbs - &lt, >, >=, &lt=, =, &lt>. All of them are fully-atomic, that is, both left and right arguments go through nested structures.
+Boolean values are often produced by relational verbs. 0 and 1's correspond to false and true values, respectively. O has following relational verbs - &lt, >, >=, &lt=, =, &lt>. All of them are fully-atomic, that is, both left and right arguments go through nested structures.
 
 ```o
 o)(1;2 3 4;5)>(1;2;4)
@@ -567,7 +567,7 @@ o)(1;2 3 4;5)>(1;2;4)
 o)
 ```
 
-Well-known boolean algebra functions like "and", "or", "xor" are fully supported. Those are "&", "|" and "&lt>" respectively.
+Well-known boolean algebra functions like "and", "or", "xor" are fully supported. Those are "&", "|" and "&lt>", respectively.
 
 ```o
 o)a:1 2 3; b:2 2 1;
@@ -627,7 +627,7 @@ o)()0
 o)
 ```
 
-Positive and negative infinities are related to numeric types only. They have specific notation - **0W** with a corresponding type suffix, like **0Wf** (float with double precision), **0Wj** (long integer), short notation is **0w** and **0W** respectively. Again, for full specification on infinities - see [Scalars](/reference/types/scalars/scalars.md).
+Positive and negative infinities are related to numeric types only. They have specific notation - **0W** with a corresponding type suffix, like **0Wf** (float with double precision), **0Wj** (long integer), short notation is **0w** and **0W**, respectively. Again, for full specification on infinities - see [Scalars](/reference/types/scalars/scalars.md).
 
 Infinities are a result of calculations:
 

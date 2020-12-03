@@ -1,6 +1,6 @@
 # Monadic !
 
-When applied to typespec returns corresponding internal type id.
+When applied to type spec returns corresponding internal type id.
 
 **Syntax:** ```!x; ![x]```
 
@@ -16,4 +16,4 @@ o)!``dict
 o)
 ```
 
-See the full list of typespecs [here](/reference/types/scalars/scalars.md).
+See the full list of type specs [here](/reference/types/scalars/scalars.md).

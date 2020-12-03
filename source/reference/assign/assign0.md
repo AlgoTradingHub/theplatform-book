@@ -1,10 +1,10 @@
 # 0: FileText
 
-Read text file, applying separator as left argument
+Reads a text file
 
 **Syntax:** ```x 0: y; 0:[x;y]```
 
-Where left argument is string, right argument is a symbol path to the file to be readed
+Where left argument is a separator represented with a string, right argument is a symbol path to the file to be read.
 
 ```o
 o)0:["\n";`:f.txt]
@@ -12,3 +12,7 @@ o)0:["\n";`:f.txt]
 "4,5,6"
 o)
 ```
+
+::: see
+[Assign 1](/reference/assign/assign1.md)
+:::

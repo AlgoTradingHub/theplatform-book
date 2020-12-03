@@ -1,6 +1,6 @@
 # Monadic "type" Function
 
-Returns typespec of its argument.
+Returns type spec of its argument.
 
 **Syntax:** ```type x; type[x]```
 
@@ -23,4 +23,4 @@ o)type flip d
 o)
 ```
 
-See the full list of typespecs [here](/reference/types/scalars/scalars.md).
+See the full list of type specs [here](/reference/types/scalars/scalars.md).

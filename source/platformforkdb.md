@@ -12,12 +12,16 @@ q)
 ```
 
 ```o
-o)factorial:{$[x&lt2;1;x*factorial x-1]}
-{$[x&lt2;1;x*factorial x-1]}
+o)factorial:{$[x&lt2;1;x*o x-1]}
+{$[x&lt2;1;x*o x-1]}
 o)factorial 6
 720
 o)
 ```
+
+::: note
+`o` binding is special in lambdas body. It defines reference to enclosing lambda itself.
+:::
 
 Non-recursive solution:
 

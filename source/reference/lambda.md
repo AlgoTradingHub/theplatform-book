@@ -8,7 +8,7 @@ Function declaration consists of two phases - defining lambda expression and bin
 
 ## Lambda arguments
 
-Lambda arguments are defined using **[]**:
+Lambda arguments are defined using **[ ]**:
 
 ```o
 o).n.sum:{[arr] a:+/arr; a}

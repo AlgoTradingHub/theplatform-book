@@ -1,16 +1,17 @@
 # Temporal types
 
-There are five temporal times in O:
+There are eight temporal times in O:
 
-| Type | Typespec | Example |
-| --- | --- | --- |
-| Timestamp | \`timestamp | 2020.12.03D11:49:00.505770835 |
-| Datetime | \`datetime | 2020.12.03T11:49:00.505 |
-| Date | \`date | 2020.12.03 |
-| Time | \`time | 11:49:00.505 |
-| Second | \`second | 11:49:00 |
-| Minute | \`minute | 11:49 or -11:49 |
-
+| Type | Type letter | Typespec | Example |
+| --- | --- | --- | --- |
+| Timestamp | "p" | \`timestamp | 2020.12.03D11:49:00.505770835 |
+| Timespan | "n" | \`timespan | 7614D12:30:21.12345679 |
+| Datetime | "z" | \`datetime | 2020.12.03T11:49:00.505 |
+| Date | "d" | \`date | 2020.12.03 |
+| Month | "m" | \`month | 2021.01m |
+| Time | "t" | \`time | 11:49:00.505 |
+| Second | "u" | \`second | 11:49:00 |
+| Minute | "v" | \`minute | 11:49 or -11:49 |
 
 
 ## Current timestamp
@@ -48,20 +49,21 @@ o)`second$p
 ```o
 o)p: ts[]; type p-p
 `s`long
-o)n: `timespan$p; type n-n
+o)n: "n"$p; type n-n
 `s`long
-o)z: `datetime$p; type z-z
+o)z: "z"$p; type z-z
 `s`long
-
-o)d: `date$p; type d-d
+```
+```o
+o)d: "d"$p; type d-d
 `s`int
-o)m: `month$p; type m-m
+o)m: "m"$p; type m-m
 `s`int
-o)t: `time$p; type t-t
+o)t: "t"$p; type t-t
 `s`int
-o)u: `minute$p; type u-u
+o)u: "u"$p; type u-u
 `s`int
-o)v: `second$p; type v-v
+o)v: "v"$p; type v-v
 `s`int
 ```
 

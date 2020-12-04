@@ -43,7 +43,7 @@ Encoding structure in type spec is as follows:
 | Scalar | \`s | \`s\`bool |
 | Vector | \`v | \`v\`int |
 
-Another useful monadic verb for getting type spec is [**type**]()/verbs/type/type.md). It returns type spec for a given value:
+Another useful monadic verb for getting type spec is [**type**](/verbs/type/type.md). It returns type spec for a given value:
 
 ```o
 o)type 10#0

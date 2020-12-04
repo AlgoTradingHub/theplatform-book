@@ -67,4 +67,5 @@ o)v: `second$p; type v-v
 
 ::: see
 [Scalar types](/reference/types/scalars/scalars.md)
+[timestamp](/verbs/other/timestamp.md)
 :::

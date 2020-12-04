@@ -26,6 +26,7 @@
   - [Assign](/nolink.md)
     - [Assign 0](/reference/assign/assign0.md)
     - [Assign 1](/reference/assign/assign1.md)
+  - [Destructuring](/reference/destructuring.md)
 - [Verbs](/nolink.md)
   - [Indexing verbs](/nolink.md)
     - [@ (at)](/verbs/indexing/at.md)

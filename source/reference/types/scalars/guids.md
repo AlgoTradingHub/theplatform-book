@@ -1,15 +1,16 @@
 # Guids
 
-Provides support for Universally Unique Identifiers (UUIDs). A guid type is a unique 128-bit number, stored as 16 octets. Used to assign unique identifiers to entities without requiring a central allocating authority.
+Provide support for Universally Unique Identifiers (UUIDs). A guid type is a unique 128-bit number stored as 16 octets. It is used to assign unique identifiers to entities without requiring a central allocating authority.
 
-Guid can be crated from string:
+Guid can be created from a string:
 
 ```o
 o)"G"$"61e35154-10bc-a49a-d11f-f10e1a377000"
 61e35154-10bc-a49a-d11f-f10e1a377000
+o)
 ```
 
-... or generated newly:
+... or generated from scratch:
 
 ```o
 o)-2?0Ng
@@ -26,10 +27,10 @@ o)
 ```
 
 ::: note
-There is no literal entry for a guid, it has no conversions, and the only scalar primitives are =, &lt and > (similar to sym).
+There is no literal entry for a guid, it has no conversions and the only scalar primitives it supports are =, &lt and > (similar to sym).
 :::
 
-There are no other limitations about storing, serializing etc. in contrast to other O types.
+There are no other limitations on storing, serializing guids, etc. in contrast to other O types.
 
 ::: see
 [strings](/reference/types/strings.md)

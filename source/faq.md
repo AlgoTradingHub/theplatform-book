@@ -19,8 +19,11 @@ Use the following shebang under Linux - ``#!/usr/bin/env -S bash -c 'cat "$0" | 
 ### How can I find memory leaks in tachyon binary?
 
 Run tachyon using ``$ RUSTFLAGS="-Z sanitizer=leak -Cforce-frame-pointers=yes" cargo run --bin tachyon``.
+
 To get meaningful backtraces, you must have ``llvm-symbolizer`` accessible in ``$PATH`` (LLVM 8+).
+
 If your Linux distribution installs it prepending its version, just make a symlink like:
+
 ``$ mkdir -p ~/bin; ln -s /usr/bin/llvm-symbolizer-8 ~/bin/llvm-symbolizer; export PATH=$PATH:~/bin``.
 
 

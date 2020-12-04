@@ -10,22 +10,24 @@ Where x is:
 | Type letter | Type symbol |
 | --- | --- |
 | "b" | `bool |
-| "g" | `guid |
 | "x" | `byte |
 | "h" | `short |
 | "i" | `int |
 | "j" | `long |
+| "s" | `symbol |
+| "c" | `char |
+| "g" | `guid |
 | "e" | `real |
 | "f" | `float |
-| "c" | `char |
 | "p" | `timestamp |
-| "m" | `month |
-| "d" | `date |
-| "z" | `datetime |
 | "n" | `timespan |
+| "z" | `datetime |
+| "d" | `date |
+| "m" | `month |
+| "t" | `time |
 | "u" | `minute |
 | "v" | `second |
-| "t" | `time |
+
 
 Casting to a string although has a shorthand form: ``$x``
 

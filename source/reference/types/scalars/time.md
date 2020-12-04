@@ -10,8 +10,8 @@ There are eight temporal times in O:
 | Date | "d" | \`date | 2020.12.03 |
 | Month | "m" | \`month | 2021.01m |
 | Time | "t" | \`time | 11:49:00.505 |
-| Second | "u" | \`second | 11:49:00 |
-| Minute | "v" | \`minute | 11:49 or -11:49 |
+| Minute | "u" | \`minute | 11:49 or -11:49 |
+| Second | "v" | \`second | 11:49:00 |
 
 
 ## Current timestamp

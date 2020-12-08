@@ -67,6 +67,7 @@
     - [filter](/verbs/list/filter.md)
     - [first](/verbs/list/first.md)
     - [last](/verbs/list/last.md)
+    - [reverse](/verbs/list/reverse.md)
     - [take](/verbs/list/take.md)
   - [Logical verbs](/nolink.md)
     - [~ (not)](/verbs/logical/not.md)

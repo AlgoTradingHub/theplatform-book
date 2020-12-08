@@ -43,5 +43,5 @@ o)
 
 ::: see
 [Types, Casting, etc](/reference/types/types.md)
-[Repr](/reference/verbs/casts/repr.md)
+[Repr](/verbs/casts/repr.md)
 :::

@@ -54,7 +54,7 @@ o)
 ```
 
 ::: note
-**!** verb has one nice property - it might be evaluated at parse time if its argument is constant.
+The **!** verb has one nice property - it might be evaluated at parse time if its argument is constant.
 :::
 
 This example just assigns constant integer value at runtime:
@@ -83,7 +83,7 @@ o)
 
 For element type names, see [Scalars](/reference/types/scalars/scalars.md).
 
-A better practice to define full type is using **!** verb:
+A better practice to define full type is using the **!** verb:
 
 ```o
 o)(!`s`int)$10
@@ -103,7 +103,7 @@ o)a:1 2 3; b:10 20 30i; (@b)$a
 o)
 ```
 
-And yes, internal type id can be given as left argument but it's better to use it only in REPL.
+And yes, an internal type id can be given as left argument but it's better to use it only in REPL.
 
 ```o
 o)a:1 2 3; b:10 20 30i; 64$a
@@ -120,7 +120,7 @@ o)
 
 ### Casting and over/underflows
 
-When casting, you can encounter values that are too large or too small to be held by type. Infinity values are used to signal that:
+When casting, you can encounter values that are too large or too small to be held by type. Infinities are used to signal that:
 
 ```o
 o)`int$1000000000000 -1000000000000

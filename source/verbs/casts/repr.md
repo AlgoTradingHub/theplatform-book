@@ -38,5 +38,5 @@ o)
 ```
 
 ::: see
-[cast](/reference/verbs/casts/cast.md)
+[cast](/verbs/casts/cast.md)
 :::

@@ -1,12 +1,12 @@
 # Plugins
 
-The platform allows creation two types of plugins:
+The platform allows creating two types of plugins:
 
-- stateless functions
-- stateful reagents
+- stateless functions;
+- stateful reagents.
 
-The first one can be used for definition own monads/dyads/triads/tetrads/polyads...
-Let's implement own add function:
+The first one can be used to define custom monads/dyads/triads/tetrads/polyads. Let's implement our own add function.
+
 Firstly, make some preparations:
 
 ```Rust
@@ -15,7 +15,7 @@ extern crate ext;
 use ext::{Interpreter, AST};
 ```
 
-Define own function:
+Define your own function:
 
 ```Rust
 #[unwind(allowed)]
@@ -29,7 +29,7 @@ extern  fn add_fn(lhs: &AST, rhs: &AST, i: &Interpreter) -> AST {
 }
 ```
 
-Finaly, register newly created function:
+Finaly, register a newly created function:
 
 ```Rust
 declare_plugin!(
@@ -62,9 +62,9 @@ o)
 ```
 
 That's all! Simple, right?
-Ok, now we are ready to create stateful reagent. Let it be our own implementation of REPL.
+Ok, now we are ready to create a stateful reagent. Let it be our own implementation of REPL.
 
-The preparation stage is a little bit longer:
+The preparation stage is a bit longer:
 
 ```Rust
 use ext::{In, Out, Pipeline, State, AST, Interpreter, ErrorKind};
@@ -76,13 +76,13 @@ use std::io;
 use std::io::Read;
 ```
 
-Define the size of buffer to hold data, readed from STDIN
+Define the size of buffer for holding data to be read from STDIN:
 
 ```Rust
 const BUFFER_SIZE: usize = 64000000;
 ```
 
-Core part of each reagent is a PIPE - sender and receiver:
+The core part of each reagent is a PIPE - sender and receiver:
 
 ```Rust
 pub struct Receiver {
@@ -133,7 +133,7 @@ impl In&ltAST> for Receiver {
 }
 ```
 
-Define registration function, that will be called on reagent creation:
+Define registration function that will be called on reagent creation:
 
 ```Rust
 #[unwind(allowed)]
@@ -147,7 +147,7 @@ unsafe extern "C" fn simple_reagent(_: &[AST], i: &Interpreter) -> Pipeline&ltAS
 }
 ```
 
-Almost done, left to register our plugin:
+Almost done, now we need to register our plugin:
 
 ```Rust
 declare_plugin!(

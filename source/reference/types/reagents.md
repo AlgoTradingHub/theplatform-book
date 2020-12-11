@@ -66,7 +66,7 @@ o)
 An important thing here is a Descriptor. When we define react on a reagent, the last one receives a unique Descriptor, that identifies this reagent inside IO scheduler.
 
 ::: warn
-Reactions on the same reagent are only allowed when from the same task.
+Reactions on the same reagent are only allowed from the same task.
 :::
 
 Reagents mostly behave as any other type in O (they are first class objects) but have some limitations:

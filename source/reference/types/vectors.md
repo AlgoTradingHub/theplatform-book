@@ -78,7 +78,8 @@ o)a:`sym$`c`b`a;
 o)f:`:/tmp/o_enum1.dat; f set a;
 o)fsym:`:/tmp/o_sym_enum1.dat; fsym set sym;
 o)b:get f; sym: get fsym;
-0)b:`sym$b;
+o)b:`sym$b;
 o)b
 `sym$`c`b`a
+o)
 ```

@@ -1,10 +1,10 @@
 # Adverbs
 
-Adverbs are high order constructions taking some verb + data and applying verb to data in some way.
+Adverbs are high order constructions that modify the way a verb is applied to data.
 
 ## Each monad
 
-Applies monadic left argument to each element of right structure.
+Applies monadic in the left argument to each element of the right structure.
 
 ```o
 o){x+1}'4 5 6
@@ -14,7 +14,7 @@ o)
 
 ## Each dyad
 
-Applies dyad to each pair of left and right arguments elements.
+Applies dyad to each pair of left and right arguments' elements.
 
 ```o
 o)1 2 3 +' 4 5 6
@@ -54,7 +54,7 @@ o)
 
 ## Each right
 
-Applies dyad to each pair of left argument and right argument elements.
+Applies dyad to each pair of the left argument and right argument elements.
 
 ```o
 o)1+/:1 2 3
@@ -64,7 +64,7 @@ o)
 
 ## Each left
 
-Applies dyad to each pair of left argument elements and right argument.
+Applies dyad to each pair of the left argument elements and right argument.
 
 ```o
 o)1 2 3+\:1
@@ -116,9 +116,9 @@ o)10*/1 2 2
 o)
 ```
 
-## Over "converge" / "fixedpoint"
+## Over "converge"/"fixedpoint"
 
-Repeatedly applies left argument monadic function until result stops changing:
+Repeatedly applies monadic function the left argument until result stops changing:
 
 ```o
 o){x%2}/100
@@ -128,7 +128,7 @@ o)
 
 ## Scan
 
-Does pretty much the same as "over", but returns same-sized structure.
+Acts pretty much the same as "over", but returns a structure of the same size.
 
 ```o
 o)+\1 2 3
@@ -150,7 +150,7 @@ o)
 
 ## "For" loop
 
-Applies monadic verb to right argument left argument times.
+Applies monadic verb to the right argument left argument times.
 
 ```o
 o)5{x+1}/10
@@ -160,7 +160,7 @@ o)
 
 ## "While" loop
 
-Applies monadic verb to right argument while left argument returns true value.
+Applies monadic verb to the right argument while the left argument returns true value.
 
 ```o
 o){x&lt100}{x*2}/1
@@ -170,7 +170,7 @@ o)
 
 ## Scan "For" loop
 
-Applies monadic verb to right argument left argument times.
+Applies monadic verb to the right argument left argument times.
 
 ```o
 o)5{x+1}\10
@@ -180,7 +180,7 @@ o)
 
 ## Scan "While" loop
 
-Applies monadic verb to right argument while left argument returns true value.
+Applies monadic verb to the right argument while the left argument returns true value.
 
 ```o
 o){x&lt100}{x*2}\1
@@ -188,9 +188,9 @@ o){x&lt100}{x*2}\1
 o)
 ```
 
-## Scan "converge" / "fixedpoint"
+## Scan "converge"/"fixedpoint"
 
-Repeatedly applies left argument monadic function until result stops changing and accumulates all intermediate results:
+Repeatedly applies monadic function in the left argument to the right one, until result stops changing and accumulates all intermediate results:
 
 ```o
 o){x%2}\100

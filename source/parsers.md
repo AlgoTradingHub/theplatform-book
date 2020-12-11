@@ -1,17 +1,14 @@
 # Dynamic parsers
 
-There is an ability to dynamically create text parsers as well as binary parsers for user-defined grammars by using PEG parser combinator right out-of-the-box. See [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
+Text parsers can be dynamically created as well as binary parsers for user-defined grammars using PEG parser combinator right out-of-the-box. See [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar).
 
 For example, let's create a simple parser that eats only strings consisting of "p" chars:
 
 ```o
-o)p: &lt- "p"+;
+o)p:&lt- "p"+
+<Parser["p"+]>
 o)p "ppppp"
-"p"
-"p"
-"p"
-"p"
-"p"
+"ppppp"
 o)p "pppppa"
 ** parse error: expected &ltp+>
    --> [peg:1:5]
@@ -21,7 +18,7 @@ o)p "pppppa"
 o)
 ```
 
-Main syntax is **&lt-** followed by a parsing rule. A parser, like any other type in O language, can be assigned to variable (symbol) to be used later. To use parser with string or with bytearray just call it like a function.
+Main syntax is **&lt-** followed by a parsing rule. A parser, like any other type in O language, can be assigned to a variable (symbol) and used later. Using parser with a string or a byte array just calls it like a function.
 
 ## Parsing expression rules
 
@@ -30,7 +27,7 @@ Main syntax is **&lt-** followed by a parsing rule. A parser, like any other typ
   - any nonterminal symbol, or
   - the empty string ε.
 
-- Given any existing parsing expressions e, e1, and e2, a new parsing expression can be constructed using the following operators:
+- Given any existing parsing expressions e, e1, and e2, a new parsing expression can be constructed using such operators:
   - Sequence: e1 e2
   - Ordered choice: e1 | e2
   - Zero-or-more: e*

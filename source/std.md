@@ -6,7 +6,7 @@
 Before using, you need to load a standard library into namespace.
 
 ```o
-o) load "core"
+o)load "core"
 ```
 
 ### Symbols into/from enum conversions
@@ -52,17 +52,17 @@ a b c
 2 4 `d
 ```
 
-Less frequent, but still useful procedure is turning enums into ordinary symbols. It's done using ```.o.sym``` function.
+A less frequent, but still useful procedure is turning enums into ordinary symbols. It's done using ```.o.sym``` function.
 
 **Syntax:** ```.o.sym[t]```
 
 where ```t``` is a table or table symbol for in-place modification.
 
 ```o
-o) load "core"
-o) sym:`c`d;
-o) t:+`a`b`c!(1 2;3 4;`sym$`c`d);
-o) .o.sym[`t];                // destructive enums -> symbols
+o)load "core"
+o)sym:`c`d;
+o)t:+`a`b`c!(1 2;3 4;`sym$`c`d);
+o).o.sym[`t];                // destructive enums -> symbols
 o)t
 a b c
 -----

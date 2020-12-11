@@ -4,8 +4,7 @@ Converts right arg values according to left arg specification.
 
 **Syntax:** ```x$y; $[x;y]```
 
-Where x is:
-- a lower-case letter, or symbol from the following table, returns y cast according to x
+Where `x` is a lower-case letter or symbol from the table below. Returns `y` cast according to `x`.
 
 | Type letter | Type symbol |
 | --- | --- |
@@ -28,16 +27,30 @@ Where x is:
 | "u" | `minute |
 | "v" | `second |
 
-
-Casting to a string although has a shorthand form: ``$x``
-
 ```o
 o)"i"$12
 12i
 o)`bool$1
 1b
+o)"j"$1.1
+1
+o)
+o)"f"$10
+10f
+o)
+o)"d"$ts[]
+2020.12.11
+```
+
+Casting to a string has a shorthand form: ``$x``
+
+```
 o)$123
 "123"
+o)$ts[]
+"2020.12.11D11:39:42.550501414"
+o)$!10
+"0 1 2 3 4 5 6 7 8 9"
 o)
 ```
 

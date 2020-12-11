@@ -29,7 +29,7 @@ extern  fn add_fn(lhs: &AST, rhs: &AST, i: &Interpreter) -> AST {
 }
 ```
 
-Finaly, register a newly created function:
+Finally, register a newly created function:
 
 ```Rust
 declare_plugin!(
@@ -61,8 +61,7 @@ nyi
 o)
 ```
 
-That's all! Simple, right?
-Ok, now we are ready to create a stateful reagent. Let it be our own implementation of REPL.
+That's all! Simple, right? Ok, now we are ready to create a stateful reagent. Let it be our own implementation of REPL.
 
 The preparation stage is a bit longer:
 
@@ -161,7 +160,7 @@ declare_plugin!(
 );
 ```
 
-Now we can load our plugin into interpreter:
+Finally, we can load our plugin into interpreter:
 
 ```o
 load "platform/plugins/simple_reagent/target/debug/libsimple_reagent.so";

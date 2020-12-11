@@ -1,6 +1,6 @@
 # kill
 
-Sends kill signal to a taskю
+Sends kill signal to a task.
 
 **Syntax:** ```kill x; kill[x]```
 

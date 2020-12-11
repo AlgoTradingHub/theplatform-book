@@ -18,7 +18,7 @@ o)p "pppppa"
 o)
 ```
 
-Main syntax is **&lt-** followed by a parsing rule. A parser, like any other type in O language, can be assigned to a variable (symbol) and used later. Using parser with a string or a byte array just calls it like a function.
+Main syntax is `&lt-` followed by a parsing rule. A parser, like any other type in O language, can be assigned to a variable (symbol) and used later. Using parser with a string or a byte array just calls it like a function.
 
 ## Parsing expression rules
 

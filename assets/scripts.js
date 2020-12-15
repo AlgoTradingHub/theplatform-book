@@ -118,10 +118,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     } else i.classList.remove("active");
                 });
             contentDocument.innerHTML = content;
+            setDocumentTitle();
             Prism.highlightAll();
             window.scrollTo(0, 0);
         });
-    }
+    };
+
+    function setDocumentTitle(){
+        let h1 = document.querySelector("#contentDocument h1");
+        if (h1){
+            document.title = h1.textContent;
+        }
+    };
 
     searchIcon.addEventListener("click", function (event) {
         toggleSearch();
@@ -151,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         i => {
             i.onclick = function (event) {
                 event.preventDefault();
-                window.history.pushState({}, "TODO:add title", i.href);
+                window.history.pushState({}, "", i.href);
                 loadPageContent();
             }
             if (i.href == currentPath) {
@@ -168,5 +176,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     setTimeout(function () { toggleMenuTransitions(menuContainer, true) }, 100);
 
     window.onpopstate = loadPageContent;
+    setDocumentTitle();
 
 });

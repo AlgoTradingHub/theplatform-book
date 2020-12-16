@@ -1,11 +1,10 @@
 # Triadic $ (cond)
 
-Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately.
-Only the first argument is evaluated. If it is true the second argument is evaluated and becomes the result of the `cond` expression. Otherwise, the third argument is evaluated.
+Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately. Only the first argument is evaluated. If it is true, the second argument is evaluated and becomes the result of the `cond` expression. Otherwise, the third argument is evaluated.
 
 **Syntax:** ```$[x;y;z]```
 
-where `x` is condition, `y` is an expression evaluated if `x` is true, `z` is an expression evaluated if `x` is false.
+where `x` is a condition, `y` is an expression evaluated if `x` is true, `z` is an expression evaluated if `x` is false.
 
 The concept of truth here is a bit complex:
 
@@ -39,6 +38,7 @@ o)
 ```
 
 Another thing to remember is that simulation of short circuit evaluation of condition itself is done using nested conds:
+
 ```o
 o) a:1 2 3;
 o) $[a;$[1=a[0];2;3];4]

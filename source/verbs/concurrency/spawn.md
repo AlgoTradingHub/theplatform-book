@@ -1,13 +1,13 @@
 # spawn
 
-Schedules lambda to run on some free scheduler. Returns a join handle that can be passed to wait function for synchronize.
+Schedules lambda to run on some free scheduler. Returns a join handle that can be passed to wait function for synchronizing.
 
 **Syntax:** ```spawn[x;y;..]```
 
 Where:
 
-- x: lambda to be runned
-- y;z..: optional arguments
+- x is a lambda to be run;
+- y;z.. are optional arguments.
 
 ```o
 o)spawn[{0N!(,':x)};!10]

@@ -147,8 +147,7 @@ o)
 
 ## Table modification
 
-Table amend/dmend work mostly the same as for dictionaries.
-Following example increases the "b" field by 1 for records at positions 0 and 2.
+Table amend/dmend work mostly the same as for dictionaries. Following example increases the "b" field by 1 for records at positions 0 and 2.
 
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); .[a;(`b;0 2);+;1]

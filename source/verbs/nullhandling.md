@@ -15,5 +15,11 @@ o)null 0 1 2 3
 0000b
 o)null 0 1 2 3 0N
 00001b
+o)a:!9;
+o)^ a?9
+1b
+o)dict:`a`b!(1 2);
+o)^ dict[`c]
+1b
 o)
 ```

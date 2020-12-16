@@ -1,12 +1,12 @@
 # Dyadic $ (repr)
 
-Interpret a string as a data value
+Interprets a string as a data value.
 
 **Syntax:** ```x$y; $[x;y]```
 
 Where:
-- y is a string
-- x is a upper-case char as below
+- y is a string;
+- x is a upper-case char as below.
 
 | Type name   | Repr string |
 | --- | --- |

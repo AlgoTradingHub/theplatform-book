@@ -21,7 +21,7 @@ ps1: {println["Welcome to ThePlatform v1.0.0\n(Web REPL - strict mode)\n--------
                         if [~0N0~e] { cli[repr e] }
                       };
                       "c"$x;
-                      {println["%";x]}
+                      {println["** % error: `%`\n%";x`kind;x`call;x`message]}
                     ]
                 }]
             };x]

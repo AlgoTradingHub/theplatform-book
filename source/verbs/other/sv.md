@@ -1,8 +1,10 @@
-# Dyadic sv
+# Dyadic scalar from vector
 
-Scalar from vector
+Joins vector elements into a scalar.
 
 **Syntax:** ``x sv y; sv[x;y]``
+
+where `x` is a separation symbol, `y` is a vector.
 
 _Examples with string:_
 

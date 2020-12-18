@@ -1,6 +1,6 @@
 # untrace
 
-Removes trace from function.
+Removes trace from a function.
 
 **Syntax:** ```untrace x; untrace[x]```
 

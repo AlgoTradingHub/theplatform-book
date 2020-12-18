@@ -1,6 +1,6 @@
 # shadow
 
-Creates variables thats are visible down the stack.
+Creates variables that are visible down the stack.
 
 **Syntax:** ```shadow x; .x::y```
 

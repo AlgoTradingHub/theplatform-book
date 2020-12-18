@@ -1,8 +1,10 @@
-# Dyadic vs
+# Dyadic vector from scalar
 
-Vector from scalar
+Separate a scalar into a vector of elements.
 
 **Syntax:** ``x vs y; vs[x;y]``
+
+where `x` is a separator, `y` is a string to be separated.
 
 _Examples with string:_
 

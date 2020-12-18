@@ -65,5 +65,6 @@ tid handle        state  created      run          suspend      iowait       tot
 
 ::: see
 [reagent](/verbs/other/reagent.md)
+[spawn](/verbs/concurrency/spawn.md)
 [top](/verbs/concurrency/top.md)
 :::

@@ -1,6 +1,6 @@
 # exit
 
-Terminates the current process with the specified exit code.
+Terminates current process with the specified exit code.
 
 **Syntax:** ```exit x; exit[x]```
 

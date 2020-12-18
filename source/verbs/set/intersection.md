@@ -2,7 +2,7 @@
 
 A standard set functions are implemented for simple vectors. That is vectors are treated as sets of values. No attributes are expected to be attached to input vectors. No particular order is guaranteed.
 
-Set intersection is a dyadic verbs. Returns only those values present in both left and right arguments.
+Set intersection is a dyadic verb. Returns only those values present in both left and right arguments.
 
 **Syntax:** ```x sect y; sect[x;y]```
 

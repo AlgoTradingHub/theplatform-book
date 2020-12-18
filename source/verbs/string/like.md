@@ -22,7 +22,7 @@ o)"darker" like "dark*"
 o)
 ```
 
-If `y` is a substring of `x` or matches it, `like` returns `1b`. If `x` is a substring of `y`, `like` returns `1b`:
+If `y` is a substring of `x` or matches it, `like` returns `1b`. If `x` is a substring of `y`, `like` returns `0b`:
 
 ```o
 o)"darker" like "dark"

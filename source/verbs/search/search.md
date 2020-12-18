@@ -1,6 +1,6 @@
 # Diadic ? (search)
 
-Searches for the first occurance of it's right argument in the left one. Returns position index as a number or null if not found.
+Searches for the first occurance of its right argument in the left one. Returns position index as a number or null if not found.
 
 **Syntax:** ```x?y; ?[x;y]```
 
@@ -12,7 +12,7 @@ o)1 2 3 4 5 6?9
 o)
 ```
 
-If `x` is a vector, `?` searches for `y` in the left one.
+If `x` is a vector, `?` searches for `y` in the left argument.
 
 ```o
 o)1 2 3?2 3 4
@@ -21,7 +21,7 @@ o)
 o)1 2 3?(1;2;3 4)
 0
 1
-2 0N
+2 0N  
 o)
 ```
 

@@ -171,3 +171,7 @@ react {[x:repl] out[x]};
 ps1[];
 join 0;
 ```
+
+::: see
+[load](/verbs/scripts/load.md)
+:::

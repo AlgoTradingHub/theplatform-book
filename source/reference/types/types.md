@@ -7,9 +7,10 @@ Each expression in O has its type. Type in O defines value domain/set of support
 ```o
 o)@1
 160
+o)
 ```
 
-Monadic verb **@** returns the numeric representation of internal type id. Interpreter uses its exact value internally.
+Monadic verb `@` returns the numeric representation of internal type id. Interpreter uses its exact value internally.
 
 ::: warn
 Avoid relying on internal type ids' exact values in your programs. They may change in any later version.
@@ -23,8 +24,7 @@ o)(@2)=@1
 o)
 ```
 
-Now, what's a better practice of type referencing if not using internal ids?
-That's what **!** monadic verb is for.
+Now, what's a better practice of type referencing if not using internal ids? That's what `!` monadic verb is for.
 
 ```o
 o)!`s`int
@@ -34,7 +34,7 @@ o)!`s`long
 o)
 ```
 
-That way you are referencing type id of scalar int. A single argument for **!** is called _type spec_. First symbol in type spec defines structure (scalar, vector, etc), second symbol defines scalar type name. For other scalar type names, see [Scalars](/reference/types/scalars/scalars.md)
+That way you are referencing type id of scalar int. A single argument for `!` is called _type spec_. First symbol in type spec defines structure (scalar, vector, etc), second symbol defines scalar type name. For other scalar type names, see [Scalars](/reference/types/scalars/scalars.md)
 
 Encoding structure in type spec is as follows:
 
@@ -43,7 +43,7 @@ Encoding structure in type spec is as follows:
 | Scalar | \`s | \`s\`bool |
 | Vector | \`v | \`v\`int |
 
-Another useful monadic verb for getting type spec is [**type**](/verbs/type/type.md). It returns type spec for a given value:
+Another useful monadic verb for getting type spec is [type](/verbs/type/type.md). It returns type spec for a given value:
 
 ```o
 o)type 10#0
@@ -67,7 +67,7 @@ o)
 
 ## Casting
 
-Type casting in O is done using [**$** dyadic](/verbs/casts/cast.md). Its left argument defines "destination" type, right argument is the "source".
+Type casting in O is done using [$ dyadic](/verbs/casts/cast.md). Its left argument defines "destination" type, right argument is the "source".
 
 Giving a single symbol as type spec means - _leave right argument structure intact and just change its element type_.
 
@@ -83,7 +83,7 @@ o)
 
 For element type names, see [Scalars](/reference/types/scalars/scalars.md).
 
-A better practice to define full type is using the **!** verb:
+A better practice to define full type is using the `!` verb:
 
 ```o
 o)(!`s`int)$10
@@ -108,6 +108,7 @@ And yes, an internal type id can be given as left argument but it's better to us
 ```o
 o)a:1 2 3; b:10 20 30i; 64$a
 1 2 3i
+o)
 ```
 
 Beware of collapsing lists in cases like:

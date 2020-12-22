@@ -7,7 +7,7 @@ Reads or writes bytes
 Where:
 
 - x is a two-element list (a string representing type and a long vector or a scalar);
-- y: byte vector.
+- y is a byte vector.
 
 ```o
 o)(8;"j")1:0x1000000000000000 // big endian

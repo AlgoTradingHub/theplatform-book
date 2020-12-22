@@ -1,7 +1,6 @@
 # Patterns
 
-O has a [pattern matching](https://en.wikipedia.org/wiki/Pattern_matching) feature. Its principle is similar to the "switch" construction in C language, but pattern matching in O is more powerful since it allows matching against all types, including lists, vectors and their parts (e.g. destructuring).
-Usually, pattern matching is used to construct various types according to input constraints.
+O has a [pattern matching](https://en.wikipedia.org/wiki/Pattern_matching) feature. Its principle is similar to the "switch" construction in C language, but pattern matching in O is more powerful since it allows matching against all types, including lists, vectors and their parts (e.g. destructuring). Usually, pattern matching is used to construct various types according to input constraints.
 
 Consider the following example "match.o":
 

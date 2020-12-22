@@ -49,7 +49,7 @@ o)X: 1 Y: 2
 o)
 ```
 
-Use th verb `meta[]` with reagents to see info about them:
+Use the verb `meta[]` with reagents to see info about them:
 
 ```o
 o)meta r1

@@ -2,13 +2,13 @@
 
 
 
-### How do I delete records from a table?
+## How do I delete records from a table?
 
 Don't do that. Seriously. Just select records you want to retain and replace original table.
 
 
 
-### I want to make my O script both executable and loadable and pass command-line parameters to it.
+## I want to make my O script both executable and loadable and pass command-line parameters to it.
 
 Use the following shebang under Linux - ``#!/usr/bin/env -S bash -c 'cat "$0" | sed "1,1d" | tachyon -- $@'``. You need to use coreutils 8.30+ though.
 

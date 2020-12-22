@@ -52,7 +52,7 @@ Currently, maximum of 22 named local variables are allowed.
 
 ## Function/lambda application
 
-Insert arguments in **[]** after the function name or omit brackets if there is only one argument.
+Insert arguments in **[ ]** after the function name or omit brackets if there is only one argument.
 
 ```o
 o).n.sum:{a:+/x; a}

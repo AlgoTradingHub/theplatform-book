@@ -7,8 +7,9 @@ First scalar boolean is the same condition expression.
 ```o
 o)?[1b;1;2]
 1
-o)
+o)?[0b;0 1 2;2 2 3]
 2 2 3
+o)
 ```
 
 First vector boolean is much more useful. Second and third argument should have compatible types. All arguments must have the same shape.
@@ -20,6 +21,7 @@ o)?[001b;1;(2;"123";3)]
 2
 "123"
 1
+o)
 ```
 
 ::: see

@@ -25,4 +25,6 @@ o)
 
 ::: see
 [.(dot)](/verbs/indexing/dot.md)
+[triadic amend](/verbs/amendsdmends/tramend.md)
+[tetradic amend](/verbs/amendsdmends/tetramend.md)
 :::

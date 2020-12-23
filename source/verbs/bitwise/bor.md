@@ -1,7 +1,5 @@
 # Bitwise OR (bor)
 
-Bitwise OR
-
 **Syntax:** ``x bor y; bor[x;y]``
 
 ```o
@@ -13,7 +11,7 @@ o)
 _Explanation:_
 
 ```o
-    1010 
+    1010
  OR 1100
     ====
     1110

@@ -29,6 +29,6 @@ o)
 ```
 
 ::: see
-[Plugins](/verbs/plugins.md)
+[Plugins](/plugins.md)
 [read](/verbs/file/read.md)
 :::

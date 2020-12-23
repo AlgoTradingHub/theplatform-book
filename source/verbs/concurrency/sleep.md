@@ -1,6 +1,6 @@
 # sleep
 
-Schedule current task to sleep `x` milliseconds
+Schedule current task to sleep `x` milliseconds.
 
 **Syntax:** ```sleep x; sleep[x]```
 

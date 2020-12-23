@@ -16,4 +16,6 @@ o)
 
 ::: see
 [@(at)](/verbs/indexing/at.md)
+[triadic dmend](/verbs/amendsdmends/trdmend.md)
+[tetradic dmend](/verbs/amendsdmends/tetrdmend.md)
 :::

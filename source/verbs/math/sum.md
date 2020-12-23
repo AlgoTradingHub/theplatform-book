@@ -19,3 +19,8 @@ o)sum "word"
 ```
 
 `sum` is an aggregate function, equivalent to `+/`.
+
+
+::: see
+[Dyadic +](/verbs/math/plus.md)
+:::

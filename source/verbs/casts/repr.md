@@ -38,5 +38,6 @@ o)
 ```
 
 ::: see
+[Types, Casting, etc](/reference/types/types.md)
 [cast](/verbs/casts/cast.md)
 :::

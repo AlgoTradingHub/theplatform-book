@@ -7,7 +7,7 @@ Schedules lambda to run on some free scheduler. Returns a join handle that can b
 Where:
 
 - x is a lambda to be run;
-- y;z.. are optional arguments.
+- y;z;... are optional arguments.
 
 ```o
 o)spawn[{0N!(,':x)};!10]

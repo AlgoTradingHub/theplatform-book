@@ -28,6 +28,6 @@ o)
 ```
 
 ::: see
-[last](/verbs/other/last.md)
-[enlist](/verbs/other/enlist.md)
+[last](/verbs/list/last.md)
+[enlist](/verbs/list/enlist.md)
 :::

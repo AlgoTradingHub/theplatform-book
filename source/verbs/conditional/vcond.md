@@ -1,7 +1,6 @@
 # Triadic ? (vector conditional)
 
-This verb returns value made of second or third argument depending on first boolean scalar or vector argument.
-Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.
+This verb returns value made of second or third argument depending on first boolean scalar or vector argument. Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.
 
 First scalar boolean is the same condition expression.
 ```o

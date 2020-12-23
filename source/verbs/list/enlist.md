@@ -35,5 +35,5 @@ o)
 ```
 
 ::: see
-[first](/verbs/other/first.md)
+[first](/verbs/list/first.md)
 :::

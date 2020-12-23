@@ -37,5 +37,5 @@ o)
 
 ::: see
 [eval](/verbs/other/eval.md)
-[parse](/verbs/other/parse.md)
+[parse](/verbs/string/parse.md)
 :::

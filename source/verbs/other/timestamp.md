@@ -17,5 +17,5 @@ o)
 ```
 
 ::: see
-[temporal types](/reference/types/scalars/time.md)
+[Temporal Types](/reference/types/scalars/time.md)
 :::

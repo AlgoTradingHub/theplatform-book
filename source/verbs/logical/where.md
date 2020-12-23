@@ -21,3 +21,7 @@ o)where 2 3 0 1
 0 0 1 1 1 3
 o)
 ```
+
+::: see
+[& and/minimum](/verbs/logical/andmin.md)
+:::

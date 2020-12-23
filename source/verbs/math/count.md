@@ -50,5 +50,5 @@ o)
 
 ::: see
 [rc (reference count)](/verbs/math/rc.md)
-[take](/verbs/other/take.md)
+[take](/verbs/list/take.md)
 :::

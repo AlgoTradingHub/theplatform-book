@@ -195,3 +195,8 @@ o)midx?(+:)`a`b`c!(`sym$`symbol$12 13;`sym$`symbol$2 3;22 23)
 2 3
 o)
 ```
+
+::: see
+[# (count)](/verbs/math/count.md)
+[# (take)](/verbs/list/take.md)
+:::

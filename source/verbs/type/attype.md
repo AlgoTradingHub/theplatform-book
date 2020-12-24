@@ -24,3 +24,9 @@ o)@flip d
 126988
 o)
 ```
+
+::: see
+[@ (indexing)](/verbs/indexing/at.md)
+[@ (triadic amend)](/verbs/amendsdmends/tramend.md)
+[@ (tetradic amend)](/verbs/amendsdmends/tetramend.md)
+:::

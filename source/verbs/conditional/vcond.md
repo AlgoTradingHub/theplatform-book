@@ -25,5 +25,6 @@ o)
 
 ::: see
 [conditional](/verbs/conditional/cond.md)
+[? (distinct)](/verbs/list/distinct.md)
 [? (search)](/verbs/search/search.md)
 :::

@@ -21,7 +21,7 @@ o)
 o)1 2 3?(1;2;3 4)
 0
 1
-2 0N  
+2 0N
 o)
 ```
 
@@ -34,6 +34,7 @@ o)
 ```
 
 ::: see
+[? (distinct)](/verbs/list/distinct.md)
 [? (vector conditional)](/verbs/conditional/vcond.md)
 [Queries](/queries.md)
 :::

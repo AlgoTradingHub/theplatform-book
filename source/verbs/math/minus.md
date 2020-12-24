@@ -46,9 +46,3 @@ x      y
 -10.04 -7.84
 o)
 ```
-
-
-::: see
-[+ (plus)](/verbs/math/plus.md)
-[sum](/verbs/math/sum.md)
-:::

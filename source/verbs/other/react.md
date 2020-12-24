@@ -52,8 +52,7 @@ react {[x:srv]
 };
 ```
 
-Thats all! Session-based asynchronuous server is done. Simple, yes?
-To see which tasks exist and their state, use [top](/verbs/concurrency/top.md):
+Thats all! Session-based asynchronuous server is done. Simple, yes? To see which tasks exist and their state, use [top](/verbs/concurrency/top.md):
 
 ```o
 o)top[]

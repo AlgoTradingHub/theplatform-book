@@ -42,7 +42,8 @@ o)
 ```
 
 ::: see
-[triadic amend](/verbs/amendsdmends/tramend.md)
-[tetradic amend](/verbs/amendsdmends/tetramend.md)
-[tetradic dmend](/verbs/amendsdmends/tetrdmend.md)
+[. (tetradic dmend)](/verbs/amendsdmends/tetrdmend.md)
+[@ (triadic amend)](/verbs/amendsdmends/tramend.md)
+[@ (tetradic amend)](/verbs/amendsdmends/tetramend.md)
+[. (indexing in depth)](/verbs/indexing/dot.md)
 :::

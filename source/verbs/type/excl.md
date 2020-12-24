@@ -17,3 +17,8 @@ o)
 ```
 
 See the full list of type specs [here](/reference/types/scalars/scalars.md).
+
+::: see
+[! (til)](/verbs/math/til.md)
+[! in dicts](/reference/types/dicts.md)
+:::

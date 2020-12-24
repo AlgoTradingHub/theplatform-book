@@ -90,7 +90,7 @@
     - [| (max)](/verbs/logical/ormax.md)
     - [rc (reference count)](/verbs/math/rc.md)
     - [sum](/verbs/math/sum.md)
-    - [til](/verbs/math/til.md)
+    - [! (til)](/verbs/math/til.md)
     - [More math functions](/verbs/math/more.md)
   - [Null handling ^](/verbs/nullhandling.md)
   - [Relational verbs](/nolink.md)

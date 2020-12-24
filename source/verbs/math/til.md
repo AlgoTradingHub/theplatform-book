@@ -26,3 +26,8 @@ The argument must be a non-negative integer atom:
 o)til 10f
 ** exec error: `key` nyi: [10f]
 ```
+
+::: see
+[! (internal type id)](/verbs/type/excl.md)
+[! in dicts](/reference/types/dicts.md)
+:::

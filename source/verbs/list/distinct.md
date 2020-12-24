@@ -28,3 +28,8 @@ a b
 3 1.5
 o)
 ```
+
+::: see
+[? (vector conditional)](/verbs/conditional/vcond.md)
+[? (search)](/verbs/search/search.md)
+:::

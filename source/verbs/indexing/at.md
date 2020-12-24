@@ -24,7 +24,8 @@ o)
 ```
 
 ::: see
-[.(dot)](/verbs/indexing/dot.md)
-[triadic amend](/verbs/amendsdmends/tramend.md)
-[tetradic amend](/verbs/amendsdmends/tetramend.md)
+[. (indexing in depth)](/verbs/indexing/dot.md)
+[@ (internal type id)](/verbs/type/attype.md)
+[@ (triadic amend)](/verbs/amendsdmends/tramend.md)
+[@ (tetradic amend)](/verbs/amendsdmends/tetramend.md)
 :::

@@ -37,6 +37,5 @@ o)
 ```
 
 ::: see
-[- (minus)](/verbs/math/minus.md)
 [sum](/verbs/math/sum.md)
 :::

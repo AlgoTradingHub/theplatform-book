@@ -85,4 +85,6 @@ o)
 
 ::: see
 [flip](/verbs/other/flip.md)
+[! (internal type id)](/verbs/type/excl.md)
+[! (til)](/verbs/math/til.md)
 :::

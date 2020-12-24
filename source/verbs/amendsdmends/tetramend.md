@@ -40,7 +40,9 @@ o)
 ```
 
 ::: see
-[triadic amend](/verbs/amendsdmends/tramend.md)
-[triadic dmend](/verbs/amendsdmends/trdmend.md)
-[tetradic dmend](/verbs/amendsdmends/tetrdmend.md)
+[@ (indexing)](/verbs/indexing/at.md)
+[@ (internal type id)](/verbs/type/attype.md)
+[@ (triadic amend)](/verbs/amendsdmends/tramend.md)
+[. (triadic dmend)](/verbs/amendsdmends/trdmend.md)
+[. (tetradic dmend)](/verbs/amendsdmends/tetrdmend.md)
 :::

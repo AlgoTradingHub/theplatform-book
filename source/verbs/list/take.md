@@ -70,5 +70,6 @@ o)
 ```
 
 ::: see
+[# (attaching attribute)](/reference/attr.md)
 [# (count)](/verbs/math/count.md)
 :::

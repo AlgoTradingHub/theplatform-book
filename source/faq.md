@@ -27,6 +27,33 @@ If your Linux distribution installs it prepending its version, just make a symli
 ``$ mkdir -p ~/bin; ln -s /usr/bin/llvm-symbolizer-8 ~/bin/llvm-symbolizer; export PATH=$PATH:~/bin``.
 
 
+## Profiling
+
+### How to profile / find places to improve performance?
+
+- For Linux, first install ```perf``` utility. For Debian-based distros (e.g. Ubuntu) execute:
+
+```
+$ sudo apt-get install linux-perf
+```
+
+- Build tachyon with debug information by editing ```Cargo.toml``` in root of source path. Uncomment ```debug = true``` under ```[profile.release]``` section and run:
+
+```
+$ cargo build --release --bin tachyon
+```
+
+- Prepare your test as script and run:
+
+```
+$ sudo perf record -g --call-graph=lbr target/release/tachyon -f script_to_profile.o
+```
+... by doing that you will record profile information which can be navigated using following:
+
+```
+$ sudo perf report --no-children
+```
+P.S. You should omit ```--call-graph=lbr``` in case your CPU is not Intel. That would lower profiling quality though.
 
 ## Performance/network tuning
 

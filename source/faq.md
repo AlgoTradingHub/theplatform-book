@@ -66,14 +66,13 @@ For Linux, following limits should be increased:
 ```
 fs.file-max = 12000000
 fs.nr_open = 12000000
-vm.max_map_count = 12000000
 ```
 
 - ``/etc/security/limits.conf``
 
 ```
-* hard nofile 12000500
-* soft nofile 12000500
+* hard nofile 12000000
+* soft nofile 12000000
 ```
 
 - current shell

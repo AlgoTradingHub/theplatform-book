@@ -37,7 +37,7 @@ o)
 
 As you can see, react[..] verb accepts lambda as a reaction body. The only difference from a regular lambda is arguments: they have "reagent-bound" definition.
 
-Of course, reactions can (and usually do) have more then one argument. Such Reactions trigger only when all the arguments are ready:
+Of course, reactions can (and usually do) have more then one argument. Such reactions trigger only when all the arguments are ready:
 
 ```o
 o)r1:reagent[`async]; r2:reagent[`async];

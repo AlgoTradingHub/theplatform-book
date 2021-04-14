@@ -3,6 +3,7 @@
 - [Platform](/platform/nolink.md)
   - [General](/platform/platform.md)
   - [Installation](/platform/install.md)
+  - [Usage](/platform/usage.md)
 - [Tutorial](/tutorial.md)
 - [FAQ](/faq.md)
 - [Language reference](/nolink.md)

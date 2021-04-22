@@ -70,6 +70,8 @@
     - [first](/verbs/list/first.md)
     - [last](/verbs/list/last.md)
     - [reverse](/verbs/list/reverse.md)
+    - [rotate](/verbs/list/rotate.md)
+    - [shift](/verbs/list/shift.md)
     - [take](/verbs/list/take.md)
   - [Logical verbs](/nolink.md)
     - [~ (not)](/verbs/logical/not.md)

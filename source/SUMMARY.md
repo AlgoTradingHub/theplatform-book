@@ -153,6 +153,7 @@
 - [Queries](/queries.md)
 - [Dynamic parsers](/parsers.md)
 - [Standard library](/std.md)
+- [Language idioms](/idioms.md)
 - [Plugins](/plugins.md)
 - [For Python developers](/platformforpython.md)
 - [For KDB+ developers](/platformforkdb.md)

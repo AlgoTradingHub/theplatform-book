@@ -2,7 +2,7 @@
 
 Applies a monadic verb to a certain value.
 
-**Syntax:** ```.[x;y;z]```
+**Syntax:** ```@[x;y;z]```
 
 where `z` is a monadic verb to be applied and `x` is a structure to be indexed with `y`.
 

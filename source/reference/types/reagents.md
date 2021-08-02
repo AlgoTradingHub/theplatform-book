@@ -11,7 +11,6 @@ O language has a specific reagent type that deals with I/O. Some reagents are bu
 | reagent[`ipc;"addr:port";&lt{destructor}>] | IPC reagent (client side) |
 | reagent[`ipc;Handle;&lt{destructor}>] | IPC reagent (server side) |
 | reagent[`udp;"addr:port";&lt{destructor}>] | UDP reagent |
-| reagent[`log;`:/file;&lt{destructor}>] | LOG reagent |
 | reagent[`async;&lt{destructor}>] | MPSC reagent without blocking on sender side |
 | reagent[`sync;&lt{destructor}>] | MPSC reagent with blocking on sender side |
 | reagent[`timer;timeout;repeat;&lt{destructor}>] | TIMER reagent: timeout in ms, repeat: 0 means forever |

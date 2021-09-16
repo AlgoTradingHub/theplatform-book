@@ -565,15 +565,15 @@ o)
 
 As for grouping expressions, the following list of monads is currently supported and optimized for performance:
 
-| Exp | Meaning |
-| --- | --- |
-| #:  | count |
-| *: | first |
-| last | last |
-| min | minimum |
-| max | maximum |
-| sum | sum |
-| avg | arithmetic average |
+| Exp | Meaning | Description |
+| --- | --- | --- |
+| #:  | count | number of non-null values in group |
+| *: | first | first non-null value in group |
+| last | last | last non-null value in group | 
+| min | minimum | minimum non-null value in group |
+| max | maximum | maximum non-null value in group |
+| sum | sum | sum of non-null values in group |
+| avg | arithmetic average | average of non-null values in group |
 
 User-defined monads are accepted too but they may lead to slower performance as all intermediate group vectors must be preserved during query processing and a more general approach is used:
 

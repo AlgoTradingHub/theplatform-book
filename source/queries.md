@@ -645,6 +645,10 @@ a b c d
 o)
 ```
 
+::: note
+See "Grouping using incremental lambdas" to speed-up custom user-defined aggregations.
+:::
+
 Generic aggregation only (without explicit grouping fields) is done like this:
 
 ```o
@@ -681,6 +685,39 @@ a b c
 3 5 9
 o)
 ```
+
+### Grouping using incremental lambdas
+
+As it has been noted before, grouping using custom/user monads is supported, but it can result in excessive memory usage. It happens due to necessity of
+accumulating all intermediate data in grouping buckets until all data is collected. Another way of grouping is supported specifically to make it work
+incrementally. Incremental grouping does its job by splitting entire data in chunks and processing each data chunk as comes.
+
+Essentially, incremental grouping requires three user-defined lambdas. First lambda - to initialize grouping state, preparing data structures. Second - doing incremental aggregation itself. And third - to finalize grouping on completion.
+
+
+| Key | Meaning | Input parameters | Expected result |
+| --- | --- | --- | --- |
+| `init  | Initialize state | [cg; data], where `cg` - number of groups found so far, `data` - current data chunk | Any shaped initialized aggregation state |
+| `aggr  | Incremental aggregation | [s; cg; ix; data], where `s` - current aggregation state, `cg` - number of groups found so far, `ix` - vector of group indices for each element in `data`, `data` - current data chunk | Aggregation state |
+| `fin  | Finalize aggregation state | [s], where `s` - current aggregation state | Finalized aggregation state |
+
+
+::: note
+Make sure `aggr lambda resizes state data for coming data & handle nulls as needed.
+:::
+
+
+And the simple example of aggregation via summing:
+```o
+o) t:+`a`b!(1 2 2;3 4 0N);
+o) d:`init`aggr`fin!({[cg;data] cg#0}; {[s;cg;ix;data] .[`s;();,;(cg-#s)#0]; .[`data;();~[^];0]; @[`s;ix;+;data]; s};{[s] s});
+o) 0N#(.?[t;();`a!`a;`b!(d;`b)])
+a b
+---
+1 3
+2 4
+```
+
 
 ## Upsert
 

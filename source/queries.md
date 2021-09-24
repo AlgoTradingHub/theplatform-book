@@ -22,7 +22,7 @@ res:  fe#cq; // fetch query results
 
 … where
 
-**t** is a table-like data source. It might be a table/query/join expression.
+**t** is a table-like data source. It might be a table/query/join/union expression.
 
 **w** is a nested list of conditions. It might be an empty list to define no conditions.
 
@@ -438,6 +438,61 @@ a b e  f
 2 4 17 "222"
 0 5 0N
 o)
+```
+
+## Unions
+
+Union of a pair of tables (or table-likes) is another base operation in queries. Conceptually, it's just lazy "concating" table-likes to get a combined
+view.
+
+"Union all" union is defined using the verb `ua`:
+
+```o
+o) t1:+`a`b`c!(1 2;3 4;5 6);
+o) t2:+`a`b`c!(10 20;30 40;50 60);
+o) u:ua[t1;t2];
+o) 0N#.(?[u; (); 0b; `a`b`c!`a`b`c])
+a  b  c
+--------
+1  3  5
+2  4  6
+10 30 50
+20 40 60
+```
+
+Of course, unioning several table-likes is supported as well:
+
+```o
+o) t1:+`a`b`c!(1 2;3 4;5 6);
+o) t2:+`a`b`c!(10 20;30 40;50 60);
+o) t3:+`a`b`c!(100 200;300 400;500 600);
+o) s3:?[t3;();0b;`a`b`c!`a`b`c];
+o) u:ua/(t1;t2;s3);
+o) 0N#.(?[u; (); 0b; `a`b`c!`a`b`c])
+a   b   c
+-----------
+1   3   5
+2   4   6
+10  30  50
+20  40  60
+100 300 500
+200 400 600
+```
+
+Perhaps unsurprisingly, any other expression accepting table-like works for unions as well. e.g. joining (don't forget aliases):
+
+```o
+o) t1:+`a`b`c!(1 2 3;4 5 6;7 8 9);
+o) t2:+`a`b`c!(10 20;30 40;50 60);
+o) t3:+`a`b`c!(1 10 20;100 300 400;200 500 600);
+o) u1:ua[t1;t2];
+o) j:ij[(`u1;u1);(`t3;t3);(~`u1`a;~`t3`a)];
+o) 0N#.(?[j; (); 0b; `a`b`c!(~`u1`a;~`u1`b;~`t3`c)])
+a  b  c
+---------
+1  4  200
+10 30 500
+20 40 600
 ```
 
 ## Take range (first, last, between)

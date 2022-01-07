@@ -51,6 +51,8 @@
   - [Conditional verbs](/nolink.md)
     - [$ (cond)](/verbs/conditional/cond.md)
     - [? (vector conditional)](/verbs/conditional/vcond.md)
+    - [& (and-cond)](/verbs/conditional/andcond.md)
+    - [| (or-cond)](/verbs/conditional/orcond.md)
   - [Database input/output](nolink.md)
     - [Reading/writing concept](/verbs/databaseio/readingwriting.md)
     - [Projecting files concept](/verbs/databaseio/projecting.md)

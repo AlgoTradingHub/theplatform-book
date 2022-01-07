@@ -2,7 +2,7 @@
 
 Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately. Only the first argument is evaluated. If it is true, the second argument is evaluated and becomes the result of the `cond` expression. Otherwise, the third argument is evaluated.
 
-**Syntax:** ```$[x;y;z]```
+**Syntax:** ```$[x;y;z]; $[x;cond1;res1;cond2;res2;...;elseres]```
 
 where `x` is a condition, `y` is an expression evaluated if `x` is true, `z` is an expression evaluated if `x` is false.
 
@@ -21,6 +21,10 @@ o)
 o)$[0n;"yes";"no"]
 "no"
 o)$[();1;2]
+2
+o)$[1=2;0;3=3;1;2]
+1
+o)$[1=2;0;3=4;1;2]
 2
 o)t:([]a:1 2;b:1.1 2.2)
 a b

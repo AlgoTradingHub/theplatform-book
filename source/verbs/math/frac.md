@@ -1,0 +1,29 @@
+# Frac
+
+`frac` returns the fractional part of float for the argument.
+
+**Syntax:** ```frac x; frac [x]```
+
+```o
+o)frac 10.5
+0.5
+o)frac -10.5
+-0.5
+o)frac (-2.5; 0.0; 2.5)
+-0.5 0 0.5
+o)
+```
+
+The function is atomic:
+
+```o
+o)frac(2.3 4.5;6.7)
+0.2999999999999998 0.5
+0.7000000000000002
+```
+
+::: see
+[ceil](/verbs/math/ceil.md)
+[floor](/verbs/math/floor.md)
+[round](/verbs/math/round.md)
+:::

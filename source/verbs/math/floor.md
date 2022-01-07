@@ -24,3 +24,9 @@ o)floor(2.3 4.5;6.7)
 6f
 o)
 ```
+
+::: see
+[ceil](/verbs/math/ceil.md)
+[round](/verbs/math/round.md)
+[frac](/verbs/math/frac.md)
+:::

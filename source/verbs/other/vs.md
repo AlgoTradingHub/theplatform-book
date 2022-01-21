@@ -23,6 +23,7 @@ o)"" vs "a,b,c,d"
 "c"
 ","
 "d"
+""
 ```
 
 _Bits vector from numeric scalar:_

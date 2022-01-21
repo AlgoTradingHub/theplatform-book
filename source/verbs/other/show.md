@@ -6,7 +6,7 @@ Prints down full contents of a value.
 
 Be careful using `show` with large values cause it can take much time to print all of the contents.
 
-```o
+```q
 o)l:!1000;
 o)l
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4..
@@ -17,13 +17,13 @@ o)
 
 `show` can also be used to see intermediate lambda results:
 
-```o
-o)f:{a:1 2 3 4;sum a}
-{a:1 2 3 4;sum a}
+```q
+o)f:{a:1 2 3 4;+/a}
+{a:1 2 3 4;+/a}
 o)f[]
 10
-o)f:{show a:1 2 3 4;sum a}
-{show a:1 2 3 4;sum a}
+o)f:{show a:1 2 3 4;+/a}
+{show a:1 2 3 4;+/a}
 o)f[]
 1 2 3 4
 10

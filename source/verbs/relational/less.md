@@ -6,7 +6,7 @@ Returns `1b` where `x` is less than (or up to) `y`. Fully atomic.
 
 ```o
 o)1 0 3&lt1
-101b
+010b
 o)10 20 30&lt=20 20 20
 110b
 o)(0;5 1)&gt(2 -2;3)

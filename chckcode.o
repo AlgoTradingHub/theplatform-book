@@ -1,0 +1,37 @@
+mdfiles: {[dir]
+    l:os["dir";dir];
+    m:({(x[1]~"file")&("md"~last "\\." vs x[3])}'l)#l;
+        d:({x[1]~"dir"}'l)#l;
+    f:3(~[@])'m;
+    f,,/o'[3(~[@])'d]
+};
+
+lst:mdfiles[os "pwd"];
+strip: {p:*ss[|x;"[^ ]"]; |"c"$p _"x"$|x};
+error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
+
+fnd_ocode: {[file]
+    flag:0;
+    $[file like "kill|exit|close|plugin|usage|cast|vs.md|readln";[0N!file," need check manualy."; :0]; 0];
+    f:"c"$read `$":",file;
+    if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
+    rows: sep vs f;
+    idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
+    idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
+    { if [1<#x] {
+        rr: {[s] ssr[ssr[s;"&lt";"<"];"&gt";">"]}'rows x;
+        evl: rr where {0x6f29~2#"x"$x}'rr;
+        if [0<#evl] {
+          res: ,/{ if [x~"o)"] {enlist "o)"}
+                   elif [0x3b=last "x"$x] {enlist @[{eval parse "c"$2_"x"$x; x};x;error]}
+                   else { ((,x),{$[1=#x;,/x;x]} "\n" vs @[{repr eval x};parse "c"$2_"x"$x;error]) }}'evl;
+          res: strip'res where ~"0N0"~/:res;
+          if [~rr~res] {show file, ": ", format["%..%";*x;_x]; 
+                        show rr diff res; 0N!"==Expexted=="; show res diff rr; 0N!"==Got=="; println[""];};
+        }
+      }
+    }'idx;
+};
+
+os["cd";getenv[`OHOME]];
+{fnd_ocode[x]}'lst;

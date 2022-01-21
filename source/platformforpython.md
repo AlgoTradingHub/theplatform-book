@@ -44,13 +44,13 @@ o)
 ```
 
 ```o
-o)p:1000                    / principal
+o)p:1000                    // principal
 1000
-o)r:3                       / rate
+o)r:3                       // rate
 3
-o)t:5                       / time periods
+o)t:5                       // time periods
 5
-o)(p*r*t)%100               / simple interest
+o)(p*r*t)%100               // simple interest
 150
 o)
 ```
@@ -66,13 +66,13 @@ o)
 The same applies to multiple values since most operators in O are of implicit iteration:
 
 ```o
-o)p:1000 2500 3000         / principal
+o)p:1000 2500 3000         // principal
 1000 2500 3000
-o)r:3 4 5                  / rate
+o)r:3 4 5                  // rate
 3 4 5
-o)t:10 5 10                / time periods
+o)t:10 5 10                // time periods
 10 5 10
-o)(*/(r;t;p))%100          / simple interest
+o)(*/(r;t;p))%100          // simple interest
 300 500 1500
 o)
 ```
@@ -128,9 +128,9 @@ The area of circle is equal to πr^2, where r is a circle radius and π is the a
 ```
 
 ```o
-o)r:10f                   / radius
+o)r:10f                   // radius
 10f
-o)area:(acos -1f)*r*r     / area of circle of radius 10
+o)area:(acos -1f)*r*r     // area of circle of radius 10
 314.1592653589793
 o)
 ```
@@ -149,8 +149,8 @@ There is no built-in function for identifying prime numbers in O:
 range:{x+til y-x-1}
 
 primeinrange:{
-  l:range[x;y];                         / list of potential prime numbers
-  lmt:"j"$sqrt "f"$last l;              / highest divisor to test
+  l:range[x;y];                         // list of potential prime numbers
+  lmt:"j"$sqrt "f"$last l;              // highest divisor to test
   l where (&/(0&ltl mod/:range[2;lmt])) }
 ```
 
@@ -162,25 +162,25 @@ q)primeinrange[20;40]
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)l:range[20;40]                                                  / list of potential prime numbers
+o)l:range[20;40]                                                  // list of potential prime numbers
 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
-o)range[2;"j"$sqrt "f"$last l]                                    / list of divisors
+o)range[2;"j"$sqrt "f"$last l]                                    // list of divisors
 2 3 4 5 6
-o)l mod/:2 3 4 5 6                                                / division remainder of each potential prime number against each divisor
+o)l mod/:2 3 4 5 6                                                // division remainder of each potential prime number against each divisor
 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1
 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0
 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0
 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4
-o)f:0 &lt l mod/:2 3 4 5 6                                            / flag division remainders
+o)f:0 &lt l mod/:2 3 4 5 6                                        // flag division remainders
 010101010101010101010b
 101101101101101101101b
 011101110111011101110b
 011110111101111011110b
 111101111101111101111b
-o)&/f                                                             / AND the flag vectors
+o)&/f                                                             // AND the flag vectors
 000100000101000001000b
-o)l where (&/f)                                                   / select from range
+o)l where (&/f)
 23 29 31 37
 o)
 ```
@@ -196,12 +196,10 @@ o)
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)isprime:{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
-{(x>1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}
-o)isprime 1 5 15
-()
-1b
-()
+o)isprime:{(x>1) and (&/1b,0&ltx mod range[2;"j"$sqrt "f"$x])}
+{(x>1) and (&/1b,0&ltx mod range[2;"j"$sqrt "f"$x])}
+o)isprime each 1 5 15 2
+0101b
 o)
 ```
 
@@ -253,7 +251,7 @@ def is_fibonacci(n):
 x is a Fibonacci number if 5x^x + or - 4 is a perfect square:
 
 ```o
-o)is_ps:{x={x*x}"j"$sqrt "f"$x}           / checks if number is a perfect square
+o)is_ps:{x={x*x}"j"$sqrt "f"$x}           // checks if number is a perfect square
 {x={x*x}"j"$sqrt "f"$x}
 o)is_fibonacci:{|/is_ps (5*x*x)+'4 -4}
 {|/is_ps (5*x*x)+'4 -4}

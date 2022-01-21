@@ -6,9 +6,9 @@ Reads file contents.
 
 ```o
 o)read `:std/core.o
-0x2f2f20436f72652066756e6374696f6e730a2f2f202d2d0a2f2f2046756e6374696f6e20666f722067656e65726174696e672074657374730a7..
+0x2f2f20436f72652066756e6374696f6e730a2f2f2072756e20636f72655f746573742e6f20746f20636865636b0a2f2f202d2d0a0a2f2f20467..
 o)"c"$ read `:std/core.o
-"// Core functions\n// --\n// Function for generating tests\ntest:{[tnm;lhs;rhs]\n    msg:$[lhs~rhs;\n        format[..
+"// Core functions\n// run core_test.o to check\n// --\n\n// Function for generating tests\ntest:{[tnm;lhs;rhs]\n    ..
 o)
 ```
 

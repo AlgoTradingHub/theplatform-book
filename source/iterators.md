@@ -213,7 +213,7 @@ Amend/dmend also support commute dyads:
 ```o
 o)a:!5
 0 1 2 3 4
-o).[a;();~_;-2]
+o).[a;();~[_];-2]
 0 1 2
 o)
 ```

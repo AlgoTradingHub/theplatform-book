@@ -7,6 +7,7 @@ Before using, you need to load a standard library into namespace.
 
 ```o
 o)load "core"
+"./std/core.o"
 ```
 
 ### Symbols into/from enum conversions
@@ -22,7 +23,7 @@ where ```t``` is a table or table symbol for in-place modification;
 All symbol fields in the table will be converted into enum fields. Global domain vector will contain new symbols (if necessary) added to its back.
 
 ```o
-o)load "core"
+o)load "core";
 o)t:+`a`b`c!(1 2;3 4;`c`d);
 o)sym:`symbol$();
 o)r:.o.en[t;`sym];
@@ -34,8 +35,8 @@ o)
 When a table has just been loaded from disk, all its enum fields are not bind to any domain vector. One can use the same ```.o.en``` function to rebind them back.
 
 ```o
-o)load "core"
-o)sym:`c`d
+o)load "core";
+o)sym:`c`d;
 o)t:+`a`b`c!(1 2;3 4;`sym$`c`d);
 o)`:/tmp/tbl/ set t; t:0;
 o)load `:/tmp/tbl/;
@@ -59,7 +60,7 @@ A less frequent, but still useful procedure is turning enums into ordinary symbo
 where ```t``` is a table or table symbol for in-place modification.
 
 ```o
-o)load "core"
+o)load "core";
 o)sym:`c`d;
 o)t:+`a`b`c!(1 2;3 4;`sym$`c`d);
 o).o.sym[`t];                // destructive enums -> symbols

@@ -19,9 +19,10 @@ Values are organized in levels. That is top level ```error``` is the least level
 
 Usage example:
 
-```o
+```os
 $ OLOG="debug" tachyon
-
+```
+```o
 o) {x+1}"123"
  DEBUG base::interpreter     >    0: base::interpreter::Interpreter::o_error
              at kernel/o/base/src/interpreter.rs:1482

@@ -8,7 +8,7 @@ Where:
     - x,y,.. are arguments of a lambda to be evaluated on reaction triggering;
     - r1;r2.. are reagents involved into reaction.
 
-```o
+```q
 o)r:reagent[`async];
 o)react{[x:r] 0N!x};
 o)r[123];
@@ -22,13 +22,13 @@ When a reaction is defined, each reagent envolved receives a Descriptor. This me
 :::
 
 ```o
-o)r1:reagent[`async]; r2:reagent[`async]; react {[x:r1;y:r2] println["r1: %; r2: %";x;y]};
+o)r1:reagent[`async]; r2:reagent[`async]; react {[x:r1;y:r2] println["// r1: %; r2: %";x;y]};
 o)r1[1];r2[2]
-o)r1: 1; r2: 2
+o)// r1: 1; r2: 2
 o)// Now redefine reaction:
-o)react {[x:r1;y:r2] println["redefined reaction: r1: %; r2: %";x;y]};
+o)react {[x:r1;y:r2] println["// redefined reaction: r1: %; r2: %";x;y]};
 o)r1[1];r2[2]
-o)redefined reaction: r1: 1; r2: 2
+o)// redefined reaction: r1: 1; r2: 2
 ```
 
 If a reagent is dropped, all reactions defined on this reagent will be dropped too since there is no need in them anymore.
@@ -39,7 +39,7 @@ If a task has at least one reaction, it's called an IO task. Such task will wait
 
 Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
 
-```o
+```q
 srv: reagent[`listener;"0.0.0.0:5100";{0N!"listener dropped}];
 react {[x:srv]
     // create new IO task to handle client's session
@@ -56,10 +56,9 @@ Thats all! Session-based asynchronuous server is done. Simple, yes? To see which
 
 ```o
 o)top[]
-tid handle        state  created      run          suspend      iowait       total        load
-----------------------------------------------------------------------------------------------
-7   TaskHandle&lt7> IOWait 12:28:14.905 00:07:40.899 00:00:00.000 00:21:02.616 00:28:43.515 0
-4   TaskHandle&lt4> IOWait 12:28:14.552 00:00:00.001 00:00:00.000 00:28:43.869 00:28:43.870 0
+tid handle      name   state   created      run          iowait       total        load
+---------------------------------------------------------------------------------------
+0   &ltReagent#6&gt "main" Running 14:06:24.239 00:00:01.351 00:00:00.000 00:00:01.351 100
 ```
 
 ::: see

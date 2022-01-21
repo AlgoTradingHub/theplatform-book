@@ -7,12 +7,12 @@ This tutorial is intended to help people who lack vector languages background an
 Starting language interpreter is the first thing you will need. So just execute the following command in your shell terminal:
 
 ```o
-$ cargo run --release --bin tachyon
+$ OLOG=info cargo run --release --bin tachyon
 ```
 
 It will run the interpreter and present a greeting with its version and wait for your command in prompt.
 
-```o
+```os
 Tachyonic platform 0.1.0
 -------------------------
 CPU cores: 8
@@ -95,7 +95,7 @@ Ok. Thus, interpreter knows that name "pi" references to value 3.1415 Let's name
 
 ```o
 o)radius: 3.0
-3.0
+3f
 o)
 ```
 
@@ -135,7 +135,7 @@ o)
 
 ```o
 o)fvec: 1.0 2.1 3.2
-1.0 2.1 3.2
+1 2.1 3.2
 o)
 ```
 
@@ -147,7 +147,8 @@ Simple vectors have a restriction though. Once you've created them, it's not pos
 o)a:1 2 3
 1 2 3
 o)a[1]:1.0
-** exec error: amend: type.
+** eval error: `:`:
+invalid type: [`s`long;`s`float]
 ```
 
 Simple vector with only one element is represented using "enlist" verb notation.
@@ -465,8 +466,8 @@ To extract separate elements from vectors/lists, you need to index them. To do s
 ```o
 o)a:1 2 3;
 o)a[1]
-o)
 2
+o)
 ```
 
 Just as any other verb in O, it allows using vectors as indices (even nested ones).
@@ -495,8 +496,8 @@ Dict indexing works exactly the same way:
 ```o
 o)d:`a`b`c!1 2 3;
 o)d[`c`b`a]
-o)
 3 2 1
+o)
 ```
 
 ## Reduction aka folding
@@ -625,8 +626,6 @@ Infinities are a result of calculations:
 ```o
 o)1%0
 0W
-o)
-
 o)`short$100000
 0Wh
 o)
@@ -917,15 +916,15 @@ Destructive (imperative, non-functional) expressions include binding changes and
 Dyadic `:` verb and `set` verb bind changes. `:` verb has more complex behaviour depending on scoping. It assigns values to local variables inside functions and to globals otherwise.
 
 ```o
-o){a:1; a}[]
+o){oo:1; oo}[]
 1
-o)a
-** exec error: undefined symbol: `a
-|--> [REPL::1] a
-^ ExecError("undefined symbol: `a")
-o)a:1
-o)a
-1
+o)oo
+** runtime error: `undefined symbol`:
+`oo
+o)oo:2
+2
+o)oo
+2
 o)
 ```
 
@@ -956,7 +955,8 @@ Now, let's try vectors:
 
 ```o
 o)a:3#10;b:a
-o)b+:1
+10 10 10
+o)b+:1;
 o)a,b
 10 10 10 11 11 11
 o)
@@ -988,7 +988,7 @@ o)
 ... read it like this - apply monadic verb "negate" to an element with index 1 of the `a` copy.
 
 ```o
-o)a:1 2 3
+o)a:1 2 3;
 o)@[`a; 1; -:]
 `a
 o)a
@@ -1047,7 +1047,8 @@ And a short form for this is:
 
 ```o
 o)a:1 2 3;
-o)a[1]+:1
+o)a[1]+:1;
+o)a
 1 3 3
 o)
 ```
@@ -1104,7 +1105,8 @@ Signalling is similar to exception raising in other languages. It interrupts nor
 
 ```o
 o){'x}`err
-'`err
+** signal error: `panic`:
+err
 o)
 ```
 
@@ -1116,7 +1118,9 @@ o)@[{x};1;`err2]
 o)@[{'x};`err1;`err2]
 `err2
 o)@[{'x};`err1;{x}]
-`err1
+kind   | `signal
+call   | "panic"
+message| `err1
 o)
 ```
 
@@ -1130,7 +1134,9 @@ o).[+;(1;2);`err2]
 o).[{x+y};(1;2);`err2]
 3
 o).[{'y};(1;`err1);{x}]
-`err1
+kind   | `signal
+call   | "panic"
+message| `err1
 o)
 ```
 

@@ -39,7 +39,7 @@ o)"f"$10
 10f
 o)
 o)"d"$ts[]
-2020.12.11
+2022.01.20
 ```
 
 Casting to a string has a shorthand form: ``$x``

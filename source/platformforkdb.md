@@ -40,22 +40,22 @@ o)
 ## Simple interest
 
 ```o
-q)p:1000                    / principal
-q)r:3                       / rate
-q)t:5                       / time periods
-q)(p*r*t)%100               / simple interest
+q)p:1000                    // principal
+q)r:3                       // rate
+q)t:5                       // time periods
+q)(p*r*t)%100               // simple interest
 150f
 q)
 ```
 
 ```o
-o)p:1000                    / principal
+o)p:1000                    // principal
 1000
-o)r:3                       / rate
+o)r:3                       // rate
 3
-o)t:5                       / time periods
+o)t:5                       // time periods
 5
-o)(p*r*t)%100               / simple interest
+o)(p*r*t)%100               // simple interest
 150
 o)
 ```
@@ -77,13 +77,13 @@ o)
 The same applies to multiple values due to implicit iteration:
 
 ```o
-o)p:1000 2500 3000         / principal
+o)p:1000 2500 3000         // principal
 1000 2500 3000
-o)r:3 4 5                  / rate
+o)r:3 4 5                  // rate
 3 4 5
-o)t:10 5 10                / time periods
+o)t:10 5 10                // time periods
 10 5 10
-o)(*/(r;t;p))%100          / simple interest
+o)(*/(r;t;p))%100          // simple interest
 300 500 1500
 o)
 ```
@@ -91,10 +91,10 @@ o)
 ## Compound interest
 
 ```o
-q)p:1300                    / principal
-q)r:4.8                     / rate
-q)t:3                       / time periods
-q)p*(1+r%100)xexp t         / compound interest
+q)p:1300                    // principal
+q)r:4.8                     // rate
+q)t:3                       // time periods
+q)p*(1+r%100)xexp t         // compound interest
 1496.3293696
 q)
 ```
@@ -135,15 +135,15 @@ The area of circle is equal to πr^2, where r is a circle radius and π is the a
 
 ```o
 q)r = 10
-q)(acos -1)*r*r           / area of circle of radius 10
+q)(acos -1)*r*r           // area of circle of radius 10
 314.1592653589793
 q)
 ```
 
 ```o
-o)r:10f                   / radius
+o)r:10f                   // radius
 10f
-o)area:(acos -1f)*r*r     / area of circle of radius 10
+o)area:(acos -1f)*r*r     // area of circle of radius 10
 314.1592653589793
 o)
 ```
@@ -151,29 +151,29 @@ o)
 ## Prime numbers in an interval
 
 ```o
-q)show c:range[11;25]                         / candidates
+q)show c:range[11;25]                         // candidates
 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-q)"j"$sqrt last c                             / need test modulo only to here
+q)"j"$sqrt last c                             // need test modulo only to here
 5
 q)range[2;]"j"$sqrt last c
 2 3 4 5
 
-q)c mod/:2 3 4 5                / modulo each c against all of them
+q)c mod/:2 3 4 5                // modulo each c against all of them
 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1
 3 0 1 2 3 0 1 2 3 0 1 2 3 0 1
 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0
 
-q)show f:0&ltc mod/:2 3 4 5       / flag remainders
+q)show f:0&ltc mod/:2 3 4 5     // flag remainders
 101010101010101b
 101101101101101b
 101110111011101b
 111101111011110b
-q)all f                         / AND the flag vectors
+q)all f                         // AND the flag vectors
 101000101000100b
-q)where all f                   / index the hits
+q)where all f                   // index the hits
 0 2 6 8 12
-q)c where all f                 / select from range
+q)c where all f                 // select from range
 11 13 17 19 23
 q)
 ```
@@ -182,8 +182,8 @@ q)
 range:{x+til y-x-1}
 
 primeinrange:{
-  l:range[x;y];                         / list of potential prime numbers
-  lmt:"j"$sqrt "f"$last l;              / highest divisor to test
+  l:range[x;y];                         // list of potential prime numbers
+  lmt:"j"$sqrt "f"$last l;              // highest divisor to test
   l where (&/(0&ltl mod/:range[2;lmt])) }
 ```
 
@@ -195,25 +195,25 @@ q)primeinrange[20;40]
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)l:range[20;40]                                                  / list of potential prime numbers
+o)l:range[20;40]                                                  // list of potential prime numbers
 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
-o)range[2;"j"$sqrt "f"$last l]                                    / list of divisors
+o)range[2;"j"$sqrt "f"$last l]                                    // list of divisors
 2 3 4 5 6
-o)l mod/:2 3 4 5 6                                                / division remainder of each potential prime number against each divisor
+o)l mod/:2 3 4 5 6                                                // division remainder of each potential prime number against each divisor
 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1
 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2 3 0
 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0
 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4 5 0 1 2 3 4
-o)f:0 &lt l mod/:2 3 4 5 6                                            / flag division remainders
+o)f:0 &lt l mod/:2 3 4 5 6                                        // flag division remainders
 010101010101010101010b
 101101101101101101101b
 011101110111011101110b
 011110111101111011110b
 111101111101111101111b
-o)&/f                                                             / AND the flag vectors
+o)&/f                                                             // AND the flag vectors
 000100000101000001000b
-o)l where (&/f)                                                   / select from range
+o)l where (&/f)
 23 29 31 37
 o)
 ```
@@ -225,21 +225,19 @@ range:{x+til y-x-1}
 isPrime:{(x&gt1)and all 0&ltx mod range[2;"j"$sqrt x]}
 ```
 
-```o
-q)isPrime each 1 5 15
-010b
+```q
+q)isPrime each 1 5 15 2
+0101b
 q)
 ```
 
 ```o
 o)range:{x+til (y-x-1)}
 {x+til (y-x-1)}
-o)isprime:{(x&gt1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}     / поки шо не працює коректно через баг в mod
-{(x&gt1) and (&/(0&ltx mod range[2;"j"$sqrt "f"$x]))}
-o)isprime 1 5 15
-()
-1b
-()
+o)isprime:{(x&gt1) and (&/1b,0&ltx mod range[2;"j"$sqrt "f"$x])}
+{(x&gt1) and (&/1b,0&ltx mod range[2;"j"$sqrt "f"$x])}
+o)isprime each 1 5 15 2
+0101b
 o)
 ```
 
@@ -247,23 +245,20 @@ o)
 
 O and KDB+ solutions here are the same:
 
-```o
+```q
 nfp:{(x 1),sum x}
 fib:{first(x-1)nfp/0 1}
 ```
 
-```o
+```q
 q)fib 10
 34
 q)
 ```
 
 ```o
-nfp:{(x 1),sum x}
-fib:{first(x-1)nfp/0 1}
-```
-
-```o
+o)nfp:{(x 1),+/x};
+o)fib:{first(x-1)nfp/0 1};
 o)fib 10
 34
 o)
@@ -274,7 +269,7 @@ o)
 x is a Fibonacci number if 5x^x + or - 4 is a perfect square:
 
 ```o
-is_ps:{x={x*x}"j"$sqrt x}                       / is perfect square?
+is_ps:{x={x*x}"j"$sqrt x}                       // is perfect square?
 is_fibonacci:{.[or]is_ps flip 4 -4+/:5*x*x}
 ```
 
@@ -285,7 +280,7 @@ q)
 ```
 
 ```o
-o)is_ps:{x={x*x}"j"$sqrt "f"$x}           / checks if number is a perfect square
+o)is_ps:{x={x*x}"j"$sqrt "f"$x}           // checks if number is a perfect square
 {x={x*x}"j"$sqrt "f"$x}
 o)is_fibonacci:{|/is_ps (5*x*x)+'4 -4}
 {|/is_ps (5*x*x)+'4 -4}

@@ -258,7 +258,8 @@ o)t1: (+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
 o)t2:(+:)`b`c!(!2;!2);
 o)c: ,(=;`a;?[t2;();0b;(,`b)!(,`b)]);
 o)0N#.(?[t1; c; 0b; `a`c!`a`c])
-** exec error: select exec: scalar expected
+** runtime error: `select`:
+scalar expected
 o)
 ```
 
@@ -284,7 +285,7 @@ o)
 
 ```o
 o)t:((+:)`a`d`e`f!(1 2 3;3 4 5;6 7 8;("111";"222";"333")));
-o)c:,(like;`a;"111|222");
+o)c:,(like;`f;"111|222");
 o)0N#.(?[t; c; 0b; `a`f!`a`f])
 a f
 -------
@@ -299,7 +300,7 @@ o)
 
 ```o
 o)t:((+:)`a`d`e`f!(1 2 3;3 4 5;6 7 8;("111";"222";"333")));
-o)c: ,(~;`a;"111");
+o)c: ,(~;`f;"111");
 o)0N#.(?[t; c; 0b; `a`f!`a`f])
 a f
 -------
@@ -401,7 +402,7 @@ o)j:lj[(`t1;t1);(`t2;t2);(~`t1`a;~`t2`a)];
 o)0N#.(?[j; (); 0b; `a`b`e`f!(~`t1`a;~`t1`b;~`t2`e;~`t2`f)])
 a b e  f
 ------------
-3 3 0N
+3 3 0N 0N0
 1 4 16 "111"
 2 5 17 "222"
 o)
@@ -416,9 +417,9 @@ o)j:lj[(`t1;t1);(`t2;t2);(~`t1`a;~`t2`a)];
 o)0N#.(?[j; (); 0b; `a`b`e`f!(~`t1`a;~`t1`b;~`t2`e;~`t2`f)])
 a b e  f
 ------------
-3 3 0N
+3 3 0N 0N0
 2 4 16 "111"
-0 5 0N
+0 5 0N 0N0
 o)
 ```
 
@@ -429,14 +430,14 @@ Multi-column left joins are also supported. The same logic of building indices b
 ```o
 o)t1:((+:)`a`b`c!(3 2 0;3 4 5;6 7 8));
 o)t2:((+:)`a`b`e`f!(3 2 3;3 4 3;16 17 18;("111";"222";"333")));
-o)@[`t2;,`a`d;~[#];`g];
+o)@[`t2;,`a`b;~[#];`g];
 o)j:lj[(`t1;t1);(`t2;t2);((~`t1`a;~`t1`b);(~`t2`a;~`t2`b))];
 o)0N#.(?[j; (); 0b; `a`b`e`f!(~`t1`a;~`t1`b;~`t2`e;~`t2`f)])
 a b e  f
 ------------
 3 3 16 "111"
 2 4 17 "222"
-0 5 0N
+0 5 0N 0N0
 o)
 ```
 
@@ -560,7 +561,7 @@ Selecting from inner select is also supported.
 
 ```o
 o)t1:((+:)`a`b`c`d!(1 2 3;3 4 5;6 7 8;8 9 10));
-o)t2: ?[(`t1;t1);();0b;`a`b`c!`a`b`c]
+o)t2: ?[(`t1;t1);();0b;`a`b`c!`a`b`c];
 o)c: ,(>=;`a;2);
 o)0N#.(?[t2; c; 0b; `a`c!`a`c])
 a c
@@ -666,7 +667,7 @@ Aggregation only (without explicit grouping fields) using special monads is done
 
 ```o
 o)t:((+:)`a`b`c`d!(1 2 3;3 4 5;6 7 8;8 9 10));
-o)0N#.(?[(`t1;t1);();0b;`a`b`c`d!((sum;~`t1`a);(avg;~`t1`b);(max;~`t1`c);(min;~`t1`d))])
+o)0N#.(?[(`t;t);();0b;`a`b`c`d!((sum;~`t`a);(avg;~`t`b);(max;~`t`c);(min;~`t`d))])
 a b c d
 -------
 6 4 8 8

@@ -6,15 +6,12 @@ For example, let's create a simple parser that eats only strings consisting of "
 
 ```o
 o)p:&lt- "p"+
-<Parser["p"+]>
+&ltParser["p"+]&gt
 o)p "ppppp"
 "ppppp"
 o)p "pppppa"
-** parse error: expected &ltp+>
-   --> [peg:1:5]
-    |
-0001|     pppppa
-    |          ^
+** runtime error: `peg`:
+Input: &lta&gt
 o)
 ```
 

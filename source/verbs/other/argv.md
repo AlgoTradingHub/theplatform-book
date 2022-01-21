@@ -7,8 +7,8 @@ Returns a dictionary with the command line arguments.
 
 ```o
 o)argv[]
-__scheds__   | "4"
-__filenames__| "[repl]"
 __bin__      | "./tachyon"
+__filenames__| "[repl]"
+__scheds__   | "4"
 o)
 ```

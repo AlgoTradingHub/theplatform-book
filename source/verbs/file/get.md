@@ -12,7 +12,7 @@ a s d
 2 5 8
 3 6 9
 o)`:db/ set t
-`:db/t
+`:db/
 o)get `:db/
 a s d
 -----

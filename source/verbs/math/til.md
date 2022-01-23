@@ -12,7 +12,7 @@ o)!10
 o)til 0
 `long$()
 o)10+til 5
-10 11 12 13 142
+10 11 12 13 14
 o)(til 2)*5
 0 5
 o)!2*5
@@ -24,7 +24,8 @@ The argument must be a non-negative integer atom:
 
 ```o
 o)til 10f
-** exec error: `key` nyi: [10f]
+** eval error: `key`:
+invalid type: [`s`float]
 ```
 
 ::: see

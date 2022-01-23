@@ -31,11 +31,11 @@ Remember - `set` verb changes its behaviour based on format of its left argument
 The same idea goes for complex/nested list.
 ```o
 o) a:(!10; "123"; `symbol; `a`b`c!1 2 3); f:`:./tmp/test.dat; f set a;
-o) b:get f
+o) b:get f;
 o) b
 0 1 2 3 4 5 6 7 8 9
 "123"
 `symbol
-(`a`b`c!1 2 3)
+`a`b`c!1 2 3
 o)
 ```

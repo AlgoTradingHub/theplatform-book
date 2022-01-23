@@ -10,7 +10,8 @@ Technically signalling is done using monadic verb `'`. Its argument is any value
 
 ```o
 o)a:10; { { '(`s;1); set[`a;0] }[] }[]
-'`s
+** signal error: `panic`:
+s
 1
 o)a
 10
@@ -35,17 +36,18 @@ Another possible usage is trapping with a function as the third argument. When s
 
 ```o
 o)@[{'x};`err1;{x}]
-`err1
+kind   | `signal
+call   | "panic"
+message| `err1
 o)
 ```
 
 Runtime errors are also caught using traps. Trapping runtime errors results in a signal value with the error text message as its value.
 
 ```o
-o)@[{x+y};1;{x}]
-"** exec error: +: invalid args [1;]
-      |--> [REPL::1] @[{x+y};1;{x}]
-                         ^"
+o)@[{+/x};"123";{x`kind`call}]
+`runtime
+"+"
 o)
 ```
 
@@ -55,6 +57,8 @@ The `.` triad is pretty much the same expression except its second argument can 
 o).[+;(1;2);`err2]
 3
 o).[{'y};(1;`err1);{x}]
-`err1
+kind   | `signal
+call   | "panic"
+message| `err1
 o)
 ```

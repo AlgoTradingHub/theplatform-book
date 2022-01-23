@@ -12,7 +12,8 @@ error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
 
 fnd_ocode: {[file]
     flag:0;
-    $[file like "kill|exit|close|plugin|usage|cast|vs.md|readln";[0N!file," need check manualy."; :0]; 0];
+    files: "kill|exit|close|plugin|usage|cast|vs.md|rea|load|spawn|table|print|patt";
+    $[file like files;[0N!file," need check manualy."; :0]; 0];
     f:"c"$read `$":",file;
     if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
     rows: sep vs f;

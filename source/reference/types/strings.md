@@ -58,7 +58,7 @@ Due to frequent usage of strings in tables some shortcuts have been made to ease
 E.g., when inserting strings into tables, they behave as if they were scalars:
 
 ```o
-o)t:+`a`b`c!(,1;,2;,"123")
+o)t:+`a`b`c!(,1;,2;,"123");
 o).[`t; (); ,; (10;20;"456")];
 o)t
 a  b  c

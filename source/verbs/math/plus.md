@@ -16,7 +16,8 @@ o)1 2 3+4
 o)1 2 3+4 5 6
 5 7 9
 o)1 2 3+4 5 6 7
-** exec error: `+` length: [1 2 3;4 5 6 7]
+** eval error: `+`:
+arguments length mismatch: [1 2 3;4 5 6 7]
 o)
 ```
 

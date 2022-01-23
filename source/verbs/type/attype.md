@@ -10,7 +10,7 @@ Avoid relying on these ids in production!
 
 ```o
 o)@1
-80
+320
 o)@"s"
 46400
 o)@([]a:1;b:"a")

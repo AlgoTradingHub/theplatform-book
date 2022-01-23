@@ -6,7 +6,7 @@ Each expression in O has its type. Type in O defines value domain/set of support
 
 ```o
 o)@1
-160
+320
 o)
 ```
 
@@ -28,9 +28,9 @@ Now, what's a better practice of type referencing if not using internal ids? Tha
 
 ```o
 o)!`s`int
-128
+256
 o)!`s`long
-160
+320
 o)
 ```
 
@@ -106,7 +106,7 @@ o)
 And yes, an internal type id can be given as left argument but it's better to use it only in REPL.
 
 ```o
-o)a:1 2 3; b:10 20 30i; 64$a
+o)a:1 2 3; b:10 20 30i; (@b)$a
 1 2 3i
 o)
 ```
@@ -125,7 +125,7 @@ When casting, you can encounter values that are too large or too small to be hel
 
 ```o
 o)`int$1000000000000 -1000000000000
-0Wi -0Wi
+0W -0Wi
 o)
 ```
 
@@ -133,6 +133,6 @@ Nulls/NaN are retained between types.
 
 ```o
 o)`int$1.0 0n 0w
-` 0N 0Wi
+1 0N 0Wi
 o)
 ```

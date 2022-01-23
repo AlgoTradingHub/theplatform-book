@@ -18,7 +18,7 @@ Following fully atomic monadic intrinsics are supported for floats only.
 o)cos 0f
 1f
 o)acos 0.5
-1.0471975511965979
+1.0471975511965976
 o)exp 1f
 2.718281828459045
 o)log 10f

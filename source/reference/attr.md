@@ -26,7 +26,7 @@ o)a: `s#1 2 3
 o)a: `asc#1 2 3
 `asc#1 2 3
 o)a: `desc#3 2 1
-`desc#1 2 3
+`desc#3 2 1
 o)
 ```
 
@@ -35,10 +35,8 @@ One-element vector and empty vectors:
 ```o
 o)a: `s#`long$()
 `asc#`long$()
-
 o)a: `s#,1
 `asc#,1
-
 o)a: `desc#`long$()
 `desc#`long$()
 ```
@@ -47,7 +45,8 @@ Attaching sorted attribute to an unsorted vector will result in an error:
 
 ```o
 o) a: `s#3 2 1
-** exec error: attr: not sorted
+** runtime error: `attribute`:
+not sorted
 o)
 ```
 
@@ -81,7 +80,7 @@ Destructively removing an attribute from an existing vector:
 
 ```o
 o)a: `s#1 2 3
-`s#1 2 3
+`asc#1 2 3
 o).[`a;();{`#x}]
 `a
 o) a
@@ -92,9 +91,10 @@ o)
 Before modifying a vector, interpreter checks it for an attribute at runtime:
 
 ```o
-o)a: `s#1 2 3
+o)a: `s#1 2 3;
 o)@[a;0;:;3]
-** exec error: attr: attr violation.
+** runtime error: `attributes`:
+attr violation
 o)
 ```
 
@@ -117,12 +117,9 @@ a b c
 3 3 3
 4 4 4
 o)meta b
-column type id
-----------------
-a      long 2128
-b      long 2128
-c      long 2128
++`column`type`id!(`a`b`c;`long`long`long;45376 45376 45376)
 (`a`b)
+o)
 ```
 
 ::: note
@@ -133,11 +130,7 @@ Mutable attribute build is done via [@ tetrad](/verbs/amendsdmends/tetramend.md)
 
 ```o
 o)a:(+:)`a`b`c!(!5;!5;!5); @[`a;,`a`b`c;~[#];`g]; meta a
-column type id
-----------------
-a      long 2128
-b      long 2128
-c      long 2128
++`column`type`id!(`a`b`c;`long`long`long;45376 45376 45376)
 (`a`b`c)
 ```
 
@@ -156,11 +149,11 @@ To drop an index, use a null symbol in amend:
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); @[`a;,`a`b;~[#];`g];
 o)meta a
-+`column`type`id!(`a`b`c;`long`long`long;22688 22688 22688)
++`column`type`id!(`a`b`c;`long`long`long;45376 45376 45376)
 (`a`b)
 o)@[`a;,`a`b;~[#];`];
 o)meta a
-+`column`type`id!(`a`b`c;`long`long`long;22688 22688 22688)
++`column`type`id!(`a`b`c;`long`long`long;45376 45376 45376)
 ()
 ```
 
@@ -175,7 +168,7 @@ o)a:(+:)`a`b`c!(`sym$`symbol$!5;10+!5;20+!5);
 o)@[`a;,`a`b`c;~[#];`g];
 o)f:`:/tmp/midx/; f set a;
 o)b:get f; sym: get fsym; // read all data from disk
-o)@[`b;`a;~$;`sym]; // attach symbol for enums
+o)@[`b;`a;~[$];`sym]; // attach symbol for enums
 o) a~b
 1b
 o)
@@ -190,7 +183,7 @@ o)a:(+:)`a`b`c!(`sym$`symbol$!5;`sym$`symbol$10+!5;20+!5);
 o)@[`a;,`a`b`c;~[#];`g];
 o)f:`:/tmp/midx/; f set a; // save an entire table with index on disk
 o)load f; // read table with index into workspace
-o)@[`midx;`a`b;~$;`sym];
+o)@[`midx;`a`b;~[$];`sym];
 o)midx?(+:)`a`b`c!(`sym$`symbol$12 13;`sym$`symbol$2 3;22 23)
 2 3
 o)

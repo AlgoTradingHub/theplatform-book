@@ -7,7 +7,6 @@ The only exception is generic vectors or simply Lists. Each item of a list can c
 A vector can be created from a sequence of scalars separated by spaces:
 
 ```o
-The O language interpreter 0.1.0
 o)1 2 3
 1 2 3
 o)`a`s`d
@@ -40,7 +39,7 @@ o)
 
 ## Enumerated vectors
 
-Conceptually, an enumerated vectir is a subset of a symbol vector.
+Conceptually, an enumerated vector is a subset of a symbol vector.
 
 Each enumerated vector has additional information - domain symbol. Domain symbol defines global (usually) variable name containing a vector of symbols that form a domain. Only symbols belonging to this domain can appear in enumerated vector.
 
@@ -58,8 +57,8 @@ o)
 
 ```o
 o)sym:`a`b`c; `sym$`a`d
-** exec error: cast: invalid value.
-      |--> [REPL::1] sym:`a`b`c; `sym$`a`d
+** runtime error: `cast: invalid value.`:
+true
 o)
 ```
 

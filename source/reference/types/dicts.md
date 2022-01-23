@@ -4,15 +4,15 @@ A dict is a mapping between two vectors of the same length: keys and values.
 The syntax for creating a dictionary uses an exclamation mark:
 
 ```o
-The O language interpreter 0.1.0
 o)`a`b`c!1 2 3
 a| 1
 b| 2
 c| 3
 o)`a`b`c!1 2
-"** exec error: dict: expected 2 lists same size.
+** eval error: `!`:
+arguments length mismatch: [`a`b`c;1 2]
 o)
- ```
+```
 
 A dictionary can be decomposed into key and value vectors:
 
@@ -32,7 +32,7 @@ To look up a value in dict by key use square brackets:
 
 ```o
 o)d[`c]
-2
+3
 o)
 ```
 

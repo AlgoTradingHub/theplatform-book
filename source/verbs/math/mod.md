@@ -18,14 +18,14 @@ o)3 2 7 mod 10 20 30
 o)
 ```
 
-If `y` is vector and `x` is scalar, `mod` returns `y%x` division remainder:
-
 ```o
-o)2 mod 2 6 5 4
-0 0 1 0
-o)5 mod (11 15;18 19 20)
+o)4 mod 6 5 4 3 2
+4 4 0 1 0
+o)(11 15;18 19 20) mod 5
 1 0
 3 4 0
+o)10 19 mod 3 4
+1 3
 o)
 ```
 

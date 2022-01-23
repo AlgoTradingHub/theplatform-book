@@ -6,7 +6,7 @@ Applies boolean "and" for bool arguments. Fully atomic.
 
 ```o
 o)10b&1b
-010b
+10b
 o)a:1010b
 1010b
 o)a&~a

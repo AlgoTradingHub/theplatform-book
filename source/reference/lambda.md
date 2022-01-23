@@ -34,7 +34,7 @@ Local variables are defined implicitly via assignment to bindings inside lambdas
 
 ```o
 o)f:{local1:x; local2:y; local1+local2}
-{local1:x;local2:y;local1+local2}
+{local1:x; local2:y; local1+local2}
 o)f[10;20]
 30
 o)
@@ -42,7 +42,7 @@ o)
 
 ```o
 o).n.sum:{a:+/x; a}
-{+/x}
+{a:+/x; a}
 o).n.sum [!10]
 45
 o)
@@ -56,7 +56,7 @@ Insert arguments in **[ ]** after the function name or omit brackets if there is
 
 ```o
 o).n.sum:{a:+/x; a}
-{a:+/x;a}
+{a:+/x; a}
 o)arr:!3
 0 1 2
 o).n.sum arr

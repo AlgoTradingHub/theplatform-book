@@ -204,7 +204,8 @@ Indeed, assign/plus/minus dyads assume zero value as initial, mul/div take one f
 
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); @[a;`a`b`d;{x+y};1]
-** exec error: amend: type
+** runtime error: `amend`:
+fields: non-enumerable iterator
 ```
 
 More complex example shows creating of a new field and vector addition as single amend expression:

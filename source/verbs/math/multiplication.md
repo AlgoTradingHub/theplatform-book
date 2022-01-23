@@ -16,7 +16,8 @@ o)1 2 3f * 1.1
 o)1 2 3*4 5 6
 4 10 18
 o)1 2 3*4 5 6 7
-** exec error: `*` length: [1 2 3;4 5 6 7]
+** eval error: `*`:
+arguments length mismatch: [1 2 3;4 5 6 7]
 ```
 
 Where `x` is a dictionary and `y` is a numeric value, the numeric values of `x` are multiplied by `y`:

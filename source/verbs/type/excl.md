@@ -6,7 +6,7 @@ When applied to type spec returns corresponding internal type id.
 
 ```o
 o)!`s`int
-64
+256
 o)!`v`int
 45312
 o)!`v`long

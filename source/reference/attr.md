@@ -184,7 +184,7 @@ o)@[`a;,`a`b`c;~[#];`g];
 o)f:`:/tmp/midx/; f set a; // save an entire table with index on disk
 o)load f; // read table with index into workspace
 o)@[`midx;`a`b;~[$];`sym];
-o)midx?(+:)`a`b`c!(`sym$`symbol$12 13;`sym$`symbol$2 3;22 23)
+o)midx?(+:)`a`b`c!(`sym$`symbol$2 3;`sym$`symbol$12 13;22 23)
 2 3
 o)
 ```

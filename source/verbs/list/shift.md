@@ -6,7 +6,7 @@ Null are shifted in from the other end.
 **Syntax:** ```x shift y ; shift[x;y]```
 
 ```o
-o) 1 shift 1 2 3
+o)1 shift 1 2 3
 2 3 0N
 o)v:("123";1 2 3;1f);
 o).[`v;();~[shift];-1];

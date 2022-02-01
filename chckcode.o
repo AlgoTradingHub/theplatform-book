@@ -36,3 +36,4 @@ fnd_ocode: {[file]
 
 os["cd";getenv[`OHOME]];
 {fnd_ocode[x]}'lst;
+system "rm -f f.txt";

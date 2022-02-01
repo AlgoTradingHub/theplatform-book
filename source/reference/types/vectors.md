@@ -48,15 +48,15 @@ This results in an important advantage - each enumerated vector item can be repr
 An example below demonstrates "sym" domain with 3 symbols and creation of enumerated vector "a" with 4 items.
 
 ```o
-o)sym:`a`b`c; a:`sym$`a`b`c`a; a
-`sym$`a`b`c`a
+o)sm:`a`b`c; a:`sm$`a`b`c`a; a
+`sm$`a`b`c`a
 o)
 ```
 
 ... if you try casting a symbol vector with symbols that are not present in domain, you will receive an error:
 
 ```o
-o)sym:`a`b`c; `sym$`a`d
+o)sm:`a`b`c; `sm$`a`d
 ** runtime error: `cast: invalid value.`:
 true
 o)
@@ -65,20 +65,20 @@ o)
 On the contrary, null symbol is considered to be a part of each domain:
 
 ```o
-o)sym:`a`b`c; a:`sym$`a``c; a
-`sym$`a``c
+o)sm:`a`b`c; a:`sm$`a``c; a
+`sm$`a``c
 o)
 ```
 
 Enumerated symbols require special treatment when saved to disk. An enumerated vector has no domain defined after "getting" it from file. Thus, you need to save domain values to disk as well. Casting enumerated vector "b" with domain "sym" assigns domain to vector like this:
 
 ```o
-o)a:`sym$`c`b`a;
+o)a:`sm$`c`b`a;
 o)f:`:/tmp/o_enum1.dat; f set a;
-o)fsym:`:/tmp/o_sym_enum1.dat; fsym set sym;
-o)b:get f; sym: get fsym;
-o)b:`sym$b;
+o)fsym:`:/tmp/o_sm_enum1.dat; fsym set sm;
+o)b:get f; sm: get fsym;
+o)b:`sm$b;
 o)b
-`sym$`c`b`a
+`sm$`c`b`a
 o)
 ```

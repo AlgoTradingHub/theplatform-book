@@ -810,7 +810,7 @@ TODO
 
 TODO
 
-## SQL-like syntax
+## SQL-like syntax (NOT STABLE! Temporary do not use!)
 
 select [cols] [by groups] from t [where filters]
 

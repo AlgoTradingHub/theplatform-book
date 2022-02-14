@@ -4,7 +4,7 @@ Separate a scalar into a vector of elements.
 
 **Syntax:** ``x vs y; vs[x;y]``
 
-where `x` is a separator, `y` is a string to be separated.
+where `x` is a separator, `y` is a vector to be separated.
 
 _Examples with string:_
 
@@ -26,6 +26,32 @@ o)"" vs "a,b,c,d"
 ""
 ```
 
+::: warn
+    If `y` is a string, then string `x` used as regular expression
+:::
+
+Let`s see few examples abaut it:
+
+```o
+o)"." vs "2022.02.22"
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+""
+o)"\\." vs "2022.02.22"
+"2022"
+"02"
+"22"
+o)
+```
+
 _Bits vector from numeric scalar:_
 
 ```o
@@ -39,46 +65,30 @@ o)0b vs 5f
 0100000000010100000000000000000000000000000000000000000000000000b
 ```
 
-_Bits vector from random Guid:_
-
-```o
-o)0b vs first[1?0Ng]
-00010010001010100001111110000100000100010100100001001010110111011011100000001000110111000100001100011111101000010100100100110100b
-o){0N!x; 0b vs x}'2?0Ng
-cbfffe94-282f-4a1b-aa26-034960cfab91
-2c904aac-47d9-4693-be28-4b5144ca8c96
-11001011111111111111111010010100001010000010111101001010000110111010101000100110000000110100100101100000110011111010101110010001b
-00101100100100000100101010101100010001111101100101000110100100111011111000101000010010110101000101000100110010101000110010010110b
-```
-
 _Bits vector from temporal scalar:_
 
 ```o
-o)now:ts[]
-2020.08.28D16:23:24.640379955
-o)0b vs now
+o)tm:2020.08.28D16:23:24.640379955;
+o)0b vs tm
 0000100100001100001011100101100010110111111110000100010000110011b
-o)`date$now
+o)`date$tm
 2020.08.28
-o)0b vs `date$now
+o)0b vs `date$tm
 00000000000000000001110101111001b
-o)`time$now
+o)`time$tm
 16:23:24.640
-o)0b vs `time$now
+o)0b vs `time$tm
 00000011100001000101011011100000b
 ```
 
 _Bytes vector from scalar:_
 
 ```o
-o)g: first 1?0Ng
-f3eb1bab-5f59-4fc2-be35-da66c409cda4
+o)g: "G"$"f3eb1bab-5f59-4fc2-be35-da66c409cda4";
 o)0x vs g
 0xf3eb1bab5f594fc2be35da66c409cda4
-
-o)0x vs ts[]
-0x090c2ee8ad1a7942
-
+o)0x vs `year$2022.02.22D22:20:22.02
+0x000007e6
 o)0x vs 10
 0x000000000000000a
 o)0x vs 10.125

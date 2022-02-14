@@ -635,7 +635,7 @@ o)
 
 ## Find verb
 
-Search is a fundamental operation and O has a specific verb to perform it. It's [dyadic `?`](verbs/search/search.md). Left argument is a value to be searched for, right argument is a value to look for. The verb evaluates to an index of the value being searched or null if not found. If several same values reside in the left arg, only index of the first occurance is returned.
+Search is a fundamental operation and O has a specific verb to perform it. It's [dyadic `?`](/verbs/search/search.md). Left argument is a value to be searched for, right argument is a value to look for. The verb evaluates to an index of the value being searched or null if not found. If several same values reside in the left arg, only index of the first occurance is returned.
 
 ```o
 o)a:1 2 2 3

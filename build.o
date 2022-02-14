@@ -10,7 +10,7 @@
                     "</ul>",
                     "<div id=\"searchWrapper\">",
                         "<div id=\"searchField\"><input type=\"text\"/></div>",
-                        "<b>&#9906;</b>",
+                        "<b>&#128269;</b>",
                     "</div>",
                 "</div>",
                 "<div id=\"rootWrapper\">",

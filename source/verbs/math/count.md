@@ -50,6 +50,6 @@ o)
 
 ::: see
 [# (attaching attribute)](/reference/attr.md)
-[rc (reference count)](/verbs/math/rc.md)
+[rc (reference count)](/verbs/other/rc.md)
 [# (take)](/verbs/list/take.md)
 :::

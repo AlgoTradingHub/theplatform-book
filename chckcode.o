@@ -6,17 +6,24 @@ mdfiles: {[dir]
     f,,/o'[3(~[@])'d]
 };
 
-lst:mdfiles[os "pwd"];
+bookdir:os "pwd";
+lst:mdfiles[bookdir];
 strip: {p:*ss[|x;"[^ ]"]; |"c"$p _"x"$|x};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
 
 fnd_ocode: {[file]
-    flag:0;
+    flag::0; see::0b;
     files: "kill|exit|close|plugin|usage|cast|vs.md|rea|load|spawn|table|print|patt";
-    $[file like files;[0N!file," need check manualy."; :0]; 0];
     f:"c"$read `$":",file;
     if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
     rows: sep vs f;
+    { r:x;
+     if [x like ":::"] {see::0b};
+     if [x~"::: see"] {see::1b};
+     if [see & "b"$0x5b=*"x"$x] {nf:"c"$1_-1_"x"$("]" vs r)[1];
+        if [0=#(system format["head %";bookdir,"/source",nf])[1]] {println["Ref % in file % is bad.";nf;file]}}
+    }'rows;
+    $[file like files;[0N!file," need check manualy."; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
     { if [1<#x] {

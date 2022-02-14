@@ -10,26 +10,19 @@ where `x` is a reagent:
 o)r:reagent[`async];
 o)react {[x:r] 0N!x};
 o)r[1]
-o)1
+1
 o)meta r
-type      | `reagent
-id        | 4i
-descriptor| `value`prefix`suffix!(4294967297;1i;1i)
-rx        | ,`type!,`async
-cache     | ()
-destructor| 0N0
-error     | 0N0
+id  | 3
+type| "async"
 o)close[r]
 o)meta r
-type      | `reagent
-id        | 4i
-descriptor| 0N0
-rx        | ,`type!,`async
-cache     | ()
-destructor| 0N0
-error     | 0N0
+o)meta r
+id  | 3
+type| "async"
 o)r[2]
-o)
+** I/O error: `reagent send`:
+-- channel is closed
+**
 ```
 
 ::: see

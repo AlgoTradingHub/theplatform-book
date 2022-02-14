@@ -18,7 +18,7 @@ Values are organized in levels. That is top level ```error``` is the least level
 Usage example:
 
 ```os
-$ OLOG="debug" tachyon
+$ OLOG="info" tachyon
 ```
 ```o
 Tachyonic platform 0.1.0

@@ -88,7 +88,7 @@ ul#navigationBar li {
 
 #searchWrapper b {
     user-select: none;
-    transform: rotate(-45deg);
+    /*transform: rotate(-45deg);*/
     display: block;
     font-size: 24px;
     font-weight: 100;

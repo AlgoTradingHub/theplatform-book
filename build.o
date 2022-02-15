@@ -51,22 +51,21 @@
     .lasti:: -1;
     lst: ,/
     {[row]
-        (shift;val): row;
-
+        (shft;val): row;
         v:
         if [.lasti=-1] {
             format["<li>%";,/.md.ht.build[,val]]
-        } elif [shift>.lasti] {
+        } elif [shft>.lasti] {
             format["<ul><li>%";,/.md.ht.build[,val]]
-        } elif [shift=.lasti] {
+        } elif [shft=.lasti] {
             format["</li><li>%";,/.md.ht.build[,val]]
         } else {
-            dif: .lasti - shift;
+            dif: .lasti - shft;
             clt: ,/{"</ul></li>"}'!dif;
             clt,format["<li>%";,/.md.ht.build[,val]]
         };
 
-        .lasti:: shift;
+        .lasti:: shft;
         v
     }'rows;
 

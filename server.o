@@ -7,7 +7,6 @@ load[home;"markdown"];
 load[home;"http"];
 load[home;"core"];
 load["build"];
-load[home;"ws"];
 load["webrepl"];
 
 index: (`symbol$())!();

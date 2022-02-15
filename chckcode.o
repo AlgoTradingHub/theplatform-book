@@ -13,7 +13,7 @@ error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
 
 fnd_ocode: {[file]
     flag::0; .file:file;
-    files: "kill|exit|close|plugin|usage|rea[gc]|load|spawn|table|print|patt";
+    files: "kill|exit|close|plugin|usage|rea[dgc]|load|spawn|table|print|patt";
     f:"c"$read `$":",file;
     if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
     rows: sep vs f;

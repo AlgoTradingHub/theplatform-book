@@ -6,7 +6,7 @@ Reads a line from `x` fd.
 
 ```o
 o)readln[0]
-1
-"1"
+1 2
+"1 2"
 o)
 ```

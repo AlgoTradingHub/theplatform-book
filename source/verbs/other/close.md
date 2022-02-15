@@ -16,7 +16,6 @@ id  | 3
 type| "async"
 o)close[r]
 o)meta r
-o)meta r
 id  | 3
 type| "async"
 o)r[2]

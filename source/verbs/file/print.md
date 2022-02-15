@@ -13,6 +13,6 @@ o)
 ```
 
 ::: see
-[println](/verbs/string/println.md)
+[println](/verbs/file/println.md)
 [format](/verbs/string/format.md)
 :::

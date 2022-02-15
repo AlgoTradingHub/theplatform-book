@@ -7,8 +7,8 @@ Returns the absolute value of a numeral or temporal, returns null for null.
 ```o
 o)abs 1.0 -10.5 0
 1 10.5 0
-o)abs 0N
-0N
+o)abs -11:08
+11:08
 ```
 
 `abs` is fully atomic:

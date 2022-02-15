@@ -3,12 +3,12 @@
 Relational queries are nice tool to have in a vector language. They form a special sub-language operating on tables somewhat similar to SQL. The term "record" referenced below means a row of fields taken from a table.
 
 ::: note
-Queries support is currently limited to “select” polyad & "upsert" triad.
+Queries support is currently limited to "select" polyad & "upsert" triad.
 :::
 
 ## Select
 
-In order to execute a query, one must first define a query expression, compile it into internal representation and apply “fetch” verb to get results. All three stages are done explicitly.
+In order to execute a query, one must first define a query expression, compile it into internal representation and apply "fetch" verb to get results. All three stages are done explicitly.
 
 ### Overall syntax
 
@@ -30,13 +30,13 @@ res:  fe#cq; // fetch query results
 
 **f** is a field dict.
 
-**ot** is an optional “take” argument. It might be either a scalar or a two-element integer vector. It defines a range of record indices to limit results.
+**ot** is an optional "take" argument. It might be either a scalar or a two-element integer vector. It defines a range of record indices to limit results.
 
-**os** is an optional “sorting” argument which must be a nested list of fields to sort with direction.
+**os** is an optional "sorting" argument which must be a nested list of fields to sort with direction.
 
 ### Compilation & fetching results
 
-Let’s have a look at a simple example first. It just creates a single table, a “q” query, compiles it into “cq” and fetches all table data into “res”.
+Let's have a look at a simple example first. It just creates a single table, a "q" query, compiles it into "cq" and fetches all table data into "res".
 
 ```o
 o)t:(+:)`a`b`c`d!(1 2 3;3 4 5;6 7 8;("111";"222";"333"));
@@ -53,10 +53,10 @@ o)
 ```
 
 ::: note
-Note a space between “dot” monad and “q” variable: `cq:. q`
+Note a space between "dot" monad and "q" variable: `cq:. q`
 :::
 
-As you can see, the verb “fetch” is a dyad expecting either null to fetch all query results in one go, or an amount of records if positive number.
+As you can see, the verb "fetch" is a dyad expecting either null to fetch all query results in one go, or an amount of records if positive number.
 
 ### Fields/renaming
 
@@ -146,6 +146,7 @@ o)
 ```
 
 To distinguish between symbol constants and fields, symbol constants must be enlisted.
+
 ```o
 o)t:(+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
 o)0N#.(?[t;();0b;`a`b`c`const!(`a;`b;`c;,`d)])
@@ -156,7 +157,6 @@ a b c const
 3 5 8 d
 o)
 ```
-
 
 ### Conditions
 
@@ -175,7 +175,7 @@ o)
 ```
 
 ::: note
-List enclosure in “c” definition is mandatory. Condition must be a proper list!
+List enclosure in "c" definition is mandatory. Condition must be a proper list!
 :::
 
 Conditions may contain field expressions:
@@ -224,7 +224,7 @@ a b c
 o)
 ```
 
-Quite common pattern is joining all field conditions with “and” logic, thus a simplified syntax is also supported:
+Quite common pattern is joining all field conditions with "and" logic, thus a simplified syntax is also supported:
 
 ```o
 o)t:(+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
@@ -236,9 +236,9 @@ a b c
 o)
 ```
 
-### Where “subselect”
+### Where "subselect"
 
-Another commonly used pattern is a “sub-select”. It applies another (sub-select) query to condition as an argument. It can be used as seen below:
+Another commonly used pattern is a "sub-select". It applies another (sub-select) query to condition as an argument. It can be used as seen below:
 
 ```o
 o)t1:(+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
@@ -251,7 +251,7 @@ a c
 o)
 ```
 
-Pay attention that just a single scalar value is expected as a result of “t2” query, otherwise an error occurs:
+Pay attention that just a single scalar value is expected as a result of "t2" query, otherwise an error occurs:
 
 ```o
 o)t1: (+:)`a`b`c!(1 2 3;3 4 5;6 7 8);
@@ -263,7 +263,7 @@ scalar expected
 o)
 ```
 
-### Where “in”
+### Where "in"
 
 Another predicate accepting sub-selects is `in`. It checks if the left arg is within the right argument set of values (either constant vector or a query).
 
@@ -279,9 +279,9 @@ a c
 o)
 ```
 
-### Where “like”
+### Where "like"
 
-“Like” predicate matches against a regular expression. Both strings and symbols are supported.
+"Like" predicate matches against a regular expression. Both strings and symbols are supported.
 
 ```o
 o)t:((+:)`a`d`e`f!(1 2 3;3 4 5;6 7 8;("111";"222";"333")));
@@ -294,9 +294,9 @@ a f
 o)
 ```
 
-### Where “match”
+### Where "match"
 
-“Match” checks for exact equality.
+"Match" checks for exact equality.
 
 ```o
 o)t:((+:)`a`d`e`f!(1 2 3;3 4 5;6 7 8;("111";"222";"333")));
@@ -374,7 +374,7 @@ a b e  f
 o)
 ```
 
-It’s strongly recommended to attach attributes to a field before the join. If there is no appropriate attribute, query engine will build a temporary one every time the query is executed.
+It's strongly recommended to attach attributes to a field before the join. If there is no appropriate attribute, query engine will build a temporary one every time the query is executed.
 
 Multi-column joins are also supported. The same logic of building indices beforehand/in-time is applied here.
 
@@ -423,7 +423,7 @@ a b e  f
 o)
 ```
 
-Just like with `ij`, it’s strongly recommended to attach attributes to a field before the join. If there is no appropriate attribute, query engine will build a temporary one every time the query is executed.
+Just like with `ij`, it's strongly recommended to attach attributes to a field before the join. If there is no appropriate attribute, query engine will build a temporary one every time the query is executed.
 
 Multi-column left joins are also supported. The same logic of building indices beforehand/in-time is applied here.
 
@@ -626,7 +626,7 @@ As for grouping expressions, the following list of monads is currently supported
 | --- | --- | --- |
 | #:  | count | number of non-null values in group |
 | *: | first | first non-null value in group |
-| last | last | last non-null value in group | 
+| last | last | last non-null value in group |
 | min | minimum | minimum non-null value in group |
 | max | maximum | maximum non-null value in group |
 | sum | sum | sum of non-null values in group |
@@ -695,20 +695,18 @@ incrementally. Incremental grouping does its job by splitting entire data in chu
 
 Essentially, incremental grouping requires three user-defined lambdas. First lambda - to initialize grouping state, preparing data structures. Second - doing incremental aggregation itself. And third - to finalize grouping on completion.
 
-
 | Key | Meaning | Input parameters | Expected result |
 | --- | --- | --- | --- |
-| `init  | Initialize state | [cg; data], where `cg` - number of groups found so far, `data` - current data chunk | Any shaped initialized aggregation state |
-| `aggr  | Incremental aggregation | [s; cg; ix; data], where `s` - current aggregation state, `cg` - number of groups found so far, `ix` - vector of group indices for each element in `data`, `data` - current data chunk | Aggregation state |
-| `fin  | Finalize aggregation state | [s], where `s` - current aggregation state | Finalized aggregation state |
-
+| `init  | Initialize state | [cg; data], where`cg` - number of groups found so far, `data` - current data chunk | Any shaped initialized aggregation state |
+| `aggr  | Incremental aggregation | [s; cg; ix; data], where`s` - current aggregation state, `cg` - number of groups found so far, `ix` - vector of group indices for each element in `data`,`data` - current data chunk | Aggregation state |
+| `fin  | Finalize aggregation state | [s], where`s` - current aggregation state | Finalized aggregation state |
 
 ::: note
 Make sure `aggr lambda resizes state data for coming data & handle nulls as needed.
 :::
 
-
 And the simple example of aggregation via summing:
+
 ```o
 o) t:+`a`b!(1 2 2;3 4 0N);
 o) d:`init`aggr`fin!({[cg;data] cg#0}; {[s;cg;ix;data] .[`s;();,;(cg-#s)#0]; .[`data;();~[^];0]; @[`s;ix;+;data]; s};{[s] s});
@@ -718,7 +716,6 @@ a b
 1 3
 2 4
 ```
-
 
 ## Upsert
 
@@ -785,6 +782,7 @@ o)
 ```
 
 See creating new fields:
+
 ```o
 o)a:(+:)`a`b`c!(!10;!10;!10); b:(+:)`a`b`c`d`e!(2+!5;2+!5;10+!5;20+!5;5#,"123"); upsert[a;b;(`a`b;`a`b)]
 a b c  d  e

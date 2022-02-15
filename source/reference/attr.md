@@ -134,7 +134,7 @@ o)a:(+:)`a`b`c!(!5;!5;!5); @[`a;,`a`b`c;~[#];`g]; meta a
 (`a`b`c)
 ```
 
-In either way, “find” verb will use an attribute/index with appropriate fields automatically.
+In either way, "find" verb will use an attribute/index with appropriate fields automatically.
 
 ```o
 o)a:(+:)`a`b`c!(!10;!10;!10);

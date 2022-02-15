@@ -8,21 +8,16 @@ peval: {[expr]
 ps1: {println["Welcome to ThePlatform v1.0.0\n(Web REPL - strict mode)\n-----------------------------"]};
 .webrepl.run: {
     spawn {
-        ws: reagent[`listener;"0.0.0.0:45101";{0N!"ws listener dropped"}];
+        ws: reagent[`listener;"0.0.0.0:45101"];
         react[{[x:ws]
             spawn[{[sock]
                 h: reagent[`ws;sock];
-                // redefine stdout
-                1:[{h[x]}];
+                // redirect stdout/stderr
+                .o.out:: h; .o.err:: h;
                 react[{[x:h]
                     cli: h;
-                    @[{
-                        e: peval x;
-                        if [~0N0~e] { cli[repr e] }
-                      };
-                      "c"$x;
-                      {println["** % error: `%`\n%";x`kind;x`call;x`message]}
-                    ]
+                    r: @[peval;"c"$x;{println["** % error: `%`\n%";x`kind;x`call;x`message]}];
+                    if [~0N0~r] { cli[repr r] }
                 }]
             };x]
         }]

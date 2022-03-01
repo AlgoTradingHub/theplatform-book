@@ -10,27 +10,12 @@ It's a polyadic function. Argument types and count depend on the reagent type. R
 [Reagents](/reference/types/reagents.md)
 :::
 
-Reagents can have optional destructor as a last argument. It will be called upon freeing reagent with reagent meta as an argument to this function:
-
 ```o
-o)r:reagent[`timer;1000;3;{println["-- timer dropped: \n%\n--";x]}];
+o)r:reagent[`timer;1000;3];
 o)react {[x:r] 0N!x};
 o)10260
 1002
 1002
-
-o)r:()
--- timer dropped:
-type      | `reagent
-id        | 44i
-descriptor| 0N0
-rx        | ,`type!,`timer
-cache     | ()
-destructor| {println["-- timer dropped: \n%\n--";x]}
-error     | 0N0
---
-()
-o)
 ```
 
 ::: see

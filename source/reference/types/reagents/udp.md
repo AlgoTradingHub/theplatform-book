@@ -2,7 +2,7 @@
 
 Reagent for making udp sockets.
 
-**Syntax:** ```reagent[`udp;"host:port"]```
+**Syntax:** ```reagent[`udp;"host:port";["multicast_addr"]]```
 
 ```o
 o)srv: reagent[`udp;"0.0.0.0:31337"];
@@ -12,6 +12,20 @@ o)react {[x:cli] println["reply from udp server: %";"c"$x[0]]; close[cli]};
 o)cli[("hello";"127.0.0.1:31337")];
 o)request from udp client: hello
 reply from udp server: hello
+```
+
+Joining multicast group:
+
+```o
+// join udp socket to a multicast group 224.1.1.1
+srv: reagent[`udp;"0.0.0.0:5007";"224.1.1.1"];
+react {[x:srv] println["-- data from udp multicast: %";"c"$x[0]]};
+
+cli: reagent[`udp;"0.0.0.0:12345"];
+// send data to a multicast address
+cli[("hello";"224.1.1.1:5007")];
+
+-- data from udp multicast: hello
 ```
 
 ::: see

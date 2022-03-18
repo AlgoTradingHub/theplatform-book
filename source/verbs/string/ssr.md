@@ -7,7 +7,7 @@ String search and replace
 Where:
 
 - `x` is a string to be searched for matches;
-- `y` is a regex for search;
+- `y` is a [regex](/regex.md) for search;
 - `z` is a string to substitute matches, or lambda to be called on each matching substring.
 
 ```o

@@ -4,7 +4,7 @@ String search. Returns an int vector of position(s) of first element(s) of subst
 
 **Syntax:** ```x ss y; ss[x;y]```
 
-Where `y` is a regex, `x` is a string to be searched for matches of `y`.
+Where `y` is a [regex](/regex.md), `x` is a string to be searched for matches of `y`.
 
 ```o
 o)ss["MSFT";"^MS"]

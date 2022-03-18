@@ -7,7 +7,7 @@ Creates a reagent - an async participant of reactions.
 It's a polyadic function. Argument types and count depend on the reagent type. Reagents can be built-in or plugin extensions. To see complete list of built-in reagents, refer to:
 
 ::: see
-[Reagents](/reference/types/reagents.md)
+[Reagents](/reference/types/reagents/overview.md)
 :::
 
 ```o

@@ -34,7 +34,7 @@ fnd_ocode: {[file]
                    else { ((,x),{$[1=#x;,/x;x]} "\n" vs @[{repr eval x};parse "c"$2_"x"$x;error]) }}'evl;
           res: strip'res where ~"0N0"~/:res;
           if [~rr~res] {show file, ": ", format["%..%";*x;_x]; 
-                        show rr diff res; 0N!"==Expexted=="; show res diff rr; 0N!"==Got=="; println[""];};
+                        show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];};
         }
       }
     }'idx;

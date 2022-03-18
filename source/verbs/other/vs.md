@@ -27,10 +27,10 @@ o)"" vs "a,b,c,d"
 ```
 
 ::: warn
-    If `y` is a string, then string `x` used as regular expression
+If `y` is a string, then string `x` used as [regular expression](/regex.md)
 :::
 
-Let`s see few examples abaut it:
+Let's see few examples about it:
 
 ```o
 o)"." vs "2022.02.22"
@@ -49,6 +49,10 @@ o)"\\." vs "2022.02.22"
 "2022"
 "02"
 "22"
+o){"I"$x} each "[.]" vs "2022.02.22"
+2022 2 22i
+o)`year`mm`dd$"D"$"2022.02.22"
+2022 2 22i
 o)
 ```
 
@@ -97,4 +101,6 @@ o)0x vs 10.125
 
 ::: see
 [sv (scalar from vector)](/verbs/other/sv.md)
+[$ (cast)](/verbs/casts/cast.md)
+[$ (repr)](/verbs/casts/repr.md)
 :::

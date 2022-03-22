@@ -1,7 +1,7 @@
 mdfiles: {[dir]
     l:os["dir";dir];
-    m:({(x[1]=`file)&("md"~last "\\." vs x[3])}'l)#l;
-        d:({x[1]=`dir}'l)#l;
+    m:({(`file=`$x[1])&("md"~last "\\." vs x[3])}'l)#l;
+        d:({`dir=`$x[1]}'l)#l;
     f:3(~[@])'m;
     f,,/o'[3(~[@])'d]
 };

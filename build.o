@@ -154,8 +154,8 @@ mkone: {[mdpath]
 // get full list of md files
 mdfiles: {[dir]
     l:os["dir";dir];
-    m:l where {(x[1]~"file")&("md"~last "\\." vs x[3])}'l;
-    d:l where {x[1]~"dir"}'l;
+    m:l where {(x[1]=`file)&("md"~last "\\." vs x[3])}'l;
+    d:l where {x[1]=`dir}'l;
     f:3(~[@])'m;
     f,,/o'[3(~[@])'d]
 };

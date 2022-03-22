@@ -65,7 +65,7 @@ o)
 Example with module "core" for file with column names:
 
 ```o
-o)load "core"
+o)load "core";
 o)t:flip  `aa`bb`cc!(1 2 3;`a`b`c;("r0";"r1";"r2"));
 o)wcsv[t;!t;",";`:t.csv];
 o)rcsv[();",";"JSc";`:t.csv]
@@ -80,7 +80,7 @@ o)
 Example with module "core" for file without column names:
 
 ```o
-o)load "core"
+o)load "core";
 o)t:flip  `aa`bb`cc!(1 2 3;`a`b`c;("r0";"r1";"r2"));
 o)cols:!t;
 o)wcsv[t;();",";`:tt.csv];

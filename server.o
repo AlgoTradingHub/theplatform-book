@@ -103,8 +103,8 @@ asset: {[url]
 
 lastmod: {[dir]
     l: os["dir";dir];
-    m: l where {(x[1]~"file")}'l;
-    d: l where {x[1]~"dir"}'l;
+    m: l where {(x[1]=`file)}'l;
+    d: l where {x[1]=`dir}'l;
     f: |/ *'m;
     |/ f,/o'[3(~[@])'d]
 };

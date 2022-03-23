@@ -43,6 +43,19 @@ o)`second$p
 15:51:57
 ```
 
+## With cast you can get any part of temporal scalar as int.
+
+```o
+o)p: 2022.04.22D01:02:03.123456789;
+o)`dd$p
+22i
+o)`year`mm`dd$p
+2022 4 22i
+o)`hh`uu`ss`ms`ns$p
+1 2 3 123 123456789i
+o)
+```
+
 ## Helpful
 
 ```o

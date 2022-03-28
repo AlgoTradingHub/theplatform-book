@@ -8,7 +8,7 @@ Where:
     - x,y,.. are arguments of a lambda to be evaluated on reaction triggering;
     - r1;r2.. are reagents involved into reaction.
 
-```q
+```o
 o)r:reagent[`async];
 o)react{[x:r] 0N!x};
 o)r[123];
@@ -39,7 +39,7 @@ If a task has at least one reaction, it's called an IO task. Such task will wait
 
 Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
 
-```q
+```o
 srv: reagent[`listener;"0.0.0.0:5100";{0N!"listener dropped}];
 react {[x:srv]
     // create new IO task to handle client's session

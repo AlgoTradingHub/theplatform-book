@@ -38,7 +38,7 @@ Another set of dyadic fully atomic intrinsics are supported (floats only).
 o)2f xexp 10f
 1024f
 o)10f xexp 1.2
-15.848931924611136
+15.848931924611133
 o)5f xlog 25f
 2f
 o)100f xlog 1f

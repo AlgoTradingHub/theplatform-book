@@ -10,7 +10,7 @@ o)value 1
 o)value 1 2 3
 1 2 3
 ```
-```q
+```o
 o)value `
 ,`| ,`o`repl!(,`cut!(.o.cut);`prompt`ps1`out`xbt`sig`peval`errf`enum2sym`reval`revalset`inc`connect`rget`klen`keys`va..
 o)value `.

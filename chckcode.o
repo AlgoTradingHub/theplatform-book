@@ -1,3 +1,5 @@
+\c 120 43;
+
 mdfiles: {[dir]
     l:os["dir";dir];
     m:({(`file=`$x[1])&("md"~last "\\." vs x[3])}'l)#l;
@@ -8,9 +10,10 @@ mdfiles: {[dir]
 
 bookdir:os "pwd";
 lst:mdfiles[bookdir];
-strip: {p:*ss[|x;"[^ ]"]; |"c"$p _"x"$|x};
+strip: {@[{p:*ss[|x;"[^ ]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
-
+myout: reagent[`async];
+                   
 fnd_ocode: {[file]
     flag::0; .file:file;
     files: "kill|exit|close|plugin|usage|rea[dgc]|load|spawn|table|print|patt";
@@ -20,21 +23,26 @@ fnd_ocode: {[file]
     {r:x;
      if ["```o"~x] {flag+:1} elif ["```"~x] {flag::0};
      if [x like "]\\("] {{nf: ("\\)" vs x)[0]; if [0=#(system format["head %";bookdir,"/source",nf])[1]]
-        {if [not ("/nolink.md"~nf) | (nf like "https") | (flag>0)] {println["Ref % in file % is bad.";nf;.file]}}} each 1_ "]\\(" vs r;}
+        {if [not ("/nolink.md"~nf) | (nf like "https") | (flag>0)] 
+            {println ""; println["\x1b[1;94;48mRef % in file % is bad.\x1b[0m";nf;.file]}}} each 1_ "]\\(" vs r;}
     }'rows;
-    $[file like files;[0N!file," need check manualy."; :0]; 0];
+    $[file like files;[println ""; 0N!file," need check manualy."; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
     { if [1<#x] {
         rr: {[s] ssr[ssr[s;"&lt";"<"];"&gt";">"]}'rows x;
         evl: rr where {0x6f29~2#"x"$x}'rr;
         if [0<#evl] {
-          res: ,/{ if [x~"o)"] {enlist "o)"}
-                   elif [0x3b=last "x"$x] {enlist @[{eval parse "c"$2_"x"$x; x};x;error]}
-                   else { ((,x),{$[1=#x;,/x;x]} "\n" vs @[{repr eval x};parse "c"$2_"x"$x;error]) }}'evl;
-          res: strip'res where ~"0N0"~/:res;
-          if [~rr~res] {show file, ": ", format["%..%";*x;_x]; 
-                        show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];};
+          res: ,/{ .o.out::myout;
+                   calc:if [x~"o)"] {enlist ""}
+                   elif [0x3b=last "x"$x] {enlist @[{eval parse "c"$2_"x"$x; ""};x;error]}
+                   else { ({$[1=#x;,/x;x]} "\n" vs @[{e:eval x; $[0N0~e; ""; repr e]};parse "c"$2_"x"$x;error]) };
+		   .o.out::();
+		   (,x),(1_-1_{~x~0}{@[{get[x;myout]};10;0]}\1),calc
+		   }'evl;
+          res: strip'res where ~""~/:res;
+          if [~rr~res] {println ""; show file, ": ", format["%..%";*x;_x]; 
+                        show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];} else {print ".";};
         }
       }
     }'idx;

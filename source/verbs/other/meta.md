@@ -1,6 +1,6 @@
 # meta
 
-Retrieves meta information about tables and [reagents](/reference/types/reagents.md).
+Retrieves meta information about tables and [reagents](/reference/types/reagents/overview.md).
 
 **Syntax:** ```meta x; meta [x]```
 
@@ -9,9 +9,9 @@ o)meta ([]a:1 2 3;b:1.1 2.0 5.3)
 +`column`type`id!(`a`b;`long`float;45376 45632)
 ()
 o)r:reagent[`async]
-&ltReagent#3&gt
+&ltReagent#4&gt
 o)meta r
-id  | 3
+id  | 4
 type| "async"
 o)
 ```

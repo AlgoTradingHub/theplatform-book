@@ -13,9 +13,9 @@ It's a polyadic function. Argument types and count depend on the reagent type. R
 ```o
 o)r:reagent[`timer;1000;3];
 o)react {[x:r] 0N!x};
-o)10260
-1002
-1002
+o)1001
+1000
+1001
 ```
 
 ::: see

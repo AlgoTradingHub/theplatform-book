@@ -6,13 +6,14 @@ Subscribes to any other reagent state changes and produce such events as items.
 
 ```o
 o)r: reagent[`async];
-// create reagent to receive r state notifications
+o)// create reagent to receive r state notifications
 o)s: reagent[`state;r];
 o)react {[x:s] println["main State changed: \n%";x]};
 o)close r;
-o)main State changed:
-id     | 16
+main State changed:
+id     | 12
 message| "Custom { kind: BrokenPipe, error: \"closed\" }"
+o)
 ```
 
 ::: see

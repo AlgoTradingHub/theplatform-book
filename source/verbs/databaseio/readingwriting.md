@@ -18,7 +18,7 @@ where `x` is a symbolic file handle.
 The simplest example is generating a vector and saving it to disk via ```set``` dyad. Later we can read it.
 ```o
 o)a:!10; f:`:./tmp/test.dat; f set a;
-o)b:get f
+o)b:get f;
 o)b
 0 1 2 3 4 5 6 7 8 9
 o)

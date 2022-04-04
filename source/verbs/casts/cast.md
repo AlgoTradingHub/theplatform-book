@@ -38,8 +38,8 @@ o)
 o)"f"$10
 10f
 o)
-o)"d"$ts[]
-2022.01.20
+o)"d"$2020.12.20D11:39:42.550501414
+2020.12.20
 ```
 
 Casting to a string has a shorthand form: ``$x``
@@ -47,7 +47,7 @@ Casting to a string has a shorthand form: ``$x``
 ```o
 o)$123
 "123"
-o)$ts[]
+o)$2020.12.11D11:39:42.550501414
 "2020.12.11D11:39:42.550501414"
 o)$!10
 "0"

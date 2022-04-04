@@ -8,15 +8,33 @@ mdfiles: {[dir]
     f,,/o'[3(~[@])'d]
 };
 
+patch: {s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
+        s:ssr[s;"id +\\| \\d+";{a:"\\| " vs x; a[0],"| ",$("J"$a[1])-9}];
+        s:ssr[s;"^myout *\\|.+";""];
+        s:ssr[s;"^p +\\| \"22222\"";""];
+        s:ssr[s;"^l +\\|.+";""];
+        s:ssr[s;"Darwin";"Linux"];
+        s:ssr[s;"/zsh";"/bash"];
+        s:ssr[s;".+\\[cli].+";""];
+        s:ssr[s;"^o +\\|.+";{"o   | ,`cut!(.o.cut)"}];
+        s:ssr[s;"repl *\\|.+";{"repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr.."}];
+        s:ssr[s;"^ +\\|.+";{",`| ,`o`repl!(,`cut!(.o.cut);`opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`kle.."}];
+        ssr[s;"^d +\\|.+";""]
+};
+
 bookdir:os "pwd";
 lst:mdfiles[bookdir];
-strip: {@[{p:*ss[|x;"[^ ]"]; |"c"$p _"x"$|x};x;x]};
+strip: {@[{p:*ss[|x;"[^ \n\t\r]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
-myout: reagent[`async];
-                   
+getres: {s:$[^x;"";x]; patch'"\n" vs "" sv "\x1b\\[91m" vs s};
+getout: {s:$[^x;"";$[x like "[^\"][$\"]";parse x;x]]; "\n" vs "" sv "\x1b\\[91m" vs s};
+//getout: {s:$[^x;"";x~"`long$()";"";x]; {$[x like "[^\"][$\"]";parse x;x]}'"\n" vs "" sv "\x1b\\[91m" vs s};
+.cnterr::0;
+
 fnd_ocode: {[file]
     flag::0; .file:file;
-    files: "kill|exit|close|plugin|usage|rea[dgc]|load|spawn|table|print|patt";
+    //files: "kill|exit|close|plugin|usage|rea[dgc]|load|spawn|table|patt";
+    files: "readln|plugin|std|usage|exit|kill|load|kdb|assign0";
     f:"c"$read `$":",file;
     if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
     rows: sep vs f;
@@ -26,28 +44,41 @@ fnd_ocode: {[file]
         {if [not ("/nolink.md"~nf) | (nf like "https") | (flag>0)] 
             {println ""; println["\x1b[1;94;48mRef % in file % is bad.\x1b[0m";nf;.file]}}} each 1_ "]\\(" vs r;}
     }'rows;
-    $[file like files;[println ""; 0N!file," need check manualy."; :0]; 0];
+    $[file like files;[println "\x1b[1;97;48m"; 0N!file," need check manualy."; print "\x1b[0m"; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
+    tr: spawn {system "./tachyon -c 4 -f repl -- -p 22222 -d"};
+    .cli: {x~0}{@[{reagent[`ipc;x]};"127.0.0.1:22222";0]}/0;
+    .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
+    .cli "myout:reagent[`async]; .o.out::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
     { if [1<#x] {
         rr: {[s] ssr[ssr[s;"&lt";"<"];"&gt";">"]}'rows x;
         evl: rr where {0x6f29~2#"x"$x}'rr;
+        //if [file like "std\\.md"] {0N!evl};
         if [0<#evl] {
-          res: ,/{ .o.out::myout;
-                   calc:if [x~"o)"] {enlist ""}
-                   elif [0x3b=last "x"$x] {enlist @[{eval parse "c"$2_"x"$x; ""};x;error]}
-                   else { ({$[1=#x;,/x;x]} "\n" vs @[{e:eval x; $[0N0~e; ""; repr e]};parse "c"$2_"x"$x;error]) };
-		   .o.out::();
-		   (,x),(1_-1_{~x~0}{@[{get[x;myout]};10;0]}\1),calc
+          res: ,/{ .cli "c"$2_"x"$x;
+		   calc: getres @[{get[x;.cli]};100;error];
+                   .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};10;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";
+                   out: get[100;.cli];
+                   (,x),(getout out),calc
 		   }'evl;
           res: strip'res where ~""~/:res;
-          if [~rr~res] {println ""; show file, ": ", format["%..%";*x;_x]; 
+          if [~(rr diff res)~(res diff rr)] {println ""; show file, ": ", format["%..%";*x;_x];
+                        .cnterr+:1; println["Error count: %";.cnterr];
+        		//show rr; println ""; 
+        		show res; println "";
                         show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];} else {print ".";};
+          //if [file like "stamp"] {println "stoped"; kill 0};
         }
       }
-    }'idx;
+    }'idx; 
+    .cli "kill[*top[]`handle;0]";
+    close .cli;
 };
 
 os["cd";getenv[`OHOME]];
+if [~"./tachyon" in (+os["dir"])[3]] {println ["\x1b[91m tachyon absent in % dir.\x1b[0m";getenv[`OHOME]]; kill 0};
+if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o absent in %/std/ dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 {fnd_ocode[x]}'lst;
 system "rm -f f.txt";
+//{cli:reagent[`ipc;"127.0.0.1:22222"]; cli[`version!.repl.version]; cli "kill[*top[]`handle;0]";}[];

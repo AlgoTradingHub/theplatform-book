@@ -21,7 +21,6 @@ type| "async"
 o)r[2]
 ** I/O error: `reagent send`:
 -- channel is closed
-**
 ```
 
 ::: see

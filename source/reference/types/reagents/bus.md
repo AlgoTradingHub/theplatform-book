@@ -5,23 +5,24 @@ Reagent for unite other reagents to a hub such that every value passed is being 
 **Syntax:** ```reagent[`bus]```
 
 ```o
-// create empty bus
+o)// create empty bus
 o)bus: reagent[`bus];
 o)r1:  reagent[`async];
 o)spawn { react {[x:r1] println["R1: %";x]}};
 o)r2:  reagent[`async];
 o)spawn { react {[x:r2] println["R2: %";x]}};
-// add reagents to a bus
+o)// add reagents to a bus
 o)ctl[bus;(r1;r2)];
-// send message to a bus
+o)// send message to a bus
 o)bus["Hello all!"];
-o)R2: Hello all!
+R2: Hello all!
 R1: Hello all!
-// remove r1 from a bus
+o)// remove r1 from a bus
 o)ctl[bus;(meta r1)`id];
-// send message to a bus
+o)// send message to a bus
 o)bus["Hello all!"];
-o)R2: Hello all!
+R2: Hello all!
+o)
 ```
 
 ::: see

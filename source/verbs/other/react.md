@@ -12,7 +12,8 @@ Where:
 o)r:reagent[`async];
 o)react{[x:r] 0N!x};
 o)r[123];
-o)123
+123
+o)
 ```
 
 Reactions can be redefined. To do this, just create reaction on the set of reagents already defined.
@@ -24,11 +25,12 @@ When a reaction is defined, each reagent envolved receives a Descriptor. This me
 ```o
 o)r1:reagent[`async]; r2:reagent[`async]; react {[x:r1;y:r2] println["// r1: %; r2: %";x;y]};
 o)r1[1];r2[2]
-o)// r1: 1; r2: 2
+// r1: 1; r2: 2
 o)// Now redefine reaction:
 o)react {[x:r1;y:r2] println["// redefined reaction: r1: %; r2: %";x;y]};
 o)r1[1];r2[2]
-o)// redefined reaction: r1: 1; r2: 2
+// redefined reaction: r1: 1; r2: 2
+o)
 ```
 
 If a reagent is dropped, all reactions defined on this reagent will be dropped too since there is no need in them anymore.
@@ -56,9 +58,9 @@ Thats all! Session-based asynchronuous server is done. Simple, yes? To see which
 
 ```o
 o)top[]
-tid handle      name   state   created      run          iowait       total        load
----------------------------------------------------------------------------------------
-0   &ltReagent#6&gt "main" Running 14:06:24.239 00:00:01.351 00:00:00.000 00:00:01.351 100
+tid handle       name                      state   created      run          iowait       total        load
+-----------------------------------------------------------------------------------------------------------
+0   &ltReagent#6&gt "main"                    IOWait  19:13:46.141 00:00:00.333 00:00:00.393 00:00:00.726 0
 ```
 
 ::: see

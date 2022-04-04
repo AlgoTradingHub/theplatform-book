@@ -11,8 +11,8 @@ Where:
 
 ```o
 o)spawn[{0N!(,':x)};!10]
-3
-o)0 0N
+<Reagent#4>
+0 0N
 1 0
 2 1
 3 2

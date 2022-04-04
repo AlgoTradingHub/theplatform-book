@@ -5,22 +5,19 @@ Reagent deq is an analog of MPMC asyncronuous queue.
 **Syntax:** ```reagent[`deq]```
 
 ```o
-// create reagent deq
+o)// create reagent deq
 o)d1: reagent[`deq];
-// spawn 10 stealers
+o)// spawn 6 stealers
 o){spawn[{[id] d:reagent[`deq;d1]; react {[x:d] println["Task#% recv: %";id;x]}};x] }'!10;
-// send 10 items to a reagent
-o){d1[x]}'!10;
-o)Task#0 recv: 0
+o)// send 6 items to a reagent
+o){d1[x]}'!6;
+Task#0 recv: 0
 Task#0 recv: 1
 Task#0 recv: 2
 Task#0 recv: 3
 Task#0 recv: 4
 Task#0 recv: 5
-Task#0 recv: 6
-Task#0 recv: 9
-Task#1 recv: 8
-Task#3 recv: 7
+o)
 ```
 
 ::: see

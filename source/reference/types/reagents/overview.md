@@ -38,7 +38,7 @@ Another important thing about reagents is that they can be used in declarative p
 o)r:reagent[`async];
 o)react {[x:r] println["received: %";x]};
 o)r[1];
-o)received: 1
+received: 1
 o)
 ```
 
@@ -52,7 +52,7 @@ o)react {[x:r1;y:r2] println["X: % Y: %";x;y]};
 o)r1[1];
 o)// Nothing happens because there is no r2 yet.
 o)r2[2];
-o)X: 1 Y: 2
+X: 1 Y: 2
 o)
 ```
 
@@ -60,8 +60,8 @@ Use the verb `meta[]` with reagents to see info about them:
 
 ```o
 o)meta r1
-id        | 3i
-type      | "async"
+id  | 4
+type| "async"
 o)
 ```
 
@@ -79,13 +79,13 @@ Any other operations are allowed with reagents as well as with any other type in
 ```o
 o)r:reagent[`async];
 o)meta r
-id        | 5i
-type      | "async"
+id  | 6
+type| "async"
 o)react {[x:r] 0N!x};
 o)// and it doesn't allow defining reaction on r from another task
 o)spawn { react {[x:r] 0N!x} }
 <Reagent#5>
-o) WARN  base    > Task <react {[x:r] 0N!x} >
+WARN  base    > Task <react {[x:r] 0N!x} >
 ** I/O error: `react`:
 -- {[x:r] 0N!x}
 -- receiver has been already taken
@@ -95,7 +95,6 @@ o) WARN  base    > Task <react {[x:r] 0N!x} >
   {react {[x:r] 0N!x} }
 <
 **
-
 o)// only from the same task
 o)react {[x:r] 0N!x+1}
 2
@@ -107,12 +106,13 @@ it is a result of calling spawn[]. In all other aspects it behaves as well as an
 
 ```o
 o)r: reagent[`async]
-<Reagent#3>
+<Reagent#9>
 o)h: spawn {100{x+1}/1}
-<Reagent#5>
+<Reagent#11>
 o)react {[x:r;y:h] println["X: % Y: %";x;y]};
 o)r[6];
-o)X: 6 Y: 101
+X: 6 Y: 101
+o)
 ```
 
 ::: see

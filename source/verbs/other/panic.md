@@ -6,10 +6,10 @@ Raises panic exception
 
 ```o
 o)panic 1
-** runtime error: `(apply_monad;repr;(apply_monad;eval;#0))`:
+** runtime error: `(apply_dyad;put;#1;(apply_monad;eval;(apply_dyad;parse;"REPL";#0)))`:
 Undefined panic
 o)panic "panic"
-** runtime error: `(apply_monad;repr;(apply_monad;eval;#0))`:
+** runtime error: `(apply_dyad;put;#1;(apply_monad;eval;(apply_dyad;parse;"REPL";#0)))`:
 panic
 o)@[{panic["test panic"]};();{key x}]
 `kind`call`message`stack

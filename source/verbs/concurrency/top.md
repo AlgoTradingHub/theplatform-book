@@ -6,8 +6,8 @@ Shows information about running tasks.
 
 ```o
 o)top[]
-tid handle      name   state   created      run          iowait       total        load
----------------------------------------------------------------------------------------
-0   <Reagent#4> "main" Running 14:46:25.711 00:00:01.297 00:00:00.000 00:00:01.297 100
+tid handle       name                      state   created      run          iowait       total        load
+-----------------------------------------------------------------------------------------------------------
+0   <Reagent#3> "main"                    IOWait  21:53:20.172 00:00:00.336 00:00:00.109 00:00:00.445 0
 o)
 ```

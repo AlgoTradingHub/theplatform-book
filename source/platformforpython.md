@@ -223,8 +223,8 @@ def fib(n): return fibp(n)[0]
 ```
 
 ```o
-nfp:{(x 1),sum x}
-fib:{first(x-1)nfp/0 1}
+o) nfp:{(x 1),+/x};
+o) fib:{first(x-1)nfp/0 1};
 ```
 
 ```o

@@ -11,7 +11,8 @@ Mostly used as a transport to allow tasks communicate with each other:
 o)r: reagent[`async];
 o)spawn { react {[x:r] println["task receives: %";x]} };
 o)r[123];
-o)task receives: 123
+task receives: 123
+o)
 ```
 
 Another useful case is use async reagent as a sync primitive to wait some event:
@@ -21,6 +22,7 @@ o)barrier: reagent[`async];
 o)spawn { barrier["TASK 1"] };
 o)println["task % has been spawned";get barrier];
 task TASK 1 has been spawned
+o)
 ```
 
 ::: see

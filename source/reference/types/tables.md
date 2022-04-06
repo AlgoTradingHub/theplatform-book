@@ -358,36 +358,36 @@ Modifying table on disk can be done in two ways:
 Amending via a path symbol is useful e.g. for adding a new field.
 
 ```o
-// creating test table
-a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table2/; f set a; a:0;
-// append two new fields
-@[f;`e`d;:;(3#1;3#2)];
-// modify .d file to record new fields
-.[`:/tmp/o_table2/.d;();,;`e`d];
+o)// creating test table
+o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table2/; f set a; a:0;
+o)// append two new fields
+o)@[f;`e`d;:;(3#1;3#2)];
+o)// modify .d file to record new fields
+o).[`:/tmp/o_table2/.d;();,;`e`d];
 ```
 
 Appending records via path symbol is ok.
 
 ```o
-a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table3/; f set a; a:0;
-// appending one record
-.[f;();,;(10;20;30)];
-// appending two records
-.[f;();,;(10 10;20 20;30 30)];
+o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table3/; f set a; a:0;
+o)// appending one record
+o).[f;();,;(10;20;30)];
+o)// appending two records
+o).[f;();,;(10 10;20 20;30 30)];
 ```
 
 Opening table in workspace works by binding global variable to table mmapped on disk.
 
 ```o
-// create new table on disk
-a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/odb1/; f set a; a:0;
-// load it to workspace. Now odb1 global variable contains a writable reference
-load f;
-// append new record
-.[`odb1;();,;(10;20;30)];
-// ... or via short syntax
-o)odb1,:(10;20;30)
-// see contents
+o)// create new table on disk
+o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/odb1/; f set a; a:0;
+o)// load it to workspace. Now odb1 global variable contains a writable reference
+o)load f;
+o)// append new record
+o).[`odb1;();,;(10;20;30)];
+o)// ... or via short syntax
+o)odb1,:(10;20;30);
+o)// see contents
 o)odb1
 a  b  c
 --------
@@ -396,7 +396,7 @@ a  b  c
 3  3  3
 10 20 30
 10 20 30
-// close table, saving pending changes
-odb1:0;
+o)// close table, saving pending changes
+o)odb1:0;
 o)
 ```

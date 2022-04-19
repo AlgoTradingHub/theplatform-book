@@ -12,10 +12,10 @@ Where:
 ```o
 o)t: reagent[`timer;1000;3];
 o)react {[x:t] println["timer tick: %";x]};
-timer tick: 1003
-timer tick: 1002
-timer tick: 1002
 o)
+timer tick: 1000
+timer tick: 1001
+timer tick: 1001
 ```
 
 ::: see

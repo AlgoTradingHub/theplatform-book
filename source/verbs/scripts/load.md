@@ -8,23 +8,15 @@ Use either a full path (with platform dependent prefixes, suffixes, file extensi
 
 ```o
 o)load "ws"
-loading target: DirEntry("./platform/plugins/ws/target/debug/libws.so")
-TypeId is inconsistent between host/plugin. Compiler bug?!
-Panic handler installed.
-"ws reagent registered"
+"./platform/plugins/ws/target/debug/libws.so"
 o)load["ws"]
-loading target: DirEntry("./platform/plugins/ws/target/debug/libws.so")
-TypeId is inconsistent between host/plugin. Compiler bug?!
-Panic handler installed.
-"ws reagent registered
+"./platform/plugins/ws/target/debug/libws.so"
 o)load["platform/";"ws"]
-loading target: DirEntry("./platform/plugins/ws/target/debug/libws.so")
-TypeId is inconsistent between host/plugin. Compiler bug?!
-Panic handler installed.
-"ws reagent registered"
-o)load "std"
-loading target: DirEntry("./etc/std.o")
-o) load "etc/std.o"
+"./platform/plugins/ws/target/debug/libws.so"
+o)load "core"
+"./std/core.o"
+o)load "std/core.o"
+"./std/core.o"
 o)
 ```
 

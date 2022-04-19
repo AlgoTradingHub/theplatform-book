@@ -14,7 +14,7 @@ listener: reagent[`listener;"0.0.0.0:5100"];
 spawn {
     react {[x:listener]
         cli: reagent[`ipc;x];
-        react {[x:cli] println["\nclient  request: [%] -- %";ts[];x]; cli[x]}
+        react {[x:cli] println["\nclient  request: %";x]; cli[(ts[];x)]}
     };
 };
 ```
@@ -22,9 +22,11 @@ spawn {
 Client example:
 
 ```o
-cli: reagent[`ipc;"127.0.0.1:5100"];
-react {[x:cli] println["server response: [%] -- %";ts[];x]};
-cli["Hello from ipc client"];
+o)cli: reagent[`ipc;"127.0.0.1:5100"];
+o)react {[x:cli] println["server response in % ms : %";(ts[]-x[0])%1000000;x[1]]};
+o)cli["Hello from ipc client"];
+client  request: Hello from ipc client
+server response in 0 ms : Hello from ipc client
 ```
 
 ::: see

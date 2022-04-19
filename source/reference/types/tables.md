@@ -321,6 +321,7 @@ Saving table values to disk is pretty simple. Just choose directory to keep your
 
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table/; f set a;
+o)
 ```
 
 ::: warn

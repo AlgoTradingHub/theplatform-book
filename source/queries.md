@@ -14,7 +14,7 @@ In order to execute a query, one must first define a query expression, compile i
 
 Overall syntax for query stages looks like:
 
-```o
+```
 q: ?[ t; w; g; f; ot; os ]; // define query
 cq: . q; // compile query
 res:  fe#cq; // fetch query results

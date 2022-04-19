@@ -4,7 +4,7 @@ This section contains both Platform and KDB+ solutions to some basic problems.
 
 ## Factorial of a number
 
-```o
+```q
 q)factorial:{$[x&lt2;1;x*.z.s x-1]}
 q)factorial 6
 720
@@ -25,7 +25,7 @@ o)
 
 Non-recursive solution:
 
-```o
+```q
 q)prd 1+til 6
 720
 q)
@@ -39,7 +39,7 @@ o)
 
 ## Simple interest
 
-```o
+```q
 q)p:1000                    // principal
 q)r:3                       // rate
 q)t:5                       // time periods
@@ -62,7 +62,7 @@ o)
 
 Better practice is using vectors:
 
-```o
+```q
 q)(prd 1000 3 5)%100
 150f
 q)
@@ -90,7 +90,7 @@ o)
 
 ## Compound interest
 
-```o
+```q
 q)p:1300                    // principal
 q)r:4.8                     // rate
 q)t:3                       // time periods
@@ -133,7 +133,7 @@ o)
 
 The area of circle is equal to πr^2, where r is a circle radius and π is the arc-cosine of -1.
 
-```o
+```q
 q)r = 10
 q)(acos -1)*r*r           // area of circle of radius 10
 314.1592653589793
@@ -150,7 +150,7 @@ o)
 
 ## Prime numbers in an interval
 
-```o
+```q
 q)show c:range[11;25]                         // candidates
 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 q)"j"$sqrt last c                             // need test modulo only to here
@@ -178,7 +178,7 @@ q)c where all f                 // select from range
 q)
 ```
 
-```o
+```q
 range:{x+til y-x-1}
 
 primeinrange:{
@@ -187,7 +187,7 @@ primeinrange:{
   l where (&/(0&ltl mod/:range[2;lmt])) }
 ```
 
-```o
+```q
 q)primeinrange[20;40]
 23 29 31 37
 ```
@@ -220,7 +220,7 @@ o)
 
 ## If the number is prime
 
-```o
+```q
 range:{x+til y-x-1}
 isPrime:{(x&gt1)and all 0&ltx mod range[2;"j"$sqrt x]}
 ```
@@ -268,12 +268,12 @@ o)
 
 x is a Fibonacci number if 5x^x + or - 4 is a perfect square:
 
-```o
-is_ps:{x={x*x}"j"$sqrt x}                       // is perfect square?
-is_fibonacci:{.[or]is_ps flip 4 -4+/:5*x*x}
+```
+is_ps:{x={x*x}"j"$sqrt x};                      // is perfect square?
+is_fibonacci:{.[or]is_ps flip 4 -4+/:5*x*x};
 ```
 
-```o
+```q
 q)is_fibonacci 5 13 20
 110b
 q)
@@ -291,7 +291,7 @@ o)
 
 ## Sum of squares of first N numbers
 
-```o
+```q
 q)squaresum:{(x*(x+1)%2)*(1+x*2)%3}
 q)squaresum 1+til 10
 1 5 14 30 55 91 140 204 285 385f
@@ -312,7 +312,7 @@ All numbers in expressions in O must be of the same type.
 
 ## Cube sum of first N natural numbers
 
-```o
+```q
 q)sum_cubes:{(x*(x+1)div 2)xexp 2}
 q)sum_cubes 8 19
 1024 36100f

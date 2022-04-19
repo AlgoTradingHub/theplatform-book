@@ -16,7 +16,7 @@ react[{[x:ws]
         h: reagent[`ws;sock];
         react[{[x:h] h[x]}]
     };x]
-}]
+}];
 ```
 
 ::: see

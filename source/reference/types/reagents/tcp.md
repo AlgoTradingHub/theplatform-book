@@ -15,7 +15,7 @@ Server example:
 listener: reagent[`listener;"0.0.0.0:5100"];
 spawn {
     react {[cli:listener]
-        react {[x:cli] println["\nclient  request: [%] -- %";ts[];x]; cli[x]}
+        react {[x:cli] println["\nclient request: %";x]; cli[0x vs ts[]]}
     };
 };
 ```
@@ -23,9 +23,11 @@ spawn {
 Client example:
 
 ```o
-cli: reagent[`tcp;"127.0.0.1:5100"];
-react {[x:cli] println["server response: [%] -- %";ts[];x]};
-cli[0x0102030405];
+o)cli: reagent[`tcp;"127.0.0.1:5100"];
+o)react {[x:cli] println["server response in % ms";(ts[]-0p sv x)%1000000]};
+o)cli[0x0102030405];
+client request: 0x0102030405
+server response in 0 ms
 ```
 
 ::: see

@@ -6,7 +6,7 @@ This tutorial is intended to help people who lack vector languages background an
 
 Starting language interpreter is the first thing you will need. So just execute the following command in your shell terminal:
 
-```o
+```os
 $ OLOG=info cargo run --release --bin tachyon
 ```
 
@@ -34,7 +34,7 @@ Small hint - it's better to run the interpreter using "rlwrap" utility.
 It allows using arrow keys to recall history ("up" key) and editing it with "left" and "right" arrows.
 :::
 
-```o
+```os
 $ rlwrap cargo run --release --bin tachyon
 ```
 
@@ -851,24 +851,24 @@ o)
 
 So the overall solution is:
 
-```o
-o)n:1+!9; n*/:n
+```
+n:1+!9; n*/:n
 ```
 
 12 symbols. Can we do better? Remember - the shortest solution is usually the fastest.
 
 Yes, in fact we can solve it using just one complex expression.
 
-```o
-o)n*/:n:1+!9
+```
+n*/:n:1+!9
 ```
 
 ... 10 symbols. We used the rule that each expression in O produces a value, even a variable binding! So we compressed our solution by whole 2 symbols! Not bad, not bad...
 
 Now, what about memory consumption? This is another important factor in assessing solution. Our current solution has one unpleasant side-effect - it leaves "n" name bind to a temporary 1,2,... vector and thus this temporary vector still occupies precious memory. Let's fix that:
 
-```o
-o){x*/:x}1+!9
+```
+{x*/:x}1+!9
 ```
 
 ... back to 11 symbols, but now no temporary vectors hanging around!
@@ -1148,7 +1148,7 @@ Just provide your script filename as a first argument and instead of continuousl
 
 For example:
 
-```o
+```os
 $ cargo run --bin tachyon -- -f etc/factorial.o
 Tachyonic platform 0.1.0
 -------------------------

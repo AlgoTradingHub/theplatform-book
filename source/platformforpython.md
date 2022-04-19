@@ -94,7 +94,7 @@ o)r:4.8
 4.8
 o)t:3f
 3f
-o)p*(1f+r%100.0)xexp t
+o)p*(1f+r%100.0) xexp t
 1496.3293696
 o)
 ```
@@ -112,7 +112,7 @@ o)r:4.8 5.0 5.5
 4.8 5 5.5
 o)t:3 4 5f
 3 4 5f
-o)p*(1f+r%100.0)xexp t
+o)p*(1f+r%100.0) xexp t
 1496.3293696 1823.2593750000003 2613.9200128187495
 o)
 ```
@@ -146,16 +146,16 @@ o)
 There is no built-in function for identifying prime numbers in O:
 
 ```o
-range:{x+til y-x-1}
+range:{x+til y-x-1};
 
-primeinrange:{
+primeinrange:{                          // in REPL this code should be written in one line
   l:range[x;y];                         // list of potential prime numbers
   lmt:"j"$sqrt "f"$last l;              // highest divisor to test
-  l where (&/(0&ltl mod/:range[2;lmt])) }
+  l where (&/(0&ltl mod/:range[2;lmt])) };
 ```
 
 ```o
-q)primeinrange[20;40]
+o)primeinrange[20;40]
 23 29 31 37
 ```
 

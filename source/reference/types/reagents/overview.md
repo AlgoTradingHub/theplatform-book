@@ -84,7 +84,7 @@ type| "async"
 o)react {[x:r] 0N!x};
 o)// and it doesn't allow defining reaction on r from another task
 o)spawn { react {[x:r] 0N!x} }
-<Reagent#8>
+&ltReagent#8&gt
 WARN  base    > Task <react {[x:r] 0N!x} >
 ** I/O error: `react`:
 -- {[x:r] 0N!x}
@@ -106,9 +106,9 @@ it is a result of calling spawn[]. In all other aspects it behaves as well as an
 
 ```o
 o)r: reagent[`async]
-<Reagent#9>
+&ltReagent#9&gt
 o)h: spawn {100{x+1}/1}
-<Reagent#11>
+&ltReagent#11&gt
 o)react {[x:r;y:h] println["X: % Y: %";x;y]};
 o)r[6];
 X: 6 Y: 101

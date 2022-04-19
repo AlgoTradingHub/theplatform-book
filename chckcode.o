@@ -15,6 +15,7 @@ patch: {s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
         s:ssr[s;"^l +\\|.+";""];
         s:ssr[s;"Darwin";"Linux"];
         s:ssr[s;"/zsh";"/bash"];
+        s:ssr[s;"``myout`a";"``a"];
         s:ssr[s;".+\\[cli].+";""];
         s:ssr[s;"^o +\\|.+";{"o   | ,`cut!(.o.cut)"}];
         s:ssr[s;"repl *\\|.+";{"repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr.."}];
@@ -27,15 +28,23 @@ lst:mdfiles[bookdir];
 strip: {@[{p:*ss[|x;"[^ \n\t\r]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
 getres: {s:$[^x;"";x]; patch'"\n" vs "" sv "\x1b\\[91m" vs s};
-getout: {s:$[^x;"";$[x like "[^\"][$\"]";parse x;x]]; "\n" vs "" sv "\x1b\\[91m" vs s};
+getout: {s:$[^x;"";&[x like "^\"";x like "\"$";parse x;x]]; "\n" vs "" sv "\x1b\\[91m" vs s};
+diff1: {[a;b] d:a diff b; if [d~()] {:d}; m:,/{xx:`int$x; {yy:`int$x; &/$[(#yy)=#xx;1<+/xx{x<>y}'yy;1b]}'b diff a}'d; d where m};
 .cnterr::0;
 
 fnd_ocode: {[file]
-    flag::0; .file:file;
-    //files: "kill|exit|close|plugin|usage|rea[dgc]|load|spawn|table|patt";
-    files: "readln|plugin|std|usage|exit|kill|load|kdb|assign0";
-    .forshow: "show|log";
-    .shw: "show"!12;
+    flag::0; .file:file; 
+    //if [~file like "ipc"] {:0}; //debug row
+    files: "readln|plugin|usage|exit|kill";
+    .forshow: "show|deq|applicationexamples|ipc|tcp";
+    .shw: ("show";"deq";"applicationexamples";"ipc";"tcp")!(12;12;27;24;25);
+    .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc";
+    .tmr: +(("std";8 25 37 62);("deq";12);("reagent";14);("timer";13);("assign0";67 82);("load";9 11 13 15 17);
+            ("kdb";6 12);("kdblistener";7);("ipc";12));
+    .tmr: .tmr[0]!.tmr 1;
+    .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
+              ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24));
+    .scrpt: .scrpt[0]!.scrpt 1;
 
     f:"c"$read `$":",file;
     if [0<#f ss "\\r"] {sep:"\\r\\n"} else {sep:"\\n"};
@@ -49,34 +58,44 @@ fnd_ocode: {[file]
     $[file like files;[println "\x1b[1;97;48m"; 0N!file," need check manualy."; print "\x1b[0m"; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
-    //print["%";file];
+    //println["%";file];
+    &[(,,0N)~idx;:0;0]; //skip file without o code
+    // todo for linux start must be: spawn {show system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"};
     tr:spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"};
-    .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print ",";0]]}/0;
+    .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print "c";0]]}/0;
     .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
     .cli "myout:reagent[`async]; .o.out::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
     .file:"c"$-3_"x"$last "/" vs file;
-    { if [1<#x] {
+    {
         rr: {[s] ssr[ssr[s;"&lt";"<"];"&gt";">"]}'rows x;
-        foreval: {0x6f29~2#"x"$x}'rr;
-        evl: +(rr where foreval; x where foreval);
-        //if [file like "std\\.md"] {0N!evl};
-        if [0<#evl] { //if [.file like .forshow] {show evl;};
-          res: ,/{ numrow:_x; .cli &[.file like .forshow;numrow in .shw[.file];"\\c 10000 43;","c"$2_"x"$*x;"c"$2_"x"$*x];
+        foreval: where {0x6f29~2#"x"$x}'rr;
+        forscrp: 1b,1_{$[""~y;1b;0b]}':rr;
+        evl: +(rr foreval; x foreval);
+        if [~#foreval] {
+                        d:(x where forscrp)!value (()!()) {if [_y] {x[#x]:(,*y);x} else {x[(#x)-1],:(,*y)}}/+(rr;forscrp);
+                        intersect:(x where forscrp) sect .scrpt[.file];
+                        evl:+(d[intersect];intersect);};
+        if [0<#evl] {
+          //if [.file like "^kdb"] {show evl; show .file;}; //debug row
+          res: ,/{ numrow:_x;
+                   s: if [(@*x)=(@"")] {*x} else {,/{("//" vs x)[0]}'*x};
+                   .cli {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
+		   &[.file like .fortimer;numrow in .tmr[.file];[print "t"; sleep 5000];0];
 		   calc: getres @[{get[x;.cli]};100;error];
-                   .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};10;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";
+                   .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};50;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";
                    out: get[100;.cli];
                    &[.file like .forshow;numrow in .shw[.file];[.cli "\\c 120 43;"; get[100;.cli];];0];
-                   (,*x),(getout out),calc
+                   if [(@*x)=(@"")] {(,*x),(getout out),calc} else {(*x),(getout out),calc}
 		   }'evl;
+          rr: strip'rr where ~""~/:rr;
           res: strip'res where ~""~/:res;
-          if [~(rr diff res)~(res diff rr)] {println ""; show file, ": ", format["%..%";*x;_x];
+          if [~diff[rr;res]~diff[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		//show rr; println "";
         		show res; println "";
-                        show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];} else {print ".";};
-          //if [file like "stamp"] {println "stoped"; kill 0};
-        }
-      }
+                        show rr diff res; 0N!"==Expected=="; show res diff rr; 0N!"==Got=="; println[""];} else {print "+";};
+           }
+        else {show "! ignored !"; show rr; show *x; show .file};
     }'idx;
     .cli "kill[*top[]`handle;0]";
     .cli: 0;
@@ -85,7 +104,7 @@ if [(`year$ts[])<>"I"$"c"$4#"x"$("© " vs "c"$read `:build.o)[1]] {println "\x1b
 os["cd";getenv[`OHOME]];
 if [~"./tachyon" in (+os["dir"])[3]] {println ["\x1b[91m tachyon absent in % dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o absent in %/std/ dir.\x1b[0m";getenv[`OHOME]]; kill 0};
+system "rm -fr /tmp/* ./tmp/ f.txt";
 {fnd_ocode[x]}'lst;
-system "rm -f f.txt";
-system "rm -f /tmp/journal.log";
+system "rm -fr /tmp/* ./tmp/ f.txt";
 

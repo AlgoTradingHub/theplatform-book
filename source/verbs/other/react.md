@@ -42,7 +42,7 @@ If a task has at least one reaction, it's called an IO task. Such task will wait
 Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
 
 ```o
-srv: reagent[`listener;"0.0.0.0:5100";{0N!"listener dropped}];
+srv: reagent[`listener;"0.0.0.0:5100"];
 react {[x:srv]
     // create new IO task to handle client's session
     spawn[{[cli]

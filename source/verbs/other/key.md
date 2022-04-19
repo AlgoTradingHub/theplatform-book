@@ -7,10 +7,13 @@ Returns keys of `x` if it is a keyed value.
 It can be used to retrieve all names inside root or any namespace since environment is a dictionary itself.
 
 ```o
+o)a:42
+42
 o)key `
-``rpl`ps1`out`inc
+``a
 o)key `.
-`symbol$()| ()
+o   | ,`cut!(.o.cut)
+repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr..
 o)key `a`s`d!(1 2;3 4;5 6)
 `a`s`d
 o)key +`a`s`d!(1 2;3 4;5 6)

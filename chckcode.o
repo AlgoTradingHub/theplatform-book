@@ -35,7 +35,7 @@ diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#x
 
 fnd_ocode: {[file]
     flag::0; .file:file; 
-    //if [~file like "time"] {:0}; //debug row
+    //if [~file like "patterns"] {:0}; //debug row
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp")!(12;12;27;24;25);
@@ -44,7 +44,7 @@ fnd_ocode: {[file]
             ("kdb";6 12);("kdblistener";7);("ipc";12));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
-              ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24));
+              ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21));
     .scrpt: .scrpt[0]!.scrpt 1;
 
     f:"c"$read `$":",file;
@@ -77,7 +77,7 @@ fnd_ocode: {[file]
                         intersect:(x where forscrp) sect .scrpt[.file];
                         evl:+(d[intersect];intersect);};
         if [0<#evl] {
-          //if [.file like "^kdb"] {show evl; show .file;}; //debug row
+          //if [.file like "patterns"] {show evl; show .file;}; //debug row
           res: ,/{ numrow:_x;
                    s: if [(@*x)=(@"")] {*x} else {,/{("//" vs x)[0]}'*x};
                    .cli {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
@@ -93,7 +93,7 @@ fnd_ocode: {[file]
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		//show rr; println ""; //debug row
-        		show res; println ""; //debug row
+        		//show res; println ""; //debug row
                         show diff1[rr;res]; 0N!"==Expected=="; show diff1[res;rr]; 0N!"==Got=="; println[""];} else {print "+";};
            }
         else {show "! ignored !"; show rr; show *x; show .file};

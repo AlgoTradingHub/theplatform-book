@@ -74,3 +74,9 @@ a  b  c
 10 20 30
 o)
 ```
+
+
+::: see
+[load (scripts)](/verbs/scripts/load.md)
+[get](/verbs/file/get.md)
+:::

@@ -23,3 +23,8 @@ o)^ dict[`c]
 1b
 o)
 ```
+
+
+::: see
+[^ (fill)](/verbs/list/fill.md)
+:::

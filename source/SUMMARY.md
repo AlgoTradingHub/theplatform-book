@@ -90,6 +90,7 @@
     - [distinct](/verbs/list/distinct.md)
     - [drop, cut](/verbs/list/drop.md)
     - [enlist](/verbs/list/enlist.md)
+    - [fill](/verbs/list/fill.md)
     - [filter](/verbs/list/filter.md)
     - [first](/verbs/list/first.md)
     - [last](/verbs/list/last.md)

@@ -12,27 +12,25 @@ Where:
 ```o
 o)h: spawn { r:reagent[`async]; react {[x:r] 0N!x}};
 o)top[]
-tid handle        state  created      run          suspend      iowait       total        load
-----------------------------------------------------------------------------------------------
-3   TaskHandle<3> IOWait 15:04:02.972 00:00:00.000 00:00:00.000 00:00:02.100 00:00:02.100 0
+tid handle      name                     state   created      run          iowait       total        load
+---------------------------------------------------------------------------------------------------------
+0   <Reagent#6> "main"                   Running 11:54:05.200 00:00:00.398 00:00:08.559 00:00:08.957 0
+3   <Reagent#7> "r:reagent[`async]; r.." IOWait  11:54:10.850 00:00:00.001 00:00:03.306 00:00:03.307 0
 o)kill[h;101]
-o)Task <r:reagent[`async]; react {[x:r] 0N!x}>
- -- killed with code: 101
-
 o)h: spawn { r:reagent[`async]; react {[x:r] 0N!x}};
 o)top[]
-tid handle        state  created      run          suspend      iowait       total        load
-----------------------------------------------------------------------------------------------
-5   TaskHandle<5> IOWait 15:04:18.091 00:00:00.000 00:00:00.000 00:00:06.357 00:00:06.357 0
+tid handle       name                     state   created      run          iowait       total        load
+----------------------------------------------------------------------------------------------------------
+0   <Reagent#11> "main"                   Running 11:54:05.200 00:00:00.410 00:01:27.216 00:01:27.626 0
+8   <Reagent#12> "r:reagent[`async]; r.." IOWait  11:55:26.500 00:00:00.001 00:00:06.326 00:00:06.327 0
 o)kill[h;0]
 o)top[]
-tid handle state created run suspend iowait total load
-------------------------------------------------------
-o)spawn { kill[102] }
-TaskHandle<7>
-o)Task <kill[102] >
- -- killed with code: 102
-o)
+tid handle       name   state   created      run          iowait       total        load
+----------------------------------------------------------------------------------------
+0   <Reagent#13> "main" Running 11:54:05.200 00:00:00.414 00:01:51.654 00:01:52.068 0
+o)spawn {kill[102]}
+<Reagent#15>
+o)kill 0
 ```
 
 ::: see

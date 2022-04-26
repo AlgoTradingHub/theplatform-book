@@ -18,7 +18,6 @@ Where:
 | long      | J |
 | real      | E |
 | float     | F |
-| char      | C |
 | symbol    | S |
 | timestamp | P |
 | month     | M |

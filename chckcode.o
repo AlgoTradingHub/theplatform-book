@@ -29,7 +29,7 @@ strip: {@[{p:*ss[|x;"[^ \n\t\r]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
 getres: {s:$[^x;"";x]; patch'"\n" vs "" sv "\x1b\\[91m" vs s};
 getout: {s:$[^x;"";&[x like "^\"";x like "\"$";parse x;x]]; "\n" vs "" sv "\x1b\\[91m" vs s};
-diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#xx;1<+/xx{x<>y}'yy;1b]}'b}'d;
+diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#xx;((1=#xx)&(~xx~yy))|(1<+/xx{x<>y}'yy);1b]}'b}'d;
        if [(@1b)=@m] {m:,m}; if [0=+/m] {:()}; d where ~^d where m};
 .cnterr::0;
 
@@ -77,7 +77,6 @@ fnd_ocode: {[file]
                         intersect:(x where forscrp) sect .scrpt[.file];
                         evl:+(d[intersect];intersect);};
         if [0<#evl] {
-          //if [.file like "patterns"] {show evl; show .file;}; //debug row
           res: ,/{ numrow:_x;
                    s: if [(@*x)=(@"")] {*x} else {,/{("//" vs x)[0]}'*x};
                    .cli {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
@@ -90,6 +89,7 @@ fnd_ocode: {[file]
 		   }'evl;
           rr: strip'rr where ~""~/:rr;
           res: strip'res where ~""~/:res;
+          //if [.file like "upper"] {show evl; show .file; show res}; //debug row
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		//show rr; println ""; //debug row

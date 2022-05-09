@@ -144,6 +144,8 @@
     - [ssr (str search and replace)](/verbs/string/ssr.md)
     - [parse](/verbs/string/parse.md)
     - [format](/verbs/string/format.md)
+    - [.o.lower](/verbs/string/lower.md)
+    - [.o.upper](/verbs/string/upper.md)
   - [Type verbs](/nolink.md)
     - [@ (internal type id)](/verbs/type/attype.md)
     - [type (typespec)](/verbs/type/type.md)

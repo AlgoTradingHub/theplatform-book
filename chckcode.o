@@ -17,7 +17,7 @@ patch: {s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
         s:ssr[s;"/zsh";"/bash"];
         s:ssr[s;"``myout`a";"``a"];
         s:ssr[s;".+\\[cli].+";""];
-        s:ssr[s;"^o +\\|.+";{"o   | ,`cut!(.o.cut)"}];
+        s:ssr[s;"^o +\\| ";"o   | "];
         s:ssr[s;"repl *\\|.+";{"repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr.."}];
         s:ssr[s;"^ +\\|.+";{",`| ,`o`repl!(,`cut!(.o.cut);`opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`kle.."}];
         ssr[s;"^d +\\|.+";""]
@@ -34,7 +34,7 @@ diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#x
 .cnterr::0;
 
 fnd_ocode: {[file]
-    flag::0; .file:file; 
+    flag::0; .file:file;
     //if [~file like "patterns"] {:0}; //debug row
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp";
@@ -62,7 +62,7 @@ fnd_ocode: {[file]
     //println["%";file];
     &[(,,0N)~idx;:0;0]; //skip file without o code
     // todo for linux start must be: spawn {show system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"};
-    tr:spawn {system "OLOG=debug ./tachyon -c 4 -f repl 2>&1 -- -p 22222 -d"};
+    tr:spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"};
     .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print "c";0]]}/0;
     .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
     .cli "myout:reagent[`async]; .o.out::myout; .o.err::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
@@ -103,6 +103,7 @@ fnd_ocode: {[file]
 };
 if [(`year$ts[])<>"I"$"c"$4#"x"$("© " vs "c"$read `:build.o)[1]] {println "\x1b[1;97;48mWrong © year.\x1b[0m"};
 os["cd";getenv[`OHOME]];
+system["cp -f ",argv[`__bin__]," tachyon"];
 if [~"./tachyon" in (+os["dir"])[3]] {println ["\x1b[91m tachyon absent in % dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o absent in %/std/ dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 system "rm -fr /tmp/* ./tmp/ f.txt";

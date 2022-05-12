@@ -12,9 +12,9 @@ o)value 1 2 3
 ```
 ```o
 o)value `
-,`| ,`o`repl!(,`cut!(.o.cut);`opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`kle..
+,`| ,`o`repl!(`cut`upper`lower`compress`decompress!(.o.cut;.o.upper;.o.lower;.o.compress;.o.decompress);`opt`version`pro..
 o)value `.
-o   | ,`cut!(.o.cut)
+o   | `cut`upper`lower`compress`decompress!(.o.cut;.o.upper;.o.lower;.o.compress;.o.decompress)
 repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr..
 ```
 ```o

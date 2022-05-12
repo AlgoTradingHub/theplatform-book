@@ -1,4 +1,10 @@
+//Example how to check:
+//export OHOME=~/RustProjects/kernel/
+//OLOG=debug rlwrap $OHOME/target/debug/tachyon -c 4 -f $OHOME/repl chckcode
+
 \c 120 43;
+
+(.env0;.env1;.env2):{$[120<#x;("c"$120#"i"$x),"..";x]}'format["%";value `],2#"\n" vs format["%";key `.];
 
 mdfiles: {[dir]
     l:os["dir";dir];
@@ -8,7 +14,8 @@ mdfiles: {[dir]
     f,,/o'[3(~[@])'d]
 };
 
-patch: {s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
+patch: {
+        s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
         s:ssr[s;"id +\\| \\d+";{a:"\\| " vs x; a[0],"| ",$("J"$a[1])-9}];
         s:ssr[s;"^myout *\\|.+";""];
         s:ssr[s;"^p +\\| \"22222\"";""];
@@ -17,9 +24,9 @@ patch: {s:ssr[x;"Reagent#\\d+";{a:"#" vs x; a[0],"#",$("J"$a[1])-9}];
         s:ssr[s;"/zsh";"/bash"];
         s:ssr[s;"``myout`a";"``a"];
         s:ssr[s;".+\\[cli].+";""];
-        s:ssr[s;"^o +\\| ";"o   | "];
-        s:ssr[s;"repl *\\|.+";{"repl| `opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`klen`keys`vals`syncChan`sr.."}];
-        s:ssr[s;"^ +\\|.+";{",`| ,`o`repl!(,`cut!(.o.cut);`opt`version`prompt`ps1`out`xbt`sig`peval`psend`enum2sym`fmt`rapi`inc`connect`takeAtMax`kle.."}];
+        s:ssr[s;"^ +\\|.+";.env0];
+        s:ssr[s;"^o +\\|.+";.env1];
+        s:ssr[s;"^repl *\\|.+";.env2];
         ssr[s;"^d +\\|.+";""]
 };
 
@@ -35,10 +42,10 @@ diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#x
 
 fnd_ocode: {[file]
     flag::0; .file:file;
-    //if [~file like "patterns"] {:0}; //debug row
+    //if [~file like "key|value"] {:0}; //debug row
     files: "readln|plugin|usage|kill";
-    .forshow: "show|deq|applicationexamples|ipc|tcp";
-    .shw: ("show";"deq";"applicationexamples";"ipc";"tcp")!(12;12;27;24;25);
+    .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
+    .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
     .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc";
     .tmr: +(("std";8 25 37 62);("deq";12);("reagent";14);("timer";13);("assign0";67 82);("load";11 13 26 36);
             ("kdb";6 12);("kdblistener";7);("ipc";12));
@@ -89,7 +96,7 @@ fnd_ocode: {[file]
 		   }'evl;
           rr: strip'rr where ~""~/:rr;
           res: strip'res where ~""~/:res;
-          //if [.file like "upper"] {show evl; show .file; show res}; //debug row
+          //if [.file like "value"] {show evl; show .file; show res}; //debug row
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		//show rr; println ""; //debug row

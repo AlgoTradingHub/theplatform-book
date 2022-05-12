@@ -85,7 +85,7 @@ o)react {[x:r] 0N!x};
 o)// and it doesn't allow defining reaction on r from another task
 o)spawn { react {[x:r] 0N!x} }
 &ltReagent#8&gt
-WARN  base    > Task <react {[x:r] 0N!x} >
+ WARN  base    > Task <react {[x:r] 0N!x} >
 ** I/O error: `react`:
 -- {[x:r] 0N!x}
 -- receiver has been already taken

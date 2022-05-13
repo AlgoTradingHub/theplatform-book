@@ -3,8 +3,8 @@
 //OLOG=debug rlwrap $OHOME/target/debug/tachyon -c 4 -f $OHOME/repl chckcode
 
 \c 120 43;
-
 (.env0;.env1;.env2):{$[120<#x;("c"$120#"i"$x),"..";x]}'format["%";value `],2#"\n" vs format["%";key `.];
+start:ts[];
 
 mdfiles: {[dir]
     l:os["dir";dir];
@@ -68,8 +68,8 @@ fnd_ocode: {[file]
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
     //println["%";file];
     &[(,,0N)~idx;:0;0]; //skip file without o code
-    // todo for linux start must be: spawn {show system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"};
-    tr:spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"};
+    if [os["name"] like "macos"] {spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"}}
+    else {spawn {system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"}};
     .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print "c";0]]}/0;
     .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
     .cli "myout:reagent[`async]; .o.out::myout; .o.err::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
@@ -88,6 +88,7 @@ fnd_ocode: {[file]
                    s: if [(@*x)=(@"")] {*x} else {,/{("//" vs x)[0]}'*x};
                    .cli {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
 		   &[.file like .fortimer;numrow in .tmr[.file];[print "t"; sleep 5000];0];
+		   sleep[50];
 		   calc: getres @[{get[x;.cli]};100;error];
                    .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};50;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";
                    out: @[{get[x;.cli]};100;""];
@@ -116,4 +117,4 @@ if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o abse
 system "rm -fr /tmp/* ./tmp/ f.txt";
 {fnd_ocode[x]}'lst;
 system "rm -fr /tmp/* ./tmp/ f.txt";
-println["\nChecking complete."];
+println["\nChecking complete in %";"t"$"p"$ts[]-start];

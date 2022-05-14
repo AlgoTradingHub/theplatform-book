@@ -85,7 +85,7 @@ asset: {[url]
 };
 
 .http.default.handle: {[sock;headers]
-    url: "c"$1_"x"$headers[`Url];
+    url: "c"$1_"x"$"" sv (headers[`Path];headers[`Query]);
     qry: ("q=" vs url)1;
     if [^qry] {
         con: $["html"~last "\\." vs url;html[url];asset[`$url]];

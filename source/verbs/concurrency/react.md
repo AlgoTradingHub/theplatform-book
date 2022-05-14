@@ -64,7 +64,7 @@ tid handle       name                      state   created      run          iow
 ```
 
 ::: see
-[reagent](/verbs/other/reagent.md)
+[reagent](/verbs/concurrency/reagent.md)
 [spawn](/verbs/concurrency/spawn.md)
 [top](/verbs/concurrency/top.md)
 :::

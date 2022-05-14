@@ -24,7 +24,7 @@ o)r[2]
 ```
 
 ::: see
-[reagent](/verbs/other/reagent.md)
-[react](/verbs/other/react.md)
+[reagent](/verbs/concurrency/reagent.md)
+[react](/verbs/concurrency/react.md)
 [meta](/verbs/other/meta.md)
 :::

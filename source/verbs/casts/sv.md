@@ -72,5 +72,5 @@ o)0f sv 0x4024400000000000
 ```
 
 ::: see
-[vs (vector from scalar)](/verbs/other/vs.md)
+[vs (vector from scalar)](/verbs/casts/vs.md)
 :::

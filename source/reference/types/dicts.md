@@ -84,7 +84,7 @@ o)
 ```
 
 ::: see
-[flip](/verbs/other/flip.md)
+[flip](/verbs/casts/flip.md)
 [! (internal type id)](/verbs/type/excl.md)
 [! (til)](/verbs/math/til.md)
 :::

@@ -36,6 +36,6 @@ o)
 ```
 
 ::: see
-[eval](/verbs/other/eval.md)
+[eval](/verbs/concurrency/eval.md)
 [parse](/verbs/string/parse.md)
 :::

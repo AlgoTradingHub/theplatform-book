@@ -93,5 +93,5 @@ A regular expression (shortened as regex or regexp) is a string that specifies a
 [like](/verbs/string/like.md)
 [ss (string search)](/verbs/string/ss.md)
 [ssr (string search and replace)](/verbs/string/ssr.md)
-[vs (vector from scalar)](/verbs/other/vs.md)
+[vs (vector from scalar)](/verbs/casts/vs.md)
 :::

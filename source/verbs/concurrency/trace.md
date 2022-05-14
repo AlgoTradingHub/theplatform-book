@@ -15,5 +15,5 @@ o)
 ```
 
 ::: see
-[untrace](/verbs/other/untrace.md)
+[untrace](/verbs/concurrency/untrace.md)
 :::

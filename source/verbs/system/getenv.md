@@ -14,7 +14,7 @@ o)
 ```
 
 ::: see
-[setenv](/verbs/other/setenv.md)
+[setenv](/verbs/system/setenv.md)
 [set](/verbs/file/set.md)
 [get](/verbs/file/get.md)
 :::

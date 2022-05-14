@@ -17,5 +17,5 @@ o)
 ```
 
 ::: see
-[reagent](/verbs/other/reagent.md)
+[reagent](/verbs/concurrency/reagent.md)
 :::

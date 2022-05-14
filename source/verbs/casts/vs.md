@@ -100,7 +100,7 @@ o)0x vs 10.125
 ```
 
 ::: see
-[sv (scalar from vector)](/verbs/other/sv.md)
+[sv (scalar from vector)](/verbs/casts/sv.md)
 [$ (cast)](/verbs/casts/cast.md)
 [$ (repr)](/verbs/casts/repr.md)
 :::

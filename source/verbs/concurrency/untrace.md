@@ -14,5 +14,5 @@ o)
 ```
 
 ::: see
-[trace](/verbs/other/trace.md)
+[trace](/verbs/concurrency/trace.md)
 :::

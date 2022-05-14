@@ -20,7 +20,7 @@ o)
 ```
 
 ::: see
-[react](/verbs/other/react.md)
-[close](/verbs/other/close.md)
+[react](/verbs/concurrency/react.md)
+[close](/verbs/concurrency/close.md)
 [meta](/verbs/other/meta.md)
 :::

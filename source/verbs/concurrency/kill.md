@@ -34,9 +34,10 @@ o)kill 0
 ```
 
 ::: see
-[react](/verbs/concurrency/react.md)
-[reagent](/verbs/concurrency/reagent.md)
+[exit](/verbs/concurrency/exit.md)
 [spawn](/verbs/concurrency/spawn.md)
 [top](/verbs/concurrency/top.md)
-[exit](/verbs/concurrency/exit.md)
+[react](/verbs/concurrency/react.md)
+[reagent](/verbs/concurrency/reagent.md)
+[All reagents](/reference/types/reagents/overview.md)
 :::

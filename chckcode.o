@@ -20,6 +20,7 @@ patch: {
         s:ssr[s;"^myout *\\|.+";""];
         s:ssr[s;"^p +\\| \"22222\"";""];
         s:ssr[s;"^l +\\|.+";""];
+        s:ssr[s;"macos";"linux"];
         s:ssr[s;"Darwin";"Linux"];
         s:ssr[s;"/zsh";"/bash"];
         s:ssr[s;"``myout`a";"``a"];
@@ -47,7 +48,7 @@ fnd_ocode: {[file]
     .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
     .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc";
-    .tmr: +(("std";8 25 37 62);("deq";12);("reagent";14);("timer";13);("assign0";67 82);("load";11 13 26 36);
+    .tmr: +(("std";8 25 37 62);("deq";12);("reagent";11);("timer";13);("assign0";67 82);("load";11 13 26 36);
             ("kdb";6 12);("kdblistener";7);("ipc";12));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);

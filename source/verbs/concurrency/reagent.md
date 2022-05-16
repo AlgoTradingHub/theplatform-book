@@ -4,11 +4,7 @@ Creates a reagent - an async participant of reactions.
 
 **Syntax:** ```reagent[..]```
 
-It's a polyadic function. Argument types and count depend on the reagent type. Reagents can be built-in or plugin extensions. To see complete list of built-in reagents, refer to:
-
-::: see
-[Reagents](/reference/types/reagents/overview.md)
-:::
+It's a polyadic function. Argument types and count depend on the reagent type. Reagents can be built-in or plugin extensions.
 
 ```o
 o)r:reagent[`timer;1000;3];
@@ -20,6 +16,7 @@ o)
 ```
 
 ::: see
+[All reagents](/reference/types/reagents/overview.md)
 [react](/verbs/concurrency/react.md)
 [close](/verbs/concurrency/close.md)
 [meta](/verbs/other/meta.md)

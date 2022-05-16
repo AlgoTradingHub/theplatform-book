@@ -13,3 +13,7 @@ o)system "uname -s"
 ""
 o)
 ```
+
+::: see
+[os](/verbs/system/os.md)
+:::

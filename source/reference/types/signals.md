@@ -62,3 +62,7 @@ call   | "panic"
 message| `err1
 o)
 ```
+
+::: see
+[dictionaries](/reference/types/dicts.md)
+:::

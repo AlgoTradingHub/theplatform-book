@@ -2,12 +2,12 @@
 
 Get data from reagent.
 
-**Syntax:** ```get x; get[x]; get[y;x]```
+**Syntax:** ```get x; get[x]; get[t;x]```
 
-Where `x` - reagent, `y` - timeout in milliseconds.
+Where `x` - reagent, `t` - timeout in milliseconds.
 
 ::: note
-`get` will waiting for data and without `y` can lock the task.
+`get` will waiting for data and without `t` can lock the task.
 :::
 
 
@@ -22,6 +22,10 @@ o)get[100;r]
 o)get[100;r]
 ** runtime error: `get`:
 timeout elapsed
+o)//Using trap you can catch timeout error
+o)@[get[100;];r;{x`message}]
+"timeout elapsed"
+o)
 ```
 
 ::: warn
@@ -32,6 +36,7 @@ Do not use `get` after `react` for the same reagent. `react` will capture all da
 [All reagents](/reference/types/reagents/overview.md)
 [reagent](/verbs/concurrency/reagent.md)
 [react](/verbs/concurrency/react.md)
+[trap](/reference/types/signals.md)
 [spawn](/verbs/concurrency/spawn.md)
 [top](/verbs/concurrency/top.md)
 :::

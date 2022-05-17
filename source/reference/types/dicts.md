@@ -87,4 +87,6 @@ o)
 [flip](/verbs/casts/flip.md)
 [! (internal type id)](/verbs/type/excl.md)
 [! (til)](/verbs/math/til.md)
+[key](/verbs/other/key.md)
+[value](/verbs/other/value.md)
 :::

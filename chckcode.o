@@ -43,7 +43,7 @@ diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#x
 
 fnd_ocode: {[file]
     flag::0; .file:file;
-    //if [~file like "key|value"] {:0}; //debug row
+    //if [~file like "display"] {:0}; //debug row
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
@@ -52,7 +52,7 @@ fnd_ocode: {[file]
             ("kdb";6 12);("kdblistener";7);("ipc";12));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
-              ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21));
+              ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21);("display";30 41));
     .scrpt: .scrpt[0]!.scrpt 1;
 
     f:"c"$read `$":",file;
@@ -67,7 +67,7 @@ fnd_ocode: {[file]
     $[file like files;[println "\x1b[1;97;48m"; 0N!file," need check manualy."; print "\x1b[0m"; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
-    //println["%";file];
+    //println["%";file]; //debug row
     &[(,,0N)~idx;:0;0]; //skip file without o code
     if [os["name"] like "macos"] {spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"}}
     else {spawn {system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"}};
@@ -98,7 +98,7 @@ fnd_ocode: {[file]
 		   }'evl;
           rr: strip'rr where ~""~/:rr;
           res: strip'res where ~""~/:res;
-          //if [.file like "value"] {show evl; show .file; show res}; //debug row
+          //if [.file like "display"] {show evl; show .file; show res}; //debug row
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		//show rr; println ""; //debug row

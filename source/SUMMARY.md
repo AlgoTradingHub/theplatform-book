@@ -96,6 +96,7 @@
     - [print](/verbs/file/print.md)
     - [println](/verbs/file/println.md)
     - [show](/verbs/file/show.md)
+    - [display](/verbs/file/display.md)
   - [Indexing verbs](/nolink.md)
     - [@ (at)](/verbs/indexing/at.md)
     - [. (dot-apply)](/verbs/indexing/dot.md)

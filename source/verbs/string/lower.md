@@ -8,7 +8,7 @@ Returns lowercased string or synbol.
 ```o
 o).o.lower "A"
 "a"
-o).o.lower["QWERTY"]
+o).o.lower["Qwerty"]
 "qwerty"
 o).o.lower `TEST
 `test

@@ -86,8 +86,6 @@
     - [return](/verbs/concurrency/return.md)
     - [exit](/verbs/concurrency/exit.md)
     - [kill](/verbs/concurrency/kill.md)
-    - [trace](/verbs/concurrency/trace.md)
-    - [untrace](/verbs/concurrency/untrace.md)
     - [panic](/verbs/concurrency/panic.md)
   - [I/O verbs](/nolink.md)
     - [get](/verbs/file/get.md)

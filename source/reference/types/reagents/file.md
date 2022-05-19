@@ -6,7 +6,7 @@ If file exists bytes will append to file.
 
 **Syntax:** ```reagent[`file]```
 
-``` o
+```o
 o)w:reagent[`file;`:/tmp/test.txt];
 o)w "x"$"write\n"
 o)
@@ -14,7 +14,7 @@ o)
 
 You can read file through the get to immediately after creating the reagent.
 
-``` o
+```o
 o)w:reagent[`file;`:/tmp/test.txt];
 o)"c"$get w
 "write\n"

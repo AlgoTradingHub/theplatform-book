@@ -43,6 +43,16 @@ Encoding structure in type spec is as follows:
 | Scalar | \`s | \`s\`bool |
 | Vector | \`v | \`v\`int |
 
+Using the .o.typedesc you can find the type that corresponds to an integer type id:
+
+```o
+o).o.typedesc 320
+`s`long
+o).o.typedesc[@1 2 3i]
+`v`int
+o)
+```
+
 Another useful monadic verb for getting type spec is [type](/verbs/type/type.md). It returns type spec for a given value:
 
 ```o

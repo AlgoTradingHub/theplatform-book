@@ -1,6 +1,6 @@
 # Ceil
 
-`ceil` returns the greatest integer greater or equal to the argument.
+`ceil` returns the least integer greater or equal to the argument.
 
 **Syntax:** ```ceil x; ceil [x]```
 

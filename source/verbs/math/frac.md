@@ -2,7 +2,7 @@
 
 `frac` returns the fractional part of float for the argument.
 
-**Syntax:** ```frac [x]```
+**Syntax:** ```frac x; frac [x]```
 
 ```o
 o)frac[10.5]

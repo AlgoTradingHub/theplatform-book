@@ -39,6 +39,7 @@ o)@[{'x};`err1;{x}]
 kind   | `signal
 call   | "panic"
 message| `err1
+mark   | `linum`offset`length!1 0 2
 o)
 ```
 
@@ -60,6 +61,7 @@ o).[{'y};(1;`err1);{x}]
 kind   | `signal
 call   | "panic"
 message| `err1
+mark   | `linum`offset`length!1 0 2
 o)
 ```
 

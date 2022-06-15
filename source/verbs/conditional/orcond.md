@@ -9,8 +9,8 @@ o)|[1b; 1b; 1; 2]
 1
 o)|[1b; 0b; 1; 2]
 1
-o)f:{ |[(!`v`long)=@x; (!``table)=@x; x y; "error"] }
-{|[(!`v`long)=@x; (!``table)=@x; x y; "error"] }
+o)f:{|[(!`v`long)=@x; (!``table)=@x; x y; "error"]}
+{|[(!`v`long)=@x; (!``table)=@x; x y; "error"]}
 o)f[1 2 3; 1]
 2
 o)f[+`a!1 2 3; 1]

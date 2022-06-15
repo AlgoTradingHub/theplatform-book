@@ -297,7 +297,7 @@ Several things are worth noting here:
 Contrary to the rule "last expression defines function value", you can force explicit function return using `:` expression.
 
 ```o
-o)f:{ a:x+y;:a}
+o)f:{a:x+y;:a}
 {a:x+y;:a}
 o)f[1;2]
 3
@@ -1121,6 +1121,7 @@ o)@[{'x};`err1;{x}]
 kind   | `signal
 call   | "panic"
 message| `err1
+mark   | `linum`offset`length!1 0 2
 o)
 ```
 
@@ -1137,6 +1138,7 @@ o).[{'y};(1;`err1);{x}]
 kind   | `signal
 call   | "panic"
 message| `err1
+mark   | `linum`offset`length!1 0 2
 o)
 ```
 

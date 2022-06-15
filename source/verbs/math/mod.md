@@ -9,8 +9,8 @@ o)1 mod 2
 1
 o)2 mod 2
 0
-o)10 17 103 mod 5
-0 2 3
+o)-10 -17 -103 mod 5
+0 -2 -3
 o)10 20 30 mod 3 2 7
 1 0 2
 o)3 2 7 mod 10 20 30
@@ -28,6 +28,15 @@ o)10 19 mod 3 4
 1 3
 o)
 ```
+
+```o
+o)-7 % 3
+-2
+o)(-2*3)+(-7 mod 3)
+-7
+o)
+```
+
 
 ::: see
 [% (dyadic division)](/verbs/math/division.md)

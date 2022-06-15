@@ -1,10 +1,15 @@
 //Example how to check:
 //export OHOME=~/RustProjects/kernel/
-//OLOG=debug rlwrap $OHOME/target/debug/tachyon -c 4 -f $OHOME/repl chckcode
+//OLOG=info rlwrap $OHOME/target/debug/tachyon -c 4 -f $OHOME/repl chckcode
+
+//Start in debug mode with addition info ( 3 levels)
+//OLOG=debug rlwrap $OHOME/target/debug/tachyon -c 4 -f $OHOME/repl chckcode -- -debug 1
 
 \c 120 43;
 (.env0;.env1;.env2):{$[120<#x;("c"$120#"i"$x),"..";x]}'format["%";value `],2#"\n" vs format["%";key `.];
 start:ts[];
+
+debug_mode: $[`debug in !:argv[];"J"$argv[`debug];0];
 
 mdfiles: {[dir]
     l:os["dir";dir];
@@ -35,15 +40,14 @@ bookdir:os "pwd";
 lst:mdfiles[bookdir];
 strip: {@[{p:*ss[|x;"[^ \n\t\r]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
-getres: {s:$[^x;"";x]; patch'"\n" vs "" sv "\x1b\\[91m" vs s};
-getout: {s:$[^x;"";&[x like "^\"";x like "\"$";parse x;x]]; "\n" vs "" sv "\x1b\\[91m" vs s};
+getres: {s:$[^x;"";x]; {$[(*x) like "(I/O|eval|runtime) error";2#x;x]}[patch'"\n" vs "" sv "\x1b\\[36m" vs s]};
+getout: {s:$[^x;"";&[x like "^\"";x like "\"$";parse x;x]]; "\n" vs "" sv "\x1b\\[36m" vs s};
 diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#xx;((1=#xx)&(~xx~yy))|(1<+/xx{x<>y}'yy);1b]}'b}'d;
        if [(@1b)=@m] {m:,m}; if [0=+/m] {:()}; d where ~^d where m};
 .cnterr::0;
 
 fnd_ocode: {[file]
     flag::0; .file:file;
-    //if [~file like "display"] {:0}; //debug row
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
@@ -67,11 +71,12 @@ fnd_ocode: {[file]
     $[file like files;[println "\x1b[1;97;48m"; 0N!file," need check manualy."; print "\x1b[0m"; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
-    //println["%";file]; //debug row
+    if [debug_mode>2] {println["/n%";file]};
     &[(,,0N)~idx;:0;0]; //skip file without o code
     if [os["name"] like "macos"] {spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"}}
     else {spawn {system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"}};
     .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print "c";0]]}/0;
+    print ":"; // connected
     .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
     .cli "myout:reagent[`async]; .o.out::myout; .o.err::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
     .file:"c"$-3_"x"$last "/" vs file;
@@ -85,29 +90,34 @@ fnd_ocode: {[file]
                         intersect:(x where forscrp) sect .scrpt[.file];
                         evl:+(d[intersect];intersect);};
         if [0<#evl] {
+          if [debug_mode>2] {show evl; show .file;};
           res: ,/{ numrow:_x;
                    s: if [(@*x)=(@"")] {*x} else {,/{("//" vs x)[0]}'*x};
-                   .cli {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
+                   if [debug_mode>2] {print "check: "};
+                   row: {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
+                   .cli if [debug_mode>2] {0N!row} else {row};
 		   &[.file like .fortimer;numrow in .tmr[.file];[print "t"; sleep 5000];0];
 		   sleep[50];
 		   calc: getres @[{get[x;.cli]};100;error];
                    .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};50;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";
                    out: @[{get[x;.cli]};100;""];
                    &[.file like .forshow;numrow in .shw[.file];[.cli "\\c 120 43;"; get[100;.cli];];0];
-                   if [(@*x)=(@"")] {(,*x),(getout out),calc} else {(*x),(getout out),calc}
-		   }'evl;
+                   ans: if [(@*x)=(@"")] {(,*x),(getout out),calc} else {(*x),(getout out),calc};
+                   if [debug_mode>1] {println["%";ans]};
+                   ans
+		 }'evl;
           rr: strip'rr where ~""~/:rr;
           res: strip'res where ~""~/:res;
-          //if [.file like "display"] {show evl; show .file; show res}; //debug row
+          if [debug_mode>1] {show res};
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
-        		//show rr; println ""; //debug row
-        		//show res; println ""; //debug row
-                        show diff1[rr;res]; 0N!"==Expected=="; show diff1[res;rr]; 0N!"==Got=="; println[""];} else {print "+";};
-           }
-        else {show "! ignored !"; show rr; show *x; show .file};
+        		if [debug_mode>0] {show rr; println "^^^ Expected ^^^"; show res; println "^^^ Got ^^^"}
+        		else {show diff1[rr;res]; 0N!"=== Expected ==="; show diff1[res;rr]; 0N!"=== Got ==="; println ""};
+          } else {print "+";};
+	} else {show "! ignored !"; show rr; show *x; show .file};
     }'idx;
     @[{.cli x};"kill[*top[]`handle;0]";0];
+    if [debug_mode>1] {println "=== complete file ==="};
     .cli: 0;
 };
 if [(`year$ts[])<>"I"$"c"$4#"x"$("© " vs "c"$read `:build.o)[1]] {println "\x1b[1;97;48mWrong © year.\x1b[0m"};

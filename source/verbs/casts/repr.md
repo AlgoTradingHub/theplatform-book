@@ -1,3 +1,17 @@
+# Monadic repr
+
+Represent a value to string.
+
+**Syntax:** ```repr x; repr[x]```
+
+```o
+o)d: `a`b!(1 2;("1"; "2"));
+o)repr d
+"a| 1 2\nb| (\"1\";\"2\")"
+o)
+```
+
+
 # Dyadic $ (repr)
 
 Interprets a string as a data value.

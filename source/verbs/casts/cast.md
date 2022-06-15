@@ -63,6 +63,11 @@ o)$!10
 o)
 ```
 
+::: note
+You can use short form `$` cast to string only for scalars and a list of scalars.
+Monadic `repr` represents a value of any type.
+:::
+
 ::: see
 [Types, Casting, etc](/reference/types/types.md)
 [repr](/verbs/casts/repr.md)

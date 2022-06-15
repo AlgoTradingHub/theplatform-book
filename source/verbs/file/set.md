@@ -20,6 +20,12 @@ o)`:/tmp/db/ set t
 o)
 ```
 
+::: warn
+Please pay attention to trailing slash at the end of the path symbol. That defines saving table as a splayed table.
+Currently only splayed tables can be saved on disk. For detail see [table on disk](/reference/types/tables/ondisk.md).
+:::
+
+
 ::: see
 [get](/verbs/file/get.md)
 :::

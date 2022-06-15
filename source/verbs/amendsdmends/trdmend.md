@@ -41,6 +41,25 @@ o)a
 o)
 ```
 
+::: note
+In triadic dmend the last argument should be monadic, but some verbs are treated as dyadic..
+Use `:` after the verb to indicate the use of monadic.
+:::
+
+```o
+o)a: (!5; !4)
+0 1 2 3 4
+0 1 2 3
+o).[a;1 3; -]
+** eval error: `amend vec`:
+invalid type: [``dyad]
+o).[a;1 3; -:]
+0 1 2 3 4
+0 1 2 -3
+o)
+```
+
+
 ::: see
 [. (tetradic dmend)](/verbs/amendsdmends/tetrdmend.md)
 [@ (triadic amend)](/verbs/amendsdmends/tramend.md)

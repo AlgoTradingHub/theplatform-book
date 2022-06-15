@@ -39,6 +39,23 @@ o)a
 o)
 ```
 
+::: note
+In triadic amend the last argument should be monadic, but some verbs are treated as dyadic. 
+Use `:` after the verb to indicate the use of monadic.
+:::
+
+```o
+o)a: !10
+0 1 2 3 4 5 6 7 8 9
+o)@[a;2 4 6; -]
+** eval error: `amend vec`:
+invalid type: [``dyad]
+o)@[a;2 4 6; -:]
+0 1 -2 3 -4 5 -6 7 8 9
+o)
+```
+
+
 ::: see
 [@ (indexing)](/verbs/indexing/at.md)
 [@ (internal type id)](/verbs/type/attype.md)

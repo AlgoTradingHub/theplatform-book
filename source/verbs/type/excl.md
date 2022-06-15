@@ -16,9 +16,10 @@ o)!``dict
 o)
 ```
 
-See the full list of type specs [here](/reference/types/scalars/scalars.md).
+See the full list of scalar types [here](/reference/types/scalars/scalars.md).
 
 ::: see
+[.o.typedesc (inverse function)](/verbs/type/typedesc.md)
 [! (til)](/verbs/math/til.md)
 [! in dicts](/reference/types/dicts.md)
 :::

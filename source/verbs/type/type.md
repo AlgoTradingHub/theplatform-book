@@ -1,4 +1,4 @@
-# Monadic "type" Function
+# Monadic "type" function
 
 Returns type spec of its argument.
 
@@ -23,4 +23,4 @@ o)type flip d
 o)
 ```
 
-See the full list of type specs [here](/reference/types/scalars/scalars.md).
+See the full list of scalar types [here](/reference/types/scalars/scalars.md).

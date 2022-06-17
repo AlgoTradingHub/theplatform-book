@@ -58,7 +58,7 @@ o)value l
 4
 !
 5
-o)// : after ! indicates that monadis is used
+o)// : after ! indicates that monadic is used
 o)l:(,;(!:;4);(!:;5))
 ,
 ((!:);4)

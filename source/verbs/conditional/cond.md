@@ -9,7 +9,7 @@ Only the first argument is evaluated. If it is true, the second argument is eval
 
 **Syntax extended form without syntactic sugar:** ```$[cond1;trueres1;cond2;trueres2 <;...> ;elseres]```
 
-**Syntax extended form with syntactic sugar:** ```if [cond1] {trueres1} elif [cond2] {tureres2} <...> else {elseres}]```
+**Syntax extended form with syntactic sugar:** ```if [cond1] {trueres1} elif [cond2] {tureres2} <...> else {elseres}```
 
 
 The concept of truth here is a bit complex:

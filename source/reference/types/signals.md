@@ -65,6 +65,27 @@ mark   | `linum`offset`length!1 0 2
 o)
 ```
 
+::: warn
+If the last argument of the trap is not lambda, do not use print verbs. The last argument is calculated in advance and printing is always performed.
+:::
+
+```o
+o).[+;(1;!);[0N!"error";0]]
+"error"
+0
+o).[+;(1;2);[0N!"error";0]]
+"error"
+3
+o).[+;(1;!);{0N!"error";0}]
+"error"
+0
+o).[+;(1;2);{0N!"error";0}]
+3
+o)
+```
+
+
 ::: see
+[lambda](/reference/lambda.md)
 [dictionaries](/reference/types/dicts.md)
 :::

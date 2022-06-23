@@ -1,4 +1,6 @@
-# Plugins
+# Plugins 
+
+## The information on this page lags behind the platform and will be changed soon!
 
 The platform allows creating two types of plugins:
 

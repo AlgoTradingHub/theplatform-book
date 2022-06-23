@@ -2,7 +2,7 @@
 
 Takes an arbitrary number of arguments and produces a list as a result. If all elements are of the same type, the result will be collapsed to a vector.
 
-**Syntax:** ```enlist[x;y;z;..]```
+**Syntax:** ```enlist[x;y;z;..];  enlist[x];  enlist x```
 
 ```o
 o)enlist[1;2 3;"asd"]

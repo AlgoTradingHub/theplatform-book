@@ -36,4 +36,5 @@ o)
 
 ::: see
 [first](/verbs/list/first.md)
+[pick](/verbs/list/pick.md)
 :::

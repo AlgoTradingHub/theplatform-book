@@ -111,6 +111,7 @@
     - [distinct](/verbs/list/distinct.md)
     - [drop, cut](/verbs/list/drop.md)
     - [enlist](/verbs/list/enlist.md)
+    - [pick](/verbs/list/pick.md)
     - [fill](/verbs/list/fill.md)
     - [filter](/verbs/list/filter.md)
     - [first](/verbs/list/first.md)

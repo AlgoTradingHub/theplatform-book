@@ -31,4 +31,4 @@ O has following scalars:
 | Time |4| \`time | 12:30:21.123 | 0Nt | 0Wt |
 | Minute |4| \`minute | 12:30 or -12:30 | 0Nu | 0Wu |
 | Second |4| \`second | 12:30:21 | 0Nv | 0Wv |
-| Generic (used for casts) | | \`l | | 0N0 - generic null | |
+| Generic (used for casts) | | \` | | 0N0 - generic null | |

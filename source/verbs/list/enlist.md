@@ -24,15 +24,6 @@ o)type each(a;b;c)
 o)
 ```
 
-`enlist` action is reversed by `first`:
-
-```o
-o)a:1
-1
-o)a~first enlist 1
-1b
-o)
-```
 
 ::: see
 [first](/verbs/list/first.md)

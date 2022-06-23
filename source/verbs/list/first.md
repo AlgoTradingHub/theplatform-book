@@ -21,15 +21,6 @@ o)first each ("asd";1 2 3 4)
 o)
 ```
 
-`first` reverses `enlist` action:
-
-```o
-o)a:1
-1
-o)a~first enlist 1
-1b
-o)
-```
 
 ::: see
 [last](/verbs/list/last.md)

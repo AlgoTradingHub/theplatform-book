@@ -1,6 +1,6 @@
 # spawn
 
-Schedules lambda to run on some free scheduler. Returns a join handle that can be passed to wait function for synchronizing.
+Schedules lambda to run on some free scheduler. Returns a join handle.
 
 **Syntax:** ```spawn[x;y;..]```
 
@@ -24,3 +24,30 @@ o)spawn[{0N!(,':x)};!10]
 9 8
 o)
 ```
+
+::: note
+Returned handle is the reagent. You can create reactions with it, apply a get to it for synchronization or to get results. 
+You can send a signal to the reagent that will stop lambdas and be its result.
+:::
+
+```o
+o)h: spawn {100000{x+1}/1; "done"}
+&ltReagent#4&gt
+o)get h
+"done"
+o)
+```
+
+```o
+o)h: spawn {{x+1}/1; "done"};
+o)h["killed"]
+o)get h
+"killed"
+```
+
+
+::: see
+[reagent](/verbs/concurrency/reagent.md)
+[react](/verbs/concurrency/react.md)
+[get](/verbs/concurrency/get.md)
+:::

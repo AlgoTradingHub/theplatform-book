@@ -49,6 +49,6 @@ Technically, it's a new "table" type structure created with references to dictio
 
 
 ::: see
-<<< prev [Dictionaries](/reference/types/dicts.md)
+[Dictionaries](/reference/types/dicts.md)
 next >>> [Indexing](/reference/types/tables/indexing.md)
 :::

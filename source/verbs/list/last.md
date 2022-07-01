@@ -22,6 +22,17 @@ o)last each (1; 2 3 4; `five `six)
 o)
 ```
 
+::: warn
+Do not use _ at the beginning of names. You get last after binding.
+:::
+
+```o
+o)_t:1 2 3
+3
+o)
+```
+
+
 ::: see
 [first](/verbs/list/first.md)
 :::

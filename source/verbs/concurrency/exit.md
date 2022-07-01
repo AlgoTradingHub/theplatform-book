@@ -10,8 +10,8 @@ OLOG=warn tachyon -c 4 -f repl
 
 ```o
 o)exit 10
- WARN  base > Task &ltmain&gt
--- exited with code: UserError
+ WARN  base    &gt Task &ltmain&gt
+-- killed with code: UserError(10)
 ```
 
 ::: see

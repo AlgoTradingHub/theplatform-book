@@ -28,11 +28,15 @@ patch: {
         s:ssr[s;"macos";"linux"];
         s:ssr[s;"Darwin";"Linux"];
         s:ssr[s;"/zsh";"/bash"];
+        s:ssr[s;"\"xterm\"";"\"xterm-256color\""];
         s:ssr[s;"``myout`a";"``a"];
         s:ssr[s;".+\\[cli].+";""];
         s:ssr[s;"^ +\\|.+";.env0];
         s:ssr[s;"^o +\\|.+";.env1];
         s:ssr[s;"^repl *\\|.+";.env2];
+        s:ssr[s;"\".*/tachyon\"";"\"./tachyon\""];
+        s:ssr[s;"IOWait.*";"IOWait  19:13:46.141 00:00:00.333 00:00:00.393 00:00:00.726 0"];
+        if [s like "/plugins/serde/"] {s:"\"./plugins/serde/libserde.dylib\""};
         ssr[s;"^d +\\|.+";""]
 };
 
@@ -71,13 +75,14 @@ fnd_ocode: {[file]
     $[file like files;[println "\x1b[1;97;48m"; 0N!file," need check manualy."; print "\x1b[0m"; :0]; 0];
     idx: where {res:flag; if ["```o"~x] {flag+:1} elif ["```"~x] {$[flag>0;flag-:1;0]; res:flag}; "b"$res}'rows;
     idx: 1_("*";,*idx) {$[y=1+last last x; .[-1_x;();,;(last x),y]; .[x;();,;,y]]}/1_idx;
-    if [debug_mode>2] {println["/n%";file]};
+    if [debug_mode in 1 2] {println ""; print["% ";file]};
     &[(,,0N)~idx;:0;0]; //skip file without o code
-    if [os["name"] like "macos"] {spawn {system "OLOG=debug ./tachyon -c 4 -f repl -- -p 22222 -d"}}
-    else {spawn {system "OLOG=debug taskset --cpu-list 0,1,2,3 ./tachyon -c 4 -f repl -- -p 22222 -d"}};
+    if [os["name"] like "macos"] {.ht: spawn {system "OLOG=debug ",argv[`__bin__]," -c 4 -f repl -- -p 22222 -d"}}
+    else {.ht:spawn {system "OLOG=debug taskset --cpu-list 0,1,2,3 ",argv[`__bin__]," -c 4 -f repl -- -p 22222 -d"}};
     .cli: {x~0}{@[{sleep 100; reagent[`ipc;x]};"127.0.0.1:22222";[print "c";0]]}/0;
     print ":"; // connected
-    .cli[`version!.repl.version]; .cli ".repl.ps1:{}; \\c 120 43;";
+    .cli[`version!4]; //.repl.version
+    .cli ".repl.ps1:{}; \\c 120 43;";
     .cli "myout:reagent[`async]; .o.out::myout; .o.err::myout;"; {~x~0}{@[{get[x;.cli]};100;0]}\1;
     .file:"c"$-3_"x"$last "/" vs file;
     {
@@ -107,6 +112,7 @@ fnd_ocode: {[file]
                    ans
 		 }'evl;
           rr: strip'rr where ~""~/:rr;
+          res:res, @[{meta x;,""}; .ht; {2#"\n" vs ("---\n" vs (get .ht)[2])[2]}];
           res: strip'res where ~""~/:res;
           if [debug_mode>1] {show res};
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
@@ -119,11 +125,11 @@ fnd_ocode: {[file]
     @[{.cli x};"kill[*top[]`handle;0]";0];
     if [debug_mode>1] {println "=== complete file ==="};
     .cli: 0;
+    sleep 200;
 };
 if [(`year$ts[])<>"I"$"c"$4#"x"$("© " vs "c"$read `:build.o)[1]] {println "\x1b[1;97;48mWrong © year.\x1b[0m"};
+if [getenv[`OHOME]~""] {println ["\x1b[91m $OHOME not defined.\x1b[0m"]; kill 0};
 os["cd";getenv[`OHOME]];
-system["cp -f ",argv[`__bin__]," tachyon"];
-if [~"./tachyon" in (+os["dir"])[3]] {println ["\x1b[91m tachyon absent in % dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o absent in %/std/ dir.\x1b[0m";getenv[`OHOME]]; kill 0};
 system "rm -fr /tmp/* ./tmp/ f.txt";
 {fnd_ocode[x]}'lst;

@@ -91,6 +91,10 @@ o)
 
 Yes, creating a binding is done via "[name] : [value]" expression.
 
+::: warn
+Do not use _ at the beginning of names and avoid special characters in symbols altogether.
+:::
+
 Ok. Thus, interpreter knows that name "pi" references to value 3.1415 Let's name radius as well.
 
 ```o

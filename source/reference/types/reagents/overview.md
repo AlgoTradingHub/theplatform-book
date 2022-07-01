@@ -100,8 +100,7 @@ o)spawn { react {[x:r] 0N!x} }
 <
 **
 o)// only from the same task
-o)react {[x:r] 0N!x+1}
-2
+o)react {[x:r] 0N!x+1};
 o)
 ```
 

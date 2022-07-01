@@ -10,7 +10,7 @@ Optionally, pass a search path in the left argument.
 
 ```o
 o)\l "serde"
-"./platform/plugins/serde/target/debug/libserde.dylib"
+"./plugins/serde/libserde.dylib"
 o)load "core"
 "./std/core.o"
 o)load "std/core"

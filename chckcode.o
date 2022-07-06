@@ -122,10 +122,9 @@ fnd_ocode: {[file]
           } else {print "+";};
 	} else {show "! ignored !"; show rr; show *x; show .file};
     }'idx;
-    @[{.cli x};"kill[*top[]`handle;0]";0];
+    @[{.cli x};"exit 0";0];
     if [debug_mode>1] {println "=== complete file ==="};
     .cli: 0;
-    sleep 200;
 };
 if [(`year$ts[])<>"I"$"c"$4#"x"$("© " vs "c"$read `:build.o)[1]] {println "\x1b[1;97;48mWrong © year.\x1b[0m"};
 if [getenv[`OHOME]~""] {println ["\x1b[91m $OHOME not defined.\x1b[0m"]; kill 0};

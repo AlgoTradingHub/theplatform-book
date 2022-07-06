@@ -91,7 +91,7 @@ o)
 
 Yes, creating a binding is done via "[name] : [value]" expression.
 
-::: warn
+::: crit
 Do not use _ at the beginning of names and avoid special characters in symbols altogether.
 :::
 

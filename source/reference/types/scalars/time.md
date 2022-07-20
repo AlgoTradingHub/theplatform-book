@@ -43,7 +43,9 @@ o)`second$p
 15:51:57
 ```
 
-## With cast you can get any part of temporal scalar as int.
+## How to get a year, month, day, hours, minutes, seconds, milliseconds and nanoseconds?
+
+### With cast you can get any part of temporal scalar as int.
 
 ```o
 o)p: 2022.04.22D01:02:03.123456789;

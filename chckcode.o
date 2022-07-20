@@ -44,7 +44,7 @@ bookdir:os "pwd";
 lst:mdfiles[bookdir];
 strip: {@[{p:*ss[|x;"[^ \n\t\r]"]; |"c"$p _"x"$|x};x;x]};
 error: {format["** % error: `%`:\n%";x[`kind];x[`call];x[`message]]};
-getres: {s:$[^x;"";x]; {$[(*x) like "(I/O|eval|runtime) error";2#x;x]}[patch'"\n" vs "" sv "\x1b\\[36m" vs s]};
+getres: {s:$[^x;"";x]; {$[(*x) like "(I/O|eval|runtime) error";$[(*1_x) like "pipe";,"";2#x];x]}[patch'"\n" vs "" sv "\x1b\\[36m" vs s]};
 getout: {s:$[^x;"";&[x like "^\"";x like "\"$";parse x;x]]; "\n" vs "" sv "\x1b\\[36m" vs s};
 diff1:{[a;b] d:a diff b;if [d~()] {:d}; m:,/{xx:`int$x; &/{yy:`int$x; $[(#yy)=#xx;((1=#xx)&(~xx~yy))|(1<+/xx{x<>y}'yy);1b]}'b}'d;
        if [(@1b)=@m] {m:,m}; if [0=+/m] {:()}; d where ~^d where m};
@@ -57,7 +57,7 @@ fnd_ocode: {[file]
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
     .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc";
     .tmr: +(("std";8 25 37 62);("deq";12);("reagent";11);("timer";13);("assign0";67 82);("load";11 13 26 36);
-            ("kdb";6 12);("kdblistener";7);("ipc";12));
+            ("kdb";6 12);("kdblistener";7);("ipc";12);("spawn";35 43));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
               ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21);("display";30 41));
@@ -114,7 +114,6 @@ fnd_ocode: {[file]
           rr: strip'rr where ~""~/:rr;
           res:res, @[{meta x;,""}; .ht; {2#"\n" vs ("---\n" vs (get .ht)[2])[2]}];
           res: strip'res where ~""~/:res;
-          if [debug_mode>1] {show res};
           if [~diff1[rr;res]~diff1[res;rr]] {println ""; show file, ": ", format["%..%";*x;_x];
                         .cnterr+:1; println["Error count: %";.cnterr];
         		if [debug_mode>0] {show rr; println "^^^ Expected ^^^"; show res; println "^^^ Got ^^^"}
@@ -133,4 +132,4 @@ if [~"./std/repl.o" in (+os["dir";"./std/"])[3]] {println ["\x1b[91m repl.o abse
 system "rm -fr /tmp/* ./tmp/ f.txt";
 {fnd_ocode[x]}'lst;
 system "rm -fr /tmp/* ./tmp/ f.txt";
-println["\nChecking complete in %";"t"$"p"$ts[]-start];
+println["\nChecking complete in % with % differences";"t"$"p"$ts[]-start;.cnterr];

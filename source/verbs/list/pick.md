@@ -18,6 +18,21 @@ o)([] 1;2;3;4)
 o)
 ```
 
+::: note
+To convert a vector to a list use ``` pick . x```
+:::
+
+```
+o)v:!5;
+o)pick . v
+0
+1
+2
+3
+4
+o)
+```
+
 ::: see
 [first](/verbs/list/first.md)
 [enlist](/verbs/list/enlist.md)

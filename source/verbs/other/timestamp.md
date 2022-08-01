@@ -2,9 +2,14 @@
 
 Returns current timestamp.
 
-**Syntax:** ```ts x; ts[x]```
+**Syntax:** ```ts[`utc]```; ```ts[]; ts[`local]```; ```ts[`instant]```
 
-where `x` is a timezone symbol:
+```ts[`utc]``` returns the current timestamp of the UTC time zone.
+
+With the ``` `local``` or without argument - the timestamp for the current time zone.
+
+With the ``` `instant``` argument, the result is the number of microseconds since the platform started.
+
 
 ```o
 o)ts[`utc]

@@ -39,9 +39,25 @@ If a reagent is dropped, all reactions defined on this reagent will be dropped t
 If a task has at least one reaction, it's called an IO task. Such task will wait on IO resources involved into reaction(s) and won't be terminated untill signal or exception is received or all reactions are dropped.
 :::
 
-Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
+To drop a reaction, use ```react```  with the reaction id argument.
 
 ```o
+o)r: reagent[`async];
+o)rid: react {[x:r] println["received %";x]};
+o)r 4
+received 4
+o)r 2
+received 2
+o)react[rid]
+o)r 42
+o)get r
+42
+o)
+```
+
+Let's see dynamic creation of reagents/reactions in a wide practical example of a ipc server:
+
+```
 srv: reagent[`listener;"0.0.0.0:5100"];
 react {[x:srv]
     // create new IO task to handle client's session

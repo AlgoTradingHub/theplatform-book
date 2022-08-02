@@ -1,4 +1,4 @@
-# 1: FileBinary
+# 1: FileBinary (assign 1)
 
 Reads or writes bytes
 

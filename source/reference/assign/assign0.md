@@ -1,4 +1,4 @@
-# 0: FileText
+# 0: FileText (assign 0)
 
 Read and write a text file.
 

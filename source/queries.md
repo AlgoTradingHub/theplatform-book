@@ -808,7 +808,7 @@ TODO
 
 TODO
 
-## SQL-like syntax (NOT STABLE! Temporary do not use!)
+## SQL-like syntax (NOT STABLE! Do not use at production!)
 
 select [cols] [by groups] from t [where filters]
 

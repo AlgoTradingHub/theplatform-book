@@ -26,6 +26,7 @@
       - [Modification](/reference/types/tables/modification.md)
       - [Inserts](/reference/types/tables/inserts.md)
       - [On disk](/reference/types/tables/ondisk.md)
+    - [Partitioned tables](/reference/types/ptables.md)
     - [Signals](/reference/types/signals.md)
     - [Reagents](/nolink.md)
       - [Overview](/reference/types/reagents/overview.md)

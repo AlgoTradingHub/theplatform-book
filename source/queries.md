@@ -717,6 +717,16 @@ a b
 2 4
 ```
 
+### Ptables support
+
+Ptables are supported transparently in queries. However, due to their special nature some operations are not supported.
+
+Namely:
+
+* Inner joins
+* Left joins where ptable is right table.
+
+
 ## Upsert
 
 Triad acts similarly to SQL "UPDATE OR INSERT ..." expression. It also supports creating new fields in addition to updating and inserting existing fields.

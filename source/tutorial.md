@@ -151,8 +151,8 @@ Simple vectors have a restriction though. Once you've created them, it's not pos
 o)a:1 2 3
 1 2 3
 o)a[1]:1.0
-** eval error: `:`:
-invalid type: [`s`long;`s`float]
+** eval error: `amend vec`:
+invalid type: [`s`float]
 ```
 
 Simple vector with only one element is represented using "enlist" verb notation.

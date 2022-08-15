@@ -55,9 +55,9 @@ fnd_ocode: {[file]
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;85);
-    .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc";
+    .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc|ptables";
     .tmr: +(("std";8 25 37 62);("deq";12);("reagent";11);("timer";13);("assign0";67 82);("load";11 13 26 36);
-            ("kdb";6 12);("kdblistener";7);("ipc";12);("spawn";35 43));
+            ("kdb";6 12);("kdblistener";7);("ipc";12);("spawn";35 43);;("ptables";95));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
               ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21);("display";30 41));

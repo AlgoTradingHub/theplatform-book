@@ -22,13 +22,13 @@ Creating ptables consists of several stages:
 Our small example as follows:
 
 ```o
-gf:+`a`b!(1 2;10 20); 
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0)); 
-p1: +`c`d!(100 100;200 200); 
-p2: +`c`d!(1000 1000;2000 2000); 
-mnt:+`mntval!(p1;p2); 
-mt: `gf`info`mnt!(gf;info;mnt); 
-pt: `ptable$mt;
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) mt: `gf`info`mnt!(gf;info;mnt);
+o) pt: `ptable$mt;
 o) pt
 a b  c    d   
 --------------
@@ -40,14 +40,14 @@ a b  c    d
 
 Reverse conversion back to dict is also supported via casting at any time.
 ```o
-gf:+`a`b!(1 2;10 20); 
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0)); 
-p1: +`c`d!(100 100;200 200); 
-p2: +`c`d!(1000 1000;2000 2000); 
-mnt:+`mntval!(p1;p2); 
-mt: `gf`info`mnt!(gf;info;mnt); 
-pt: `ptable$mt;
-d:`dict$pt;
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) mt: `gf`info`mnt!(gf;info;mnt);
+o) pt: `ptable$mt;
+o) d:`dict$pt;
 o) d
 gf  | +`a`b!(1 2;10 20)
 info| +`size`segId`refPath!(2 2;0 0;(0N0;0N0))
@@ -93,13 +93,14 @@ All ptable related functions reside in ```std/core.o``` file. Make sure it's loa
 Passing 0N0 to ```.o.pnew``` as existing partitioned table makes a new table, otherwise adds a new partition.
 
 ```o
-gf:+`a`b!(1 2;10 20);
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
-p1: +`c`d!(100 100;200 200);
-p2: +`c`d!(1000 1000;2000 2000);
-mnt:+`mntval!(p1;p2);
-pd: `gf`info`mnt!(gf;info;mnt);
-pt:.o.pnew[0N0; pd];
+o) load "core";
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
 o) pt
 a b  c    d   
 --------------
@@ -112,13 +113,13 @@ a b  c    d
 See following for adding new partition.
 
 ```o
-gf:+`a`b!(1 2;10 20);
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
-p1: +`c`d!(100 100;200 200);
-p2: +`c`d!(1000 1000;2000 2000);
-mnt:+`mntval!(p1;p2);
-pd: `gf`info`mnt!(gf;info;mnt);
-pt:.o.pnew[`ptable$pd; pd];
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[`ptable$pd; pd];
 o) pt
 a b  c    d   
 --------------
@@ -139,15 +140,15 @@ Ptables are saved into one directory by default. Sub-directories are named using
 ```.o.pset``` function is used for saving to disk, ```.o.pget``` - to get saved ptable meta from disk.
 
 ```o
-gf:+`a`b!(1 2;10 20);
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
-p1: +`c`d!(100 100;200 200);
-p2: +`c`d!(1000 1000;2000 2000);
-mnt:+`mntval!(p1;p2);
-pd: `gf`info`mnt!(gf;info;mnt);
-pt:.o.pnew[0N0; pd];
-.o.pset[`:/tmp/pset1/; pt];
-pt2:.o.pget[`:/tmp/pset1/];
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
+o) .o.pset[`:/tmp/pset1/; pt];
+o) pt2:.o.pget[`:/tmp/pset1/];
 ```
 
 ### Deleting partitions
@@ -156,14 +157,14 @@ Removing partition is made using ```.o.pdel``` function. It returns partitioned 
 Partition are specified either by their partitioning values or by partition numbers (starting from zero).
 
 ```o
-gf:+`a`b!(1 2;10 20);
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
-p1: +`c`d!(100 100;200 200);
-p2: +`c`d!(1000 1000;2000 2000);
-mnt:+`mntval!(p1;p2);
-pd: `gf`info`mnt!(gf;info;mnt);
-pt:.o.pnew[0N0; pd];
-pt2:.o.pdel[pt; 0];
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
+o) pt2:.o.pdel[pt; 0];
 o) pt2
 a b  c    d   
 --------------
@@ -178,25 +179,24 @@ To avoid quite heavy lazy mounting and immediately unmounting partitions, manual
 See example below. Note compound lists partitions.
 
 ```o
-// test with compound list in partitions
-gf:+`a`b!(1 2;10 20);
-info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
-.p1: +`c`d!(100 100;(200;"TEST"));
-.p2: +`c`d!(1000 1000;(2000;"TEST"));
-mnt:+`mntval!(.p1;.p2);
-pd: `gf`info`mnt!(gf;info;mnt);
-pt:.o.pnew[0N0; pd];
-
-// save to disk and load back
-.o.pset[`:/tmp/pmnt_umnt1/; pt];
-pt2:.o.pget[`:/tmp/pmnt_umnt1/];
-
-pt3:.o.pmnt[pt2; gf];
-d3:`dict$pt3;
-pt4:.o.pumnt[pt3; gf];
-d4:`dict$pt4;
+o) // test with compound list in partitions
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) .p1: +`c`d!(100 100;(200;"TEST"));
+o) .p2: +`c`d!(1000 1000;(2000;"TEST"));
+o) mnt:+`mntval!(.p1;.p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
+o)
+o) // save to disk and load back
+o) .o.pset[`:/tmp/pmnt_umnt1/; pt];
+o) pt2:.o.pget[`:/tmp/pmnt_umnt1/];
+o)
+o) pt3:.o.pmnt[pt2; gf];
+o) d3:`dict$pt3;
+o) pt4:.o.pumnt[pt3; gf];
+o) d4:`dict$pt4;
 o) d3
-d3
 gf  | +`a`b!(1 2;10 20)
 info| +`size`segId`refPath!(2 2;0 0;(`:1c516dea-89b1-4182-9f1f-feecb3420efe/;`:3848a412-1c17-4935-92ae-fd6ce2dc4a40/))
 mnt | +,`mntval!((+`c`d!(100 100;(200;"TEST"));+`c`d!(1000 1000;(2000;"TEST"))))

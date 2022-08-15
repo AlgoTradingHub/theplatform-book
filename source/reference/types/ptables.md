@@ -173,7 +173,7 @@ a b  c    d
 
 ### Mounting / unmounting partitions
 
-To avoid quite heavy lazy mounting and immediately unmounting partitions, manual mounting unsupported.
+To avoid quite heavy lazy mounting and immediately unmounting partitions, manual mounting is supported.
 
 See example below. Note compound lists partitions.
 

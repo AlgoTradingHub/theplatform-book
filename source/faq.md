@@ -10,9 +10,20 @@ Don't do that. Seriously. Just select records you want to retain and replace ori
 
 ## I want to make my O script both executable and loadable and pass command-line parameters to it.
 
-Use the following shebang under Linux - ``#!/usr/bin/env -S bash -c 'cat "$0" | sed "1,1d" | tachyon -- $@'``. You need to use coreutils 8.30+ though.
+Use the following shebang under Linux. You need to use coreutils 8.30+ though.
 
+``#!/usr/bin/env -S bash -c 'tachyon -c 0 -f <(cat "$0" | sed "1,1d") -- $@'``
 
+Note, previously we used shebang -``#!/usr/bin/env -S bash -c 'cat "$0" | sed "1,1d" | tachyon -- $@'``. 
+However, it captured stdin forever and prevented e.g. our REPL from properly working.
+
+Now it's possible to drop into working REPL with newer shebang like:
+```o
+#!/usr/bin/env -S bash -c 'tachyon -c 0 -f <(cat "$0" | sed "1,1d") -- $@'
+
+HOME: getenv[`OPATH];
+load HOME,"repl";
+```
 
 ## Debugging
 

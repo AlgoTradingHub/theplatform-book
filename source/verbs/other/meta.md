@@ -11,8 +11,9 @@ o)meta ([]a:1 2 3;b:1.1 2.0 5.3)
 o)r:reagent[`async]
 &ltReagent#3&gt
 o)meta[r]
-id  | 3
-type| "async"
+id   | 3
+state| `running
+type | "async"
 o)
 ```
 

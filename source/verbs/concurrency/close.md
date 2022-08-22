@@ -12,12 +12,14 @@ o)react {[x:r] 0N!x};
 o)r[1]
 1
 o)meta r
-id  | 3
-type| "async"
+id   | 3
+state| `running
+type | "async"
 o)close[r]
 o)meta r
-id  | 3
-type| "async"
+id   | 3
+state| `closed
+type | "async"
 o)r[2]
 ** I/O error: `reagent send`:
 -- channel is closed

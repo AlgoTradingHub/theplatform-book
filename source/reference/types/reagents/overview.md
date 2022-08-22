@@ -60,8 +60,9 @@ Use the verb `meta[]` with reagents to see info about them:
 
 ```o
 o)meta r1
-id  | 4
-type| "async"
+id   | 4
+state| `running
+type | "async"
 o)
 ```
 
@@ -79,8 +80,9 @@ Any other operations are allowed with reagents as well as with any other type in
 ```o
 o)r:reagent[`async];
 o)meta r
-id  | 6
-type| "async"
+id   | 6
+state| `running
+type | "async"
 o)react {[x:r] 0N!x};
 o)// and it doesn't allow defining reaction on r from another task
 o)spawn { react {[x:r] 0N!x} }

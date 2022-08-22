@@ -17,6 +17,7 @@ Creating ptables consists of several stages:
 * Creating non-partitioned table collecting all partitioning fields. Let's call it ```gf```.
 * Creating partition information table. This table keeps all persistent information on each partition. It's ```info``` in our example.
 * Creating mount-related table. This table keeps current partition data. ```mnt``` field will keep it.
+* Optional domain symbol in ```sym``` field.
 * Collecting all above data under single dict (dict with meta-information) & casting it to ptable type.
 
 Our small example as follows:
@@ -58,20 +59,20 @@ mnt | +,`mntval!((+`c`d!(100 100;200 200);+`c`d!(1000 1000;2000 2000)))
 
 Now, let's make a detailed overview of required information in meta-dict.
 
-| Meta dict fields | | | Description / comments |
-| --- | --- | --- | --- |
-| `gf | `info | `mnt | Top level meta-dict fields |
-| All partitining fields (table) | All persistent info (table) | Mounting info (table) | |
-| `gf1 `gf2 `gf3 ... | `size `segId `refPath | `mntval | Meta-dict table fields |
-| All partiting fields table | `size - vector of longs keeping partition size  | mounted partition data | |
-|  | `segId - segment id, vector of longs (reserved)  |  | |
-|  | `refPath - list/vector of reference paths for each partition  |  | |
-| Possible combinations for partition info |  |  | |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | Immediate partition table value | Partition table is in RAM. Saved on unmount. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | 0N0 | Special case for partition table. Only partitioning fields exist. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (without slash at the end)  | Immediate partition table value | Partition is loaded entirely on mount. Saved on unmount in a single file. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (with slash at the end)  | Projected table value | Partition is in splayed table on disk. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file or namespace symbol or namespace path list  | Same value as in `refPath | Lazily mounted partition. |
+| Meta dict fields | | | | Description / comments |
+| --- | --- | --- | --- | --- |
+| `gf | `info | `mnt | `sym | Top level meta-dict fields |
+| All partitining fields (table) | All persistent info (table) | Mounting info (table) | Domain symbol | |
+| `gf1 `gf2 `gf3 ... | `size `segId `refPath | `mntval | | Meta-dict table fields |
+| All partiting fields table | `size - vector of longs keeping partition size  | mounted partition data | | |
+|  | `segId - segment id, vector of longs (reserved)  |  | | |
+|  | `refPath - list/vector of reference paths for each partition  |  | | |
+| Possible combinations for partition info |  |  | | |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | Immediate partition table value | | Partition table is in RAM. Saved on unmount. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | 0N0 | | Special case for partition table. Only partitioning fields exist. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (without slash at the end)  | Immediate partition table value | | Partition is loaded entirely on mount. Saved on unmount in a single file. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (with slash at the end)  | Projected table value | | Partition is in splayed table on disk. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file or namespace symbol or namespace path list  | Same value as in `refPath | | Lazily mounted partition. |
 
 ::: note
 Zero-sized partitioned tables are not supported. At least one partition should exist.
@@ -109,6 +110,23 @@ a b  c    d
 2 20 1000 2000
 2 20 1000 2000
 ```
+
+And creating new ptable with enum fields is done like:
+```o
+o) sym1::`1`2`100`1000;
+o) sym2::sym1;
+o) gf:+`a`b!(`sym1$`1`2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(`sym1$`100`100;200 200);
+o) p2: +`c`d!(`sym1$`1000`1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt`sym!(gf;info;mnt;`sym2);
+o) pt:.o.pnew[`ptable$pd; pd];
+o) pt`a
+`sym2$`1`1`2`2`1`1`2`2
+```
+Note ```sym2``` becomes domain for the entire ptable.
+
 
 See following for adding new partition.
 
@@ -149,6 +167,26 @@ o) pd: `gf`info`mnt!(gf;info;mnt);
 o) pt:.o.pnew[0N0; pd];
 o) .o.pset[`:/tmp/pset1/; pt];
 o) pt2:.o.pget[`:/tmp/pset1/];
+```
+
+Just as with ordinary table, it's user responsibility to assign domains to enums.
+Use ```.o.psym``` function to re-assign domain symbol after loading ptable. 
+
+```o
+o) sym1::`1`2`100`1000;
+o) sym2::sym1;
+o) gf:+`a`b!(`sym1$`1`2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(`sym1$`100`100;(200;"TEST"));
+o) p2: +`c`d!(`sym1$`1000`1000;(2000;"TEST"));
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
+o) .o.pset[`:/tmp/pset3/; pt];
+o) pt2:.o.pget[`:/tmp/pset3/];
+o) pt2:.o.psym[pt2; `sym2];
+o) pt2`a
+`sym2$`1`1`2`2
 ```
 
 ### Deleting partitions

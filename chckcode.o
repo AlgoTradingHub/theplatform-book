@@ -55,9 +55,8 @@ fnd_ocode: {[file]
     files: "readln|plugin|usage|kill";
     .forshow: "show|deq|applicationexamples|ipc|tcp|overview";
     .shw: ("show";"deq";"applicationexamples";"ipc";"tcp";"overview")!(12;12;27;24;25;87);
-    .fortimer: "deq|reagent|timer|assign0|load|std|^kdb|ipc|ptables";
-    .tmr: +(("std";8 25 37 62);("deq";12);("reagent";11);("timer";13);("assign0";67 82);("load";11 13 26 36);
-            ("kdb";6 12);("kdblistener";7);("ipc";12);("spawn";35 43);;("ptables";95));
+    .fortimer: "deq|reagent|timer|ipc|spawn";
+    .tmr: +(("deq";12);("reagent";11);("timer";13);("ipc";12);("spawn";35 43));
     .tmr: .tmr[0]!.tmr 1;
     .scrpt: +(("applicationexamples";5 7 14 21 27);("platformforpython";148 150);("react";,44);("kdblistener";7 10);
               ("tcp";14 25);("ws";,12);("listener";7 9);("ipc";12 24);("patterns";,21);("display";30 41));
@@ -92,8 +91,9 @@ fnd_ocode: {[file]
         evl: +(rr foreval; x foreval);
         if [~#foreval] {
                         d:(x where forscrp)!value (()!()) {if [_y] {x[#x]:(,*y);x} else {x[(#x)-1],:(,*y)}}/+(rr;forscrp);
+                        if [~^.scrpt[.file]] {
                         intersect:(x where forscrp) sect .scrpt[.file];
-                        evl:+(d[intersect];intersect);};
+                        evl:+(d[intersect];intersect);}};
         if [0<#evl] {
           if [debug_mode>2] {show evl; show .file;};
           res: ,/{ numrow:_x;
@@ -101,7 +101,7 @@ fnd_ocode: {[file]
                    if [debug_mode>2] {print "check: "};
                    row: {&[.file like .forshow;numrow in .shw[.file];[print "s";"\\c 10000 43;",x];x]}[$[0x6f29~2#"x"$s;"c"$2_"x"$s;s]];
                    .cli if [debug_mode>2] {0N!row} else {row};
-		   &[.file like .fortimer;numrow in .tmr[.file];[print "t"; sleep 5000];0];
+		   $[row like "load|\\\\l";[print "l"; sleep 1000];&[.file like .fortimer;numrow in .tmr[.file];[print "t"; sleep 5000];0]];
 		   sleep[50];
 		   calc: getres @[{get[x;.cli]};100;error];
                    .cli ".l:1_-1_{~x~0}{@[{get[x;myout]};50;0]}\\1; $[0=#.l;0N0;1=#.l; *.l;\"\n\" sv .l]";

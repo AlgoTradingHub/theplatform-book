@@ -184,6 +184,7 @@
     - [meta](/verbs/other/meta.md)
     - [quote](/verbs/other/quote.md)
     - [rc (reference count)](/verbs/other/rc.md)
+    - [mv (move)](/verbs/other/mv.md)
     - [shadow](/verbs/other/shadow.md)
     - [timestamp](/verbs/other/timestamp.md)
     - [value](/verbs/other/value.md)

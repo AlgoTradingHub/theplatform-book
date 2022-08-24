@@ -6,9 +6,19 @@ Special way of storing tables splitting whole table by records. Criteria for spl
 Fields to group partition by are called partition fields. For instance, partitioning by dates/months/years/etc. 
 
 Partitioned table is a table consisting of a set of partitioned vectors. They also have keys/field names - symbol vector & values/field vectors.
-All common verbs made for tables should operate on partitioned tables transparently.
 
 Partitioned tables will be called ptables for brevity.
+
+## Ptable support
+
+Almost all common verbs made for tables should operate on partitioned tables transparently. 
+
+Some exceptions exist though:
+* All mutating verbs - amend, dmends, upserts, etc. Cast back to dict first & mutate as usual.
+* Neither scalar nor composite indices are supported. That has same implications for verbs like ```?``` ("find"), queries, etc.
+* ```~``` ("match") verb is not implemented for ptables.
+* Queries has their own set of limitations for ptables. See corresponding section.
+
 
 ## Ptable creation
 

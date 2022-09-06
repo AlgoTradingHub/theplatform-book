@@ -74,8 +74,8 @@ Thats all! Session-based asynchronuous server is done. Simple, yes? To see which
 
 ```o
 o)top[]
-tid handle       name                      state  created      run          iowait       total        load
-----------------------------------------------------------------------------------------------------------
+tid handle       name                      state   created      run          iowait       total        load
+-----------------------------------------------------------------------------------------------------------
 0   &ltReagent#7&gt "main"                    IOWait  19:13:46.141 00:00:00.333 00:00:00.393 00:00:00.726 0
 ```
 

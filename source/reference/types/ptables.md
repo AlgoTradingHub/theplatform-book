@@ -123,7 +123,7 @@ a b  c    d
 
 And creating new ptable with enum fields is done like:
 ```o
-o) sym1::`1`2`100`1000;
+o) sym1::`1`2`3`4`100`1000;
 o) sym2::sym1;
 o) gf:+`a`b!(`sym1$`1`2;10 20);
 o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
@@ -131,9 +131,11 @@ o) p1: +`c`d!(`sym1$`100`100;200 200);
 o) p2: +`c`d!(`sym1$`1000`1000;2000 2000);
 o) mnt:+`mntval!(p1;p2);
 o) pd: `gf`info`mnt`sym!(gf;info;mnt;`sym2);
-o) pt:.o.pnew[`ptable$pd; pd];
+o) gf2:+`a`b!(`sym1$`3`4;10 20);
+o) pd2: `gf`info`mnt!(gf2;info;mnt);
+o) pt:.o.pnew[`ptable$pd; pd2];
 o) pt`a
-`sym2$`1`1`2`2`1`1`2`2
+`sym2$`1`1`2`2`3`3`4`4
 ```
 Note ```sym2``` becomes domain for the entire ptable.
 
@@ -147,7 +149,9 @@ o) p1: +`c`d!(100 100;200 200);
 o) p2: +`c`d!(1000 1000;2000 2000);
 o) mnt:+`mntval!(p1;p2);
 o) pd: `gf`info`mnt!(gf;info;mnt);
-o) pt:.o.pnew[`ptable$pd; pd];
+o) gf2:+`a`b!(3 4;10 20);
+o) pd2:`gf`info`mnt!(gf2;info;mnt);
+o) pt:.o.pnew[`ptable$pd; pd2];
 o) pt
 a b  c    d   
 --------------
@@ -155,10 +159,10 @@ a b  c    d
 1 10 100  200 
 2 20 1000 2000
 2 20 1000 2000
-1 10 100  200 
-1 10 100  200 
-2 20 1000 2000
-2 20 1000 2000
+3 10 100  200 
+3 10 100  200 
+4 20 1000 2000
+4 20 1000 2000
 ```
 
 ### Saving / loading ptable to/from disk

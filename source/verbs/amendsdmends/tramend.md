@@ -29,7 +29,7 @@ a b
 o)
 ```
 
-For destructive updates use variable symbol in the first argument:
+For inplace modify use variable symbol in the first argument:
 
 ```o
 o)a:1 2 3; @[`a;2;{x+1}]

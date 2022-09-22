@@ -7,6 +7,8 @@ Checks if `x` is null.
 ```o
 o)^1
 0b
+o)^0101b
+0000b
 o)^0N 1 2
 100b
 o)null 0
@@ -26,5 +28,6 @@ o)
 
 
 ::: see
+[~ (not)](/verbs/logical/not.md)
 [^ (fill)](/verbs/list/fill.md)
 :::

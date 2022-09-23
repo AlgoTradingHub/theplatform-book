@@ -6,6 +6,18 @@ Currently only splayed tables can be saved on disk.
 
 "Mmapping" allows to avoid loading all table contents in memory in one go, but to work with a table off the disk (by using OS memory-mapped files technique).
 
+### Supported field types
+
+Only following field types are supported in splayed tables:
+1. Vectors excluding symbol vectors.
+2. Compound lists - lists containing primitive scalars (all scalars except GUIDs) and/or vectors excluding symbols vectors. Nested lists are not supported.
+
+::: note
+Convert symbol vectors into enum vectors first to be able to save them in splayed table. You can use ```.o.en``` function for that.
+:::
+
+### Saving on disk
+
 Saving table values to disk is pretty simple. Just choose directory to keep your table files and execute something similar to:
 
 ```o

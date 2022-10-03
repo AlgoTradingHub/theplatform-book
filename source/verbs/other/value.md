@@ -1,8 +1,8 @@
-# value
+# Monadic . (dot-value)
 
 Returns value of `x`.
 
-**Syntax:** ```value x; value[x]```
+**Syntax:** ```value x; value[x]; . x; .[x]```
 
 ```o
 o)value 1
@@ -58,6 +58,11 @@ o)value l
 4
 !
 5
+o). l
+!
+4
+!
+5
 o)// : after ! indicates that monadic is used
 o)l:(,;(!:;4);(!:;5))
 ,
@@ -75,4 +80,5 @@ o)
 
 ::: see
 [eval](/verbs/concurrency/eval.md)
+[. (apply)](/verbs/indexing/dot.md)
 :::

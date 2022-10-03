@@ -1,4 +1,4 @@
-# Reverse
+# Monadic | (reverse)
 
 Reverses the order of elements in a list.
 

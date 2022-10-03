@@ -1,4 +1,4 @@
-# til !
+# Monadic ! (til)
 
 Returns a range of natural numbers from 0 til the argument (excluding the argument).
 

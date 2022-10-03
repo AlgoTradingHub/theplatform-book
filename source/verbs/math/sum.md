@@ -1,4 +1,4 @@
-# sum (temporary not work - use +/)
+# sum (temporary not work: use +/)
 
 Returns the sum of a numeric list.
 

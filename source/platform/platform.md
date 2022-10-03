@@ -61,7 +61,7 @@ Using \`Runtime, \`Scheduler and \`Task is enough to implement fork-join paralle
 
 ## Channels and Pi-Calculus
 
-Channels are a typed conduit through which you can send and receive values to/from other tasks. Values can be channels themselves as well (Pi-Calculus feature).
+Channels are a typed conduit through which you can send and receive vаlues to/from other tasks. Vаlues can be channels themselves as well (Pi-Calculus feature).
 
 We have implemented several types of channel:
 

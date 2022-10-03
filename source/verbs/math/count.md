@@ -1,4 +1,4 @@
-# count
+# Monadic count
 
 Returns the number of items in a list, dictionary or table.
 

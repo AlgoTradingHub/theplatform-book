@@ -1,8 +1,8 @@
-# Difference
+# Dyadic difference
 
 **Syntax:** ```x diff y; diff[x;y]```
 
-Set difference is a dyadic verb. Returns values which appear in `x` but not in `y`.
+Set difference is a dyadic verb. Returns vаlues which appear in `x` but not in `y`.
 
 ```o
 o)0 1 2 3 4 diff 4 0

@@ -1,4 +1,4 @@
-# Polyadic |
+# Polyadic | (or condition)
 
 Polyadic short-circuit "or" condition. Triadic form behaves exactly as ```$[cond; trueres; falseres]``` verb.
 

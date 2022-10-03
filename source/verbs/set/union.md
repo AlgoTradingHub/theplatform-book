@@ -1,6 +1,6 @@
-# Union
+# Dyadic union
 
-Set union is a dyadic verb. Returns all values from both arguments once.
+Set union is a dyadic verb. Returns all vаlues from both arguments once.
 
 **Syntax:** ```x union y; union[x;y]```
 

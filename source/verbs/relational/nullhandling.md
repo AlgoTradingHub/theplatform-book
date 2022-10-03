@@ -1,4 +1,4 @@
-# null (^)
+# Monadic ^ (null)
 
 Checks if `x` is null.
 

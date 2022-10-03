@@ -2,7 +2,7 @@
 
 Symbols are entities similar to those of Lisp. They mostly serv the same purpose - referencing variable names and representing keys in dictionaries.
 
-They are defined by backticks followed by an optional name. Names can contain UTF8 letters, digits and dots:
+They are defined by backticks followed by an optional name. Names can contain UTF8 letters, digits and dоts:
 
 ```o
 o)`a

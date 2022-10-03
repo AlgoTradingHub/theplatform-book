@@ -12,7 +12,7 @@ o) 1 2 3 ~ 1 2 3
 o)
 ```
 
-This verb compares both values and types:
+This verb compares both vаlues and types:
 
 ```o
 o)1~1.0

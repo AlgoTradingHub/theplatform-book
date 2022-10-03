@@ -52,7 +52,7 @@ o)l:(,;(!;4);(!;5))
 o)eval l
 {![4;]}
 {![5;]}
-o)// ! interpreted as a diadic. So we got projections, not vectors.
+o)// ! interpreted as a dyadic. So we got projections, not vectors.
 o)value l
 !
 4

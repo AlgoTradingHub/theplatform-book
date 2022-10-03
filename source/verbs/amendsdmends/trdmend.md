@@ -1,10 +1,10 @@
 # Triadic . (dmend)
 
-Applies a monadic verb to a certain value.
+Applies a monаdic verb to a certain vаlue.
 
 **Syntax:** ```.[x;y;z]```
 
-where `z` is a monadic verb to be applied and `x` is a structure to be indexed in depth with a vector index `y`.
+where `z` is a monаdic verb to be applied and `x` is a structure to be indexed in depth with a vector index `y`.
 
 ```o
 o)l:(1 2 3;4 5 6); .[l;0 1;{x+1}]
@@ -42,8 +42,8 @@ o)
 ```
 
 ::: note
-In triadic dmend the last argument should be monadic, but some verbs are treated as dyadic..
-Use `:` after the verb to indicate the use of monadic.
+In triadic dmend the last argument should be monаdic, but some verbs are treated as dyаdic..
+Use `:` after the verb to indicate the use of monаdic.
 :::
 
 ```o

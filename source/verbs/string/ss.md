@@ -1,6 +1,6 @@
-# ss
+# Dyadic ss (string search)
 
-String search. Returns an int vector of position(s) of first element(s) of substrings in `x` that match pattern `y`.
+Returns an int vector of position(s) of first element(s) of substrings in `x` that match pattern `y`.
 
 **Syntax:** ```x ss y; ss[x;y]```
 

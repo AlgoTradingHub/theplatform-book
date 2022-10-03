@@ -26,4 +26,5 @@ o)
 
 ::: see
 [| (or/max)](/verbs/logical/ormax.md)
+[& (where)](/verbs/logical/where.md)
 :::

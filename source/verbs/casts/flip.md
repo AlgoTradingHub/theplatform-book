@@ -1,4 +1,4 @@
-# Monadic flip
+# Monadic + (flip)
 
 Returns `x` transposed, where `x` may be a list of lists, a dictionary or a table.
 

@@ -1,4 +1,4 @@
-# 0N!
+# Monadic 0N!
 
 Write to console and return.
 
@@ -16,7 +16,7 @@ second
 o)
 ```
 
-With 0N! you can see the current value of any part of the expression. It useful for debugging.
+With 0N! you can see the current vаlue of any part of the expression. It useful for debugging.
 ```o
 o)*/0N!1+0N!!5
 0 1 2 3 4

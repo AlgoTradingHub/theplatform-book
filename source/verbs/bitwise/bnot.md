@@ -1,4 +1,4 @@
-# Bitwise NOT (bnot)
+# Monadic bitwise NOT (bnot)
 
 **Syntax:** ``bnot x; bnot[x]``
 

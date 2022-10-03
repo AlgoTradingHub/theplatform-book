@@ -1,4 +1,4 @@
-# os
+# Monadic os
 
 Executes same shell command.
 

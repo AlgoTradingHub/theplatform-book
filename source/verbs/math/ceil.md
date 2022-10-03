@@ -1,4 +1,4 @@
-# Ceil
+# Monadic ceil
 
 `ceil` returns the least integer greater or equal to the argument.
 

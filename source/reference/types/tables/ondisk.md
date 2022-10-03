@@ -18,7 +18,7 @@ Convert symbol vectors into enum vectors first to be able to save them in splaye
 
 ### Saving on disk
 
-Saving table values to disk is pretty simple. Just choose directory to keep your table files and execute something similar to:
+Saving table vаlues to disk is pretty simple. Just choose directory to keep your table files and execute something similar to:
 
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); f:`:/tmp/o_table/; f set a;

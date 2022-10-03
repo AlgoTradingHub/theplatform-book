@@ -1,4 +1,4 @@
-# Frac
+# Monadic frac
 
 `frac` returns the fractional part of float for the argument.
 

@@ -1,4 +1,4 @@
-# filter
+# Dyadic filter
 
 Returns elements from `y` for which `x` expression is true.
 

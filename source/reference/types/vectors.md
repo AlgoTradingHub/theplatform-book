@@ -1,6 +1,6 @@
 # Vectors
 
-Vectors are just sequences of same type values. They consist of typed arrays with such benefits as constant-time indexing and SIMD instructions used for parallel computing.
+Vectors are just sequences of same type vаlues. They consist of typed arrays with such benefits as constant-time indexing and SIMD instructions used for parallel computing.
 
 The only exception is generic vectors or simply Lists. Each item of a list can contain any datatype in AST.
 
@@ -57,7 +57,7 @@ o)
 
 ```o
 o)sm:`a`b`c; `sm$`a`d
-** runtime error: `cast: invalid value.`:
+** runtime error: `cast: invalid vаlue.`:
 true
 o)
 ```
@@ -70,7 +70,7 @@ o)sm:`a`b`c; a:`sm$`a``c; a
 o)
 ```
 
-Enumerated symbols require special treatment when saved to disk. An enumerated vector has no domain defined after "getting" it from file. Thus, you need to save domain values to disk as well. Casting enumerated vector "b" with domain "sym" assigns domain to vector like this:
+Enumerated symbols require special treatment when saved to disk. An enumerated vector has no domain defined after "getting" it from file. Thus, you need to save domain vаlues to disk as well. Casting enumerated vector "b" with domain "sym" assigns domain to vector like this:
 
 ```o
 o)a:`sm$`c`b`a;

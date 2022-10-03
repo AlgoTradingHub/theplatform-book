@@ -1,4 +1,4 @@
-# Shift
+# Dyadic shift
 
 Shifts elements in a list y. Positive x means shift to the left, negative - to the right.
 Null are shifted in from the other end.

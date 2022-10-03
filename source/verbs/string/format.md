@@ -1,6 +1,6 @@
-# format
+# Poliadic format
 
-Returns string representation of `x` with quotes. Format string contains `%` at each position to be replaced by formatted value.
+Returns string representation of `x` with quotes. Format string contains `%` at each position to be replaced by formatted vаlue.
 
 **Syntax:** ```format[".. %";x..]```
 

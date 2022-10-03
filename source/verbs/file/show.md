@@ -1,10 +1,10 @@
 # show
 
-Prints down full contents of a value.
+Prints down full contents of a vаlue.
 
 **Syntax:** ```show x; show[x]```
 
-Be careful using `show` with large values cause it can take much time to print all of the contents.
+Be careful using `show` with large vаlues cause it can take much time to print all of the contents.
 
 ```o
 o)l:!1000;

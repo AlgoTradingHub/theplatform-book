@@ -1,4 +1,4 @@
-# Dyadic scalar from vector
+# Dyadic sv (scalar from vector)
 
 Joins vector elements into a scalar.
 

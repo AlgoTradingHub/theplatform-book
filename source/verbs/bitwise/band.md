@@ -1,4 +1,4 @@
-# Bitwise AND (band)
+# Dyadic bitwise AND (band)
 
 **Syntax:** ``x band y; band[x;y]``
 

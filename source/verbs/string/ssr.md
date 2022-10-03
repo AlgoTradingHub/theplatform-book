@@ -1,6 +1,6 @@
-# ssr
+# Triadic ssr (string search and replace)
 
-String search and replace
+Replaces the found substring.
 
 **Syntax:** ```ssr[x;y;z]```
 

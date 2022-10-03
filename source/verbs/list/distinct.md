@@ -1,4 +1,4 @@
-# Distinct
+# Monadic distinct
 
 Returns unique set of elements from it's argument.
 

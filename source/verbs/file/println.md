@@ -1,6 +1,6 @@
 # println
 
-Prints down a string line representation of `x`. Format string contains `%` at each position to be replaced by formatted value.
+Prints down a string line representation of `x`. Format string contains `%` at each position to be replaced by formatted vаlue.
 
 **Syntax:** ```println[".. %";x..]```
 

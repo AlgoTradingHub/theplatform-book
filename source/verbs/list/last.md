@@ -1,4 +1,4 @@
-# last
+# Monadic last
 
 Returns the last element from `x` if `x` is list, else returns `x`.
 

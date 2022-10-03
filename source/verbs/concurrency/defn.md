@@ -2,7 +2,7 @@
 
 Dynamically defines a function.
 
-**Syntax:** ```defn[x;y]```
+**Syntax:** ```defn[x;y]; x defn y```
 
 where `x` is a symbol vector with argument names, and `y` is a list of expressions.
 

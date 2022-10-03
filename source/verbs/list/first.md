@@ -1,4 +1,4 @@
-# first
+# Monadic first
 
 Returns the first element from `x` if `x` is a list, else returns `x`.
 

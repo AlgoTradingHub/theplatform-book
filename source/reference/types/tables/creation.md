@@ -1,6 +1,6 @@
 # Tables
 
-A table is similar to a dict and represents relational tables. Keys as column names correspond to values as simple vectors/sequences.
+A table is similar to a dict and represents relational tables. Keys as column names correspond to vаlues as simple vectors/sequences.
 
 ## Table creation
 

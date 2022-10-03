@@ -1,4 +1,4 @@
-# Take
+# Dyadic take
 
 Takes first `x` elements of `y`.
 

@@ -1,6 +1,6 @@
 # get
 
-Reads AST value from a file specified in `x` as a symbol.
+Reads AST vаlue from a file specified in `x` as a symbol.
 
 **Syntax:** ```get x; get[x]```
 

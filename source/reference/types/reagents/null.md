@@ -1,6 +1,6 @@
 # Reagent null
 
-Empty reagent never produce any value. There is no practic sence to create it explicitly.
+Empty reagent never produce any vаlue. There is no practic sence to create it explicitly.
 
 ::: see
 [All reagents](/reference/types/reagents/overview.md)

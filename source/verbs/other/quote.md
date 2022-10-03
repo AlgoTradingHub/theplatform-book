@@ -1,4 +1,4 @@
-# quote
+# Monadic quote
 
 Returns `x` unevaluated.
 

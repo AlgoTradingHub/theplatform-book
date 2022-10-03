@@ -2,7 +2,7 @@
 
 **Syntax:** ```?[cond; vector for true; vector for false]```
 
-This verb returns value made of second or third argument depending on first boolean scalar or vector argument. 
+This verb returns vаlue made of second or third argument depending on first boolean scalar or vector argument. 
 Think about vector if-then-else expression. Boolean truth results in second argument usage, false - in third one.
 
 First scalar boolean is the same condition expression.

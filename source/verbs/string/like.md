@@ -1,4 +1,4 @@
-# like
+# Dyadic like
 
 Returns boolean where `x` matches [regex](/regex.md) in `y`. `x` can be a symbol atom, a list of symbols, a string, or a list of strings. `y` must be a string. `like` is case-sensitive.
 

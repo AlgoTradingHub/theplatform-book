@@ -1,4 +1,4 @@
-# Dyadic multiplication
+# Dyadic * (multiplication)
 
 Multiplies scalar/vector elements. Fully atomic.
 
@@ -20,7 +20,7 @@ o)1 2 3*4 5 6 7
 arguments length mismatch: [1 2 3;4 5 6 7]
 ```
 
-Where `x` is a dictionary and `y` is a numeric value, the numeric values of `x` are multiplied by `y`:
+Where `x` is a dictionary and `y` is a numeric vаlue, the numeric vаlues of `x` are multiplied by `y`:
 
 ```o
 o)`a`b`c!5 10 20f*1.1

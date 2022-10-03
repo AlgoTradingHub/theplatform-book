@@ -1,4 +1,4 @@
-# Monadic minus (negate)
+# Monadic - (negate)
 
 Inverts signs of numbers. Right atomic.
 

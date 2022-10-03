@@ -1,6 +1,6 @@
-# "In" / contains
+# Dyadic in (contains)
 
-A dyadic verb that returns `1b` for each right value present in the left argument.
+A dyadic verb that returns `1b` for each right vаlue present in the left argument.
 
 **Syntax:** ```x in y; in[x;y]```
 

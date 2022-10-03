@@ -1,4 +1,4 @@
-# Dyadic vector from scalar
+# Dyadic vs (vector from scalar)
 
 Separate a scalar into a vector of elements.
 

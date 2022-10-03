@@ -49,8 +49,8 @@ o)
 ```
 
 ::: note
-You can see that the "initial" value for addition and multiplication is different.
-Indeed, assign/plus/minus dyads assume zero value as initial, mul/div take one for initial.
+You can see that the "initial" vаlue for addition and multiplication is different.
+Indeed, assign/plus/minus dyads assume zero vаlue as initial, mul/div take one for initial.
 :::
 
 ... however, the following code won't work, as interpreter does not try to analyze lambda result types.

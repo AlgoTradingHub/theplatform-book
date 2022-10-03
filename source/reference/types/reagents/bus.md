@@ -1,6 +1,6 @@
 # Reagent bus
 
-Reagent for unite other reagents to a hub such that every value passed is being multiplexed for every participant.
+Reagent for unite other reagents to a hub such that every vаlue passed is being multiplexed for every participant.
 
 **Syntax:** ```reagent[`bus]```
 

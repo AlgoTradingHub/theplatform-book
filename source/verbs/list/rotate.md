@@ -1,4 +1,4 @@
-# Rotate
+# Dyadic rotate
 
 Rotates elements in a list y. Positive x means rotate to the left, negative - to the right.
 

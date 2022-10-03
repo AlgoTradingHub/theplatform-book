@@ -63,7 +63,7 @@ o)(*/(1000 3 5))%100
 o)
 ```
 
-The same applies to multiple values since most operators in O are of implicit iteration:
+The same applies to multiple vаlues since most operators in O are of implicit iteration:
 
 ```o
 o)p:1000 2500 3000         // principal

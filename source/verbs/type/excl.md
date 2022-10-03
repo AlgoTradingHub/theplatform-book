@@ -1,4 +1,4 @@
-# Monadic !
+# Monadic ! (id)
 
 When applied to type spec returns corresponding internal type id.
 

@@ -1,4 +1,4 @@
-# enlist
+# Monadic enlist
 
 Takes an arbitrary number of arguments and produces a list as a result. If all elements are of the same type, the result will be collapsed to a vector.
 

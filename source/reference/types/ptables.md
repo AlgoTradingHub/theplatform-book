@@ -1,11 +1,11 @@
 # Partitioned tables
 
-Special way of storing tables splitting whole table by records. Criteria for splitting is duplicating values of single or several fields. In other words, it's
+Special way of storing tables splitting whole table by records. Criteria for splitting is duplicating vаlues of single or several fields. In other words, it's
  table grouping by fields. This format naturally suits time series data. 
 
 Fields to group partition by are called partition fields. For instance, partitioning by dates/months/years/etc. 
 
-Partitioned table is a table consisting of a set of partitioned vectors. They also have keys/field names - symbol vector & values/field vectors.
+Partitioned table is a table consisting of a set of partitioned vectors. They also have keys/field names - symbol vector & vаlues/field vectors.
 
 Partitioned tables will be called ptables for brevity.
 
@@ -78,11 +78,11 @@ Now, let's make a detailed overview of required information in meta-dict.
 |  | `segId - segment id, vector of longs (reserved)  |  | | |
 |  | `refPath - list/vector of reference paths for each partition  |  | | |
 | Possible combinations for partition info |  |  | | |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | Immediate partition table value | | Partition table is in RAM. Saved on unmount. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | Immediate partition table vаlue | | Partition table is in RAM. Saved on unmount. |
 | val1 val2 val3 | `size - (long), segId - (long), `refPath - 0N0  | 0N0 | | Special case for partition table. Only partitioning fields exist. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (without slash at the end)  | Immediate partition table value | | Partition is loaded entirely on mount. Saved on unmount in a single file. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (with slash at the end)  | Projected table value | | Partition is in splayed table on disk. |
-| val1 val2 val3 | `size - (long), segId - (long), `refPath - file or namespace symbol or namespace path list  | Same value as in `refPath | | Lazily mounted partition. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (without slash at the end)  | Immediate partition table vаlue | | Partition is loaded entirely on mount. Saved on unmount in a single file. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file symbol (with slash at the end)  | Projected table vаlue | | Partition is in splayed table on disk. |
+| val1 val2 val3 | `size - (long), segId - (long), `refPath - file or namespace symbol or namespace path list  | Same vаlue as in `refPath | | Lazily mounted partition. |
 
 ::: note
 Zero-sized partitioned tables are not supported. At least one partition should exist.
@@ -90,7 +90,7 @@ Zero-sized partitioned tables are not supported. At least one partition should e
    
 
 ::: note
-For ```refPath``` having value other that 0N0, it's recommended to keep non-zero corresponding ```size``` field.
+For ```refPath``` having vаlue other that 0N0, it's recommended to keep non-zero corresponding ```size``` field.
 Otherwise, on turning meta-dict to ptable a possibly expensive operation of loading partition & determining its size occurs.
 In other words, even though lazy partition are supported, they require knowing their size in advance.
 :::
@@ -167,7 +167,7 @@ a b  c    d
 
 ### Saving / loading ptable to/from disk
 
-Ptables are saved into one directory by default. Sub-directories are named using random GUID values unless manually named (use ```refPath```).
+Ptables are saved into one directory by default. Sub-directories are named using random GUID vаlues unless manually named (use ```refPath```).
 
 ```.o.pset``` function is used for saving to disk, ```.o.pget``` - to get saved ptable meta from disk.
 
@@ -206,7 +206,7 @@ o) pt2`a
 ### Deleting partitions
 
 Removing partition is made using ```.o.pdel``` function. It returns partitioned table without deleted partition. 
-Partition are specified either by their partitioning values or by partition numbers (starting from zero).
+Partition are specified either by their partitioning vаlues or by partition numbers (starting from zero).
 
 ```o
 o) gf:+`a`b!(1 2;10 20);

@@ -1,6 +1,6 @@
 # Scalars
 
-Scalars are value types. They contain their payload directly and don't need boxing.
+Scalars are vаlue types. They contain their payload directly and don't need boxing.
 
 - Characters are enclosed in double quotes `"` and can make use of the escape sequences `\n`, `\t`, `\"` or `\ ` to produce a newline, tab, double quote or backslash character, respectively. If more than one unescaped character is enclosed in quotes, the noun is a list of characters (see below), also known as a string.
 
@@ -8,7 +8,7 @@ Scalars are value types. They contain their payload directly and don't need boxi
 
 O has following scalars:
 
-| Type | Size |Typespec | Value scalar/vector | Null | Infinity |
+| Type | Size |Typespec | Vаlue scalar/vector | Null | Infinity |
 | --- | --- | --- | --- | --- | --- |
 | Bool |1| \`bool | 1b or 0b / 100b | | |
 | Byte |1| \`byte | 1x / 1 1x | 0Nx | 0Wx |

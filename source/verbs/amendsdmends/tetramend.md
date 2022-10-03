@@ -1,10 +1,10 @@
 # Tetradic @ (amend)
 
-Applies a dyadic verb to a certain value.
+Applies a dyаdic verb to a certain vаlue.
 
 **Syntax:** ```@[x;y;z;w]```
 
-where `z` is a dyadic verb to be applied, `x` is a structure to be indexed with `y` and `w` is the second argument of the verb.
+where `z` is a dyаdic verb to be applied, `x` is a structure to be indexed with `y` and `w` is the second argument of the verb.
 
 ```o
 o)a:1 2 3; @[a;2;+;1]

@@ -1,7 +1,7 @@
-# _ Cut, Drop
+# Dyadic _ (cut, drop)
 
 
-## cut
+## Cut
 
 Cuts a list or a vector into parts. Only positive indices supported.
 
@@ -16,7 +16,7 @@ o)
 ```
 
 
-## drop
+## Drop
 
 Returns subset of items from a list, vector, dict and table starting with the item under index `x` (starting from the end if `x` is a negative number)
 

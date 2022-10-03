@@ -1,6 +1,6 @@
-# Absolute value
+# Monadic absolute vаlue
 
-Returns the absolute value of a numeral or temporal, returns null for null.
+Returns the absolute vаlue of a numeral or temporal, returns null for null.
 
 **Syntax:** ```abs x; abs[x]```
 

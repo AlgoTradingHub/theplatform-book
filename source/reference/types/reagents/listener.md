@@ -1,6 +1,6 @@
 # Reagent listener
 
-Binds to a network interface and accepts incoming tcp connections, producing reagents `` `tcp`` as a values.
+Binds to a network interface and accepts incoming tcp connections, producing reagents `` `tcp`` as a vаlues.
 
 **Syntax:** ```reagent[`listener;"host:port"]```
 

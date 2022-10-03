@@ -1,4 +1,4 @@
-# rc
+# Monadic rc
 
 Reference count of x
 

@@ -1,4 +1,4 @@
-# Floor
+# Monadic floor
 
 `floor` returns the greatest integer less or equal to the argument.
 

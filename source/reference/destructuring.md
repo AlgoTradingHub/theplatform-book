@@ -1,6 +1,6 @@
 ## Destructuring
 
-Extracts values from complex structures such as dicts and tables:
+Extracts vаlues from complex structures such as dicts and tables:
 
 ```o
 o){(a;_;c):x;c}[(1;(1 2; 3);4)]

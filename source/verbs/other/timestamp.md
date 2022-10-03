@@ -1,4 +1,4 @@
-# ts
+# Monadic ts
 
 Returns current timestamp.
 

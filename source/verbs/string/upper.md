@@ -1,4 +1,4 @@
-# .o.upper
+# Monadic .o.upper
 
 Returns uppercased string or synbol.
 

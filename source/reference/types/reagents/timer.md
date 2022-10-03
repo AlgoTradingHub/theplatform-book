@@ -6,8 +6,8 @@ Reagent to produce items repeatedly by an specified interval.
 
 Where:
 
-- timeout: an integer value in milliseconds
-- repeat: an integer value indicates number of timer repetitions (0W, 0 means forever)
+- timeout: an integer vаlue in milliseconds
+- repeat: an integer vаlue indicates number of timer repetitions (0W, 0 means forever)
 
 ```o
 o)t: reagent[`timer;1000;3];

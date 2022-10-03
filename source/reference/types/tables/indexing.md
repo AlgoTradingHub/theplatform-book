@@ -1,6 +1,6 @@
 ## Table indexing
 
-Indexing with an integer scalar returns a dictionary of values at corresponding "record" position:
+Indexing with an integer scalar returns a dictionary of vаlues at corresponding "record" position:
 
 ```o
 o)a:(+:)`a`b`c!(1 2 3;1 2 3;1 2 3); a[1]

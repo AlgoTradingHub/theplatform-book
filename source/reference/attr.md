@@ -62,7 +62,7 @@ o)a: `g#til 10
 o)
 ```
 
-## Existing value modification
+## Existing vаlue modification
 
 Destructively attaching an attribute to an existing vector:
 

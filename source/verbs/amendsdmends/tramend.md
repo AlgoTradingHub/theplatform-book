@@ -1,10 +1,10 @@
 # Triadic @ (amend)
 
-Applies a monadic verb to a certain value.
+Applies a monаdic verb to a certain vаlue.
 
 **Syntax:** ```@[x;y;z]```
 
-where `z` is a monadic verb to be applied and `x` is a structure to be indexed with `y`.
+where `z` is a monаdic verb to be applied and `x` is a structure to be indexed with `y`.
 
 ```o
 o)a:1 2 3; @[a;2;{x+1}]
@@ -40,8 +40,8 @@ o)
 ```
 
 ::: note
-In triadic amend the last argument should be monadic, but some verbs are treated as dyadic. 
-Use `:` after the verb to indicate the use of monadic.
+In triadic amend the last argument should be monаdic, but some verbs are treated as dyаdic. 
+Use `:` after the verb to indicate the use of monаdic.
 :::
 
 ```o

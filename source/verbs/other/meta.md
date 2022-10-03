@@ -1,4 +1,4 @@
-# meta
+# Monadic meta
 
 Retrieves meta-information about tables, [reagents](/reference/types/reagents/overview.md) and tasks.
 

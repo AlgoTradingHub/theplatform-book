@@ -1,6 +1,6 @@
 # Monadic repr
 
-Represent a value to string.
+Represent a vаlue to string.
 
 **Syntax:** ```repr x; repr[x]```
 
@@ -14,7 +14,7 @@ o)
 
 # Dyadic representation $
 
-Interprets a string as a data value.
+Interprets a string as a data vаlue.
 
 **Syntax:** ```x$y; $[x;y]```
 
@@ -52,5 +52,5 @@ o)
 
 ::: see
 [Types, Casting, etc](/reference/types/types.md)
-[cast](/verbs/casts/cast.md)
+[$ (cast)](/verbs/casts/cast.md)
 :::

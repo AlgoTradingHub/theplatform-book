@@ -97,7 +97,7 @@ o)
 ```
 
 ::: note
-`::` must also be used if you want to change the value of a local variable using this local variable.
+`::` must also be used if you want to change the vаlue of a local variable using this local variable.
 :::
 
 ```o

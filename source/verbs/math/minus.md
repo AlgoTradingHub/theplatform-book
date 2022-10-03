@@ -1,4 +1,4 @@
-# Dyadic minus
+# Dyadic - (minus)
 
 Subtracts scalar/vector elements. Fully atomic.
 
@@ -31,7 +31,7 @@ o)-2 3
 -2 3
 ```
 
-Where numeric value is substracted from a dictionary or a table, the verb substracts the numeric value from numeric values in the dict/table:
+Where numeric vаlue is substracted from a dictionary or a table, the verb substracts the numeric vаlue from numeric vаlues in the dict/table:
 
 ```o
 o)`a`b`c!100 200 300 - 10

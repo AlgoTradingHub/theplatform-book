@@ -2,11 +2,11 @@
 
 ## Command-line usage
 
-To control internal system logging ```OLOG``` environment variable is to be used. See supported values for this variables below. 
+To control internal system logging ```OLOG``` environment variable is to be used. See supported vаlues for this variables below. 
 
-Values are organized in levels. That is top level ```error``` is the least level of verbosity. ```trace``` level is the highest including all lower levels.
+Vаlues are organized in levels. That is top level ```error``` is the least level of verbosity. ```trace``` level is the highest including all lower levels.
 
-| OLOG value | Meaning |
+| OLOG vаlue | Meaning |
 | --- | --- |
 | error  | Serious errors |
 | warn  | Warnings, things to pay attention to |

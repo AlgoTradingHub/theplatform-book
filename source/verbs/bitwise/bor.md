@@ -1,4 +1,4 @@
-# Bitwise OR (bor)
+# Dyadic bitwise OR (bor)
 
 **Syntax:** ``x bor y; bor[x;y]``
 

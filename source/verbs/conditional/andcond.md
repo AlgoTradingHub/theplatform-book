@@ -1,4 +1,4 @@
-# Polyadic &
+# Polyadic & (and condition)
 
 Polyadic short-circuit "and" condition. Triadic form behaves exactly as ```$[cond; trueres; falseres]``` verb.
 

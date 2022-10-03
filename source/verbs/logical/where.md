@@ -23,5 +23,5 @@ o)
 ```
 
 ::: see
-[& and/minimum](/verbs/logical/andmin.md)
+[& (and/minimum)](/verbs/logical/andmin.md)
 :::

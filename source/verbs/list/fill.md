@@ -1,6 +1,6 @@
-# ^ fill
+# Dyadic ^ (fill)
 
-Replaces nulls in it's right argument by value provided in a left argument
+Replaces nulls in it's right argument by vаlue provided in a left argument
 
 **Syntax:** ```x^y; ^[x;y]```
 

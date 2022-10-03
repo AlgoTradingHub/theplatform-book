@@ -1,4 +1,4 @@
-# Monadic ".o.typedesc" function
+# Monadic .o.typedesc
 
 Returns type spec by internal type id.
 

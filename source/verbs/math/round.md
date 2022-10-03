@@ -1,4 +1,4 @@
-# Round
+# Monadic round
 
 `round` returns the rounded integer for the argument.
 

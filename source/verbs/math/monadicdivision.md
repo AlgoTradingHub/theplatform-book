@@ -1,4 +1,4 @@
-# Monadic division (reciprocal)
+# Monadic % (reciprocal)
 
 Calculates reciprocal (1/x) in vector/list. Fully atomic. Only floats are supported.
 

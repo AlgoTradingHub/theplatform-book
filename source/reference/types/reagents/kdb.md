@@ -1,7 +1,7 @@
 # Reagent Kdb+
 
 Reagent implements KDB+ ipc protocol. Can be created directly by call ``reagent[`kdb;"host:port"]`` or
-returns from reagent `` `kdb_listener`` as a value.
+returns from reagent `` `kdb_listener`` as a vаlue.
 
 ```o
 o)load "kdb";

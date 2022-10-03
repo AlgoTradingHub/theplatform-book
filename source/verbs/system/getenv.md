@@ -1,6 +1,6 @@
-# getenv
+# Monadic getenv
 
-Reads environment variable value(s).
+Reads environment variable vаlue(s).
 
 **Syntax:** ```getenv x; getenv[x]```
 

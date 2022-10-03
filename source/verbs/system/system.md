@@ -1,4 +1,4 @@
-# system
+# Monadic system
 
 Executes a shell command.
 

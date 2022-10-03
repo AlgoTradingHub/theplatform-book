@@ -1,4 +1,4 @@
-# parse
+# Monadic parse
 
 Parses `x` to an AST (abstract syntax tree).
 

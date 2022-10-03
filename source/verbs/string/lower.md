@@ -1,4 +1,4 @@
-# .o.lower
+# Monadic .o.lower
 
 Returns lowercased string or synbol.
 

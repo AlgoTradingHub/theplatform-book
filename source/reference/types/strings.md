@@ -41,7 +41,7 @@ o) "c"$0x313131
 o)
 ```
 
-Another way to do generic UTF-8 string unpacking/packing is doing it into/from UTF-8 scalar values. It results in a vector of 32-bit integers. Its usefulness is questionable though.
+Another way to do generic UTF-8 string unpacking/packing is doing it into/from UTF-8 scalar vаlues. It results in a vector of 32-bit integers. Its usefulness is questionable though.
 
 ```o
 o)`v`int$"абв"

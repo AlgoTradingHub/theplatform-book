@@ -1,4 +1,4 @@
-# setenv
+# Dyadic setenv
 
 Set environment variables
 

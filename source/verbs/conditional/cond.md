@@ -1,4 +1,4 @@
-# Triadic $ (cond)
+# Triadic $ (condition)
 
 Short-circuit conditional expression. Thus this verb is special. It does not evaluate all of its arguments immediately. 
 Only the first argument is evaluated. If it is true, the second argument is evaluated and becomes the result of the `cond` expression. Otherwise, the third argument is evaluated.
@@ -15,8 +15,8 @@ Only the first argument is evaluated. If it is true, the second argument is eval
 The concept of truth here is a bit complex:
 
 * For boolean scalars, truth means 1b.
-* For integer scalars, truth means any value except 0 and null.
-* For other scalar types, truth means any non-null value.
+* For integer scalars, truth means any vаlue except 0 and null.
+* For other scalar types, truth means any non-null vаlue.
 * **For vectors, dicts, tables, truth means non-empty structure!!!**
 * **Everything else (monads, dyads, lambdas, ...) results in truth!!!**
 

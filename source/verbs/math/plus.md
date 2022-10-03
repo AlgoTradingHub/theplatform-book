@@ -1,4 +1,4 @@
-# Dyadic plus
+# Dyadic + (plus)
 
 Adds scalar/vector elements. Fully atomic.
 
@@ -21,7 +21,7 @@ arguments length mismatch: [1 2 3;4 5 6 7]
 o)
 ```
 
-Where numeric value is added to a dictionary or a table, the verb adds up the numeric value to numeric values in the dict/table:
+Where numeric vаlue is added to a dictionary or a table, the verb adds up the numeric vаlue to numeric vаlues in the dict/table:
 
 ```o
 o)10+`a`b`c!1 2 3

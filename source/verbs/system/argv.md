@@ -1,4 +1,4 @@
-# argv
+# Monadic argv
 
 Returns a dictionary with the command line arguments.
 

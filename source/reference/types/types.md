@@ -2,7 +2,7 @@
 
 ## Types and related verbs
 
-Each expression in O has its type. Type in O defines value domain/set of supported values and is heavily to define the polymorphic behaviour of verbs. Internally it's coded using special undocumented integer value:
+Each expression in O has its type. Type in O defines vаlue domain/set of supported vаlues and is heavily to define the polymorphic behaviour of verbs. Internally it's coded using special undocumented integer vаlue:
 
 ```o
 o)@1
@@ -10,10 +10,10 @@ o)@1
 o)
 ```
 
-Monadic verb `@` returns the numeric representation of internal type id. Interpreter uses its exact value internally.
+Monadic verb `@` returns the numeric representation of internal type id. Interpreter uses its exact vаlue internally.
 
 ::: warn
-Avoid relying on internal type ids' exact values in your programs. They may change in any later version.
+Avoid relying on internal type ids' exact vаlues in your programs. They may change in any later version.
 :::
 
 The only valid operation on numeric type representation is checking for equality.
@@ -53,7 +53,7 @@ o).o.typedesc[@1 2 3i]
 o)
 ```
 
-Another useful monadic verb for getting type spec is [type](/verbs/type/type.md). It returns type spec for a given value:
+Another useful monadic verb for getting type spec is [type](/verbs/type/type.md). It returns type spec for a given vаlue:
 
 ```o
 o)type 10#0
@@ -67,7 +67,7 @@ o)
 The **!** verb has one nice property - it might be evaluated at parse time if its argument is constant.
 :::
 
-This example just assigns constant integer value at runtime:
+This example just assigns constant integer vаlue at runtime:
 
 ```o
 o)a:!`v`int
@@ -131,7 +131,7 @@ o)
 
 ### Casting and over/underflows
 
-When casting, you can encounter values that are too large or too small to be held by type. Infinities are used to signal that:
+When casting, you can encounter vаlues that are too large or too small to be held by type. Infinities are used to signal that:
 
 ```o
 o)`int$1000000000000 -1000000000000

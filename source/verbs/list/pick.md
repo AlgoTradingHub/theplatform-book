@@ -1,4 +1,4 @@
-# pick
+# Poliadic pick
 
 Takes an arbitrary number of arguments and produces a list as a result. Unlike [enlist](/verbs/list/enlist.md) it doesn't collapse to a vector if all elements are of the same type. Sometimes it is useful for generic list creation;
 

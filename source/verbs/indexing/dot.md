@@ -24,7 +24,7 @@ o)format . ("test % %";1;2)
 o)
 ```
 
-Works like a value for a list with a verb or lambda at the beginning.
+Works like a monadic value for a list with a verb or lambda at the beginning.
 
 ```o
 o). ({x+y};1;2)
@@ -38,7 +38,7 @@ o)
 
 
 ::: see
-[. (value)][/verbs/other/value.md)
+[. (value)](/verbs/other/value.md)
 [@ (indexing)](/verbs/indexing/at.md)
 [triadic dmend](/verbs/amendsdmends/trdmend.md)
 [tetradic dmend](/verbs/amendsdmends/tetrdmend.md)

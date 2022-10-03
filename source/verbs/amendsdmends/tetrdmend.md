@@ -46,5 +46,6 @@ o)
 [. (triadic dmend)](/verbs/amendsdmends/trdmend.md)
 [@ (triadic amend)](/verbs/amendsdmends/tramend.md)
 [@ (tetradic amend)](/verbs/amendsdmends/tetramend.md)
-[. (indexing in depth)](/verbs/indexing/dot.md)
+[. (apply)](/verbs/indexing/dot.md)
+[. (value)](/verbs/other/value.md)
 :::

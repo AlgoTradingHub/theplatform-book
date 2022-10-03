@@ -81,4 +81,6 @@ o)
 ::: see
 [eval](/verbs/concurrency/eval.md)
 [. (apply)](/verbs/indexing/dot.md)
+[triadic dmend](/verbs/amendsdmends/trdmend.md)
+[tetradic dmend](/verbs/amendsdmends/tetrdmend.md)
 :::

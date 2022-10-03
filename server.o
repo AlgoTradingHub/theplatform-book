@@ -43,7 +43,7 @@ searchIndex: {[phrase]
     unquoted: $[null u:unquote phrase;"#";u];
     found: (!index)
     {[file;content]
-        ids: ss[content;unquoted];
+        ids: ss[content;unquoted],ss[.o.lower content;unquoted];
         $[0=#ids;0N0;file]
     }'. index;
     found: found where ~0N0~'found;

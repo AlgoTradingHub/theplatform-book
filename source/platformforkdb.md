@@ -1,4 +1,4 @@
-# ThePlatform for KDB+
+# ThePlatform for KDB+ developers
 
 This section contains both Platform and KDB+ solutions to some basic problems.
 

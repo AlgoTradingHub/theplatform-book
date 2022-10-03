@@ -12,7 +12,7 @@ o)
 ```
 
 
-# Dyadic $ (repr)
+# Dyadic representation $
 
 Interprets a string as a data value.
 

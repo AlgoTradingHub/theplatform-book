@@ -203,6 +203,27 @@ o) pt2`a
 `sym2$`1`1`2`2
 ```
 
+### Saving individual partitions to disk
+
+```.o.pstore``` function is just more general alternative to ```.o.pset```. It can be used to save all or one or several partitions at a time along with
+meta-dict. It expects target directory as first arg, ptable - as second one, and partition ids - as third one. 
+
+Partition ids can be defined as ```0N0``` - to save all, vector of longs - to save only partitions with given indices, table of partitioning fields - to save partitions with corresponding partitioning fields.
+
+```o
+o) gf:+`a`b!(1 2;10 20);
+o) info:+`size`segId`refPath!(2 2; 0 0; (0N0;0N0));
+o) p1: +`c`d!(100 100;200 200);
+o) p2: +`c`d!(1000 1000;2000 2000);
+o) mnt:+`mntval!(p1;p2);
+o) pd: `gf`info`mnt!(gf;info;mnt);
+o) pt:.o.pnew[0N0; pd];
+o) .o.pstore[`:/tmp/pset1/; pt; ,0];       // just first partition + meta-dict will be saved
+o) .o.pstore[`:/tmp/pset1/; pt; ,(#gf)-1]; // just last partition + meta-dict will be saved
+o) .o.pstore[`:/tmp/pset1/; pt; 0N0];      // all partitions + meta-dict will be saved
+o) .o.pstore[`:/tmp/pset1/; pt; gf];       // all partitions defined by "gf" + meta-dict will be saved
+```
+
 ### Deleting partitions
 
 Removing partition is made using ```.o.pdel``` function. It returns partitioned table without deleted partition. 

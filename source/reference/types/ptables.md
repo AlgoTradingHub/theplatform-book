@@ -203,12 +203,22 @@ o) pt2`a
 `sym2$`1`1`2`2
 ```
 
+### Partition ids
+
+Several following functions accept partition ids as argument.
+Partition ids can be defined as:
+
+| Id value | Example | Meaning |
+| --- | --- | --- |
+| 0N0 | 0N0 | all partitions |
+| vector of longs | ,0 |only partitions with given indices starting from zero |
+| table of partitioning fields | +`x`y!(1 2; 2000.09.11 2022.02.24) | only partitions with corresponding partitioning fields |
+
+
 ### Saving individual partitions to disk
 
 ```.o.pstore``` function is just more general alternative to ```.o.pset```. It can be used to save all or one or several partitions at a time along with
 meta-dict. It expects target directory as first arg, ptable - as second one, and partition ids - as third one. 
-
-Partition ids can be defined as ```0N0``` - to save all, vector of longs - to save only partitions with given indices, table of partitioning fields - to save partitions with corresponding partitioning fields.
 
 ```o
 o) gf:+`a`b!(1 2;10 20);
@@ -227,7 +237,7 @@ o) .o.pstore[`:/tmp/pset1/; pt; gf];       // all partitions defined by "gf" + m
 ### Deleting partitions
 
 Removing partition is made using ```.o.pdel``` function. It returns partitioned table without deleted partition. 
-Partition are specified either by their partitioning vаlues or by partition numbers (starting from zero).
+Partition are specified by their partition ids.
 
 ```o
 o) gf:+`a`b!(1 2;10 20);

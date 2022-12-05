@@ -27,7 +27,7 @@ set -e
 pushd ../.. &> /dev/null
 if test -x tachyon && test -e std/repl.o; then
    echo "Detected bundled book"
-   export OHOME=$(readlink -e .)
+   export OHOME=$(pwd)
 fi
 popd &> /dev/null
 
